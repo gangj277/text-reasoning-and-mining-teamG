@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Slide 8 — METHOD — algorithm architecture</title>
+<title>Slide 8 — METHOD — data roles</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@500;600;700;800&family=IBM+Plex+Sans+KR:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -22,59 +22,62 @@
 <div class="stage" id="stage"><div class="slide" id="slide-root"></div></div>
 <script type="text/babel" data-presets="react">
 (function(){
-const { SlideFrame, Eyebrow, SlideTitle, BodyText, PageNum, Callout, Card, C, TYPE_SCALE, SPACING, FONT_DISPLAY, FONT_SANS, FONT_MONO, SourceLine } = window;
-const FEATURE_BLOCKS = [
-  {t:"word TF-IDF", d:"risk vocabulary and topic-level relevance", tone:"signal"},
-  {t:"raw char n-gram", d:"bilingual variants, OOV terms, misspellings", tone:"signal"},
-  {t:"mechanism counters", d:"taxonomy cues: strike, freight, tariff, cyber, disease", tone:"real"},
-  {t:"OTHER/generic cues", d:"generic supply-chain discourse vs operational disruption", tone:"real"},
+const { SlideFrame, Eyebrow, SlideTitle, BodyText, PageNum, Card, CardTitle, CardBody, Callout, C, TYPE_SCALE, SPACING, FONT_DISPLAY, FONT_SANS, FONT_MONO, SourceLine } = window;
+
+const CARDS = [
+  {
+    tag: "01 · SYNTHETIC", num: "1,540", unit: "건", tone: "default", numColor: C.ink,
+    title: "구조화 코퍼스",
+    body: <>난이도와 신호를 우리가 통제한 <span style={{color:C.ink,fontWeight:600}}>측정 도구</span>다. 실제 분포의 표본이 아니라, 추출기를 같은 조건에서 채점하기 위한 시험대.</>,
+  },
+  {
+    tag: "02 · REAL", num: "2,062", unit: "건", tone: "default", numColor: C.ink,
+    title: "실뉴스 스트림",
+    body: <>Google News RSS에서 한·영을 함께 수집했다. 실제 보도의 노이즈와 분포를 그대로 받아, 통제 도구의 결과가 현실에서도 버티는지 확인한다.</>,
+  },
+  {
+    tag: "03 · TYPE GOLD", num: "102", unit: "건", tone: "fake", numColor: C.fake,
+    title: "타입질의 골드",
+    body: <>전이 검증용 보조셋. 검색·라벨 설계가 결과에 어떤 영향을 주는지 점검하는 진단 자산으로 사용했다.</>,
+  },
+  {
+    tag: "04 · POWERED GOLD", num: "217", unit: "건", tone: "real", numColor: C.real,
+    title: "powered · label-blind",
+    body: <>중립질의에서 합의된 위험 뉴스만 남긴 closed-set 검증셋. <span style={{color:C.real,fontWeight:600}}>Fleiss κ = 0.84</span> — 합성 전이가 실패함을 보였다.</>,
+  },
+  {
+    tag: "05 · OPEN-SET", num: "699", unit: "건", tone: "real", numColor: C.real,
+    title: "OTHER 포함 gold",
+    body: <>버렸던 OTHER 482건을 되살린 최종 triage 평가셋. 실제 질문인 <span style={{color:C.real,fontWeight:600}}>위험인가/아닌가</span>를 묻고 엔진을 검증한다.</>,
+  },
 ];
-function FeatureBlock({x}){
-  const col = x.tone === "real" ? C.real : C.accent;
-  return (
-    <div style={{background:x.tone==="real"?C.realSoft:C.accentSoft,border:`1px solid ${col}`,borderLeft:`4px solid ${col}`,borderRadius:"0 10px 10px 0",padding:"18px 20px",minHeight:126}}>
-      <div style={{fontFamily:FONT_DISPLAY,fontSize:28,fontWeight:700,color:col,lineHeight:1.1}}>{x.t}</div>
-      <div style={{fontFamily:FONT_SANS,fontSize:18,color:C.inkSoft,lineHeight:1.42,marginTop:10}}>{x.d}</div>
-    </div>
-  );
-}
-function PipeNode({tag,title,body,tone="default",wide=false}){
-  const col = tone === "real" ? C.real : tone === "signal" ? C.accent : C.inkMuted;
-  return (
-    <div style={{background:C.panel,border:`1px solid ${tone==="real"?C.real:tone==="signal"?C.accent:C.rule}`,borderRadius:12,padding:"22px 24px",width:wide?380:300,minHeight:186}}>
-      <div style={{fontFamily:FONT_MONO,fontSize:TYPE_SCALE.label,color:col,letterSpacing:"0.16em",textTransform:"uppercase",marginBottom:10}}>{tag}</div>
-      <div style={{fontFamily:FONT_DISPLAY,fontSize:34,fontWeight:700,color:C.ink,lineHeight:1.08}}>{title}</div>
-      <div style={{fontFamily:FONT_SANS,fontSize:19,color:C.inkSoft,lineHeight:1.43,marginTop:12}}>{body}</div>
-    </div>
-  );
-}
+
 function Slide(){
   return (
     <SlideFrame>
-      <Eyebrow style={{marginLeft:0}}>08 · METHOD — algorithm architecture</Eyebrow>
-      <SlideTitle style={{marginTop:SPACING.titleGap}}>알고리즘은 검색어를 복원하지 않고, 기사 안의 <span style={{color:C.real}}>위험 메커니즘</span>을 feature로 올린다</SlideTitle>
-      <BodyText muted style={{marginTop:22}}>최종 엔진은 단일 분류기가 아니라 two-stage system이다. detector가 risk/OTHER를 먼저 결정하고, typer는 risk로 통과한 기사에만 주요 리스크 유형을 부여한다.</BodyText>
+      <Eyebrow>08 · METHOD — 데이터 역할 분리</Eyebrow>
+      <SlideTitle style={{marginTop:SPACING.titleGap}}>실험을 성립시키려면 <span style={{color:C.accent}}>데이터 역할부터 분리</span>해야 한다 —<br/>합성·실데이터·세 종류의 골드</SlideTitle>
+      <BodyText muted style={{marginTop:20}}>데이터셋마다 맡은 검증 질문이 다르다. 타입질의 골드는 진단용, powered gold는 closed-set 전이 점검용, open-set gold는 최종 triage 검증용이다.</BodyText>
 
-      <div style={{position:"absolute",left:SPACING.paddingX,right:SPACING.paddingX,top:392}}>
-        <div style={{display:"flex",alignItems:"stretch",gap:18}}>
-          <PipeNode tag="input" title="news item" body="headline + snippet, Korean/English mixed stream"/>
-          <div style={{display:"flex",alignItems:"center",fontFamily:FONT_MONO,fontSize:34,color:C.inkMuted}}>→</div>
-          <div style={{width:548,background:C.panel,border:`1px solid ${C.rule}`,borderRadius:12,padding:"22px 24px"}}>
-            <div style={{fontFamily:FONT_MONO,fontSize:TYPE_SCALE.label,color:C.real,letterSpacing:"0.16em",textTransform:"uppercase",marginBottom:14}}>hybrid representation</div>
-            <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:12}}>
-              {FEATURE_BLOCKS.map((x,i)=><FeatureBlock key={i} x={x}/>)}
-            </div>
-          </div>
-          <div style={{display:"flex",alignItems:"center",fontFamily:FONT_MONO,fontSize:34,color:C.inkMuted}}>→</div>
-          <PipeNode tag="stage 1" title="risk detector" tone="signal" body="precision floor를 만족하는 threshold로 risk vs OTHER 결정"/>
-          <div style={{display:"flex",alignItems:"center",fontFamily:FONT_MONO,fontSize:34,color:C.inkMuted}}>→</div>
-          <PipeNode tag="stage 2" title="risk typer" tone="real" body="통과한 risk 기사에만 7개 SCRM type 분류" wide/>
+      <div style={{position:"absolute",left:SPACING.paddingX,right:SPACING.paddingX,top:408}}>
+        <div style={{display:"grid",gridTemplateColumns:"repeat(5, 1fr)",gap:18,alignItems:"stretch"}}>
+          {CARDS.map((c,i)=>(
+            <Card key={i} tone={c.tone} style={{display:"flex",flexDirection:"column",minHeight:432,padding:"24px 22px 26px"}}>
+              <div style={{fontFamily:FONT_MONO,fontSize:TYPE_SCALE.label,color: c.tone==="fake"?C.fake : c.tone==="real"?C.real : C.inkMuted,letterSpacing:"0.14em",textTransform:"uppercase"}}>{c.tag}</div>
+              <div style={{display:"flex",alignItems:"baseline",gap:8,marginTop:18}}>
+                <CardTitle style={{marginBottom:0,fontFamily:FONT_DISPLAY,fontSize:66,fontWeight:800,color:c.numColor,lineHeight:0.9,letterSpacing:"-0.02em"}}>{c.num}</CardTitle>
+                <span style={{fontFamily:FONT_MONO,fontSize:22,color:c.numColor,opacity:0.8}}>{c.unit}</span>
+              </div>
+              <div style={{fontFamily:FONT_SANS,fontSize:25,fontWeight:600,color:C.ink,marginTop:16,lineHeight:1.2,letterSpacing:"-0.01em"}}>{c.title}</div>
+              <div style={{height:1,background:C.ruleSoft,margin:"16px 0 16px"}}/>
+              <CardBody style={{flex:1,fontSize:20,lineHeight:1.43}}>{c.body}</CardBody>
+            </Card>
+          ))}
         </div>
-
       </div>
 
-      <Callout tone="real" style={{position:"absolute",left:SPACING.paddingX,right:SPACING.paddingX,bottom:116,maxWidth:1560}}>고도화의 본질은 모델 크기가 아니라 feature 책임의 분리다 — relevance, mechanism, generic discourse를 각각 다르게 표현한다.</Callout>
-      <SourceLine>본 연구 mechanism_features.py · train_mechanism_engine.py · mechanism_engine_eval.json</SourceLine>
+      <Callout tone="signal" style={{position:"absolute",left:SPACING.paddingX,right:SPACING.paddingX,bottom:116,maxWidth:1560}}>최종 엔진의 평가 단위는 217개 risk subset이 아니라, OTHER까지 포함한 699건 open-set stream이다.</Callout>
+      <SourceLine>본 연구 data/ (synthetic · real · type-query gold · powered gold · open-set gold)</SourceLine>
       <PageNum n={8}/>
     </SlideFrame>
   );
@@ -87,6 +90,6 @@ requestAnimationFrame(()=>document.body.setAttribute('data-slide-ready','1'));
 function scaleSlide(){const s=document.getElementById('stage');if(!s)return;const sc=Math.min(innerWidth/1920,innerHeight/1080)*0.96;s.style.transform=`translate(${-1920*sc/2}px,${-1080*sc/2}px) scale(${sc})`;}
 addEventListener('resize',scaleSlide);addEventListener('load',scaleSlide);scaleSlide();
 </script>
-<!-- notes: algorithm architecture. Input -> hybrid representation(word TF-IDF, raw char ngram, mechanism counters, OTHER cues) -> risk detector -> risk typer. -->
+<!-- notes: 데이터 설계 = 함정 회피 전략. 5자산: synthetic 1540, real 2062, type gold 102(순환 진단), powered risk gold 217(합성 전이 검증), open-set gold 699(OTHER 포함 최종 triage/gate 평가). -->
 </body>
 </html>

@@ -137,7 +137,7 @@ function BodyText({ children, size = TYPE_SCALE.body, muted = false, style = {} 
   );
 }
 
-function PageNum({ n, total = 14, ink = C.ink }) {
+function PageNum({ n, total = 16, ink = C.ink }) {
   return (
     <div style={{
       position: "absolute", bottom: 46, right: SPACING.paddingX, fontFamily: FONT_MONO,

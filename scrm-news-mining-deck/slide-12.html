@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Slide 12 — CONTRIBUTION</title>
+<title>Slide 12 — RESULT — baseline diagnosis</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@500;600;700;800&family=IBM+Plex+Sans+KR:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -10,8 +10,6 @@
   html,body{width:100%;height:100vh;background:#E4DFD3;overflow:hidden;position:relative;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;}
   .stage{width:1920px;height:1080px;position:absolute;top:50%;left:50%;transform-origin:0 0;}
   .slide{width:1920px;height:1080px;overflow:hidden;position:relative;border-radius:4px;box-shadow:0 20px 80px rgba(0,0,0,0.14);}
-  table.threat{width:100%;border-collapse:collapse;}
-  table.threat td,table.threat th{padding:15px 20px;text-align:left;vertical-align:middle;border-bottom:1px solid rgba(31,39,48,0.12);}
   @media print{@page{size:1920px 1080px;margin:0;}html,body{width:1920px;height:1080px;background:transparent!important;overflow:hidden;-webkit-print-color-adjust:exact;print-color-adjust:exact;}.stage{position:static!important;top:0!important;left:0!important;transform:none!important;}.slide{box-shadow:none!important;border-radius:0!important;}*,*::before,*::after{-webkit-backdrop-filter:none!important;backdrop-filter:none!important;}}
 </style>
 <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
@@ -23,43 +21,86 @@
 <div class="stage" id="stage"><div class="slide" id="slide-root"></div></div>
 <script type="text/babel" data-presets="react">
 (function(){
-const { SlideFrame, Eyebrow, SlideTitle, BodyText, PageNum, Callout, C, TYPE_SCALE, SPACING, FONT_DISPLAY, FONT_SANS, FONT_MONO, SourceLine } = window;
-const ROWS = [
-  ["문제 재정의","closed-set 7유형 분류는 OTHER가 없는 시험","open-set triage: risk detector + 7-type classifier"],
-  ["라벨 설계","수집 질의와 정답 라벨을 분리해야 실제 stream을 평가 가능","중립 질의 700건 → 3인 패널 → open gold 699건"],
-  ["baseline gap","plain model: risk-F1 0.772, type macro-F1 0.438","FP/FN/type error 분석으로 feature upgrade 대상을 특정"],
-  ["표현 고도화","단어 TF-IDF만으로는 bilingual/OOV mechanism과 generic OTHER를 혼동","word TF-IDF + raw char n-gram + mechanism counters + OTHER cues"],
-  ["decision rule","단일 classifier score는 precision/recall trade-off를 통제하기 어렵다","inner-CV threshold + two-stage detector/typer"],
-  ["검증 기준","단일 평균 점수만으로는 triage 품질을 설명하지 못함","metric gate + error budget 전 항목 통과"],
+const { SlideFrame, Eyebrow, SlideTitle, BodyText, PageNum, Card, Callout, C, TYPE_SCALE, SPACING, FONT_DISPLAY, FONT_SANS, FONT_MONO, SourceLine } = window;
+const MISSES = [
+  ["accuracy", ".813", "gate .850", "-.037"],
+  ["risk-F1", ".772", "gate .850", "-.078"],
+  ["AUPRC", ".878", "gate .900", "-.022"],
+  ["type macro-F1", ".438", "gate .650", "-.212"],
 ];
+const FAILURES = [
+  {
+    n:"01",
+    title:"generic OTHER가 risk처럼 보인다",
+    count:"44 FP",
+    body:"strategy, forum, security, AI 공급망 기사처럼 단어는 비슷하지만 운영 disruption이 아닌 기사를 risk로 올렸다.",
+    fix:"OTHER/generic/cyber cue"
+  },
+  {
+    n:"02",
+    title:"OOV 메커니즘을 놓친다",
+    count:"53 FN",
+    body:"희토류, freight, 총파업, component shortage처럼 tokenizer가 잘게 쪼개는 표현에서 위험 신호를 놓쳤다.",
+    fix:"raw char n-gram"
+  },
+  {
+    n:"03",
+    title:"type boundary가 흐려진다",
+    count:"34 TW",
+    body:"같은 관련 단어가 물류, 지정학, 공급자 리스크에 동시에 등장해 위험 유형 경계가 무너졌다.",
+    fix:"taxonomy mechanism counter"
+  },
+];
+function MissRow({m}){
+  return (
+    <div style={{display:"grid",gridTemplateColumns:"1fr 82px 110px 82px",gap:10,alignItems:"baseline",padding:"12px 0",borderBottom:`1px solid ${C.ruleSoft}`}}>
+      <div style={{fontFamily:FONT_SANS,fontSize:20,fontWeight:600,color:C.ink}}>{m[0]}</div>
+      <div style={{fontFamily:FONT_MONO,fontSize:19,color:C.fake,textAlign:"right"}}>{m[1]}</div>
+      <div style={{fontFamily:FONT_MONO,fontSize:13,color:C.inkMuted,letterSpacing:"0.06em",textAlign:"right"}}>{m[2]}</div>
+      <div style={{fontFamily:FONT_MONO,fontSize:18,color:C.fake,textAlign:"right"}}>{m[3]}</div>
+    </div>
+  );
+}
+function FailureCard({x}){
+  return (
+    <Card tone="fake" style={{padding:"21px 24px 22px",borderLeft:`5px solid ${C.fake}`}}>
+      <div style={{display:"grid",gridTemplateColumns:"58px 1fr auto",gap:16,alignItems:"baseline"}}>
+        <div style={{fontFamily:FONT_DISPLAY,fontSize:42,fontWeight:800,color:C.fake,lineHeight:0.9}}>{x.n}</div>
+        <div style={{fontFamily:FONT_DISPLAY,fontSize:28,fontWeight:800,color:C.ink,lineHeight:1.08}}>{x.title}</div>
+        <div style={{fontFamily:FONT_DISPLAY,fontSize:42,fontWeight:800,color:C.fake,lineHeight:0.9}}>{x.count}</div>
+      </div>
+      <div style={{fontFamily:FONT_SANS,fontSize:19,color:C.inkSoft,lineHeight:1.4,marginTop:13,marginLeft:74}}>{x.body}</div>
+      <div style={{marginTop:14,marginLeft:74,fontFamily:FONT_MONO,fontSize:13,color:C.real,letterSpacing:"0.1em",textTransform:"uppercase"}}>algorithmic fix → {x.fix}</div>
+    </Card>
+  );
+}
 function Slide(){
   return (
     <SlideFrame>
-      <Eyebrow>12 · CONTRIBUTION — 본 연구의 기여</Eyebrow>
-      <SlideTitle style={{marginTop:SPACING.titleGap}}>기여는 비판이 아니라, <span style={{color:C.accent}}>연구 설계가 알고리즘 설계로 이어진 점</span>이다</SlideTitle>
-      <BodyText muted style={{marginTop:20}}>데이터 설계, baseline gap 분석, feature upgrade, threshold calibration, fixed gate가 하나의 논리로 연결된다. 이 연결이 본 프로젝트를 단순 분류 실험에서 연구형 엔진으로 끌어올린다.</BodyText>
+      <Eyebrow>12 · RESULT — baseline diagnosis</Eyebrow>
+      <SlideTitle style={{marginTop:SPACING.titleGap}}>plain TF-IDF의 실패는 점수 부족이 아니라, <span style={{color:C.fake}}>오류 구조가 분명한 실패</span>였다</SlideTitle>
+      <BodyText muted style={{marginTop:20}}>baseline은 관련 뉴스 선별 신호는 배웠지만, 실제 연구 gate가 요구하는 세 가지 오류 예산을 모두 넘었다. 이 실패가 다음 알고리즘 고도화의 설계 입력이 된다.</BodyText>
 
-      <div style={{position:"absolute",left:SPACING.paddingX,right:SPACING.paddingX,top:392}}>
-        <table className="threat">
-          <thead><tr>
-            <th style={{fontFamily:FONT_MONO,fontSize:TYPE_SCALE.label,letterSpacing:"0.14em",color:C.accent,textTransform:"uppercase",width:"24%"}}>gap / design issue</th>
-            <th style={{fontFamily:FONT_MONO,fontSize:TYPE_SCALE.label,letterSpacing:"0.14em",color:C.inkMuted,textTransform:"uppercase",width:"40%"}}>진단 (DIAGNOSIS)</th>
-            <th style={{fontFamily:FONT_MONO,fontSize:TYPE_SCALE.label,letterSpacing:"0.14em",color:C.real,textTransform:"uppercase"}}>대응 (RESOLVED)</th>
-          </tr></thead>
-          <tbody>
-            {ROWS.map((r,i)=>(
-              <tr key={i}>
-                <td style={{fontFamily:FONT_SANS,fontSize:TYPE_SCALE.small,fontWeight:600,color:C.ink}}>{r[0]}</td>
-                <td style={{fontFamily:FONT_SANS,fontSize:TYPE_SCALE.small,color:C.inkMuted,lineHeight:1.4}}>{r[1]}</td>
-                <td style={{fontFamily:FONT_SANS,fontSize:TYPE_SCALE.small,color:C.inkSoft,lineHeight:1.4}}><span style={{color:C.real,marginRight:8}}>✓</span>{r[2]}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+      <div style={{position:"absolute",left:SPACING.paddingX,right:SPACING.paddingX,top:360,display:"grid",gridTemplateColumns:"0.72fr 1.28fr",gap:28,alignItems:"start"}}>
+        <div style={{display:"flex",flexDirection:"column",gap:18}}>
+          <Card tone="fake" style={{padding:"26px 28px"}}>
+            <div style={{fontFamily:FONT_MONO,fontSize:TYPE_SCALE.label,color:C.fake,letterSpacing:"0.16em",textTransform:"uppercase",marginBottom:14}}>metric misses · plain 2-stage</div>
+            {MISSES.map((m,i)=><MissRow key={i} m={m}/>)}
+          </Card>
+          <Card style={{padding:"24px 28px"}}>
+            <div style={{fontFamily:FONT_DISPLAY,fontSize:44,fontWeight:800,color:C.fake,lineHeight:1}}>44 · 53 · 34</div>
+            <div style={{fontFamily:FONT_SANS,fontSize:TYPE_SCALE.small,color:C.inkSoft,lineHeight:1.42,marginTop:12}}>
+              FP, FN, type wrong이 모두 gate를 초과했다. 따라서 baseline은 “조금 낮은 모델”이 아니라, feature 책임이 잘못 분해된 모델이다.
+            </div>
+          </Card>
+        </div>
+        <div style={{display:"flex",flexDirection:"column",gap:14}}>
+          {FAILURES.map((x,i)=><FailureCard key={i} x={x}/>)}
+        </div>
       </div>
 
-      <Callout tone="real" style={{position:"absolute",left:SPACING.paddingX,right:SPACING.paddingX,bottom:116,maxWidth:1560}}>방법론적 기여 = 실험에서 드러난 실패 원인을 최종 알고리즘의 feature, threshold, gate로 반영한 것.</Callout>
-      <SourceLine>본 연구 robustness · powered_eval · open_set_eval · mechanism_engine_eval · research_gate</SourceLine>
+      <Callout tone="fake" style={{position:"absolute",left:SPACING.paddingX,right:SPACING.paddingX,bottom:108,maxWidth:1560}}>진짜 gap은 TF-IDF가 약하다는 말이 아니다 — relevance, OOV mechanism, generic OTHER를 같은 표현 공간에 밀어 넣은 것이 문제였다.</Callout>
+      <SourceLine>results/open_set_eval.json · results/tables/open_set_oof_predictions.csv · 오류 분석 요약</SourceLine>
       <PageNum n={12}/>
     </SlideFrame>
   );
@@ -72,6 +113,6 @@ requestAnimationFrame(()=>document.body.setAttribute('data-slide-ready','1'));
 function scaleSlide(){const s=document.getElementById('stage');if(!s)return;const sc=Math.min(innerWidth/1920,innerHeight/1080)*0.96;s.style.transform=`translate(${-1920*sc/2}px,${-1080*sc/2}px) scale(${sc})`;}
 addEventListener('resize',scaleSlide);addEventListener('load',scaleSlide);scaleSlide();
 </script>
-<!-- notes: 기여 = 위협 테이블을 최신화. 자기검증 → open-set 재정의 → mechanism-aware engine/gate pass까지 연결. -->
+<!-- notes: baseline gap을 failure diagnosis로 재구성. metric miss보다 FP/FN/type wrong의 구조와 algorithmic fix 연결이 핵심. -->
 </body>
 </html>

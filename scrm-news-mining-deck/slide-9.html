@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Slide 9 — METHOD — research gate</title>
+<title>Slide 9 — METHOD — algorithm architecture</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@500;600;700;800&family=IBM+Plex+Sans+KR:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -10,6 +10,7 @@
   html,body{width:100%;height:100vh;background:#E4DFD3;overflow:hidden;position:relative;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;}
   .stage{width:1920px;height:1080px;position:absolute;top:50%;left:50%;transform-origin:0 0;}
   .slide{width:1920px;height:1080px;overflow:hidden;position:relative;border-radius:4px;box-shadow:0 20px 80px rgba(0,0,0,0.14);}
+  table.tbl{width:100%;border-collapse:collapse;} table.tbl td,table.tbl th{padding:14px 18px;text-align:left;vertical-align:middle;border-bottom:1px solid rgba(31,39,48,0.12);}
   @media print{@page{size:1920px 1080px;margin:0;}html,body{width:1920px;height:1080px;background:transparent!important;overflow:hidden;-webkit-print-color-adjust:exact;print-color-adjust:exact;}.stage{position:static!important;top:0!important;left:0!important;transform:none!important;}.slide{box-shadow:none!important;border-radius:0!important;}*,*::before,*::after{-webkit-backdrop-filter:none!important;backdrop-filter:none!important;}}
 </style>
 <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
@@ -21,72 +22,59 @@
 <div class="stage" id="stage"><div class="slide" id="slide-root"></div></div>
 <script type="text/babel" data-presets="react">
 (function(){
-const { SlideFrame, Eyebrow, SlideTitle, BodyText, PageNum, Card, Callout, C, TYPE_SCALE, SPACING, FONT_DISPLAY, FONT_SANS, FONT_MONO, SourceLine } = window;
-const GATES = [
-  {m:"accuracy", th:"≥ 0.85", obs:"0.884", v:0.884},
-  {m:"present macro-F1", th:"≥ 0.65", obs:"0.696", v:0.696},
-  {m:"risk precision", th:"≥ 0.84", obs:"0.880", v:0.880},
-  {m:"risk recall", th:"≥ 0.82", obs:"0.843", v:0.843},
-  {m:"risk-F1", th:"≥ 0.85", obs:"0.861", v:0.861},
-  {m:"AUPRC", th:"≥ 0.90", obs:"0.923", v:0.923},
-  {m:"risk-type macro-F1", th:"≥ 0.65", obs:"0.697", v:0.697},
+const { SlideFrame, Eyebrow, SlideTitle, BodyText, PageNum, Callout, Card, C, TYPE_SCALE, SPACING, FONT_DISPLAY, FONT_SANS, FONT_MONO, SourceLine } = window;
+const FEATURE_BLOCKS = [
+  {t:"word TF-IDF", d:"risk vocabulary and topic-level relevance", tone:"signal"},
+  {t:"raw char n-gram", d:"bilingual variants, OOV terms, misspellings", tone:"signal"},
+  {t:"mechanism counters", d:"taxonomy cues: strike, freight, tariff, cyber, disease", tone:"real"},
+  {t:"OTHER/generic cues", d:"generic supply-chain discourse vs operational disruption", tone:"real"},
 ];
-const BUDGET = [
-  {m:"false positive", th:"≤ 30", obs:"25"},
-  {m:"false negative", th:"≤ 40", obs:"34"},
-  {m:"type wrong", th:"≤ 25", obs:"22"},
-];
-function GateRow({g}){
+function FeatureBlock({x}){
+  const col = x.tone === "real" ? C.real : C.accent;
   return (
-    <div style={{display:"grid",gridTemplateColumns:"250px 120px 1fr 108px",gap:16,alignItems:"center",padding:"12px 0",borderBottom:`1px solid ${C.ruleSoft}`}}>
-      <div style={{fontFamily:FONT_SANS,fontSize:20,fontWeight:600,color:C.ink}}>{g.m}</div>
-      <div style={{fontFamily:FONT_MONO,fontSize:15,color:C.inkMuted,letterSpacing:"0.06em"}}>{g.th}</div>
-      <div style={{height:15,background:C.ruleSoft,borderRadius:3,position:"relative"}}>
-        <div style={{position:"absolute",left:0,top:0,bottom:0,width:`${g.v*100}%`,background:C.real,borderRadius:3}}/>
-      </div>
-      <div style={{fontFamily:FONT_MONO,fontSize:21,fontWeight:600,color:C.real,textAlign:"right"}}>{g.obs}</div>
+    <div style={{background:x.tone==="real"?C.realSoft:C.accentSoft,border:`1px solid ${col}`,borderLeft:`4px solid ${col}`,borderRadius:"0 10px 10px 0",padding:"18px 20px",minHeight:126}}>
+      <div style={{fontFamily:FONT_DISPLAY,fontSize:28,fontWeight:700,color:col,lineHeight:1.1}}>{x.t}</div>
+      <div style={{fontFamily:FONT_SANS,fontSize:18,color:C.inkSoft,lineHeight:1.42,marginTop:10}}>{x.d}</div>
     </div>
   );
 }
-function BudgetChip({b}){
+function PipeNode({tag,title,body,tone="default",wide=false}){
+  const col = tone === "real" ? C.real : tone === "signal" ? C.accent : C.inkMuted;
   return (
-    <div style={{display:"grid",gridTemplateColumns:"1fr auto",gap:10,alignItems:"baseline",padding:"14px 0",borderBottom:`1px solid ${C.ruleSoft}`}}>
-      <div>
-        <div style={{fontFamily:FONT_SANS,fontSize:21,fontWeight:600,color:C.ink}}>{b.m}</div>
-        <div style={{fontFamily:FONT_MONO,fontSize:13,color:C.inkMuted,letterSpacing:"0.08em",marginTop:4}}>gate {b.th}</div>
-      </div>
-      <div style={{fontFamily:FONT_DISPLAY,fontSize:52,fontWeight:800,color:C.real,lineHeight:0.9}}>{b.obs}</div>
+    <div style={{background:C.panel,border:`1px solid ${tone==="real"?C.real:tone==="signal"?C.accent:C.rule}`,borderRadius:12,padding:"22px 24px",width:wide?380:300,minHeight:186}}>
+      <div style={{fontFamily:FONT_MONO,fontSize:TYPE_SCALE.label,color:col,letterSpacing:"0.16em",textTransform:"uppercase",marginBottom:10}}>{tag}</div>
+      <div style={{fontFamily:FONT_DISPLAY,fontSize:34,fontWeight:700,color:C.ink,lineHeight:1.08}}>{title}</div>
+      <div style={{fontFamily:FONT_SANS,fontSize:19,color:C.inkSoft,lineHeight:1.43,marginTop:12}}>{body}</div>
     </div>
   );
 }
 function Slide(){
   return (
     <SlideFrame>
-      <Eyebrow>09 · METHOD — fixed research gate</Eyebrow>
-      <SlideTitle style={{marginTop:SPACING.titleGap}}>성과 기준은 사후 해석이 아니라, <span style={{color:C.real}}>사전에 고정한 KPI gate</span>다</SlideTitle>
-      <BodyText muted style={{marginTop:22}}>단일 accuracy로는 SCRM triage를 검증할 수 없다. detector 품질, typing 품질, 그리고 실제 운영에서 감당 가능한 error budget을 동시에 통과해야 연구 성과라고 본다.</BodyText>
+      <Eyebrow style={{marginLeft:0}}>09 · METHOD — algorithm architecture</Eyebrow>
+      <SlideTitle style={{marginTop:SPACING.titleGap}}>알고리즘은 검색어를 복원하지 않고, 기사 안의 <span style={{color:C.real}}>위험 메커니즘</span>을 feature로 올린다</SlideTitle>
+      <BodyText muted style={{marginTop:22}}>최종 엔진은 단일 분류기가 아니라 two-stage system이다. detector가 risk/OTHER를 먼저 결정하고, typer는 risk로 통과한 기사에만 주요 리스크 유형을 부여한다.</BodyText>
 
-      <div style={{position:"absolute",left:SPACING.paddingX,top:386,width:1120}}>
-        <div style={{fontFamily:FONT_MONO,fontSize:TYPE_SCALE.label,color:C.real,letterSpacing:"0.16em",textTransform:"uppercase",marginBottom:14}}>metric gate · 3-fold OOF · n=699</div>
-        <div style={{background:C.panel,border:`1px solid ${C.rule}`,borderRadius:10,padding:"16px 28px 18px"}}>
-          {GATES.map((g,i)=><GateRow key={i} g={g}/>)}
-        </div>
-      </div>
-
-      <div style={{position:"absolute",right:SPACING.paddingX,top:386,width:540,display:"flex",flexDirection:"column",gap:16}}>
-        <Card tone="real" style={{padding:"22px 26px"}}>
-          <div style={{fontFamily:FONT_MONO,fontSize:TYPE_SCALE.label,color:C.real,letterSpacing:"0.16em",textTransform:"uppercase",marginBottom:8}}>error budget · PASS</div>
-          {BUDGET.map((b,i)=><BudgetChip key={i} b={b}/>)}
-        </Card>
-        <Card style={{padding:"20px 24px"}}>
-          <div style={{fontFamily:FONT_SANS,fontSize:TYPE_SCALE.small,color:C.inkSoft,lineHeight:1.46}}>
-            threshold는 evaluation fold를 보지 않고 inner-CV에서 calibration한다. 따라서 gate 통과는 사후 튜닝이 아니라 재현 가능한 평가 결과다.
+      <div style={{position:"absolute",left:SPACING.paddingX,right:SPACING.paddingX,top:392}}>
+        <div style={{display:"flex",alignItems:"stretch",gap:18}}>
+          <PipeNode tag="input" title="news item" body="headline + snippet, Korean/English mixed stream"/>
+          <div style={{display:"flex",alignItems:"center",fontFamily:FONT_MONO,fontSize:34,color:C.inkMuted}}>→</div>
+          <div style={{width:548,background:C.panel,border:`1px solid ${C.rule}`,borderRadius:12,padding:"22px 24px"}}>
+            <div style={{fontFamily:FONT_MONO,fontSize:TYPE_SCALE.label,color:C.real,letterSpacing:"0.16em",textTransform:"uppercase",marginBottom:14}}>hybrid representation</div>
+            <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:12}}>
+              {FEATURE_BLOCKS.map((x,i)=><FeatureBlock key={i} x={x}/>)}
+            </div>
           </div>
-        </Card>
+          <div style={{display:"flex",alignItems:"center",fontFamily:FONT_MONO,fontSize:34,color:C.inkMuted}}>→</div>
+          <PipeNode tag="stage 1" title="risk detector" tone="signal" body="precision floor를 만족하는 threshold로 risk vs OTHER 결정"/>
+          <div style={{display:"flex",alignItems:"center",fontFamily:FONT_MONO,fontSize:34,color:C.inkMuted}}>→</div>
+          <PipeNode tag="stage 2" title="risk typer" tone="real" body="통과한 risk 기사에만 7개 SCRM type 분류" wide/>
+        </div>
+
       </div>
 
-      <Callout tone="real" style={{position:"absolute",left:SPACING.paddingX,right:SPACING.paddingX,bottom:118,maxWidth:1560}}>이 gate가 뒤 슬라이드의 판정 기준이다 — baseline gap과 최종 엔진 개선은 같은 기준으로 비교된다.</Callout>
-      <SourceLine>본 연구 research_gate.json · mechanism_engine_eval.json</SourceLine>
+      <Callout tone="real" style={{position:"absolute",left:SPACING.paddingX,right:SPACING.paddingX,bottom:116,maxWidth:1560}}>고도화의 본질은 모델 크기가 아니라 feature 책임의 분리다 — relevance, mechanism, generic discourse를 각각 다르게 표현한다.</Callout>
+      <SourceLine>본 연구 mechanism_features.py · train_mechanism_engine.py · mechanism_engine_eval.json</SourceLine>
       <PageNum n={9}/>
     </SlideFrame>
   );
@@ -99,6 +87,6 @@ requestAnimationFrame(()=>document.body.setAttribute('data-slide-ready','1'));
 function scaleSlide(){const s=document.getElementById('stage');if(!s)return;const sc=Math.min(innerWidth/1920,innerHeight/1080)*0.96;s.style.transform=`translate(${-1920*sc/2}px,${-1080*sc/2}px) scale(${sc})`;}
 addEventListener('resize',scaleSlide);addEventListener('load',scaleSlide);scaleSlide();
 </script>
-<!-- notes: fixed research gate. Accuracy, present macro-F1, risk precision/recall/F1, AUPRC, risk-type macro-F1, FP/FN/type wrong budgets. -->
+<!-- notes: algorithm architecture. Input -> hybrid representation(word TF-IDF, raw char ngram, mechanism counters, OTHER cues) -> risk detector -> risk typer. -->
 </body>
 </html>
