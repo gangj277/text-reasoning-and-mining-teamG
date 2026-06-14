@@ -1,0 +1,13 @@
+﻿lang,topic,mapped_risk(ko),purity,size,top_terms
+ko,0,물류·운송,0.515,167,항만 물류 전면 마비 운하 노조 해운 노선 선사 주요
+ko,1,금융·원자재,1.0,71,시장 원자재 가격 유가 국제 폭등 구리 니켈 전면 거래소
+ko,2,보건·감염병,0.265,102,다소 어질다 확산 중단 기준금리 인상 비용 감염 집단 가동
+ko,3,보건·감염병,0.657,70,본부 방역 급증 진자 재난 공장 운임 폭등 확산 폐쇄
+ko,4,공급자·생산,0.444,108,반도체 생산 수출 협력 사가 상륙 강력 태풍 핵심 제한
+ko,5,공급자·생산,0.539,76,공장 심화 예상 경미하다 완성 공급망 마비 생산 셧다운 주력
+ko,6,지정학,0.619,97,통관 전략 물자 봉쇄 홍수 단지 산업 강타 기록 전격
+ko,7,보건·감염병,0.291,79,공장 들어가다 중단 방역 부품 항만 가동 화재 격리 태업
+en,0,보건·감염병,0.447,199,quarantine fab texas port city official cluster plant supplier government
+en,1,지정학,0.375,184,plant authority trade supplier impose dispute escalate health zone submerge
+en,2,노동·파업,0.728,151,port union warehouse uk dockworker driver truck logistics bank central
+en,3,물류·운송,0.364,236,market canal authority oil fx suez price commodity local energy

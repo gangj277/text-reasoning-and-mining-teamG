@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Slide 22 — Resolution (severity rho)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@500;600;700;800&family=IBM+Plex+Sans+KR:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+  html,body{width:100%;height:100vh;background:#E4DFD3;overflow:hidden;position:relative;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;}
+  .stage{width:1920px;height:1080px;position:absolute;top:50%;left:50%;transform-origin:0 0;}
+  .slide{width:1920px;height:1080px;overflow:hidden;position:relative;border-radius:4px;box-shadow:0 20px 80px rgba(0,0,0,0.14);}
+  table.tbl{width:100%;border-collapse:collapse;} table.tbl td,table.tbl th{padding:14px 18px;text-align:left;vertical-align:middle;border-bottom:1px solid rgba(31,39,48,0.12);}
+  @media print{@page{size:1920px 1080px;margin:0;}html,body{width:1920px;height:1080px;background:transparent!important;overflow:hidden;-webkit-print-color-adjust:exact;print-color-adjust:exact;}.stage{position:static!important;top:0!important;left:0!important;transform:none!important;}.slide{box-shadow:none!important;border-radius:0!important;}*,*::before,*::after{-webkit-backdrop-filter:none!important;backdrop-filter:none!important;}}
+</style>
+<script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/@babel/standalone@7.24.7/babel.min.js"></script>
+<script type="text/babel" data-presets="react" src="components.js"></script>
+</head>
+<body>
+<div class="stage" id="stage"><div class="slide" id="slide-root"></div></div>
+<script type="text/babel" data-presets="react">
+(function(){
+const { SlideFrame, Eyebrow, SlideTitle, BodyText, PageNum, StrikeStat, Callout, C, TYPE_SCALE, SPACING, FONT_DISPLAY, FONT_SANS, FONT_MONO, SourceLine } = window;
+const LEVELS = [
+  {k:"LOW",  v:0.364, d:"경미 — 우려 · 전망 · 제한적 차질"},
+  {k:"MED",  v:0.698, d:"중대 — 지연 · 가격상승 · 운영 차질"},
+  {k:"HIGH", v:1.248, d:"심각 — 가동중단 · 마비 · 대규모 손실"},
+];
+const MAXV = 1.30;
+function Slide(){
+  return (
+    <SlideFrame>
+      <Eyebrow>22 · RESOLUTION — 심각도 검증</Eyebrow>
+      <SlideTitle style={{marginTop:SPACING.titleGap}}>심각도 점수는 독립 평정과 <span style={{color:C.real}}>유의한 단조 상관</span>을 보인다 — ρ=0.40</SlideTitle>
+      <BodyText muted style={{marginTop:20}}>합성 코퍼스 기준 ρ=0.67은 생성 규칙과 사전이 같은 강도어를 공유하므로 참고치로만 둔다. 실제 헤드라인 102건의 독립 평정에서는 ρ=0.4039, p=2.56e-5로 유의했다.</BodyText>
+
+      <div style={{position:"absolute",left:SPACING.paddingX,right:SPACING.paddingX,top:420,display:"flex",alignItems:"flex-start",gap:48}}>
+        <StrikeStat
+          fake="0.67"
+          fakeLabel="합성 ρ — 생성 규칙과 사전 어휘가 공유됨"
+          real="0.40"
+          realLabel="독립 평정 ρ (p<0.001)"
+          note="실제 헤드라인 기준 독립 심각도 라벨과의 상관 — 사전 점수와 분리된 외부 잣대."
+          style={{gap:30,flex:"1 1 auto"}}
+        />
+
+        <div style={{width:1,alignSelf:"stretch",background:C.rule,flex:"0 0 auto"}}/>
+
+        <div style={{width:500,flex:"0 0 auto"}}>
+          <div style={{fontFamily:FONT_MONO,fontSize:TYPE_SCALE.label,color:C.real,letterSpacing:"0.14em",textTransform:"uppercase"}}>레벨별 평균 단조 상승</div>
+          <div style={{fontFamily:FONT_SANS,fontSize:TYPE_SCALE.small,color:C.inkMuted,marginTop:8,lineHeight:1.4}}>독립 평정 점수도 레벨이 높아질수록 단조 상승 — 순서가 무너지지 않는다.</div>
+          <div style={{display:"flex",flexDirection:"column",gap:18,marginTop:26}}>
+            {LEVELS.map((l,i)=>(
+              <div key={i}>
+                <div style={{display:"flex",alignItems:"baseline",justifyContent:"space-between",marginBottom:7}}>
+                  <span style={{fontFamily:FONT_MONO,fontSize:TYPE_SCALE.label,color:C.inkSoft,letterSpacing:"0.12em"}}>{l.k}</span>
+                  <span style={{fontFamily:FONT_MONO,fontSize:20,fontWeight:600,color:C.real}}>{l.v.toFixed(3)}</span>
+                </div>
+                <div style={{position:"relative",height:26,background:C.ruleSoft,borderRadius:4}}>
+                  <div style={{position:"absolute",top:0,left:0,height:"100%",width:`${(l.v/MAXV)*100}%`,background:C.real,borderRadius:4,opacity:0.55+0.22*i}}/>
+                </div>
+                <div style={{fontFamily:FONT_SANS,fontSize:17,color:C.inkMuted,marginTop:6,lineHeight:1.3}}>{l.d}</div>
+              </div>
+            ))}
+          </div>
+          <div style={{fontFamily:FONT_MONO,fontSize:TYPE_SCALE.label,color:C.inkMuted,marginTop:18,letterSpacing:"0.04em"}}>LOW &lt; MED &lt; HIGH — 단조성 유지</div>
+        </div>
+      </div>
+
+      <Callout tone="real" style={{position:"absolute",left:SPACING.paddingX,right:SPACING.paddingX,bottom:116,maxWidth:1560}}>결론: 심각도 모듈은 단독 판정기가 아니라, triage 우선순위를 보조하는 유의한 강도 신호로 쓰는 것이 맞다.</Callout>
+      <SourceLine>본 연구 severity_independent.json — 실제 헤드라인 독립 평정 · Spearman ρ</SourceLine>
+      <PageNum n={22}/>
+    </SlideFrame>
+  );
+}
+ReactDOM.createRoot(document.getElementById('slide-root')).render(<Slide/>);
+requestAnimationFrame(()=>document.body.setAttribute('data-slide-ready','1'));
+})();
+</script>
+<script>
+function scaleSlide(){const s=document.getElementById('stage');if(!s)return;const sc=Math.min(innerWidth/1920,innerHeight/1080)*0.96;s.style.transform=`translate(${-1920*sc/2}px,${-1080*sc/2}px) scale(${sc})`;}
+addEventListener('resize',scaleSlide);addEventListener('load',scaleSlide);scaleSlide();
+</script>
+<!-- notes: 심각도 ρ. 합성 0.6719은 참고치, 독립 평정 0.4039(p=2.56e-5). 레벨별 평균 LOW 0.364, MEDIUM 0.698, HIGH 1.248로 단조 상승. -->
+</body>
+</html>

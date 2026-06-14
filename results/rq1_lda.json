@@ -1,0 +1,263 @@
+{
+  "naive_combined": {
+    "k": 6,
+    "cv": 0.4198,
+    "lang_purity": 0.856
+  },
+  "stratified": {
+    "ko": {
+      "lang": "ko",
+      "coherence_by_k": {
+        "4": 0.2884,
+        "5": 0.3611,
+        "6": 0.3405,
+        "7": 0.3395,
+        "8": 0.3629,
+        "9": 0.3375,
+        "10": 0.3143
+      },
+      "best_k": 8,
+      "best_cv": 0.3629,
+      "recovered_types": 5,
+      "weighted_purity": 0.522,
+      "topics": [
+        {
+          "topic": 0,
+          "terms": [
+            "항만",
+            "물류",
+            "전면",
+            "마비",
+            "운하",
+            "노조",
+            "해운",
+            "노선",
+            "선사",
+            "주요"
+          ],
+          "mapped_risk": "LOGISTICS",
+          "purity": 0.515,
+          "size": 167
+        },
+        {
+          "topic": 1,
+          "terms": [
+            "시장",
+            "원자재",
+            "가격",
+            "유가",
+            "국제",
+            "폭등",
+            "구리",
+            "니켈",
+            "전면",
+            "거래소"
+          ],
+          "mapped_risk": "FINANCIAL",
+          "purity": 1.0,
+          "size": 71
+        },
+        {
+          "topic": 2,
+          "terms": [
+            "다소",
+            "어질다",
+            "확산",
+            "중단",
+            "기준금리",
+            "인상",
+            "비용",
+            "감염",
+            "집단",
+            "가동"
+          ],
+          "mapped_risk": "PANDEMIC",
+          "purity": 0.265,
+          "size": 102
+        },
+        {
+          "topic": 3,
+          "terms": [
+            "본부",
+            "방역",
+            "급증",
+            "진자",
+            "재난",
+            "공장",
+            "운임",
+            "폭등",
+            "확산",
+            "폐쇄"
+          ],
+          "mapped_risk": "PANDEMIC",
+          "purity": 0.657,
+          "size": 70
+        },
+        {
+          "topic": 4,
+          "terms": [
+            "반도체",
+            "생산",
+            "수출",
+            "협력",
+            "사가",
+            "상륙",
+            "강력",
+            "태풍",
+            "핵심",
+            "제한"
+          ],
+          "mapped_risk": "SUPPLIER",
+          "purity": 0.444,
+          "size": 108
+        },
+        {
+          "topic": 5,
+          "terms": [
+            "공장",
+            "심화",
+            "예상",
+            "경미하다",
+            "완성",
+            "공급망",
+            "마비",
+            "생산",
+            "셧다운",
+            "주력"
+          ],
+          "mapped_risk": "SUPPLIER",
+          "purity": 0.539,
+          "size": 76
+        },
+        {
+          "topic": 6,
+          "terms": [
+            "통관",
+            "전략",
+            "물자",
+            "봉쇄",
+            "홍수",
+            "단지",
+            "산업",
+            "강타",
+            "기록",
+            "전격"
+          ],
+          "mapped_risk": "GEOPOLITICAL",
+          "purity": 0.619,
+          "size": 97
+        },
+        {
+          "topic": 7,
+          "terms": [
+            "공장",
+            "들어가다",
+            "중단",
+            "방역",
+            "부품",
+            "항만",
+            "가동",
+            "화재",
+            "격리",
+            "태업"
+          ],
+          "mapped_risk": "PANDEMIC",
+          "purity": 0.291,
+          "size": 79
+        }
+      ]
+    },
+    "en": {
+      "lang": "en",
+      "coherence_by_k": {
+        "4": 0.4035,
+        "5": 0.3687,
+        "6": 0.3552,
+        "7": 0.3889,
+        "8": 0.3589,
+        "9": 0.3531,
+        "10": 0.3833
+      },
+      "best_k": 4,
+      "best_cv": 0.4035,
+      "recovered_types": 4,
+      "weighted_purity": 0.459,
+      "topics": [
+        {
+          "topic": 0,
+          "terms": [
+            "quarantine",
+            "fab",
+            "texas",
+            "port",
+            "city",
+            "official",
+            "cluster",
+            "plant",
+            "supplier",
+            "government"
+          ],
+          "mapped_risk": "PANDEMIC",
+          "purity": 0.447,
+          "size": 199
+        },
+        {
+          "topic": 1,
+          "terms": [
+            "plant",
+            "authority",
+            "trade",
+            "supplier",
+            "impose",
+            "dispute",
+            "escalate",
+            "health",
+            "zone",
+            "submerge"
+          ],
+          "mapped_risk": "GEOPOLITICAL",
+          "purity": 0.375,
+          "size": 184
+        },
+        {
+          "topic": 2,
+          "terms": [
+            "port",
+            "union",
+            "warehouse",
+            "uk",
+            "dockworker",
+            "driver",
+            "truck",
+            "logistics",
+            "bank",
+            "central"
+          ],
+          "mapped_risk": "LABOR",
+          "purity": 0.728,
+          "size": 151
+        },
+        {
+          "topic": 3,
+          "terms": [
+            "market",
+            "canal",
+            "authority",
+            "oil",
+            "fx",
+            "suez",
+            "price",
+            "commodity",
+            "local",
+            "energy"
+          ],
+          "mapped_risk": "LOGISTICS",
+          "purity": 0.364,
+          "size": 236
+        }
+      ]
+    }
+  },
+  "headline_cv": 0.3832,
+  "headline_recovered": "ko 5/7, en 4/7"
+}

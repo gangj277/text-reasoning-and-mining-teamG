@@ -1,0 +1,7 @@
+{
+  "lexicon_external_macro_f1_covered": 0.5295,
+  "lexicon_external_acc_all": 0.5392,
+  "lexicon_coverage": 0.941,
+  "supervised_external_acc": 0.7745,
+  "note": "Word2Vec 확장사전 매칭(비지도) vs TF-IDF+LR(지도) 비교용 ablation"
+}

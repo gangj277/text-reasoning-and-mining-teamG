@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Slide 23 — Resolution (contribution)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@500;600;700;800&family=IBM+Plex+Sans+KR:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+  html,body{width:100%;height:100vh;background:#E4DFD3;overflow:hidden;position:relative;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;}
+  .stage{width:1920px;height:1080px;position:absolute;top:50%;left:50%;transform-origin:0 0;}
+  .slide{width:1920px;height:1080px;overflow:hidden;position:relative;border-radius:4px;box-shadow:0 20px 80px rgba(0,0,0,0.14);}
+  table.threat{width:100%;border-collapse:collapse;}
+  table.threat td,table.threat th{padding:15px 20px;text-align:left;vertical-align:middle;border-bottom:1px solid rgba(31,39,48,0.12);}
+  @media print{@page{size:1920px 1080px;margin:0;}html,body{width:1920px;height:1080px;background:transparent!important;overflow:hidden;-webkit-print-color-adjust:exact;print-color-adjust:exact;}.stage{position:static!important;top:0!important;left:0!important;transform:none!important;}.slide{box-shadow:none!important;border-radius:0!important;}*,*::before,*::after{-webkit-backdrop-filter:none!important;backdrop-filter:none!important;}}
+</style>
+<script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/@babel/standalone@7.24.7/babel.min.js"></script>
+<script type="text/babel" data-presets="react" src="components.js"></script>
+</head>
+<body>
+<div class="stage" id="stage"><div class="slide" id="slide-root"></div></div>
+<script type="text/babel" data-presets="react">
+(function(){
+const { SlideFrame, Eyebrow, SlideTitle, BodyText, PageNum, Callout, C, TYPE_SCALE, SPACING, FONT_DISPLAY, FONT_SANS, FONT_MONO, SourceLine } = window;
+const ROWS = [
+  ["문제 재정의","closed-set 7유형 분류는 OTHER가 없는 시험","open-set triage: risk detector + 7-type classifier"],
+  ["라벨 설계","수집 질의와 정답 라벨을 분리해야 실제 stream을 평가 가능","중립 질의 700건 → 3인 패널 → open gold 699건"],
+  ["baseline gap","plain model: risk-F1 0.772, type macro-F1 0.438","FP/FN/type error 분석으로 feature upgrade 대상을 특정"],
+  ["표현 고도화","단어 TF-IDF만으로는 bilingual/OOV mechanism과 generic OTHER를 혼동","word TF-IDF + raw char n-gram + mechanism counters + OTHER cues"],
+  ["decision rule","단일 classifier score는 precision/recall trade-off를 통제하기 어렵다","inner-CV threshold + two-stage detector/typer"],
+  ["검증 기준","단일 평균 점수만으로는 triage 품질을 설명하지 못함","metric gate + error budget 전 항목 통과"],
+];
+function Slide(){
+  return (
+    <SlideFrame>
+      <Eyebrow>23 · RESOLUTION — 본 연구의 기여</Eyebrow>
+      <SlideTitle style={{marginTop:SPACING.titleGap}}>기여는 비판이 아니라, <span style={{color:C.accent}}>연구 설계가 알고리즘 설계로 이어진 점</span>이다</SlideTitle>
+      <BodyText muted style={{marginTop:20}}>데이터 설계, baseline gap 분석, feature upgrade, threshold calibration, fixed gate가 하나의 논리로 연결된다. 이 연결이 본 프로젝트를 단순 분류 실험에서 연구형 엔진으로 끌어올린다.</BodyText>
+
+      <div style={{position:"absolute",left:SPACING.paddingX,right:SPACING.paddingX,top:392}}>
+        <table className="threat">
+          <thead><tr>
+            <th style={{fontFamily:FONT_MONO,fontSize:TYPE_SCALE.label,letterSpacing:"0.14em",color:C.accent,textTransform:"uppercase",width:"24%"}}>gap / design issue</th>
+            <th style={{fontFamily:FONT_MONO,fontSize:TYPE_SCALE.label,letterSpacing:"0.14em",color:C.inkMuted,textTransform:"uppercase",width:"40%"}}>진단 (DIAGNOSIS)</th>
+            <th style={{fontFamily:FONT_MONO,fontSize:TYPE_SCALE.label,letterSpacing:"0.14em",color:C.real,textTransform:"uppercase"}}>대응 (RESOLVED)</th>
+          </tr></thead>
+          <tbody>
+            {ROWS.map((r,i)=>(
+              <tr key={i}>
+                <td style={{fontFamily:FONT_SANS,fontSize:TYPE_SCALE.small,fontWeight:600,color:C.ink}}>{r[0]}</td>
+                <td style={{fontFamily:FONT_SANS,fontSize:TYPE_SCALE.small,color:C.inkMuted,lineHeight:1.4}}>{r[1]}</td>
+                <td style={{fontFamily:FONT_SANS,fontSize:TYPE_SCALE.small,color:C.inkSoft,lineHeight:1.4}}><span style={{color:C.real,marginRight:8}}>✓</span>{r[2]}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <Callout tone="real" style={{position:"absolute",left:SPACING.paddingX,right:SPACING.paddingX,bottom:116,maxWidth:1560}}>방법론적 기여 = 실험에서 드러난 실패 원인을 최종 알고리즘의 feature, threshold, gate로 반영한 것.</Callout>
+      <SourceLine>본 연구 robustness · powered_eval · open_set_eval · mechanism_engine_eval · research_gate</SourceLine>
+      <PageNum n={23}/>
+    </SlideFrame>
+  );
+}
+ReactDOM.createRoot(document.getElementById('slide-root')).render(<Slide/>);
+requestAnimationFrame(()=>document.body.setAttribute('data-slide-ready','1'));
+})();
+</script>
+<script>
+function scaleSlide(){const s=document.getElementById('stage');if(!s)return;const sc=Math.min(innerWidth/1920,innerHeight/1080)*0.96;s.style.transform=`translate(${-1920*sc/2}px,${-1080*sc/2}px) scale(${sc})`;}
+addEventListener('resize',scaleSlide);addEventListener('load',scaleSlide);scaleSlide();
+</script>
+<!-- notes: 기여 = 위협 테이블을 최신화. 자기검증 → open-set 재정의 → mechanism-aware engine/gate pass까지 연결. -->
+</body>
+</html>

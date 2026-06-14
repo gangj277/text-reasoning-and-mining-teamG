@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cover — 공급망 시그널</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@500;600;700;800&family=IBM+Plex+Sans+KR:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+  html,body{width:100%;height:100vh;background:#E4DFD3;overflow:hidden;position:relative;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;}
+  .stage{width:1920px;height:1080px;position:absolute;top:50%;left:50%;transform-origin:0 0;}
+  .slide{width:1920px;height:1080px;overflow:hidden;position:relative;border-radius:4px;box-shadow:0 20px 80px rgba(0,0,0,0.14);}
+  @media print{@page{size:1920px 1080px;margin:0;}html,body{width:1920px;height:1080px;background:transparent!important;overflow:hidden;-webkit-print-color-adjust:exact;print-color-adjust:exact;}.stage{position:static!important;top:0!important;left:0!important;transform:none!important;}.slide{box-shadow:none!important;border-radius:0!important;}*,*::before,*::after{-webkit-backdrop-filter:none!important;backdrop-filter:none!important;}}
+</style>
+<script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/@babel/standalone@7.24.7/babel.min.js"></script>
+<script type="text/babel" data-presets="react" src="components.js"></script>
+</head>
+<body>
+<div class="stage" id="stage"><div class="slide" id="slide-root"></div></div>
+<script type="text/babel" data-presets="react">
+(function(){
+const { SlideFrame, C, TYPE_SCALE, SPACING, FONT_DISPLAY, FONT_SANS, FONT_MONO } = window;
+function Slide(){
+  return (
+    <SlideFrame noChrome>
+      {/* top eyebrow */}
+      <div style={{position:"absolute",top:78,left:SPACING.paddingX,display:"flex",alignItems:"center",gap:14}}>
+        <span style={{fontFamily:FONT_DISPLAY,fontSize:21,fontWeight:800,letterSpacing:"0.02em"}}>TEAM&nbsp;G</span>
+        <span style={{width:6,height:6,background:C.accent}}/>
+        <span style={{fontFamily:FONT_MONO,fontSize:14,letterSpacing:"0.22em",color:C.inkMuted,textTransform:"uppercase"}}>지식추론 · 텍스트마이닝 · TERM PROJECT</span>
+      </div>
+
+      {/* hero title block, left-anchored */}
+      <div style={{position:"absolute",left:SPACING.paddingX,top:300,maxWidth:1280}}>
+        <div style={{fontFamily:FONT_MONO,fontSize:15,letterSpacing:"0.24em",color:C.accent,textTransform:"uppercase",marginBottom:26}}>SCRM · SIGNAL INTELLIGENCE</div>
+        <h1 style={{fontFamily:FONT_DISPLAY,fontSize:88,fontWeight:800,lineHeight:1.14,letterSpacing:"-0.02em",color:C.ink,margin:0}}>
+          세계의 뉴스에서<br/>다음 <span style={{color:C.accent}}>공급망 충격</span>을 읽다
+        </h1>
+        <div style={{width:88,height:3,background:C.accent,margin:"34px 0 22px"}}/>
+        <div style={{fontFamily:FONT_DISPLAY,fontSize:27,fontStyle:"italic",fontWeight:500,color:C.inkSoft,lineHeight:1.35,maxWidth:1040}}>
+          Bilingual News-Based Supply-Chain Risk Detection via Text Mining<br/>— Open-Set Triage Engine for SCRM Signals
+        </div>
+      </div>
+
+      {/* bottom strip: team + research artifact */}
+      <div style={{position:"absolute",left:SPACING.paddingX,bottom:84,display:"flex",alignItems:"flex-end",gap:64}}>
+        <div>
+          <div style={{fontFamily:FONT_MONO,fontSize:13,letterSpacing:"0.16em",color:C.inkMuted,textTransform:"uppercase",marginBottom:8}}>TEAM G</div>
+          <div style={{fontFamily:FONT_SANS,fontSize:22,fontWeight:500,color:C.ink}}>정영훈 · 전유하 · 강지민</div>
+        </div>
+        <div style={{display:"flex",alignItems:"center",gap:18,paddingLeft:64,borderLeft:`1px solid ${C.rule}`}}>
+          <span style={{fontFamily:FONT_MONO,fontSize:13,color:C.accent,letterSpacing:"0.16em",textTransform:"uppercase"}}>research artifact</span>
+          <span style={{fontFamily:FONT_SANS,fontSize:22,fontWeight:600,color:C.ink,lineHeight:1.35}}>open-set SCRM triage engine</span>
+          <span style={{fontFamily:FONT_MONO,fontSize:13,color:C.inkMuted,letterSpacing:"0.1em",maxWidth:260,lineHeight:1.4}}>3-panel gold · fixed KPI gate · mechanism-aware hybrid</span>
+        </div>
+      </div>
+
+      {/* right decorative: faint signal stream */}
+      <div style={{position:"absolute",right:0,top:0,bottom:0,width:520,opacity:0.5,pointerEvents:"none"}}>
+        {Array.from({length:13}).map((_,i)=>(
+          <div key={i} style={{position:"absolute",right:60+(i%5)*84,top:120+i*68,fontFamily:FONT_MONO,fontSize:13,letterSpacing:"0.1em",color:i%4===0?C.accent:C.inkMuted,opacity:i%4===0?0.7:0.28}}>
+            {["수출통제","freight↑","파업","earthquake","HBM","運賃","shortage","봉쇄","tariff","희토류","lockdown","리콜","port"][i]}
+          </div>
+        ))}
+      </div>
+    </SlideFrame>
+  );
+}
+ReactDOM.createRoot(document.getElementById('slide-root')).render(<Slide/>);
+requestAnimationFrame(()=>document.body.setAttribute('data-slide-ready','1'));
+})();
+</script>
+<script>
+function scaleSlide(){const s=document.getElementById('stage');if(!s)return;const sc=Math.min(innerWidth/1920,innerHeight/1080)*0.96;s.style.transform=`translate(${-1920*sc/2}px,${-1080*sc/2}px) scale(${sc})`;}
+addEventListener('resize',scaleSlide);addEventListener('load',scaleSlide);scaleSlide();
+</script>
+<!-- notes: 표지. 주제 + 최종 산출물. 숫자 비교 없이 open-set SCRM triage engine 자체를 첫 인상으로 제시. -->
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Slide 10 — METHOD — research hypotheses</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@500;600;700;800&family=IBM+Plex+Sans+KR:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+  html,body{width:100%;height:100vh;background:#E4DFD3;overflow:hidden;position:relative;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;}
+  .stage{width:1920px;height:1080px;position:absolute;top:50%;left:50%;transform-origin:0 0;}
+  .slide{width:1920px;height:1080px;overflow:hidden;position:relative;border-radius:4px;box-shadow:0 20px 80px rgba(0,0,0,0.14);}
+  table.tbl{width:100%;border-collapse:collapse;} table.tbl td,table.tbl th{padding:14px 18px;text-align:left;vertical-align:middle;border-bottom:1px solid rgba(31,39,48,0.12);}
+  @media print{@page{size:1920px 1080px;margin:0;}html,body{width:1920px;height:1080px;background:transparent!important;overflow:hidden;-webkit-print-color-adjust:exact;print-color-adjust:exact;}.stage{position:static!important;top:0!important;left:0!important;transform:none!important;}.slide{box-shadow:none!important;border-radius:0!important;}*,*::before,*::after{-webkit-backdrop-filter:none!important;backdrop-filter:none!important;}}
+</style>
+<script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/@babel/standalone@7.24.7/babel.min.js"></script>
+<script type="text/babel" data-presets="react" src="components.js"></script>
+</head>
+<body>
+<div class="stage" id="stage"><div class="slide" id="slide-root"></div></div>
+<script type="text/babel" data-presets="react">
+(function(){
+const { SlideFrame, Eyebrow, SlideTitle, BodyText, PageNum, Card, CardTitle, CardBody, Callout, C, TYPE_SCALE, SPACING, FONT_DISPLAY, FONT_SANS, FONT_MONO, SourceLine } = window;
+const HYPOTHESES = [
+  {id:"H1", tone:"signal", title:"문제 정의", body:"실제 SCRM stream은 모든 기사가 위험이라는 closed-set이 아니다. 먼저 risk vs OTHER를 탐지하고, 위험 기사에만 7유형 typing을 붙여야 한다."},
+  {id:"H2", tone:"signal", title:"baseline gap", body:"plain token TF-IDF는 관련성 신호는 잡지만, 한·영 변형어/OOV 위험 메커니즘과 generic supply-chain 담론을 충분히 구분하지 못한다."},
+  {id:"H3", tone:"real", title:"알고리즘 처방", body:"raw char n-gram, taxonomy mechanism counter, OTHER/generic cue를 결합하면 FP·FN·type error를 동시에 줄일 수 있다."},
+  {id:"H4", tone:"real", title:"검증 기준", body:"threshold는 평가셋을 보고 고르지 않는다. inner-CV로 calibration하고 3-fold OOF에서 fixed KPI gate를 통과해야 한다."},
+];
+function HypothesisCard({h}){
+  const col = h.tone === "real" ? C.real : C.accent;
+  return (
+    <Card tone={h.tone} style={{padding:"22px 24px 24px",minHeight:184}}>
+      <div style={{display:"flex",alignItems:"baseline",gap:12,marginBottom:10}}>
+        <span style={{fontFamily:FONT_DISPLAY,fontSize:42,fontWeight:800,color:col,lineHeight:0.9}}>{h.id}</span>
+        <CardTitle style={{fontSize:25,marginBottom:0}}>{h.title}</CardTitle>
+      </div>
+      <CardBody>{h.body}</CardBody>
+    </Card>
+  );
+}
+function Slide(){
+  return (
+    <SlideFrame>
+      <Eyebrow>10 · METHOD — 연구 질문과 가설</Eyebrow>
+      <SlideTitle style={{marginTop:SPACING.titleGap}}>연구 질문은 “7유형 분류가 되나”가 아니라, <span style={{color:C.real}}>실제 뉴스 스트림에서 위험을 먼저 골라낼 수 있나</span>다</SlideTitle>
+      <BodyText muted style={{marginTop:22}}>따라서 실험은 closed-set 분류 리더보드가 아니라 open-set triage engine 검증으로 설계했다. 아래 네 가설이 이후 실험과 알고리즘 고도화의 기준이다.</BodyText>
+
+      <div style={{position:"absolute",left:SPACING.paddingX,right:SPACING.paddingX,top:388,display:"grid",gridTemplateColumns:"520px 1fr",gap:34,alignItems:"stretch"}}>
+        <div style={{background:C.panel,border:`1px solid ${C.rule}`,borderRadius:12,padding:"32px 34px",display:"flex",flexDirection:"column",justifyContent:"space-between"}}>
+          <div>
+            <div style={{fontFamily:FONT_MONO,fontSize:TYPE_SCALE.label,color:C.accent,letterSpacing:"0.18em",textTransform:"uppercase",marginBottom:18}}>RESEARCH FRAME</div>
+            <div style={{fontFamily:FONT_DISPLAY,fontSize:62,fontWeight:800,color:C.accent,lineHeight:0.96,letterSpacing:"-0.02em"}}>open-set<br/>SCRM triage</div>
+            <div style={{fontFamily:FONT_SANS,fontSize:TYPE_SCALE.small,color:C.inkSoft,lineHeight:1.5,marginTop:24}}>
+              입력은 일반 공급망 뉴스 스트림이다. 출력은 <b style={{color:C.ink}}>위험 여부</b>, 위험이면 <b style={{color:C.ink}}>주요 리스크 유형</b>, 그리고 평가 가능한 confidence다.
+            </div>
+          </div>
+          <div style={{borderTop:`1px solid ${C.ruleSoft}`,paddingTop:18,fontFamily:FONT_MONO,fontSize:TYPE_SCALE.label,color:C.inkMuted,letterSpacing:"0.06em",lineHeight:1.6}}>
+            INPUT: headline + snippet<br/>
+            STAGE 1: risk detector<br/>
+            STAGE 2: risk type classifier
+          </div>
+        </div>
+
+        <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:18}}>
+          {HYPOTHESES.map((h,i)=><HypothesisCard key={i} h={h}/>)}
+        </div>
+      </div>
+
+      <Callout tone="real" style={{position:"absolute",left:SPACING.paddingX,right:SPACING.paddingX,bottom:116,maxWidth:1560}}>이후 슬라이드는 이 가설을 따라간다 — open-set 데이터 설계, baseline gap, mechanism-aware feature, fixed KPI gate.</Callout>
+      <SourceLine>본 연구 problem framing · open_set_eval · mechanism_engine_eval</SourceLine>
+      <PageNum n={10}/>
+    </SlideFrame>
+  );
+}
+ReactDOM.createRoot(document.getElementById('slide-root')).render(<Slide/>);
+requestAnimationFrame(()=>document.body.setAttribute('data-slide-ready','1'));
+})();
+</script>
+<script>
+function scaleSlide(){const s=document.getElementById('stage');if(!s)return;const sc=Math.min(innerWidth/1920,innerHeight/1080)*0.96;s.style.transform=`translate(${-1920*sc/2}px,${-1080*sc/2}px) scale(${sc})`;}
+addEventListener('resize',scaleSlide);addEventListener('load',scaleSlide);scaleSlide();
+</script>
+<!-- notes: 연구 질문과 가설. closed-set 7유형 분류가 아니라 risk-vs-OTHER 먼저, 위험 기사만 typing하는 open-set triage로 재정의. -->
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Slide 18 — RESOLUTION — Finding 2</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@500;600;700;800&family=IBM+Plex+Sans+KR:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+  html,body{width:100%;height:100vh;background:#E4DFD3;overflow:hidden;position:relative;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;}
+  .stage{width:1920px;height:1080px;position:absolute;top:50%;left:50%;transform-origin:0 0;}
+  .slide{width:1920px;height:1080px;overflow:hidden;position:relative;border-radius:4px;box-shadow:0 20px 80px rgba(0,0,0,0.14);}
+  table.tbl{width:100%;border-collapse:collapse;} table.tbl td,table.tbl th{padding:14px 18px;text-align:left;vertical-align:middle;border-bottom:1px solid rgba(31,39,48,0.12);}
+  @media print{@page{size:1920px 1080px;margin:0;}html,body{width:1920px;height:1080px;background:transparent!important;overflow:hidden;-webkit-print-color-adjust:exact;print-color-adjust:exact;}.stage{position:static!important;top:0!important;left:0!important;transform:none!important;}.slide{box-shadow:none!important;border-radius:0!important;}*,*::before,*::after{-webkit-backdrop-filter:none!important;backdrop-filter:none!important;}}
+</style>
+<script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/@babel/standalone@7.24.7/babel.min.js"></script>
+<script type="text/babel" data-presets="react" src="components.js"></script>
+</head>
+<body>
+<div class="stage" id="stage"><div class="slide" id="slide-root"></div></div>
+<script type="text/babel" data-presets="react">
+(function(){
+const { SlideFrame, Eyebrow, SlideTitle, BodyText, PageNum, Card, CardTitle, CardBody, Callout, C, TYPE_SCALE, SPACING, FONT_DISPLAY, FONT_SANS, FONT_MONO, SourceLine } = window;
+function Slide(){
+  return (
+    <SlideFrame>
+      <Eyebrow style={{marginLeft:0}}>18 · RESOLUTION — 발견 2 · 절제 실험</Eyebrow>
+      <SlideTitle style={{marginTop:SPACING.titleGap}}>발견 2: 시드 키워드를 빼면 성능이 <span style={{color:C.fake}}>반토막</span> 난다 —<br/>'전이'의 절반은 <span style={{color:C.accent}}>키워드 메아리</span>였다</SlideTitle>
+      <BodyText muted style={{marginTop:20}}>스스로 잡은 부풀림은 정직성의 가장 구체적인 증거다. 우리가 보고한 전이의 상당 부분은 학습·검색에 공유된 시드 키워드 매칭에 의존하고 있었다.</BodyText>
+
+      {/* MIDDLE — left: ablation big-number flow / right: supporting evidence */}
+      <div style={{position:"absolute",left:SPACING.paddingX,top:408,display:"flex",alignItems:"flex-start",gap:64}}>
+
+        {/* LEFT — down-arrow ablation */}
+        <div style={{flex:"0 0 760px"}}>
+          <div style={{fontFamily:FONT_MONO,fontSize:TYPE_SCALE.label,color:C.inkMuted,letterSpacing:"0.16em",textTransform:"uppercase",marginBottom:24}}>F1 · 시드 키워드 절제 (MASK ABLATION)</div>
+
+          <div style={{display:"flex",alignItems:"flex-end",gap:60}}>
+            {/* baseline */}
+            <div>
+              <div style={{fontFamily:FONT_DISPLAY,fontSize:128,fontWeight:800,color:C.ink,lineHeight:0.86,letterSpacing:"-0.02em"}}>0.766</div>
+              <div style={{fontFamily:FONT_MONO,fontSize:TYPE_SCALE.label,color:C.inkSoft,marginTop:14,letterSpacing:"0.08em"}}>전체 어휘 · 보고된 전이 F1</div>
+            </div>
+            {/* down arrow with shed label */}
+            <div style={{display:"flex",flexDirection:"column",alignItems:"center",paddingBottom:30}}>
+              <div style={{fontFamily:FONT_MONO,fontSize:TYPE_SCALE.small,color:C.fake,fontWeight:600,letterSpacing:"0.06em",marginBottom:8}}>시드 17% 제거</div>
+              <div style={{fontFamily:FONT_MONO,fontSize:64,color:C.fake,lineHeight:0.8}}>↓</div>
+              <div style={{fontFamily:FONT_MONO,fontSize:TYPE_SCALE.label,color:C.fake,marginTop:8,letterSpacing:"0.06em"}}>−0.282 (−37%)</div>
+            </div>
+          </div>
+
+          {/* collapsed result */}
+          <div style={{marginTop:30,display:"flex",alignItems:"flex-end",gap:24}}>
+            <div style={{fontFamily:FONT_DISPLAY,fontSize:128,fontWeight:800,color:C.fake,lineHeight:0.86,letterSpacing:"-0.02em"}}>0.484</div>
+            <div style={{paddingBottom:14,maxWidth:340}}>
+              <div style={{fontFamily:FONT_MONO,fontSize:TYPE_SCALE.label,color:C.fake,letterSpacing:"0.08em"}}>시드 마스킹 후 잔존 F1</div>
+              <div style={{fontFamily:FONT_SANS,fontSize:TYPE_SCALE.small,color:C.inkSoft,marginTop:8,lineHeight:1.4}}>키워드를 가리자 전이의 절반이 사라졌다 — 나머지가 진짜 일반화다.</div>
+            </div>
+          </div>
+        </div>
+
+        {/* divider */}
+        <div style={{width:1,height:402,background:C.rule,marginTop:6}}/>
+
+        {/* RIGHT — supporting evidence */}
+        <div style={{flex:"0 0 768px",display:"flex",flexDirection:"column",gap:18}}>
+          <div style={{display:"flex",alignItems:"baseline",gap:18}}>
+            <span style={{fontFamily:FONT_DISPLAY,fontSize:80,fontWeight:800,color:C.accent,lineHeight:0.9,letterSpacing:"-0.02em"}}>27.7%</span>
+            <div style={{maxWidth:430}}>
+              <div style={{fontFamily:FONT_SANS,fontSize:TYPE_SCALE.body,fontWeight:600,color:C.ink,lineHeight:1.3}}>진짜 어휘 커버리지</div>
+              <div style={{fontFamily:FONT_MONO,fontSize:TYPE_SCALE.label,color:C.inkMuted,marginTop:6,letterSpacing:"0.04em"}}>헤드라인당 매칭 특징 중앙값 4개</div>
+            </div>
+          </div>
+
+          <Card tone="fake">
+            <CardTitle tone="fake">'0.98 어휘중첩'은 사실 측정 오표기였다</CardTitle>
+            <CardBody>보고된 0.98은 어휘 중첩이 아니라 <span style={{color:C.fake,fontWeight:600}}>OOV-아닌-문서비율</span>을 잘못 라벨링한 값 → 진짜 커버리지 <span style={{color:C.accent,fontWeight:600}}>0.277</span>로 정정.</CardBody>
+          </Card>
+
+          <Card tone="signal">
+            <CardBody style={{fontSize:TYPE_SCALE.small}}>시드 매칭은 학습셋과 검색질의에 <span style={{color:C.accent,fontWeight:600}}>공유</span>되어 있어, 모델이 일반화 없이도 정답을 '메아리'칠 수 있는 누수 경로였다.</CardBody>
+          </Card>
+        </div>
+
+      </div>
+
+      <Callout tone="fake" style={{position:"absolute",left:SPACING.paddingX,right:SPACING.paddingX,bottom:116,maxWidth:1560}}>전이의 절반은 학습·검색에 공유된 시드 매칭이었다 — 그렇다면 외울 수 없는 시험을 만들자.</Callout>
+      <SourceLine>본 연구 robustness.json</SourceLine>
+      <PageNum n={18}/>
+    </SlideFrame>
+  );
+}
+ReactDOM.createRoot(document.getElementById('slide-root')).render(<Slide/>);
+requestAnimationFrame(()=>document.body.setAttribute('data-slide-ready','1'));
+})();
+</script>
+<script>
+function scaleSlide(){const s=document.getElementById('stage');if(!s)return;const sc=Math.min(innerWidth/1920,innerHeight/1080)*0.96;s.style.transform=`translate(${-1920*sc/2}px,${-1080*sc/2}px) scale(${sc})`;}
+addEventListener('resize',scaleSlide);addEventListener('load',scaleSlide);scaleSlide();
+</script>
+<!-- notes: 발견2 = 시드 절제 ablation. 0.766→0.484 (시드 17% 제거, -37%). 전이 절반은 키워드 메아리=누수. 0.98 어휘중첩은 OOV-비율 오표기→0.277 정정. 자기검증/정직성 증거. 다음: 외울 수 없는 시험 설계. -->
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Slide 16 — Resolution (data design)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@500;600;700;800&family=IBM+Plex+Sans+KR:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+  html,body{width:100%;height:100vh;background:#E4DFD3;overflow:hidden;position:relative;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;}
+  .stage{width:1920px;height:1080px;position:absolute;top:50%;left:50%;transform-origin:0 0;}
+  .slide{width:1920px;height:1080px;overflow:hidden;position:relative;border-radius:4px;box-shadow:0 20px 80px rgba(0,0,0,0.14);}
+  table.tbl{width:100%;border-collapse:collapse;} table.tbl td,table.tbl th{padding:14px 18px;text-align:left;vertical-align:middle;border-bottom:1px solid rgba(31,39,48,0.12);}
+  @media print{@page{size:1920px 1080px;margin:0;}html,body{width:1920px;height:1080px;background:transparent!important;overflow:hidden;-webkit-print-color-adjust:exact;print-color-adjust:exact;}.stage{position:static!important;top:0!important;left:0!important;transform:none!important;}.slide{box-shadow:none!important;border-radius:0!important;}*,*::before,*::after{-webkit-backdrop-filter:none!important;backdrop-filter:none!important;}}
+</style>
+<script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/@babel/standalone@7.24.7/babel.min.js"></script>
+<script type="text/babel" data-presets="react" src="components.js"></script>
+</head>
+<body>
+<div class="stage" id="stage"><div class="slide" id="slide-root"></div></div>
+<script type="text/babel" data-presets="react">
+(function(){
+const { SlideFrame, Eyebrow, SlideTitle, BodyText, PageNum, Card, CardTitle, CardBody, Callout, C, TYPE_SCALE, SPACING, FONT_DISPLAY, FONT_SANS, FONT_MONO, SourceLine } = window;
+
+const CARDS = [
+  {
+    tag: "01 · SYNTHETIC", num: "1,540", unit: "건", tone: "default", numColor: C.ink,
+    title: "구조화 코퍼스",
+    body: <>난이도와 신호를 우리가 통제한 <span style={{color:C.ink,fontWeight:600}}>측정 도구</span>다. 실제 분포의 표본이 아니라, 추출기를 같은 조건에서 채점하기 위한 시험대.</>,
+  },
+  {
+    tag: "02 · REAL", num: "2,062", unit: "건", tone: "default", numColor: C.ink,
+    title: "실뉴스 스트림",
+    body: <>Google News RSS에서 한·영을 함께 수집했다. 실제 보도의 노이즈와 분포를 그대로 받아, 통제 도구의 결과가 현실에서도 버티는지 확인한다.</>,
+  },
+  {
+    tag: "03 · TYPE GOLD", num: "102", unit: "건", tone: "fake", numColor: C.fake,
+    title: "타입질의 골드",
+    body: <>전이 검증용 보조셋. 검색·라벨 설계가 결과에 어떤 영향을 주는지 점검하는 진단 자산으로 사용했다.</>,
+  },
+  {
+    tag: "04 · POWERED GOLD", num: "217", unit: "건", tone: "real", numColor: C.real,
+    title: "powered · label-blind",
+    body: <>중립질의에서 합의된 위험 뉴스만 남긴 closed-set 검증셋. <span style={{color:C.real,fontWeight:600}}>Fleiss κ = 0.84</span> — 합성 전이가 실패함을 보였다.</>,
+  },
+  {
+    tag: "05 · OPEN-SET", num: "699", unit: "건", tone: "real", numColor: C.real,
+    title: "OTHER 포함 gold",
+    body: <>버렸던 OTHER 482건을 되살린 최종 triage 평가셋. 실제 질문인 <span style={{color:C.real,fontWeight:600}}>위험인가/아닌가</span>를 묻고 엔진을 검증한다.</>,
+  },
+];
+
+function Slide(){
+  return (
+    <SlideFrame>
+      <Eyebrow>16 · RESOLUTION — 데이터 설계</Eyebrow>
+      <SlideTitle style={{marginTop:SPACING.titleGap}}>실험을 성립시키려면 <span style={{color:C.accent}}>데이터 역할부터 분리</span>해야 한다 —<br/>합성·실데이터·세 종류의 골드</SlideTitle>
+      <BodyText muted style={{marginTop:20}}>데이터 설계 자체가 함정 회피 전략이다. 타입질의 골드는 순환을 드러내고, powered gold는 순환을 끊고, open-set gold는 실제 triage 질문을 묻는다.</BodyText>
+
+      <div style={{position:"absolute",left:SPACING.paddingX,right:SPACING.paddingX,top:408}}>
+        <div style={{display:"grid",gridTemplateColumns:"repeat(5, 1fr)",gap:18,alignItems:"stretch"}}>
+          {CARDS.map((c,i)=>(
+            <Card key={i} tone={c.tone} style={{display:"flex",flexDirection:"column",minHeight:432,padding:"24px 22px 26px"}}>
+              <div style={{fontFamily:FONT_MONO,fontSize:TYPE_SCALE.label,color: c.tone==="fake"?C.fake : c.tone==="real"?C.real : C.inkMuted,letterSpacing:"0.14em",textTransform:"uppercase"}}>{c.tag}</div>
+              <div style={{display:"flex",alignItems:"baseline",gap:8,marginTop:18}}>
+                <CardTitle style={{marginBottom:0,fontFamily:FONT_DISPLAY,fontSize:66,fontWeight:800,color:c.numColor,lineHeight:0.9,letterSpacing:"-0.02em"}}>{c.num}</CardTitle>
+                <span style={{fontFamily:FONT_MONO,fontSize:22,color:c.numColor,opacity:0.8}}>{c.unit}</span>
+              </div>
+              <div style={{fontFamily:FONT_SANS,fontSize:25,fontWeight:600,color:C.ink,marginTop:16,lineHeight:1.2,letterSpacing:"-0.01em"}}>{c.title}</div>
+              <div style={{height:1,background:C.ruleSoft,margin:"16px 0 16px"}}/>
+              <CardBody style={{flex:1,fontSize:20,lineHeight:1.43}}>{c.body}</CardBody>
+            </Card>
+          ))}
+        </div>
+      </div>
+
+      <Callout tone="signal" style={{position:"absolute",left:SPACING.paddingX,right:SPACING.paddingX,bottom:116,maxWidth:1560}}>최종 엔진의 평가 단위는 217개 risk subset이 아니라, OTHER까지 포함한 699건 open-set stream이다.</Callout>
+      <SourceLine>본 연구 data/ (synthetic · real · type-query gold · powered gold · open-set gold)</SourceLine>
+      <PageNum n={16}/>
+    </SlideFrame>
+  );
+}
+ReactDOM.createRoot(document.getElementById('slide-root')).render(<Slide/>);
+requestAnimationFrame(()=>document.body.setAttribute('data-slide-ready','1'));
+})();
+</script>
+<script>
+function scaleSlide(){const s=document.getElementById('stage');if(!s)return;const sc=Math.min(innerWidth/1920,innerHeight/1080)*0.96;s.style.transform=`translate(${-1920*sc/2}px,${-1080*sc/2}px) scale(${sc})`;}
+addEventListener('resize',scaleSlide);addEventListener('load',scaleSlide);scaleSlide();
+</script>
+<!-- notes: 데이터 설계 = 함정 회피 전략. 5자산: synthetic 1540, real 2062, type gold 102(순환 진단), powered risk gold 217(합성 전이 검증), open-set gold 699(OTHER 포함 최종 triage/gate 평가). -->
+</body>
+</html>

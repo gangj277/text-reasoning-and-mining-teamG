@@ -1,0 +1,15 @@
+{
+  "spearman_rho": 0.6719,
+  "p_value": 9.486137915781797e-203,
+  "tertile_acc": 0.637,
+  "adjacent_acc": 0.9721,
+  "mean_score_by_true_level": {
+    "LOW": 0.254,
+    "MEDIUM": 0.781,
+    "HIGH": 1.789
+  },
+  "per_lang_rho": {
+    "ko": 0.7576,
+    "en": 0.5926
+  }
+}

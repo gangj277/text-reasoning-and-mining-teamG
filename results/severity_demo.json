@@ -1,0 +1,614 @@
+[
+  {
+    "title": "[로펌라운지] 트럼프 관세전쟁 2기 대응 전략 짚은 태평양 세미나",
+    "lang": "ko",
+    "risk": "GEOPOLITICAL",
+    "severity": "LOW"
+  },
+  {
+    "title": "[기획] 韓 성장 최대 복병은 '무역'… IMF·OECD 지목한 ‘지정학·무역 충격'",
+    "lang": "ko",
+    "risk": "GEOPOLITICAL",
+    "severity": "HIGH"
+  },
+  {
+    "title": "호주 'LNG 수출 통제' 추진…에너지 공급망 '각자도생' 국면으로",
+    "lang": "ko",
+    "risk": "GEOPOLITICAL",
+    "severity": "LOW"
+  },
+  {
+    "title": "중국 대일 수출 통제에…정부 “핵심 광물 중심으로 공급망 교란 가능성 대비”",
+    "lang": "ko",
+    "risk": "GEOPOLITICAL",
+    "severity": "LOW"
+  },
+  {
+    "title": "中, 일본에 희토류 수출 통제 “공급망 연결 한국도 영향권”",
+    "lang": "ko",
+    "risk": "GEOPOLITICAL",
+    "severity": "LOW"
+  },
+  {
+    "title": "중국, 희토류 수출통제 유지…일본 공급망 우려 지속",
+    "lang": "ko",
+    "risk": "GEOPOLITICAL",
+    "severity": "LOW"
+  },
+  {
+    "title": "트럼프 중국의 구형 반도체 '덤핑'에도 관세 미뤄, 공급망 의존에 약점 부각",
+    "lang": "ko",
+    "risk": "GEOPOLITICAL",
+    "severity": "LOW"
+  },
+  {
+    "title": "“희토류에서 기술까지”...핵심광물, 공급망 전쟁의 ‘무기’가 됐다",
+    "lang": "ko",
+    "risk": "GEOPOLITICAL",
+    "severity": "LOW"
+  },
+  {
+    "title": "Managing sanctions exposure across global supply chains",
+    "lang": "en",
+    "risk": "GEOPOLITICAL",
+    "severity": "LOW"
+  },
+  {
+    "title": "How a year of China's rare-earth controls is reshaping supply chains",
+    "lang": "en",
+    "risk": "GEOPOLITICAL",
+    "severity": "LOW"
+  },
+  {
+    "title": "Leapfrogging China’s Critical Minerals Dominance",
+    "lang": "en",
+    "risk": "GEOPOLITICAL",
+    "severity": "MEDIUM"
+  },
+  {
+    "title": "Trade policy uncertainty and supply chain disruptions: Firm-level evidence from “Liberation Day”",
+    "lang": "en",
+    "risk": "GEOPOLITICAL",
+    "severity": "HIGH"
+  },
+  {
+    "title": "Trump sets fresh 10% global tariff — and plans to increase further",
+    "lang": "en",
+    "risk": "GEOPOLITICAL",
+    "severity": "LOW"
+  },
+  {
+    "title": "How Small Businesses Can Combat Supply Chain Risks Amid Trump’s Tariff War",
+    "lang": "en",
+    "risk": "GEOPOLITICAL",
+    "severity": "HIGH"
+  },
+  {
+    "title": "In 2025, Trade Deficit in Goods Reached Record High",
+    "lang": "en",
+    "risk": "GEOPOLITICAL",
+    "severity": "MEDIUM"
+  },
+  {
+    "title": "International Trade & Supply Chain Law: 2025 Year in Review & Outlook for 2026",
+    "lang": "en",
+    "risk": "GEOPOLITICAL",
+    "severity": "LOW"
+  },
+  {
+    "title": "Kuwait's key ports targeted in attacks amid growing regional tensions",
+    "lang": "en",
+    "risk": "GEOPOLITICAL",
+    "severity": "MEDIUM"
+  },
+  {
+    "title": "SM상선, 美 포틀랜드 노선으로 항만적체 극복한다",
+    "lang": "ko",
+    "risk": "LOGISTICS",
+    "severity": "LOW"
+  },
+  {
+    "title": "호르무즈 봉쇄에 해상운임 급등… 비용 최대 80% 상승 [美·이란 전쟁]",
+    "lang": "ko",
+    "risk": "LOGISTICS",
+    "severity": "MEDIUM"
+  },
+  {
+    "title": "운하리스크에 해운주 급등…\"에버기븐호 사태 반복?\"",
+    "lang": "ko",
+    "risk": "LOGISTICS",
+    "severity": "MEDIUM"
+  },
+  {
+    "title": "인천항 체선율, 지난해 14년 만에 2%대...타개책 마련 시급",
+    "lang": "ko",
+    "risk": "LOGISTICS",
+    "severity": "LOW"
+  },
+  {
+    "title": "호르무즈 봉쇄·홍해 위협 ‘이중 충격’…미·이란 휴전 붕괴 임박, 해운시장 대혼란(종합)",
+    "lang": "ko",
+    "risk": "LOGISTICS",
+    "severity": "HIGH"
+  },
+  {
+    "title": "8월 글로벌 해운·물류, 운임 하락·항만 혼잡 엇갈린 흐름",
+    "lang": "ko",
+    "risk": "LOGISTICS",
+    "severity": "MEDIUM"
+  },
+  {
+    "title": "중동발 공급망 쇼크에 해상 물류 비상…'한국 경제 직격탄'",
+    "lang": "ko",
+    "risk": "LOGISTICS",
+    "severity": "HIGH"
+  },
+  {
+    "title": "해소되지 않는 항만 적체",
+    "lang": "ko",
+    "risk": "LOGISTICS",
+    "severity": "MEDIUM"
+  },
+  {
+    "title": "Northern Europe’s Ports Struggle with Congestion Amid Network Shifts",
+    "lang": "en",
+    "risk": "LOGISTICS",
+    "severity": "MEDIUM"
+  },
+  {
+    "title": "Tradelanes No relief in sight for congestion issues at North Europe's container ports",
+    "lang": "en",
+    "risk": "LOGISTICS",
+    "severity": "LOW"
+  },
+  {
+    "title": "Transpacific ocean rates rise, demand softens",
+    "lang": "en",
+    "risk": "LOGISTICS",
+    "severity": "LOW"
+  },
+  {
+    "title": "Soaring Freight Rates and Cargo Container Shortages Part of Renewed Supply Chain Snags",
+    "lang": "en",
+    "risk": "LOGISTICS",
+    "severity": "HIGH"
+  },
+  {
+    "title": "Six Types of Shipping Crisis — And What They Mean for Freight Procurement",
+    "lang": "en",
+    "risk": "LOGISTICS",
+    "severity": "HIGH"
+  },
+  {
+    "title": "Port operational updates from around the world (17 – 23 July 2025)",
+    "lang": "en",
+    "risk": "LOGISTICS",
+    "severity": "LOW"
+  },
+  {
+    "title": "TPM26: War a problem for container shipping, but not ‘pandemic-scale’: analyst",
+    "lang": "en",
+    "risk": "LOGISTICS",
+    "severity": "MEDIUM"
+  },
+  {
+    "title": "Lithium-ion battery blazes imperil fragile supply chains, warns Los Angeles port chief",
+    "lang": "en",
+    "risk": "LOGISTICS",
+    "severity": "MEDIUM"
+  },
+  {
+    "title": "80% 확률의 난카이 대지진, 2조달러짜리 예고된 경제 블랙홀",
+    "lang": "ko",
+    "risk": "NATURAL_DISASTER",
+    "severity": "LOW"
+  },
+  {
+    "title": "Part 2. 대한민국 물류, 기후위기에 재설계 시급",
+    "lang": "ko",
+    "risk": "NATURAL_DISASTER",
+    "severity": "HIGH"
+  },
+  {
+    "title": "동일본 대지진 악몽 재현? 도요타, 소니 등 日기업, 공급망 패쇄로 타격",
+    "lang": "ko",
+    "risk": "NATURAL_DISASTER",
+    "severity": "MEDIUM"
+  },
+  {
+    "title": "세계 반도체 파운드리 공급망, 대만 지진 리스크로 재편되나",
+    "lang": "ko",
+    "risk": "NATURAL_DISASTER",
+    "severity": "LOW"
+  },
+  {
+    "title": "\"자연재해, 주요 공급망 위협\"...中 홍수사태로 본 기후변화 단면",
+    "lang": "ko",
+    "risk": "NATURAL_DISASTER",
+    "severity": "LOW"
+  },
+  {
+    "title": "대만 강진에 TSMC 첨단공정 비상?...EUV 장비 멈춰 타격 우려",
+    "lang": "ko",
+    "risk": "NATURAL_DISASTER",
+    "severity": "HIGH"
+  },
+  {
+    "title": "Zhengzhou flood brings business to a halt",
+    "lang": "en",
+    "risk": "NATURAL_DISASTER",
+    "severity": "HIGH"
+  },
+  {
+    "title": "How Natural Disasters Expose Supply Chain Vulnerabilities",
+    "lang": "en",
+    "risk": "NATURAL_DISASTER",
+    "severity": "MEDIUM"
+  },
+  {
+    "title": "The Impact of Natural Disasters on Economy and Supply Chain — and How to Prepare for the Worst",
+    "lang": "en",
+    "risk": "NATURAL_DISASTER",
+    "severity": "HIGH"
+  },
+  {
+    "title": "News Flash flooding wreaks havoc at Port Klang, adding to berthing delays",
+    "lang": "en",
+    "risk": "NATURAL_DISASTER",
+    "severity": "HIGH"
+  },
+  {
+    "title": "Floods in Brazil’s Rio Grande do Sul state disrupt supply chain",
+    "lang": "en",
+    "risk": "NATURAL_DISASTER",
+    "severity": "MEDIUM"
+  },
+  {
+    "title": "Bangladesh garment industry short on cotton as floods worsen protest backlog",
+    "lang": "en",
+    "risk": "NATURAL_DISASTER",
+    "severity": "MEDIUM"
+  },
+  {
+    "title": "Japan quake: Tracking the status of fabs in wake of disaster",
+    "lang": "en",
+    "risk": "NATURAL_DISASTER",
+    "severity": "MEDIUM"
+  },
+  {
+    "title": "'사드 여파' 현대차 중국 공장 한곳 또 멈춰(종합)",
+    "lang": "ko",
+    "risk": "SUPPLIER",
+    "severity": "LOW"
+  },
+  {
+    "title": "기아 광주1·2·3공장 '협력사 사망 사고' 가동 중단..스포티지 등 생산 차질",
+    "lang": "ko",
+    "risk": "SUPPLIER",
+    "severity": "HIGH"
+  },
+  {
+    "title": "도요타車, '가동중단' 16개 완성차공장 사흘 뒤 전면조업 재개",
+    "lang": "ko",
+    "risk": "SUPPLIER",
+    "severity": "HIGH"
+  },
+  {
+    "title": "\"에이전트 AI 확산으로 공급 부족\"…폭락장에도 굳건한 반도체 낙관론",
+    "lang": "ko",
+    "risk": "SUPPLIER",
+    "severity": "MEDIUM"
+  },
+  {
+    "title": "'신종 코로나'...현대차 울산공장 멈췄다...中부품 공급 중단 탓",
+    "lang": "ko",
+    "risk": "SUPPLIER",
+    "severity": "MEDIUM"
+  },
+  {
+    "title": "현대차 공장 멈추니…수천 개 부품업체 도미노 휴업 위기",
+    "lang": "ko",
+    "risk": "SUPPLIER",
+    "severity": "MEDIUM"
+  },
+  {
+    "title": "대전 화재 불똥이 여기까지… 기아 모닝·레이, 4월 생산 중단 선언",
+    "lang": "ko",
+    "risk": "SUPPLIER",
+    "severity": "MEDIUM"
+  },
+  {
+    "title": "지프 체로키 생산 중단…부품업체와 분쟁 여파 확산",
+    "lang": "ko",
+    "risk": "SUPPLIER",
+    "severity": "MEDIUM"
+  },
+  {
+    "title": "Ford halts F-150 production at Dearborn plant after stamping issue",
+    "lang": "en",
+    "risk": "SUPPLIER",
+    "severity": "HIGH"
+  },
+  {
+    "title": "Chip shortage drives up PC prices as companies renegotiate contracts",
+    "lang": "en",
+    "risk": "SUPPLIER",
+    "severity": "HIGH"
+  },
+  {
+    "title": "HOCL Announces Temporary Phenol Plant Shutdown Following BPCL LPG Supply Halt",
+    "lang": "en",
+    "risk": "SUPPLIER",
+    "severity": "HIGH"
+  },
+  {
+    "title": "Chip Shortage Challenges Maker Manufacturers",
+    "lang": "en",
+    "risk": "SUPPLIER",
+    "severity": "HIGH"
+  },
+  {
+    "title": "Qatar helium shutdown adds new risk to chip supply chain",
+    "lang": "en",
+    "risk": "SUPPLIER",
+    "severity": "HIGH"
+  },
+  {
+    "title": "Nexperia China seeks new wafer suppliers amid legal standoff with Dutch parent, could take 6 months for qualification — chip shortages have suspended some automotive production lines as Nexperia faces wafer shortage",
+    "lang": "en",
+    "risk": "SUPPLIER",
+    "severity": "HIGH"
+  },
+  {
+    "title": "How to Keep the Automotive Chip Shortage From Happening Again",
+    "lang": "en",
+    "risk": "SUPPLIER",
+    "severity": "HIGH"
+  },
+  {
+    "title": "삼성전자, 작년 스마트폰도 가격 인상… 부품 공급망 덮친 AI·이란 전쟁",
+    "lang": "ko",
+    "risk": "FINANCIAL",
+    "severity": "LOW"
+  },
+  {
+    "title": "수출 기업들 ‘환율 안정’ 최우선 과제 꼽아…40% “가격 인하 압박받아”",
+    "lang": "ko",
+    "risk": "FINANCIAL",
+    "severity": "MEDIUM"
+  },
+  {
+    "title": "“가격 안 올리고 버틸 수 있을지”…식품업계, 고환율·원자재값 상승 직격탄",
+    "lang": "ko",
+    "risk": "FINANCIAL",
+    "severity": "MEDIUM"
+  },
+  {
+    "title": "외식물가 ‘줄인상’…밥값 공포 커진다",
+    "lang": "ko",
+    "risk": "FINANCIAL",
+    "severity": "LOW"
+  },
+  {
+    "title": "[선우윤호의 경제본색] 환율 1500원 돌파와 '고환율 고착화'...민생을 압박한다",
+    "lang": "ko",
+    "risk": "FINANCIAL",
+    "severity": "MEDIUM"
+  },
+  {
+    "title": "유가·반도체·원자재 모두 상승... 자동차 고비용 구조 점차 확대될 듯",
+    "lang": "ko",
+    "risk": "FINANCIAL",
+    "severity": "LOW"
+  },
+  {
+    "title": "F-35 Lot 18 ‘price increase’ due to inflation, rising raw material cost: Pentagon",
+    "lang": "en",
+    "risk": "FINANCIAL",
+    "severity": "LOW"
+  },
+  {
+    "title": "Hero MotoCorp to raise prices for third time in a year amid rising raw material inflation",
+    "lang": "en",
+    "risk": "FINANCIAL",
+    "severity": "LOW"
+  },
+  {
+    "title": "Hair oil, ACs, soaps become costlier: How FMCG companies are dealing with Middle East supply blow",
+    "lang": "en",
+    "risk": "FINANCIAL",
+    "severity": "LOW"
+  },
+  {
+    "title": "Effects of Inflation on Business: The Good and The Bad",
+    "lang": "en",
+    "risk": "FINANCIAL",
+    "severity": "MEDIUM"
+  },
+  {
+    "title": "Paint and materials costs increase over 22% since Q1 2022",
+    "lang": "en",
+    "risk": "FINANCIAL",
+    "severity": "LOW"
+  },
+  {
+    "title": "Dutch Lady monitoring price hike possibilities",
+    "lang": "en",
+    "risk": "FINANCIAL",
+    "severity": "LOW"
+  },
+  {
+    "title": "Facing inflation: lab heads tighten supplies budgets",
+    "lang": "en",
+    "risk": "FINANCIAL",
+    "severity": "LOW"
+  },
+  {
+    "title": "Commodity prices rise due to Middle East conflict: Coface",
+    "lang": "en",
+    "risk": "FINANCIAL",
+    "severity": "MEDIUM"
+  },
+  {
+    "title": "동방, 주가 급등…美 항만노조 대규모 파업예고에 '물류대란' 오나",
+    "lang": "ko",
+    "risk": "LABOR",
+    "severity": "HIGH"
+  },
+  {
+    "title": "삼성전자 노조 ‘5월 총파업’ 투표 돌입…‘중동 전쟁’ 위기 속, 생산 차질 현실화 하나",
+    "lang": "ko",
+    "risk": "LABOR",
+    "severity": "HIGH"
+  },
+  {
+    "title": "현대차·기아 부품운송노조 파업 돌입…\"車 생산 차질 가능성\"",
+    "lang": "ko",
+    "risk": "LABOR",
+    "severity": "MEDIUM"
+  },
+  {
+    "title": "벨기에 파업 여파, 앤트워프ㆍ제브뤼헤 항만 혼잡 장기화 우려",
+    "lang": "ko",
+    "risk": "LABOR",
+    "severity": "HIGH"
+  },
+  {
+    "title": "갑을오토텍 \"노조 파업으로 군 장갑차 부품공급 차질\"",
+    "lang": "ko",
+    "risk": "LABOR",
+    "severity": "HIGH"
+  },
+  {
+    "title": "‘빵 대란’ 때보다 더 풀기 어렵다…CU-화물연대 간 갈등, 쟁점은",
+    "lang": "ko",
+    "risk": "LABOR",
+    "severity": "HIGH"
+  },
+  {
+    "title": "GM Truck Production in Danger Due to UAW Union Strike",
+    "lang": "en",
+    "risk": "LABOR",
+    "severity": "HIGH"
+  },
+  {
+    "title": "7 things to know about the U.S. dockworkers strike and its effect on the economy",
+    "lang": "en",
+    "risk": "LABOR",
+    "severity": "HIGH"
+  },
+  {
+    "title": "CNH announces “tentative” plans to close Burlington, Iowa tractor plant nearly 2 years after UAW sellout of strike",
+    "lang": "en",
+    "risk": "LABOR",
+    "severity": "MEDIUM"
+  },
+  {
+    "title": "Samsung's Chennai Factory Worker's Strike Hits Production Of Consumer Durables",
+    "lang": "en",
+    "risk": "LABOR",
+    "severity": "HIGH"
+  },
+  {
+    "title": "Longshoremen’s strike nears, portending wide impact on goods",
+    "lang": "en",
+    "risk": "LABOR",
+    "severity": "MEDIUM"
+  },
+  {
+    "title": "Cummins engine and parts workers in Wisconsin and Indiana vote down concessions contracts",
+    "lang": "en",
+    "risk": "LABOR",
+    "severity": "LOW"
+  },
+  {
+    "title": "Boeing strike ends as union approves new contract",
+    "lang": "en",
+    "risk": "LABOR",
+    "severity": "MEDIUM"
+  },
+  {
+    "title": "삼성디스플레이 베트남 공장에 첫 코로나 확진자 발생",
+    "lang": "ko",
+    "risk": "PANDEMIC",
+    "severity": "LOW"
+  },
+  {
+    "title": "\"확진자 1주일 콜록했는데\"…밤잠 설친 LG화학 오창공장 직원들",
+    "lang": "ko",
+    "risk": "PANDEMIC",
+    "severity": "LOW"
+  },
+  {
+    "title": "삼성 구미 사업장 6번째 코로나 확진자 발생...\"건물 이틀간 폐쇄\"",
+    "lang": "ko",
+    "risk": "PANDEMIC",
+    "severity": "MEDIUM"
+  },
+  {
+    "title": "삼성ㆍ현대차ㆍSKㆍLG 등 줄줄이 재택근무 돌입",
+    "lang": "ko",
+    "risk": "PANDEMIC",
+    "severity": "LOW"
+  },
+  {
+    "title": "세계 최대 아이폰 공장 멈췄다…中 폐쇄에 애플 공급망 붕괴",
+    "lang": "ko",
+    "risk": "PANDEMIC",
+    "severity": "HIGH"
+  },
+  {
+    "title": "[단독] 귀뚜라미, 코로나로 일시폐쇄했던 청도공장 재가동",
+    "lang": "ko",
+    "risk": "PANDEMIC",
+    "severity": "HIGH"
+  },
+  {
+    "title": "Amazon Stockpiling Inventory Because of Coronavirus Risk",
+    "lang": "en",
+    "risk": "PANDEMIC",
+    "severity": "MEDIUM"
+  },
+  {
+    "title": "Myanmar Garment Factory Closes As COVID-19 Cuts Supplies",
+    "lang": "en",
+    "risk": "PANDEMIC",
+    "severity": "HIGH"
+  },
+  {
+    "title": "iPhone supply chain takes hit from China’s Covid-19-zero enforcers",
+    "lang": "en",
+    "risk": "PANDEMIC",
+    "severity": "MEDIUM"
+  },
+  {
+    "title": "From ports to rail yards, global supply lines struggle amid virus outbreaks in the developing world",
+    "lang": "en",
+    "risk": "PANDEMIC",
+    "severity": "MEDIUM"
+  },
+  {
+    "title": "6 charts show the effects of Vietnam’s lockdowns on supply chains",
+    "lang": "en",
+    "risk": "PANDEMIC",
+    "severity": "LOW"
+  },
+  {
+    "title": "Retailers’ Latest Headache: Shutdowns at Their Vietnamese Suppliers (Published 2021)",
+    "lang": "en",
+    "risk": "PANDEMIC",
+    "severity": "HIGH"
+  },
+  {
+    "title": "Virus Exposes Cracks in Carmakers’ Chinese Supply Chains (Published 2020)",
+    "lang": "en",
+    "risk": "PANDEMIC",
+    "severity": "MEDIUM"
+  },
+  {
+    "title": "Supply fears as China lockdown hits world’s largest iPhone factory",
+    "lang": "en",
+    "risk": "PANDEMIC",
+    "severity": "HIGH"
+  }
+]

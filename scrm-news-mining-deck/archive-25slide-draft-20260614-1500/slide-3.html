@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Slide 3 — Situation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@500;600;700;800&family=IBM+Plex+Sans+KR:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+  html,body{width:100%;height:100vh;background:#E4DFD3;overflow:hidden;position:relative;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;}
+  .stage{width:1920px;height:1080px;position:absolute;top:50%;left:50%;transform-origin:0 0;}
+  .slide{width:1920px;height:1080px;overflow:hidden;position:relative;border-radius:4px;box-shadow:0 20px 80px rgba(0,0,0,0.14);}
+  @media print{@page{size:1920px 1080px;margin:0;}html,body{width:1920px;height:1080px;background:transparent!important;overflow:hidden;-webkit-print-color-adjust:exact;print-color-adjust:exact;}.stage{position:static!important;top:0!important;left:0!important;transform:none!important;}.slide{box-shadow:none!important;border-radius:0!important;}*,*::before,*::after{-webkit-backdrop-filter:none!important;backdrop-filter:none!important;}}
+</style>
+<script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/@babel/standalone@7.24.7/babel.min.js"></script>
+<script type="text/babel" data-presets="react" src="components.js"></script>
+</head>
+<body>
+<div class="stage" id="stage"><div class="slide" id="slide-root"></div></div>
+<script type="text/babel" data-presets="react">
+(function(){
+const { SlideFrame, Eyebrow, SlideTitle, BodyText, PageNum, SectionTag, MetricTile, Callout, Card, C, TYPE_SCALE, SPACING, FONT_DISPLAY, FONT_SANS, FONT_MONO, SourceLine } = window;
+function Slide(){
+  return (
+    <SlideFrame>
+      <Eyebrow style={{marginLeft:0}}>03 · SITUATION — 기회의 크기</Eyebrow>
+      <SlideTitle style={{marginTop:SPACING.titleGap}}>공급망 충격은 이제 <span style={{color:C.accent}}>3.7년마다</span> 닥치는 '예산 항목'이며,<br/>10년간 이익의 45%를 갉아먹는다</SlideTitle>
+      <BodyText muted style={{marginTop:22}}>충격은 더 이상 천재지변이 아니라 구조적·반복적 비용이다. CFO에게 이것은 '리스크'가 아니라 매년 적립해야 할 '항목'에 가깝다 — 모두가 동의하는 출발점.</BodyText>
+
+      <div style={{position:"absolute",left:SPACING.paddingX,top:430,display:"flex",alignItems:"center",gap:90}}>
+        <MetricTile value="3.7" unit="년" label="마다 한 달 이상 지속되는 공급망 충격" sub="MCKINSEY · GLOBAL"/>
+        <div style={{width:1,height:240,background:C.rule}}/>
+        <div style={{display:"flex",flexDirection:"column",gap:18,maxWidth:620}}>
+          <Card tone="signal"><div style={{display:"flex",alignItems:"baseline",gap:14}}><span style={{fontFamily:FONT_DISPLAY,fontSize:64,fontWeight:800,color:C.accent,lineHeight:0.9}}>45%</span><span style={{fontFamily:FONT_SANS,fontSize:TYPE_SCALE.small,color:C.inkSoft}}>10년 누적 비용 ≈ 1년 이익의 절반</span></div></Card>
+          <Card tone="signal"><div style={{display:"flex",alignItems:"baseline",gap:14}}><span style={{fontFamily:FONT_DISPLAY,fontSize:64,fontWeight:800,color:C.accent,lineHeight:0.9}}>30%</span><span style={{fontFamily:FONT_SANS,fontSize:TYPE_SCALE.small,color:C.inkSoft}}>소비재는 1년 EBITDA의 약 30%를 소진</span></div></Card>
+        </div>
+      </div>
+
+      <Callout style={{position:"absolute",left:SPACING.paddingX,right:SPACING.paddingX,bottom:118,maxWidth:1560}}>천재지변이 아니라 예측·관리해야 할 항목 — 그렇다면 무엇으로 예측하는가?</Callout>
+      <SourceLine>McKinsey, “Future-proofing the supply chain”</SourceLine>
+      <PageNum n={3}/>
+    </SlideFrame>
+  );
+}
+ReactDOM.createRoot(document.getElementById('slide-root')).render(<Slide/>);
+requestAnimationFrame(()=>document.body.setAttribute('data-slide-ready','1'));
+})();
+</script>
+<script>
+function scaleSlide(){const s=document.getElementById('stage');if(!s)return;const sc=Math.min(innerWidth/1920,innerHeight/1080)*0.96;s.style.transform=`translate(${-1920*sc/2}px,${-1080*sc/2}px) scale(${sc})`;}
+addEventListener('resize',scaleSlide);addEventListener('load',scaleSlide);scaleSlide();
+</script>
+<!-- notes: McKinsey 앵커. 충격=구조적 반복 비용. 3.7년/45%/30%로 '예산 항목' 프레임. 다음: 빈도가 지금 급증. -->
+</body>
+</html>

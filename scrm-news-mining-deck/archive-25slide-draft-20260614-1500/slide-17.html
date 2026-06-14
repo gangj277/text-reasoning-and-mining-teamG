@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Slide 17 — RESOLUTION — Finding 1</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@500;600;700;800&family=IBM+Plex+Sans+KR:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+  html,body{width:100%;height:100vh;background:#E4DFD3;overflow:hidden;position:relative;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;}
+  .stage{width:1920px;height:1080px;position:absolute;top:50%;left:50%;transform-origin:0 0;}
+  .slide{width:1920px;height:1080px;overflow:hidden;position:relative;border-radius:4px;box-shadow:0 20px 80px rgba(0,0,0,0.14);}
+  table.tbl{width:100%;border-collapse:collapse;} table.tbl td,table.tbl th{padding:14px 18px;text-align:left;vertical-align:middle;border-bottom:1px solid rgba(31,39,48,0.12);}
+  @media print{@page{size:1920px 1080px;margin:0;}html,body{width:1920px;height:1080px;background:transparent!important;overflow:hidden;-webkit-print-color-adjust:exact;print-color-adjust:exact;}.stage{position:static!important;top:0!important;left:0!important;transform:none!important;}.slide{box-shadow:none!important;border-radius:0!important;}*,*::before,*::after{-webkit-backdrop-filter:none!important;backdrop-filter:none!important;}}
+</style>
+<script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/@babel/standalone@7.24.7/babel.min.js"></script>
+<script type="text/babel" data-presets="react" src="components.js"></script>
+</head>
+<body>
+<div class="stage" id="stage"><div class="slide" id="slide-root"></div></div>
+<script type="text/babel" data-presets="react">
+(function(){
+const { SlideFrame, Eyebrow, SlideTitle, BodyText, PageNum, ComparisonColumn, Callout, C, TYPE_SCALE, SPACING, FONT_DISPLAY, FONT_SANS, FONT_MONO, SourceLine } = window;
+function Slide(){
+  return (
+    <SlideFrame>
+      <Eyebrow style={{marginLeft:0}}>17 · RESOLUTION — 발견 1 · 정직한 음성 결과</Eyebrow>
+      <SlideTitle style={{marginTop:SPACING.titleGap}}>발견 1: 한·영을 합친 LDA는 '리스크'가 아니라 <span style={{color:C.fake}}>'언어'를 발견</span>한다 (86%)</SlideTitle>
+      <BodyText muted style={{marginTop:20}}>정직한 음성 결과 — 다국어 BoW LDA의 알려진 한계를 정량으로 규명하고, 언어 계층화로 해결했다.</BodyText>
+
+      <div style={{position:"absolute",left:SPACING.paddingX,right:SPACING.paddingX,top:404,display:"flex",alignItems:"stretch",gap:38}}>
+        <div style={{flex:"1 1 0",display:"flex"}}>
+          <ComparisonColumn
+            tone="fake"
+            tag="NAIVE · 통합 LDA"
+            title="한·영 corpus를 한 번에"
+            items={[
+              "K=6에서 c_v 0.42 — 수치만 보면 그럴듯한 응집도를 낸다.",
+              "그러나 토픽의 86%가 단일 언어로 분리된다.",
+              "두 언어가 어휘를 공유하지 않아, 모델은 리스크 유형보다 언어 경계로 먼저 쪼갠다.",
+              "결과적으로 '발견'된 것은 위험 신호가 아니라 한국어 vs 영어다.",
+            ]}
+          />
+        </div>
+
+        <div style={{flex:"0 0 320px",display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center",gap:6}}>
+          <div style={{fontFamily:FONT_MONO,fontSize:TYPE_SCALE.label,color:C.fake,letterSpacing:"0.18em",textTransform:"uppercase"}}>토픽의</div>
+          <div style={{fontFamily:FONT_DISPLAY,fontSize:172,fontWeight:800,color:C.fake,lineHeight:0.86,letterSpacing:"-0.03em",textDecoration:"line-through",textDecorationThickness:6}}>86%</div>
+          <div style={{fontFamily:FONT_SANS,fontSize:TYPE_SCALE.body,fontWeight:600,color:C.ink,textAlign:"center",lineHeight:1.3,marginTop:4}}>리스크가 아닌<br/><span style={{color:C.fake}}>언어 경계</span>로 분리</div>
+          <div style={{fontFamily:FONT_MONO,fontSize:34,color:C.inkMuted,marginTop:16}}>↓ 계층화</div>
+        </div>
+
+        <div style={{flex:"1 1 0",display:"flex"}}>
+          <ComparisonColumn
+            tone="real"
+            tag="STRATIFIED · 언어별 LDA"
+            title="언어를 먼저 나누고 학습"
+            items={[
+              "한국어 5/7 · 영어 4/7 리스크 유형을 실제로 복원했다.",
+              "금융 토픽은 가장 선명하게 분리되어, 유형별 vocabulary가 보조 탐색 신호로 유효함을 보였다.",
+              "'공장' 등 다유형 공통어에서는 여전히 일부 혼재가 남는다.",
+              "비지도 발견을 지도 분류의 보조 탐색 도구로 정직하게 재배치.",
+            ]}
+          />
+        </div>
+      </div>
+
+      <Callout tone="signal" style={{position:"absolute",left:SPACING.paddingX,right:SPACING.paddingX,bottom:116,maxWidth:1720}}>비지도 토픽 발견은 지도 분류의 보조 탐색 도구로 유효하다 — 단독 신호원이 아니라 가설 생성기다.</Callout>
+      <SourceLine>본 연구 rq1_lda.json</SourceLine>
+      <PageNum n={17}/>
+    </SlideFrame>
+  );
+}
+ReactDOM.createRoot(document.getElementById('slide-root')).render(<Slide/>);
+requestAnimationFrame(()=>document.body.setAttribute('data-slide-ready','1'));
+})();
+</script>
+<script>
+function scaleSlide(){const s=document.getElementById('stage');if(!s)return;const sc=Math.min(innerWidth/1920,innerHeight/1080)*0.96;s.style.transform=`translate(${-1920*sc/2}px,${-1080*sc/2}px) scale(${sc})`;}
+addEventListener('resize',scaleSlide);addEventListener('load',scaleSlide);scaleSlide();
+</script>
+<!-- notes: 발견1=정직한 음성결과. 통합 LDA의 86%는 언어경계 발견(artifact, 취소선). 언어 stratified로 한 5/7·영 4/7 복원. 비지도는 지도분류 보조탐색 도구로 유효. 출처 rq1_lda.json. -->
+</body>
+</html>

@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>공급망 시그널 — Team G</title>
+    <style>:root{--accent:#E8A13A}</style>
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html, body {
+            width: 100%; height: 100%;
+            overflow: hidden;
+            background: #E4DFD3;
+            font-family: system-ui, -apple-system, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            color: #ddd;
+        }
+
+        .viewer {
+            width: 100vw; height: 100vh;
+            position: relative;
+            overflow: hidden;
+            user-select: none;
+        }
+
+        /* === Slide Stage (iframe-per-slide model) ===
+         * Each slide lives in its own <iframe> so React + Babel can execute
+         * in isolation. The iframe fills the viewport; the slide-template.html
+         * inside does its own scale-to-fit. */
+        .slide-frame {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            border: 0;
+            background: transparent;
+            opacity: 0;
+            transition: opacity 0.35s ease;
+            pointer-events: none;
+        }
+        .slide-frame.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        /* Image-mode (nano-banana-art) slides use plain <img>, not iframe. */
+        .slide-image {
+            position: absolute;
+            top: 50%; left: 50%;
+            width: min(100vw, calc(100vh * 16 / 9));
+            height: auto;
+            aspect-ratio: 16 / 9;
+            transform: translate(-50%, -50%);
+            object-fit: contain;
+            opacity: 0;
+            transition: opacity 0.35s ease;
+            pointer-events: none;
+            background: #000;
+        }
+        .slide-image.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        /* === Loading State === */
+        .loading-msg {
+            position: fixed; inset: 0;
+            display: flex; align-items: center; justify-content: center;
+            color: rgba(255,255,255,0.4);
+            font-size: 15px;
+            letter-spacing: 0.1em;
+            font-family: system-ui, sans-serif;
+            z-index: 9999;
+        }
+        .loading-msg.hidden { display: none; }
+
+        /* === Progress Bar === */
+        .progress {
+            position: fixed; top: 0; left: 0;
+            height: 3px;
+            background: var(--accent, #3b82f6);
+            transition: width 0.3s ease;
+            z-index: 1001;
+        }
+
+        /* === Controls === */
+        .controls {
+            position: fixed; bottom: 24px; left: 50%;
+            transform: translateX(-50%);
+            display: flex; align-items: center; gap: 12px;
+            background: rgba(20, 20, 20, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 8px 20px;
+            border-radius: 40px;
+            border: 1px solid rgba(255,255,255,0.08);
+            z-index: 1000;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .viewer:hover .controls,
+        .controls:focus-within { opacity: 1; }
+
+        .controls button {
+            background: none; border: none;
+            color: rgba(255,255,255,0.7);
+            cursor: pointer; font-size: 16px;
+            padding: 6px 10px; border-radius: 6px;
+            transition: all 0.2s ease;
+            display: flex; align-items: center; justify-content: center;
+        }
+        .controls button:hover {
+            color: #fff;
+            background: rgba(255,255,255,0.1);
+        }
+
+        .counter {
+            color: rgba(255,255,255,0.5);
+            font-size: 13px;
+            font-variant-numeric: tabular-nums;
+            min-width: 50px;
+            text-align: center;
+        }
+
+        .divider {
+            width: 1px; height: 20px;
+            background: rgba(255,255,255,0.12);
+        }
+
+        /* === Keyboard Hints === */
+        .hints {
+            position: fixed; bottom: 80px; left: 50%;
+            transform: translateX(-50%);
+            color: rgba(255,255,255,0.4);
+            font-size: 12px;
+            text-align: center;
+            z-index: 999;
+            opacity: 1;
+            transition: opacity 1s ease;
+        }
+        .hints.hidden { opacity: 0; pointer-events: none; }
+        .hints kbd {
+            display: inline-block;
+            padding: 2px 6px;
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 3px;
+            font-family: inherit;
+            font-size: 11px;
+            margin: 0 2px;
+        }
+
+        /* === Slide Overview Grid === */
+        .grid-overlay {
+            position: fixed; inset: 0;
+            background: rgba(5, 5, 10, 0.95);
+            z-index: 2000;
+            display: none;
+            overflow-y: auto;
+            padding: 40px;
+        }
+        .grid-overlay.active { display: block; }
+        .grid-overlay .grid-header {
+            display: flex; align-items: center; justify-content: space-between;
+            margin-bottom: 32px;
+        }
+        .grid-overlay .grid-title {
+            color: rgba(255,255,255,0.5);
+            font-size: 14px;
+            letter-spacing: 0.08em;
+            font-family: system-ui, sans-serif;
+        }
+        .grid-overlay .grid-close {
+            background: none; border: 1px solid rgba(255,255,255,0.15);
+            color: rgba(255,255,255,0.5);
+            padding: 6px 14px; border-radius: 6px;
+            cursor: pointer; font-size: 12px;
+            font-family: system-ui, sans-serif;
+            transition: all 0.2s;
+        }
+        .grid-overlay .grid-close:hover {
+            color: #fff; border-color: rgba(255,255,255,0.3);
+        }
+        .grid-wrap {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 24px;
+        }
+        .grid-thumb {
+            position: relative;
+            aspect-ratio: 16 / 9;
+            border-radius: 6px;
+            overflow: hidden;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: all 0.2s ease;
+            background: #111;
+        }
+        .grid-thumb:hover {
+            border-color: var(--accent, #3b82f6);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+        }
+        .grid-thumb.current {
+            border-color: var(--accent, #3b82f6);
+        }
+        .grid-thumb iframe,
+        .grid-thumb img {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+            pointer-events: none;
+            object-fit: contain;
+            background: #000;
+        }
+        .grid-thumb-label {
+            position: absolute; bottom: 0; left: 0; right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.85));
+            padding: 20px 12px 8px;
+            color: rgba(255,255,255,0.6);
+            font-size: 12px;
+            font-family: system-ui, sans-serif;
+            font-variant-numeric: tabular-nums;
+        }
+        /* Click-capture layer on top of iframe thumbnails */
+        .grid-thumb-click {
+            position: absolute; inset: 0;
+            z-index: 2;
+        }
+    </style>
+</head>
+<body>
+    <div class="loading-msg" id="loadingMsg">LOADING DECK...</div>
+
+    <!-- Slide Overview Grid -->
+    <div class="grid-overlay" id="gridOverlay">
+        <div class="grid-header">
+            <span class="grid-title">SLIDE OVERVIEW</span>
+            <button class="grid-close" onclick="toggleGrid()">Close <kbd>G</kbd></button>
+        </div>
+        <div class="grid-wrap" id="gridWrap"></div>
+    </div>
+
+    <div class="viewer" id="viewer">
+        <div class="progress" id="progress"></div>
+
+        <div class="slide-stage" id="slideStage">
+            <!-- Slides are created dynamically (iframes or images). -->
+        </div>
+
+        <div class="controls">
+            <button onclick="prevSlide()" aria-label="Previous slide" title="Previous (Left Arrow)">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+            </button>
+            <span class="counter">
+                <span id="current">1</span> / <span id="total">1</span>
+            </span>
+            <button onclick="nextSlide()" aria-label="Next slide" title="Next (Right Arrow)">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+            </button>
+            <span class="divider"></span>
+            <button onclick="toggleFullscreen()" aria-label="Fullscreen" title="Fullscreen (F)">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3H5a2 2 0 00-2 2v3m18 0V5a2 2 0 00-2-2h-3m0 18h3a2 2 0 002-2v-3M3 16v3a2 2 0 002 2h3"/></svg>
+            </button>
+            <button id="pdfBtn" onclick="exportPDF()" aria-label="Export PDF" title="Export PDF (P)">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg>
+            </button>
+            <span class="divider"></span>
+            <button onclick="toggleGrid()" aria-label="Slide Overview" title="Slide Overview (G)">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+            </button>
+            <button onclick="openPresenter()" aria-label="Presenter Mode" title="Presenter Mode (S)">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+            </button>
+        </div>
+
+        <div class="hints" id="hints">
+            <kbd>&larr;</kbd> <kbd>&rarr;</kbd> navigate
+            &nbsp;&middot;&nbsp;
+            <kbd>F</kbd> fullscreen
+            <span id="pdfHint">
+                &nbsp;&middot;&nbsp;
+                <kbd>P</kbd> export PDF
+            </span>
+            &nbsp;&middot;&nbsp;
+            <kbd>G</kbd> overview
+            &nbsp;&middot;&nbsp;
+            <kbd>S</kbd> presenter
+        </div>
+    </div>
+
+    <script>
+        /* === Deck Config === */
+        const DECK_MODE = 'html-system';   // 'html-system' or 'nano-banana-art'
+        const SLIDE_ITEMS = [{ src: "slide-1.html", label: "01 · Cover" },
+            { src: "slide-2.html", label: "02 · Executive Summary" },
+            { src: "slide-3.html", label: "03 · Why News · 선행 신호" },
+            { src: "slide-4.html", label: "04 · Problem · 읽기 병목" },
+            { src: "slide-5.html", label: "05 · Method · 가설" },
+            { src: "slide-6.html", label: "06 · Method · open-set gold" },
+            { src: "slide-7.html", label: "07 · Method · 데이터 역할" },
+            { src: "slide-8.html", label: "08 · Method · 알고리즘" },
+            { src: "slide-9.html", label: "09 · Method · KPI gate" },
+            { src: "slide-10.html", label: "10 · Result · baseline gap" },
+            { src: "slide-11.html", label: "11 · Result · final engine" },
+            { src: "slide-12.html", label: "12 · Contribution" },
+            { src: "slide-13.html", label: "13 · Verdict · gate pass" },
+            { src: "slide-14.html", label: "14 · Closing" }];
+
+        const stage = document.getElementById('slideStage');
+        let current = 0;
+        let total = SLIDE_ITEMS.length;
+        let slideEls = [];           // Rendered <iframe> or <img> per slide
+        let slideNotes = [];         // Speaker notes per slide (from SLIDE_ITEMS.notes or fetched HTML comments)
+        let presenterWin = null;
+
+        document.getElementById('total').textContent = total;
+        if (DECK_MODE === 'nano-banana-art') {
+            document.getElementById('pdfBtn').style.display = 'none';
+            const pdfHint = document.getElementById('pdfHint');
+            if (pdfHint) pdfHint.style.display = 'none';
+        }
+
+        /* === Extract speaker notes from fetched HTML === */
+        function extractNotesFromHTML(html) {
+            const m = html.match(/<!--\s*notes:\s*([\s\S]*?)\s*-->/i);
+            return m ? m[1].trim() : '';
+        }
+
+        function normalizeItem(item, idx) {
+            if (typeof item === 'string') {
+                return {
+                    type: DECK_MODE === 'nano-banana-art' ? 'image' : 'html',
+                    src: item,
+                    label: 'Slide ' + (idx + 1),
+                    notes: '',
+                };
+            }
+            return {
+                type: item.type || (DECK_MODE === 'nano-banana-art' ? 'image' : 'html'),
+                src: item.src,
+                label: item.label || ('Slide ' + (idx + 1)),
+                notes: item.notes || '',
+            };
+        }
+
+        async function buildSlides() {
+            const items = SLIDE_ITEMS.map(normalizeItem);
+
+            // Pre-fetch HTML for note extraction (only html-type slides).
+            // Don't block first render on this — fetch in parallel but
+            // resolve notes cache lazily.
+            const notesPromises = items.map(async (item) => {
+                if (item.notes) return item.notes;
+                if (item.type !== 'html') return '';
+                try {
+                    const r = await fetch(item.src);
+                    const txt = await r.text();
+                    return extractNotesFromHTML(txt);
+                } catch (_) { return ''; }
+            });
+
+            // Create slide elements (iframes for html, img for image).
+            items.forEach((item, idx) => {
+                let el;
+                if (item.type === 'image') {
+                    el = document.createElement('img');
+                    el.className = 'slide-image';
+                    el.src = item.src;
+                    el.alt = item.label;
+                } else {
+                    el = document.createElement('iframe');
+                    el.className = 'slide-frame';
+                    el.setAttribute('loading', idx === 0 ? 'eager' : 'lazy');
+                    // Only load the first slide immediately. Others load on demand
+                    // via showSlide(). This keeps startup fast with many slides.
+                    if (idx === 0) el.src = item.src;
+                    else el.dataset.src = item.src;
+                    el.setAttribute('title', item.label);
+                }
+                stage.appendChild(el);
+                slideEls.push(el);
+            });
+
+            // Mark first active.
+            if (slideEls.length > 0) {
+                slideEls[0].classList.add('active');
+                document.getElementById('progress').style.width = (1 / total * 100) + '%';
+            }
+            document.getElementById('loadingMsg').classList.add('hidden');
+
+            // Resolve notes in background.
+            slideNotes = await Promise.all(notesPromises);
+        }
+
+        /* === Slide Navigation === */
+        function showSlide(n) {
+            if (slideEls.length === 0) return;
+            slideEls[current].classList.remove('active');
+            current = ((n % total) + total) % total;
+            const next = slideEls[current];
+
+            // Lazy-load iframe src on first visit.
+            if (next.tagName === 'IFRAME' && !next.src && next.dataset.src) {
+                next.src = next.dataset.src;
+            }
+            next.classList.add('active');
+
+            document.getElementById('current').textContent = current + 1;
+            document.getElementById('progress').style.width =
+                ((current + 1) / total * 100) + '%';
+
+            // Pre-warm the next slide so the transition feels instant.
+            const nextIdx = (current + 1) % total;
+            const nextEl = slideEls[nextIdx];
+            if (nextEl && nextEl.tagName === 'IFRAME' && !nextEl.src && nextEl.dataset.src) {
+                nextEl.src = nextEl.dataset.src;
+            }
+
+            syncPresenter();
+        }
+
+        function nextSlide() { showSlide(current + 1); }
+        function prevSlide() { showSlide(current - 1); }
+
+        function toggleFullscreen() {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen();
+            } else {
+                document.exitFullscreen();
+            }
+        }
+
+        /* === PDF Export === */
+        function exportPDF() {
+            const a = document.createElement('a');
+            a.href = 'deck-export.pdf';
+            a.download = 'deck-export.pdf';
+            a.click();
+        }
+
+        /* === Slide Overview Grid === */
+        function toggleGrid() {
+            const overlay = document.getElementById('gridOverlay');
+            const isActive = overlay.classList.toggle('active');
+            if (isActive) buildGrid();
+        }
+
+        function buildGrid() {
+            const wrap = document.getElementById('gridWrap');
+            wrap.innerHTML = '';
+            const items = SLIDE_ITEMS.map(normalizeItem);
+            items.forEach((item, idx) => {
+                const thumb = document.createElement('div');
+                thumb.className = 'grid-thumb' + (idx === current ? ' current' : '');
+                thumb.onclick = () => { showSlide(idx); toggleGrid(); };
+
+                if (item.type === 'image') {
+                    const img = document.createElement('img');
+                    img.src = item.src;
+                    img.alt = item.label;
+                    thumb.appendChild(img);
+                } else {
+                    const f = document.createElement('iframe');
+                    f.src = item.src;
+                    f.setAttribute('loading', 'lazy');
+                    f.setAttribute('aria-hidden', 'true');
+                    thumb.appendChild(f);
+                    // Click-capture layer (iframes intercept pointer events otherwise)
+                    const hit = document.createElement('div');
+                    hit.className = 'grid-thumb-click';
+                    thumb.appendChild(hit);
+                }
+
+                const label = document.createElement('div');
+                label.className = 'grid-thumb-label';
+                label.textContent = item.label;
+                thumb.appendChild(label);
+
+                wrap.appendChild(thumb);
+            });
+        }
+
+        /* === Presenter Mode === */
+        function openPresenter() {
+            if (presenterWin && !presenterWin.closed) { presenterWin.focus(); return; }
+            presenterWin = window.open('', 'presenter', 'width=1280,height=800');
+            if (!presenterWin) { alert('Please allow popups for presenter mode.'); return; }
+
+            const items = SLIDE_ITEMS.map(normalizeItem);
+            presenterWin.document.write(`<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><title>Presenter View</title>
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { width: 100%; height: 100%; background: #111; color: #ddd;
+  font-family: system-ui, -apple-system, sans-serif; overflow: hidden; }
+.p-layout { display: grid; width: 100%; height: 100%;
+  grid-template-columns: 1fr 360px; grid-template-rows: 1fr auto; }
+.p-current { position: relative; overflow: hidden; background: #E4DFD3;
+  border-right: 1px solid #222; }
+.p-current iframe, .p-current img {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  border: 0; object-fit: contain; background: #000; }
+.p-sidebar { display: flex; flex-direction: column; border-left: 1px solid #222; }
+.p-next { position: relative; overflow: hidden; background: #0d0d0d;
+  height: 210px; border-bottom: 1px solid #222; flex-shrink: 0; }
+.p-next iframe, .p-next img {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  border: 0; object-fit: contain; background: #000; }
+.p-next-label { position: absolute; top: 8px; left: 12px;
+  font-size: 10px; color: rgba(255,255,255,0.3);
+  letter-spacing: 0.1em; text-transform: uppercase; z-index: 2; }
+.p-notes { flex: 1; overflow-y: auto; padding: 20px; background: #1a1a1a; }
+.p-notes-header { font-size: 10px; color: rgba(255,255,255,0.3);
+  letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 12px; }
+.p-notes-content { font-size: 16px; line-height: 1.6;
+  color: rgba(255,255,255,0.8); white-space: pre-wrap; }
+.p-notes-empty { color: rgba(255,255,255,0.2); font-style: italic; font-size: 14px; }
+.p-bar { grid-column: 1 / -1; display: flex; align-items: center;
+  justify-content: space-between; padding: 10px 20px; background: #E4DFD3;
+  border-top: 1px solid #222; }
+.p-counter { color: rgba(255,255,255,0.5); font-size: 14px;
+  font-variant-numeric: tabular-nums; }
+.p-timer { font-size: 28px; font-weight: 600; color: rgba(255,255,255,0.7);
+  font-variant-numeric: tabular-nums; letter-spacing: 0.02em; }
+.p-controls { display: flex; gap: 8px; }
+.p-controls button { background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.12); color: rgba(255,255,255,0.6);
+  padding: 6px 14px; border-radius: 6px; cursor: pointer; font-size: 12px;
+  font-family: inherit; transition: all 0.15s; }
+.p-controls button:hover { background: rgba(255,255,255,0.15); color: #fff; }
+</style></head><body>
+<div class="p-layout">
+  <div class="p-current" id="pCurrent"></div>
+  <div class="p-sidebar">
+    <div class="p-next">
+      <span class="p-next-label">NEXT</span>
+      <div id="pNext" style="position:absolute;inset:0;"></div>
+    </div>
+    <div class="p-notes">
+      <div class="p-notes-header">SPEAKER NOTES</div>
+      <div class="p-notes-content" id="pNotes"></div>
+    </div>
+  </div>
+  <div class="p-bar">
+    <span class="p-counter"><span id="pCurrentNum">1</span> / <span id="pTotal">1</span></span>
+    <span class="p-timer" id="pTimer">00:00</span>
+    <span class="p-controls">
+      <button onclick="window.opener.prevSlide()">&#9664; Prev</button>
+      <button onclick="window.opener.nextSlide()">Next &#9654;</button>
+      <button id="pTimerBtn" onclick="toggleTimer()">Reset Timer</button>
+    </span>
+  </div>
+</div>
+<script>
+let timerStart = Date.now();
+setInterval(() => {
+  const s = Math.floor((Date.now() - timerStart) / 1000);
+  document.getElementById('pTimer').textContent =
+    String(Math.floor(s/60)).padStart(2,'0') + ':' + String(s%60).padStart(2,'0');
+}, 1000);
+function toggleTimer() { timerStart = Date.now(); }
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'ArrowRight' || e.key === ' ') window.opener.nextSlide();
+  else if (e.key === 'ArrowLeft') window.opener.prevSlide();
+});
+<\/script></body></html>`);
+            presenterWin.document.close();
+            presenterWin.document.getElementById('pTotal').textContent = total;
+            syncPresenter();
+        }
+
+        function syncPresenter() {
+            if (!presenterWin || presenterWin.closed) return;
+            const doc = presenterWin.document;
+            if (!doc.getElementById('pCurrent')) return;
+
+            const items = SLIDE_ITEMS.map(normalizeItem);
+            const cur = items[current];
+            const nxt = items[(current + 1) % total];
+
+            function fill(host, item) {
+                host.innerHTML = '';
+                let el;
+                if (item.type === 'image') {
+                    el = doc.createElement('img');
+                    el.src = item.src;
+                } else {
+                    el = doc.createElement('iframe');
+                    el.src = item.src;
+                }
+                host.appendChild(el);
+            }
+
+            fill(doc.getElementById('pCurrent'), cur);
+            fill(doc.getElementById('pNext'), nxt);
+
+            doc.getElementById('pCurrentNum').textContent = current + 1;
+            const notesEl = doc.getElementById('pNotes');
+            const n = slideNotes[current] || '';
+            if (n) { notesEl.textContent = n; notesEl.classList.remove('p-notes-empty'); }
+            else { notesEl.textContent = 'No speaker notes for this slide'; notesEl.classList.add('p-notes-empty'); }
+        }
+
+        /* === Keyboard Shortcuts === */
+        document.addEventListener('keydown', (e) => {
+            if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+            switch (e.key) {
+                case 'ArrowRight':
+                case ' ':
+                    e.preventDefault(); nextSlide(); break;
+                case 'ArrowLeft':
+                    e.preventDefault(); prevSlide(); break;
+                case 'Home':
+                    e.preventDefault(); showSlide(0); break;
+                case 'End':
+                    e.preventDefault(); showSlide(total - 1); break;
+                case 'f':
+                case 'F':
+                    toggleFullscreen(); break;
+                case 'p':
+                case 'P':
+                    if (DECK_MODE !== 'nano-banana-art') exportPDF(); break;
+                case 'g':
+                case 'G':
+                    toggleGrid(); break;
+                case 's':
+                case 'S':
+                    openPresenter(); break;
+                case 'Escape': {
+                    const overlay = document.getElementById('gridOverlay');
+                    if (overlay.classList.contains('active')) overlay.classList.remove('active');
+                    break;
+                }
+            }
+        });
+
+        /* === Hide hints after 4s === */
+        setTimeout(() => {
+            document.getElementById('hints').classList.add('hidden');
+        }, 4000);
+
+        /* === Init === */
+        buildSlides();
+    </script>
+</body>
+</html>

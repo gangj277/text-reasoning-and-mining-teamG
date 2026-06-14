@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Slide 19 — RESOLUTION — method</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@500;600;700;800&family=IBM+Plex+Sans+KR:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+  html,body{width:100%;height:100vh;background:#E4DFD3;overflow:hidden;position:relative;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;}
+  .stage{width:1920px;height:1080px;position:absolute;top:50%;left:50%;transform-origin:0 0;}
+  .slide{width:1920px;height:1080px;overflow:hidden;position:relative;border-radius:4px;box-shadow:0 20px 80px rgba(0,0,0,0.14);}
+  table.tbl{width:100%;border-collapse:collapse;} table.tbl td,table.tbl th{padding:14px 18px;text-align:left;vertical-align:middle;border-bottom:1px solid rgba(31,39,48,0.12);}
+  @media print{@page{size:1920px 1080px;margin:0;}html,body{width:1920px;height:1080px;background:transparent!important;overflow:hidden;-webkit-print-color-adjust:exact;print-color-adjust:exact;}.stage{position:static!important;top:0!important;left:0!important;transform:none!important;}.slide{box-shadow:none!important;border-radius:0!important;}*,*::before,*::after{-webkit-backdrop-filter:none!important;backdrop-filter:none!important;}}
+</style>
+<script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/@babel/standalone@7.24.7/babel.min.js"></script>
+<script type="text/babel" data-presets="react" src="components.js"></script>
+</head>
+<body>
+<div class="stage" id="stage"><div class="slide" id="slide-root"></div></div>
+<script type="text/babel" data-presets="react">
+(function(){
+const { SlideFrame, Eyebrow, SlideTitle, BodyText, PageNum, Callout, ProcessRow, MetricTile, C, TYPE_SCALE, SPACING, FONT_DISPLAY, FONT_SANS, FONT_MONO, SourceLine } = window;
+const STEPS = [
+  {t:"중립질의 수집",d:"'공급망' 일반질의 700건 — 라벨이 질의로 결정되지 않아 순환의 입구를 봉쇄"},
+  {t:"3인 독립 평정",d:"주메커니즘 · 근본원인 · 리스크관리자 — 서로 다른 관점이 한 문서를 교차 검증"},
+  {t:"risk-only gold",d:"OTHER를 제외한 합의 위험 217건 — 합성 전이와 closed-set 착시를 검증"},
+  {t:"open-set gold",d:"OTHER 482건까지 포함한 699건 — 실제 triage와 최종 엔진 gate 평가"},
+];
+function Slide(){
+  return (
+    <SlideFrame>
+      <Eyebrow style={{marginLeft:0}}>19 · RESOLUTION — 정직한 시험의 설계</Eyebrow>
+      <SlideTitle style={{marginTop:SPACING.titleGap}}>정직한 시험을 위해, 모델이 <span style={{color:C.real}}>외울 수 없는 label-blind 골드</span>를<br/>만들었다 — 그리고 OTHER를 되살렸다</SlideTitle>
+      <BodyText muted style={{marginTop:20}}>같은 3인 패널 라벨에서 두 검증셋을 만들었다. 217건 risk-only는 closed-set 전이를 점검하고, 699건 open-set은 실제 triage 엔진을 검증한다.</BodyText>
+
+      <div style={{position:"absolute",left:SPACING.paddingX,top:412,right:SPACING.paddingX,display:"flex",alignItems:"stretch",gap:64}}>
+        <div style={{flex:"1 1 0",minWidth:0}}>
+          <div style={{fontFamily:FONT_MONO,fontSize:TYPE_SCALE.label,color:C.accent,letterSpacing:"0.16em",textTransform:"uppercase",marginBottom:18}}>구축 절차 · LABEL-BLIND GOLD</div>
+          <ProcessRow steps={STEPS}/>
+          <div style={{marginTop:22,display:"flex",alignItems:"center",gap:16,paddingLeft:2}}>
+            <span style={{fontFamily:FONT_MONO,fontSize:TYPE_SCALE.label,color:C.inkMuted,letterSpacing:"0.1em"}}>700건 질의</span>
+            <span style={{fontFamily:FONT_MONO,fontSize:20,color:C.inkMuted}}>→</span>
+            <span style={{fontFamily:FONT_MONO,fontSize:TYPE_SCALE.label,color:C.inkMuted,letterSpacing:"0.1em"}}>3인 독립 평정</span>
+            <span style={{fontFamily:FONT_MONO,fontSize:20,color:C.inkMuted}}>→</span>
+            <span style={{fontFamily:FONT_MONO,fontSize:TYPE_SCALE.label,color:C.real,letterSpacing:"0.1em"}}>risk 217 + OTHER 482 = open-set 699</span>
+          </div>
+        </div>
+
+        <div style={{width:1,background:C.rule,flex:"0 0 auto"}}/>
+
+        <div style={{flex:"0 0 470px",display:"flex",flexDirection:"column",justifyContent:"center",borderLeft:`3px solid ${C.real}`,background:C.realSoft,borderRadius:"0 10px 10px 0",padding:"30px 36px"}}>
+          <div style={{fontFamily:FONT_MONO,fontSize:TYPE_SCALE.label,color:C.real,letterSpacing:"0.16em",textTransform:"uppercase",marginBottom:14}}>평정자 간 신뢰도</div>
+          <MetricTile value="0.84" label="Fleiss κ — 높은 라벨 합의" sub="risk-only n=217 · open-set n=699" tone="real"/>
+          <div style={{marginTop:22,fontFamily:FONT_SANS,fontSize:TYPE_SCALE.small,color:C.inkSoft,lineHeight:1.46,borderTop:`1px solid ${C.rule}`,paddingTop:18}}>세 평정자가 거의 같은 판정에 도달했다는 것은, 골드가 한 사람의 주관이 아니라 <span style={{color:C.real,fontWeight:600}}>공유된 기준</span>임을 뜻한다.</div>
+        </div>
+      </div>
+
+      <Callout tone="real" style={{position:"absolute",left:SPACING.paddingX,right:SPACING.paddingX,bottom:116,maxWidth:1560}}>중요한 전환: 217건으로 closed-set 전이를 점검하고, 699건으로 실제 open-set 엔진을 검증한다.</Callout>
+      <SourceLine>본 연구 powered_eval.json · open_gold.jsonl · panel_annotations.json</SourceLine>
+      <PageNum n={19}/>
+    </SlideFrame>
+  );
+}
+ReactDOM.createRoot(document.getElementById('slide-root')).render(<Slide/>);
+requestAnimationFrame(()=>document.body.setAttribute('data-slide-ready','1'));
+})();
+</script>
+<script>
+function scaleSlide(){const s=document.getElementById('stage');if(!s)return;const sc=Math.min(innerWidth/1920,innerHeight/1080)*0.96;s.style.transform=`translate(${-1920*sc/2}px,${-1080*sc/2}px) scale(${sc})`;}
+addEventListener('resize',scaleSlide);addEventListener('load',scaleSlide);scaleSlide();
+</script>
+<!-- notes: 방법론. label-blind 골드로 질의=라벨 순환을 입구에서 차단. 같은 패널 라벨에서 risk-only 217과 OTHER 포함 open-set 699 생성. 최종 엔진은 699건 OOF gate로 평가. -->
+</body>
+</html>

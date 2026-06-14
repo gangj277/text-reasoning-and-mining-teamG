@@ -1,0 +1,700 @@
+﻿i,lang,gold,title,mechanism_flat_pred,mechanism_flat_risk_score,mechanism_two_stage_pred,mechanism_two_stage_risk_score
+0,en,OTHER,"Supply chain 2030: AI-driven, adaptive operations",OTHER,0.0213,OTHER,0.0104
+1,en,OTHER,From Intent to Impact: How Supply Chain Leaders Are Driving Transformation,OTHER,0.1274,OTHER,0.062
+2,ko,OTHER,"[기획]車업계 공급망·기술력, 에너지·방산 신시장 경쟁력으로",OTHER,0.0099,OTHER,0.004
+3,ko,GEOPOLITICAL,"한중, 경제공동위 열어 ""희토류 등 공급망 관리 필요성 확인""",GEOPOLITICAL,0.6926,GEOPOLITICAL,0.6913
+4,ko,SUPPLIER,외신들 “세계 반도체 공급망 위기 면했다”,LABOR,0.7188,SUPPLIER,0.7725
+5,en,OTHER,Mount St. Mary’s University announces new Bachelor of Science in Supply Chain Management,OTHER,0.0062,OTHER,0.0025
+6,en,OTHER,Supply chain attack on eScan antivirus: detecting and remediating malicious updates,OTHER,0.0028,OTHER,0.0005
+7,en,OTHER,AI Coding Agents Could Fuel Next Supply Chain Crisis,OTHER,0.4399,OTHER,0.3168
+8,ko,OTHER,"경남도, 미국 원전시장 공략 본격화…도내 기업 공급망 진입 지원 총력",OTHER,0.105,OTHER,0.0492
+9,en,GEOPOLITICAL,More Than an Energy Crisis: Disruptions in the Strait of Hormuz Underscore the Fragility of Modern Supply Chains,GEOPOLITICAL,1.0,GEOPOLITICAL,1.0
+10,en,OTHER,This Week's Top Five Stories in Procurement,OTHER,0.0303,OTHER,0.0144
+11,ko,LABOR,AI경쟁 속 총파업 볼모…“공급망 리스크 키워”,LABOR,0.9921,LABOR,0.8789
+12,ko,GEOPOLITICAL,"중동발 위기, 기업의 비용을 흔든다: 공급망 리스크와 대응 전략",GEOPOLITICAL,0.9861,GEOPOLITICAL,0.9894
+13,en,OTHER,"Meter Partners: New $100M Fund, Supply Chain Crisis Is ‘Perfect Storm’ To Drive Network-As-A-Service Sales Growth",SUPPLIER,0.8172,SUPPLIER,0.8215
+14,ko,OTHER,﻿﻿﻿[AI로 읽는 경제] ⑥ 한국 제조업 공급망 리스크 지도…8개 업종 점수로 매겼다,OTHER,0.068,OTHER,0.0232
+15,en,OTHER,Kennesaw State student team wins national supply chain competition,OTHER,0.0124,OTHER,0.0071
+16,en,OTHER,Supply Chain News Roundup: AI and Automation Will Change Disruption Management,OTHER,0.0017,OTHER,0.0005
+17,en,GEOPOLITICAL,"Iran crisis hampering aid to refugees as supply chain costs soar, UN warns - Al-Monitor",GEOPOLITICAL,0.9973,GEOPOLITICAL,0.9973
+18,en,OTHER,The university must not become a supply chain for AI,OTHER,0.0295,OTHER,0.0128
+19,ko,GEOPOLITICAL,중동전 뒤의 공급망…MTN '글로벌이슈 2026' 통해 진단,GEOPOLITICAL,0.9276,GEOPOLITICAL,0.9246
+20,en,GEOPOLITICAL,Q&A: the oil supply chain from the Middle East,GEOPOLITICAL,0.9976,GEOPOLITICAL,0.9964
+21,ko,LABOR,"""삼성 멈추나""…파업 리스크에 글로벌 공급망 긴장",LABOR,0.9425,LABOR,0.9076
+22,en,OTHER,The Fatal Flaw In Pharma's Multi-Million Supply Chain Tech Upgrades,OTHER,0.1839,OTHER,0.1455
+23,ko,OTHER,베트남 하이퐁시 ‘스마트·그린 산단’ 전환 발표…한국 기업 공급망 거점으로,OTHER,0.0642,OTHER,0.0244
+24,en,OTHER,Inside the race to rebuild America’s fuel supply chain for a ‘second nuclear age’,OTHER,0.1299,OTHER,0.0873
+25,ko,GEOPOLITICAL,"외교부, 중동전쟁 대응 미주 공관회의 개최…에너지 수급·공급망 점검",GEOPOLITICAL,0.9935,GEOPOLITICAL,0.9972
+26,en,OTHER,Where the World's Critical Minerals Come From,GEOPOLITICAL,0.9131,GEOPOLITICAL,0.8981
+27,ko,OTHER,"FITI시험연, 반도체 공정소재 기술자립·공급망 안정화 지원한다",OTHER,0.3904,OTHER,0.2247
+28,ko,GEOPOLITICAL,“전쟁 청구서 37조원”…유가 폭등·공급망 붕괴에 글로벌 기업들 '비상',GEOPOLITICAL,0.9987,GEOPOLITICAL,0.9984
+29,en,SUPPLIER,IBM unconcerned about memory shortage impact on company supply chain,SUPPLIER,0.9937,SUPPLIER,0.8799
+30,en,OTHER,Water treatment chemical supply chain disruption risk assessment and mitigation strategy ranking using BWM–VIKOR,OTHER,0.2116,OTHER,0.0925
+31,ko,GEOPOLITICAL,"[이슈] 국가 경제, 핵심광물 공급망 강화에 달렸다 - ①",GEOPOLITICAL,0.7179,GEOPOLITICAL,0.5987
+32,en,OTHER,Deforestation allegations prompt request for independent probe into Kao supply chain,OTHER,0.1237,OTHER,0.0592
+33,ko,OTHER,"TSMC 첨단 패키징 핵심 협력사, 中 기밀 유출 전면 부인…공급망 관리 '경고등'",OTHER,0.054,OTHER,0.0286
+34,en,OTHER,"Avetta Connects a Trusted, Ready-to-Work Community Across Global Supply Chains",OTHER,0.0693,OTHER,0.0235
+35,ko,GEOPOLITICAL,중동 리스크에 헬륨·브롬 공급망 비상…반도체·의료 영향 우려,GEOPOLITICAL,0.9983,GEOPOLITICAL,0.9991
+36,en,OTHER,Notepad++ Update Servers Hijacked in Targeted Supply Chain Attack,OTHER,0.0226,OTHER,0.0085
+37,en,OTHER,Tecsys Awarded Modern Healthcare's Best in Business Recognition for Supply Chain Excellence,OTHER,0.4087,OTHER,0.2164
+38,en,GEOPOLITICAL,DR Congo's Coltan: Report Reveals How Conflict Mineral Enters Global Supply Chain | Firstpost Africa,GEOPOLITICAL,0.9142,GEOPOLITICAL,0.946
+39,en,OTHER,"ICYMI: The GIS Role in Security, Product Tracing, and Enterprise Collaboration",OTHER,0.2653,OTHER,0.3881
+40,en,OTHER,Supply chain operations turns agentic,OTHER,0.0585,OTHER,0.0401
+41,en,OTHER,"Political turmoil, low investment, supply chain disruptions hit revenue collection: Khosru",OTHER,0.4858,OTHER,0.3876
+42,en,OTHER,ASML Q1 2026 Earnings Update,OTHER,0.2876,OTHER,0.1619
+43,ko,OTHER,"가스공사, 천연가스 공급망 확대…주배관 5346㎞ 운영",OTHER,0.0949,OTHER,0.0407
+44,ko,OTHER,"이 대통령 ""베트남, 사돈의 나라...공급망 안정 협력""",OTHER,0.0967,OTHER,0.0675
+45,ko,OTHER,"[단독] 라이칭더 대만 총통, 컴퓨텍스 찾는다…AI 공급망 직접 점검",OTHER,0.2348,OTHER,0.1605
+46,en,OTHER,Automotive supply chains redesigned amid shocks and disruption,OTHER,0.527,OTHER,0.3525
+47,ko,OTHER,[한국정보보호학회 칼럼] 소프트웨어 공급망 보안의 글로벌 동향,OTHER,0.0453,OTHER,0.0208
+48,en,OTHER,High-stakes logistics: USF team wins national supply chain case competition,OTHER,0.1504,OTHER,0.0671
+49,en,OTHER,VS Code Adds 2-Hour Extension Auto-Update Delay to Limit Supply Chain Attacks,OTHER,0.1514,OTHER,0.0855
+50,ko,OTHER,"韓-EU, 전략산업 공급망 정책 공조…핵심광물·배터리 협력 강화",GEOPOLITICAL,0.6392,GEOPOLITICAL,0.4009
+51,en,OTHER,Chief Economists' Outlook: May 2026,OTHER,0.1479,OTHER,0.105
+52,en,OTHER,Cheetah Net Supply Chain Service Inc. Announces First Quarter 2026 Results and Provides Corporate Update,OTHER,0.1252,OTHER,0.0626
+53,ko,OTHER,경남 원전기업 미국 원전건설 공급망 진입 총력전,OTHER,0.1213,OTHER,0.0638
+54,en,OTHER,"Supply Chain Resilience Means Acting Faster, Smarter",OTHER,0.0644,OTHER,0.0301
+55,en,OTHER,Top Supply Chain Technology Trends Reshaping Logistics in 2026,OTHER,0.3444,OTHER,0.2253
+56,ko,LABOR,고개 드는 '공급망 리스크'… 글로벌 고객사들 불안감만 키운다 [삼성전자 노사 막판 담판],LABOR,0.9905,LABOR,0.9498
+57,ko,SUPPLIER,"현대차 인도법인 ""모비스 화재로 대체 공급망 모색 중""",SUPPLIER,0.7894,SUPPLIER,0.6232
+58,ko,GEOPOLITICAL,"산업부, 희토류 관련 기업 간담회…""공급망 관리·다변화 지원""",GEOPOLITICAL,0.7369,GEOPOLITICAL,0.6318
+59,ko,OTHER,석유화학 공급망 관리 강화··· 매점매석 금지 규정 시행,OTHER,0.0504,OTHER,0.0247
+60,en,LOGISTICS,Container Port Performance Index 2025 Reveals Ports' Pivotal Role in Supply Chain Stability,LOGISTICS,0.9936,LOGISTICS,0.9238
+61,ko,OTHER,"장현숙 한국무역협회 실장, 2026 판다포럼서 ""공급망 핵심은 비용 아닌 안정성…상시적 위기 대응 체계가 수출 경쟁력""",OTHER,0.3634,OTHER,0.294
+62,ko,GEOPOLITICAL,"김정관 산업장관, 유라시아·중동·체코 순방…원유 공급망 확보·원전 이행 점검",GEOPOLITICAL,0.9799,GEOPOLITICAL,0.9536
+63,en,OTHER,KPMG: Technology and Supply Chain Resilience in Healthcare,OTHER,0.0503,OTHER,0.0206
+64,en,OTHER,Global Supply Chain Awards 2026 Opens Final Call for Entries Ahead of 29 June Deadline,GEOPOLITICAL,0.6115,GEOPOLITICAL,0.586
+65,en,OTHER,Anthropic disables access to Fable 5 and Mythos 5 to comply with government directive,OTHER,0.0644,OTHER,0.0311
+66,en,OTHER,SDVI To Feature New Rally Media Supply Chain Management Enhancements,OTHER,0.037,OTHER,0.0154
+67,ko,OTHER,"【ESG 동향】산업부·한국생산성본부, ‘2025 ESG CONNECT’ 개최…공급망 리스크 대응 전략 공유",OTHER,0.2309,OTHER,0.1712
+68,ko,OTHER,"안규백, '천궁-Ⅱ' 개발·생산 방산현장 방문‥무기체계 공급망 점검",OTHER,0.2167,OTHER,0.0836
+69,ko,GEOPOLITICAL,"""중동 불길에 타버린 실적"" 언더아머, 공급망 쇼크에 주가 17% 급락",GEOPOLITICAL,0.9552,GEOPOLITICAL,0.9593
+70,ko,OTHER,"보산진, '글로벌 바이오헬스산업 동향' 개편…의료 AI 분야 추가",OTHER,0.1332,OTHER,0.0813
+71,ko,OTHER,"""2026년 공급망 위기, 지금 당신의 공급망은 안전합니까? — 기업을 위한 6가지 생존 전략""",OTHER,0.1767,OTHER,0.1022
+72,en,OTHER,Why Agentic AI is finally working in supply chains,OTHER,0.0746,OTHER,0.0356
+73,en,OTHER,Update anxiety: is it safe to run “apt update” during active supply chain attack,OTHER,0.0179,OTHER,0.0044
+74,en,OTHER,Yusen Logistics launches AI-powered supply chain disruption radar,OTHER,0.5891,LOGISTICS,0.5738
+75,en,GEOPOLITICAL,Middle East conflict chokes end of supply chain as lights go out in the Pacific,GEOPOLITICAL,0.9992,GEOPOLITICAL,0.9982
+76,ko,OTHER,글로벌 공급망 재편이 한국 경제에 미칠 영향,OTHER,0.1735,OTHER,0.103
+77,ko,OTHER,"한-EU, 첨단기술에서 디지털, 공급망까지 협력 확대…유럽기업 2500억원 투자 유치",OTHER,0.0855,OTHER,0.0501
+78,ko,OTHER,도쿄서 뭉친 한일 기업 500사···AI·반도체 공급망 '미래 동맹' 넓힌다,OTHER,0.3674,OTHER,0.2109
+79,ko,GEOPOLITICAL,[글로벌 사우스 리포트]① 미·중 리스크 넘어라…인도·베트남서 새 기회 찾는 韓 산업,OTHER,0.4598,OTHER,0.3726
+80,ko,OTHER,"[기고] 공급망 파도, 친환경 선대 구축으로 넘어야",OTHER,0.0972,OTHER,0.0735
+81,en,OTHER,The Energy Transition | UK government updates assessment of renewables deployment supply chain readiness,OTHER,0.0803,OTHER,0.0469
+82,ko,OTHER,"한·베트남, 8개월 만에 회담...""공급망 안정 등 협력""",OTHER,0.2073,OTHER,0.1695
+83,ko,SUPPLIER,'후지쿠라 쇼크'가 남긴 교훈… 과도한 AI 기대감과 공급망 제약의 충돌,OTHER,0.256,OTHER,0.1609
+84,en,OTHER,Global Supply Chains at Risk of Cyber Breaches and Phishing,OTHER,0.0586,OTHER,0.0148
+85,ko,OTHER,"LS MnM, 지속가능성장경영보고서 발간…원재료 공급망 강화",OTHER,0.072,OTHER,0.0541
+86,ko,OTHER,구윤철 “요소수 공공비축분 이달 말 방출…공급망 안정 총력”,OTHER,0.0931,OTHER,0.0634
+87,en,OTHER,Top 10: Predictions for 2026,OTHER,0.0777,OTHER,0.0418
+88,ko,OTHER,‘2026 해상풍력 공급망 컨퍼런스 전시회’ 열린다,OTHER,0.1236,OTHER,0.0793
+89,en,OTHER,ESG Standards and Practices of Chinese Companies in Critical Minerals Supply Chains,GEOPOLITICAL,0.8126,GEOPOLITICAL,0.7438
+90,ko,OTHER,"중진공·포스코, 동반성장 네트워크론 협약…공급망 안정 협력",OTHER,0.1292,OTHER,0.0961
+91,en,OTHER,GitHub announces npm security changes to tackle supply-chain attacks,OTHER,0.0154,OTHER,0.005
+92,en,OTHER,Top 5 Retail Technology Companies in Croatia,OTHER,0.0905,OTHER,0.0455
+93,en,GEOPOLITICAL,Supply chain strain surges in April amid Middle East war,GEOPOLITICAL,0.9998,GEOPOLITICAL,0.9998
+94,ko,OTHER,"AI가 석탄 운반선 입항 예측…서부발전, 연료조달 혁신",OTHER,0.1777,OTHER,0.0886
+95,ko,OTHER,李대통령 “韓·伊 최적 파트너…첨단산업·공급망 협력으로 위기 돌파”,OTHER,0.1935,OTHER,0.1207
+96,en,LOGISTICS,"Mexico freight stabilizes after cartel shock, but supply chains stay on alert",LOGISTICS,0.9093,LOGISTICS,0.8171
+97,ko,SUPPLIER,‘대형화재’ 현대차 인도법인 “일시적 차질 전망…대체 공급망 모색중”,SUPPLIER,0.9941,SUPPLIER,0.9742
+98,ko,OTHER,"“에너지 공급망, 전면 점검할 시점”",OTHER,0.0754,OTHER,0.0832
+99,ko,GEOPOLITICAL,"산업통상부, 중동전쟁 관련 IPEF 회원국간 공급망 대응 현황 및 협력방안 협의",GEOPOLITICAL,0.9957,GEOPOLITICAL,0.9876
+100,ko,OTHER,"고려아연, 첫 지속가능경영추진위…ESG 관리체계 고도화",OTHER,0.0541,OTHER,0.0235
+101,en,GEOPOLITICAL,[News] From Rare Earth-Free Magnets to New Supply Chains: The Push to Break China’s Grip Accelerates,GEOPOLITICAL,0.7959,GEOPOLITICAL,0.7104
+102,en,OTHER,Cambridge Forum for Future Food Supply Chains 2026,OTHER,0.0725,OTHER,0.0563
+103,en,OTHER,HK plans tax cuts and logistics boost to anchor global commodity hub,LOGISTICS,0.8178,LOGISTICS,0.8207
+104,ko,OTHER,"LIG D&A, 상생추진단 신설…방산 공급망 강화",OTHER,0.065,OTHER,0.0281
+105,en,OTHER,150+ supply chain leaders participating in Supply Chain Excellence Awards USA 2026,OTHER,0.407,OTHER,0.2106
+106,en,OTHER,"Less Routine, More Inspiration – Oracle Supply Chain Planning Update 26A | scm",OTHER,0.0972,OTHER,0.0664
+107,ko,OTHER,"기업 급식공급망 연계 수산물 유통·판로 확대…해수부, 내일 점심특식행사 개최",OTHER,0.1368,OTHER,0.0718
+108,ko,OTHER,"""에이전틱 AI 공급망 시대"" 삼성SDS, '첼로스퀘어 콘퍼런스' 개최",OTHER,0.1478,OTHER,0.1086
+109,ko,OTHER,"코트라, 인도서 '미래차 파트너링 플라자' 개최…공급망 공략 가속",OTHER,0.1013,OTHER,0.0618
+110,en,OTHER,Supply Chain and Logistics News April 20th-23rd 2026,LOGISTICS,0.8803,OTHER,0.5393
+111,en,GEOPOLITICAL,The Iran Crisis Is Exposing AI’s Supply Chain Blind Spots,GEOPOLITICAL,0.686,GEOPOLITICAL,0.6422
+112,ko,OTHER,"인도 發 자동차 공급망 재편 주목 코트라, 인도 거점으로 글로벌 차 부품 시장 공략",OTHER,0.315,OTHER,0.1184
+113,ko,LABOR,"외신, 삼성전자 파업 예고 긴급 타전…″세계 공급망 위기″",LABOR,0.9932,LABOR,0.9517
+114,en,OTHER,Autonomous Supply Chain: Why Agentic AI Is Rewriting the Operating Model,OTHER,0.1056,OTHER,0.058
+115,ko,GEOPOLITICAL,"""이란 전쟁으로 부품 공급망 차질…IT 가격 상승 전망""",GEOPOLITICAL,0.9991,GEOPOLITICAL,0.9997
+116,ko,OTHER,Hanopro와 ‘솔루션 판매’ 전략으로 글로벌 공급망을 사로잡다,OTHER,0.0807,OTHER,0.0498
+117,ko,OTHER,한-중앙아 정상회의 앞두고 경제협력 확대 논의…공급망·AI 협력 강화,OTHER,0.0442,OTHER,0.0166
+118,ko,GEOPOLITICAL,중동전 상황 예의주시속 공급망 점검-국제공조로 대응,GEOPOLITICAL,0.7528,GEOPOLITICAL,0.7003
+119,en,GEOPOLITICAL,BASF Warns Iran War Could Trigger Supply Chain Disruption for Carmakers,GEOPOLITICAL,0.9798,GEOPOLITICAL,0.9676
+120,en,GEOPOLITICAL,Crises in the Middle East Call for a New Approach in Supply Chain Resilience,GEOPOLITICAL,0.8416,GEOPOLITICAL,0.7928
+121,ko,OTHER,2026년 ESG 공시 의무화 동향과 시사점 고찰 | 인사이트리포트 | 삼성SDS,OTHER,0.118,OTHER,0.0881
+122,en,SUPPLIER,Airbus Cuts as Supply Chain Crisis Deepens,SUPPLIER,0.6748,SUPPLIER,0.4979
+123,en,OTHER,eScan Antivirus Delivers Malware in Supply Chain Attack,OTHER,0.0184,OTHER,0.0063
+124,en,NATURAL_DISASTER,Will the Tracy warehouse fire affect supply chain in California?,SUPPLIER,0.9105,SUPPLIER,0.9496
+125,en,OTHER,"Penske Logistics Introduces Supply Chain Insight to Empower Smarter, More Resilient Supply Chain Operations",OTHER,0.1129,OTHER,0.065
+126,ko,GEOPOLITICAL,"반도체·약 원료 '브롬' 중동 의존도 98%…""공급망 대응 필요""",GEOPOLITICAL,0.9198,GEOPOLITICAL,0.9579
+127,en,OTHER,Technology manufacturer’s path to resilient supply chains,OTHER,0.0767,OTHER,0.0371
+128,en,OTHER,GEP : Stockpiling Reaches Three-Year High as Manufacturers Brace for Supply Chain Disruption,OTHER,0.1756,OTHER,0.0999
+129,ko,OTHER,"경동제약, 국책과제 선정…“고순도 API 합성 기술로 공급망 안정화”",OTHER,0.0991,OTHER,0.0592
+130,en,OTHER,Global Supply Chain Sustainability Policy,OTHER,0.1122,OTHER,0.0636
+131,en,OTHER,Rail News - Nissan names CSX supply chain management partner of the year. For Railroad Career Professionals,OTHER,0.0534,OTHER,0.0307
+132,ko,GEOPOLITICAL,한국-사우디 에너지 협력 강화…원유 공급망 안정 논의,GEOPOLITICAL,0.84,GEOPOLITICAL,0.8039
+133,ko,OTHER,"[카드] '철강 공급망 안정 집중' 포스코, 거래사 금융지원 본격화",OTHER,0.0884,OTHER,0.05
+134,en,OTHER,The mechanism and impact of digital transformation on supply chain resilience in the manufacturing industry,OTHER,0.018,OTHER,0.0068
+135,en,OTHER,"Acumatica 2026 R1 Strengthens Supply Chain Management for Manufacturers, Distributors, and Retailers",OTHER,0.0387,OTHER,0.0164
+136,ko,GEOPOLITICAL,중동발 공급망 쇼크에 해상 물류 비상…'한국 경제 직격탄',GEOPOLITICAL,0.9909,GEOPOLITICAL,0.9949
+137,en,OTHER,State Dependence of Monetary Policy During Global Supply Chain Disruptions - American Enterprise Institute,OTHER,0.2499,OTHER,0.1384
+138,en,OTHER,Resilience management in clinical trial supply chains,OTHER,0.0387,OTHER,0.0166
+139,en,OTHER,OceanLotus (APT32) Supply Chain Attack: SPECTRALVIPER Backdoor Targets FireAnt Platform and Vietnamese Infrastructure,OTHER,0.0191,OTHER,0.006
+140,ko,OTHER,의료기기 공급망 위기 예방하려면,OTHER,0.3513,OTHER,0.2291
+141,en,FINANCIAL,Supply-chain inflation accelerates amid deepening energy crisis,FINANCIAL,0.9997,FINANCIAL,0.9917
+142,ko,GEOPOLITICAL,"정부, 농식품 수출·공급망 점검…중동 사태 장기화 대비 - 머니투데이",GEOPOLITICAL,0.8833,GEOPOLITICAL,0.8492
+143,en,OTHER,Wind Manufacturing and Supply Chain,OTHER,0.0465,OTHER,0.0204
+144,en,GEOPOLITICAL,CBP’s tariff refund portal is performing better than expected,LOGISTICS,0.9661,LOGISTICS,0.9818
+145,en,OTHER,Supply Chain Resilience with Multi-Vendor Strategy,OTHER,0.025,OTHER,0.0143
+146,en,OTHER,Will Mounting Supply Chain Strains Hamstring the AI Investment Boom?,OTHER,0.0752,OTHER,0.0393
+147,ko,OTHER,"스피어, 美 우주발사업체향 수주 3300억 돌파에 11%↑",OTHER,0.1157,OTHER,0.0622
+148,ko,OTHER,"BPA, 닝보 해상실크로드 협력 포럼서 글로벌 공급망 안정화 전략 소개",OTHER,0.0018,OTHER,0.0005
+149,ko,GEOPOLITICAL,한·사우디 에너지 협력 확대 모색…원유 공급망 안정 방안 논의,GEOPOLITICAL,0.8151,GEOPOLITICAL,0.8465
+150,en,OTHER,Global Supply Chain Awards 2026: Company of the Year,OTHER,0.3045,OTHER,0.165
+151,ko,OTHER,"금호타이어, 협력사 간담…공급망 ESG 관리 강화",OTHER,0.0333,OTHER,0.0135
+152,en,OTHER,The asymmetric influence of ESG performance on corporate innovation: understanding the role of supply chain transmission,OTHER,0.1724,OTHER,0.1215
+153,ko,GEOPOLITICAL,"유럽 기업들, EU 탈중국 압박에도 中 제조 기반 강화",OTHER,0.1293,OTHER,0.0867
+154,en,OTHER,NPM 12 Will Change Script Execution Behavior to Prevent Supply Chain Attacks,OTHER,0.0167,OTHER,0.005
+155,en,OTHER,Global supply chains keep workers poor: three case studies show how the cycle can be broken,OTHER,0.1232,OTHER,0.0568
+156,ko,GEOPOLITICAL,외교부 '중동 위기' 민관학 회의…공급망 안정 협력구조 모색,GEOPOLITICAL,0.9579,GEOPOLITICAL,0.9281
+157,en,OTHER,Why is Haleon Building a new Manufacturing site in India?,OTHER,0.0685,OTHER,0.0368
+158,ko,OTHER,한-EU 경쟁력 파트너십 출범… 에너지·공급망 협력 확대,OTHER,0.0549,OTHER,0.0322
+159,ko,OTHER,"PwC “성장 유지에도 금융·전쟁·공급망 리스크 동시 폭발…경제, 예측 불가 구간”",GEOPOLITICAL,0.9603,GEOPOLITICAL,0.9372
+160,ko,OTHER,"LS증권 “운송업, 공급망 재편 수혜 선별 대응 필요…최선호주 팬오션”",OTHER,0.5115,OTHER,0.324
+161,ko,GEOPOLITICAL,"중동 리스크에 전력기자재 공급망 흔들…정부 ""선제 대응""",GEOPOLITICAL,0.9974,GEOPOLITICAL,0.9963
+162,en,OTHER,How to Manage Supply Chain Disruptions Without Sacrificing Compliance,OTHER,0.1994,OTHER,0.1182
+163,ko,GEOPOLITICAL,[특별기고] 중동 전쟁 리스크와 대한민국 해운 전략,GEOPOLITICAL,0.9999,GEOPOLITICAL,0.9999
+164,en,OTHER,"Nordex Updates Sustainability Framework To Align With CSRD, Deepen Supply Chain Accountability",OTHER,0.0897,OTHER,0.0476
+165,ko,OTHER,"법무법인 바른, 중견련과 '공급망 리스크 관리' 포럼 개최 [로펌소식]",OTHER,0.1055,OTHER,0.0728
+166,ko,OTHER,"한국가스공사, 천연가스 인프라 확충…전국 안정적 공급망 강화",OTHER,0.0753,OTHER,0.0414
+167,en,OTHER,SAP Named a Leader in the IDC MarketScape for Worldwide Multi-Enterprise Supply Chain Commerce Network,OTHER,0.1321,OTHER,0.0875
+168,en,OTHER,Supply Chain Analytics for Inventory & Demand Forecasting,OTHER,0.1036,OTHER,0.0517
+169,ko,GEOPOLITICAL,"산업부, 중동발 공급망 충격 대응 위해 IPEF 공조 강화",GEOPOLITICAL,0.9793,GEOPOLITICAL,0.9574
+170,en,OTHER,AI-Enhanced Supply Chain Management Systems Make Exception Handling Easier,OTHER,0.0629,OTHER,0.0279
+171,ko,OTHER,"가스공사, 천연가스 공급망 확충…주배관 5346㎞ 운영",OTHER,0.0842,OTHER,0.0426
+172,ko,OTHER,"글로벌 공급망 재편, 한국의 기회와 과제",OTHER,0.1672,OTHER,0.088
+173,ko,OTHER,최대 100조 손실 위기서 극적 구제… 한국 경제·글로벌 공급망도 ‘안도’,OTHER,0.3781,OTHER,0.2299
+174,en,GEOPOLITICAL,Hormuz Closure Demands Supply Chain Operational Overhaul,GEOPOLITICAL,0.8109,GEOPOLITICAL,0.7522
+175,en,OTHER,How Manufacturers Can Boost Resilience Without Losing Supply Chain Optimization,OTHER,0.0711,OTHER,0.0354
+176,en,OTHER,Managing Procurement in Times of Supply Chain Disruption,OTHER,0.0791,OTHER,0.0406
+177,en,OTHER,"Despite global disruptions, Pralhad Joshi assures Karnataka has sufficient fertilizer supply for Kharif 2026",OTHER,0.2206,OTHER,0.1231
+178,ko,OTHER,"여한구 통상본부장 “APEC, 공급망위기 속 ‘실용적 협력플랫폼’ 기능해야”",OTHER,0.2834,OTHER,0.1827
+179,en,GEOPOLITICAL,Long Beach Cargo Drops as Hormuz Crisis Keeps Pressure on Supply Chains,GEOPOLITICAL,0.9906,GEOPOLITICAL,0.9918
+180,ko,LABOR,계약 이행 차질ㆍ위약 리스크까지…벼랑 끝에 선 '고객 신뢰' [노조의 위험한 특권中],LABOR,0.999,LABOR,0.9954
+181,ko,SUPPLIER,엔진밸브 하나에 멈춘 생산… 현대차·기아 공급망 ‘흔들’,SUPPLIER,0.8504,SUPPLIER,0.7963
+182,en,OTHER,Target Names New Chief Global Supply Chain Officer,OTHER,0.0902,OTHER,0.0561
+183,ko,OTHER,"2030년, 글로벌 공급망 환경 근본적 대전환 예고...",OTHER,0.2512,OTHER,0.237
+184,en,OTHER,The Missing Link in Supply Chain Management,OTHER,0.0675,OTHER,0.0321
+185,ko,OTHER,"트레드링스, SCM 산업 미래 담은 ‘AI-Native 리포트’ 발간",OTHER,0.1216,OTHER,0.0794
+186,en,OTHER,Modern Cost Engineering Evolution: Rewiring the Human Element for Supply Chain Resilience,OTHER,0.2686,OTHER,0.1872
+187,en,FINANCIAL,How Will The Energy Crisis Affect Global Supply Chains?,GEOPOLITICAL,0.8354,GEOPOLITICAL,0.8961
+188,en,OTHER,The World Cup Reveals Supply Chain Execution,OTHER,0.0817,OTHER,0.0483
+189,en,OTHER,U.S. Hydropower Supply Chain,OTHER,0.173,OTHER,0.1094
+190,ko,OTHER,"가스공사, 천연가스 주배관 140km 확충…안정적인 공급망 강화",OTHER,0.0709,OTHER,0.042
+191,ko,OTHER,"LIG D&A, 공급망 안정화·인재 내재화로 방산 수출 기반 다진다",OTHER,0.074,OTHER,0.035
+192,ko,OTHER,"암페라, 호주 토륨 공급망으로 원전연료 수직통합",OTHER,0.0774,OTHER,0.0422
+193,ko,OTHER,"靑 국가안보실, 공급망 경제안보 현안점검회의 개최",OTHER,0.066,OTHER,0.0291
+194,en,OTHER,Distribution Strategy as a Key to Supply Chain Resilience,OTHER,0.0177,OTHER,0.0082
+195,ko,OTHER,탄소중립 등 공급망 리스크 대응 ‘글로벌 공급망(GVC) 분석센터’ 출범,OTHER,0.3067,OTHER,0.2026
+196,ko,OTHER,한-아프리카 첫 외교장관회의…공급망 안정 논의,OTHER,0.0519,OTHER,0.0225
+197,ko,OTHER,"aT, 태국산 '신선란' 첫 수입...계란 공급망 안정 기대",OTHER,0.2562,OTHER,0.2231
+198,en,OTHER,"TrapDoor Supply Chain Attack Spreads Credential-Stealing Malware via npm, PyPI, and CratesIO",OTHER,0.0542,OTHER,0.0206
+199,ko,OTHER,"스피어코퍼레이션, 美 글로벌 발사업체향 수주 3300억원 돌파",OTHER,0.0735,OTHER,0.0329
+200,en,OTHER,"Brazil Joins Canada, United States, UK, Japan and More Global Aviation Leaders as Budapest Hosts CEC 2026, Advancing Air Cargo Excellence Across Airlines and Supply Chains, Here’s The Latest Update",OTHER,0.1337,OTHER,0.0784
+201,ko,GEOPOLITICAL,[산업풍향계] 글로벌 사우스에 꽂혔다… 공급망 리스크에 새 격전지 전략은,OTHER,0.1171,OTHER,0.0728
+202,en,FINANCIAL,Global oil supply chains face historic stress: Crude prices and tanker rates now at all-time highs — here’,FINANCIAL,1.0,FINANCIAL,0.9999
+203,ko,OTHER,"아프리카개발은행 ""올해 아프리카 평균 성장률 4.2% 전망""",OTHER,0.0804,OTHER,0.0429
+204,en,OTHER,Top 100 Global Supply Chains 2025,OTHER,0.1322,OTHER,0.0966
+205,ko,OTHER,"李대통령, 한-이탈리아 기업인 만나 ""AI·공급망 시대 협력 확대""",OTHER,0.104,OTHER,0.0571
+206,ko,OTHER,"[전문] 김용범 ""반도체·데이터센터·피지컬AI 묶어 AI 공급망 핵심 거점으로""",OTHER,0.2499,OTHER,0.1097
+207,ko,OTHER,"스피어, 美우주발사업체 누적 수주 3300억 돌파…'뉴스페이스' 공급망 핵심 부상",OTHER,0.0865,OTHER,0.0433
+208,ko,OTHER,"지평, '글로벌 공급망 변화' 경영포럼 열어",OTHER,0.0726,OTHER,0.0511
+209,ko,OTHER,'2026 한-아프리카 외교장관회의' 개최...공급망 위기등 논의,OTHER,0.2501,OTHER,0.1425
+210,ko,GEOPOLITICAL,"과기정통부, 중동전쟁 대응책 모색…'ICT 공급망 점검 상황실' 꾸린다",GEOPOLITICAL,0.9975,GEOPOLITICAL,0.9961
+211,en,OTHER,Mitigating the Axios npm supply chain compromise,OTHER,0.0922,OTHER,0.0506
+212,en,OTHER,US judge keeps forced labor claims against Bumble Bee alive in tuna supply chain case,OTHER,0.235,OTHER,0.3428
+213,en,GEOPOLITICAL,Iran war adds new layer to supply chain stress,GEOPOLITICAL,0.9848,GEOPOLITICAL,0.9728
+214,en,GEOPOLITICAL,"Supply Chain Operational Update: Israel, Jordan & Lebanon -…",OTHER,0.1296,OTHER,0.1002
+215,ko,GEOPOLITICAL,"【ESG 동향】미·호주, 13조원 규모 핵심광물 공급 협력 강화…중국 의존도 낮춘다",GEOPOLITICAL,0.8072,GEOPOLITICAL,0.6703
+216,ko,OTHER,"한-EU, 핵심광물·배터리 등 전략산업 공급망 협력 강화",GEOPOLITICAL,0.5769,OTHER,0.3475
+217,ko,GEOPOLITICAL,[글로벌 경제 불확실성 시리즈 3편: 지정학적 분쟁과 글로벌 공급망의 변화] “전쟁이 바꾼 공급망 지도”…지정학 리스크 속 글로벌 산업 재편 가속,GEOPOLITICAL,0.9978,GEOPOLITICAL,0.9853
+218,en,OTHER,FedEx Contributes Perspectives on Supply Chain Resilience in Saudi Arabia,OTHER,0.0802,OTHER,0.0422
+219,en,OTHER,What’s the missing ingredient in supply chain visibility?,OTHER,0.1367,OTHER,0.0842
+220,ko,OTHER,"기후테크 기업들, 핵심광물로 눈 돌린다…공급망 사업확장",GEOPOLITICAL,0.8205,GEOPOLITICAL,0.7334
+221,ko,GEOPOLITICAL,"EU 관세에 중동 리스크까지…K-타이어, 공급망 대응 시험대",GEOPOLITICAL,0.9998,GEOPOLITICAL,0.9996
+222,en,OTHER,Target Tags Jeff England as New Chief Global Supply Chain Officer,OTHER,0.0894,OTHER,0.054
+223,en,OTHER,Supply Chain Disruptions Are Back at 2022 Levels,OTHER,0.1657,OTHER,0.0949
+224,ko,OTHER,"가스공사, 천연가스 배관망 5346km 확충…전국 안정적 공급망 강화",OTHER,0.0759,OTHER,0.0421
+225,en,OTHER,Recycling Stocks to Win Amidst Supply Chain Crisis,OTHER,0.4905,OTHER,0.3273
+226,en,GEOPOLITICAL,"Trump to meet with Middle East leaders, attend Ukraine session at G7",GEOPOLITICAL,0.8528,GEOPOLITICAL,0.839
+227,ko,OTHER,최대 무역블록 EU와 협력 확대…공급망·안보 공조 강화,OTHER,0.0714,OTHER,0.0396
+228,en,OTHER,"Above the Fold: Supply Chain Logistics News (May 29, 2026)",LOGISTICS,0.9731,LOGISTICS,0.8383
+229,en,OTHER,"U.S. Spotlight: Renewables, trade, and the global supply chain",OTHER,0.1906,OTHER,0.1177
+230,ko,SUPPLIER,"반도체 공급망, 中 ·日 벗어나나...중수소 암모니아 생산 성공",SUPPLIER,0.9062,SUPPLIER,0.5425
+231,en,OTHER,Risk factors influencing construction supply chain management in Saudi Arabia,OTHER,0.1418,OTHER,0.0715
+232,en,OTHER,"AI, supply chains and weather risks drive management shift",OTHER,0.2113,OTHER,0.1529
+233,ko,OTHER,"오비맥주, 국내 농가와 ESG 상생···'공급망 리스크 축소'",OTHER,0.1986,OTHER,0.1194
+234,ko,LABOR,CU 물류 차질 우려 해소 수순...BGF리테일·화물연대 협상 타결,LABOR,0.9998,LABOR,0.9989
+235,ko,OTHER,[STX 회생기로] 범한산업의 베팅…'공급망 플랫폼' 가치 재조명,OTHER,0.0737,OTHER,0.0437
+236,ko,OTHER,"엠로, 공급망 관리 SW 글로벌 공략 박차... 가트너 주관 행사 참여",OTHER,0.0857,OTHER,0.051
+237,ko,OTHER,"공급망 리스크 규제, 글로벌 동향과 대응은[C레벨 노트]",OTHER,0.3577,OTHER,0.2298
+238,ko,GEOPOLITICAL,"포스코인터내셔널, 전기차 핵심 소재 중희토류 글로벌 공급망 구축 박차",GEOPOLITICAL,0.8947,GEOPOLITICAL,0.8619
+239,en,GEOPOLITICAL,"Hormuz Crisis Triggers Global Supply Chain Shock Affecting Food, Flights, and Industry",GEOPOLITICAL,0.9898,GEOPOLITICAL,0.9814
+240,ko,LABOR,"""전세계 반도체 공급망 차질""...외신 '삼전 파업 수순' 일제히 보도 - 머니투데이",SUPPLIER,0.9919,SUPPLIER,0.9914
+241,en,OTHER,Working with suppliers,OTHER,0.1191,OTHER,0.0741
+242,en,OTHER,New strategies for global business leaders to manage supply chain risk,OTHER,0.2474,OTHER,0.1447
+243,ko,OTHER,"바른∙중견기업연합회, ‘중견기업 Scale-up 전략 포럼’ 개최",OTHER,0.0164,OTHER,0.0098
+244,ko,OTHER,"[중소기업이 이끄는 지방주도성장]공급망 안정화 플랫폼, AI 스마트공장 확산 지원 시급",OTHER,0.1946,OTHER,0.0988
+245,en,GEOPOLITICAL,China warns of global supply chain disruption as U.S. chip export bills advance,GEOPOLITICAL,0.9998,GEOPOLITICAL,0.9998
+246,en,GEOPOLITICAL,Supply Chain Roundtable: A Supreme Court Ruling and Middle East Conflict,GEOPOLITICAL,0.9976,GEOPOLITICAL,0.9944
+247,ko,LABOR,"삼성전자 총파업 예고, 노사 갈등이 반도체 공급망 리스크로 번졌다",LABOR,1.0,LABOR,1.0
+248,en,OTHER,"Supplement industry COOs talk supply chain resilience, channel evolution and AI agility",OTHER,0.0446,OTHER,0.0185
+249,ko,OTHER,최윤범 고려아연 회장 캐나다서 '북미 공급망' 세일즈…경영 명분 강화하나,OTHER,0.0552,OTHER,0.02
+250,ko,OTHER,"바른, 내달 10일 ‘중견기업 스케일업 전략 포럼’ 개최 [로앤비즈 브리핑]",OTHER,0.0018,OTHER,0.0006
+251,en,OTHER,Automotive Supply Chain Resilience & Challenges | Automotive Sourcing,OTHER,0.0739,OTHER,0.0508
+252,ko,GEOPOLITICAL,"산업부, 호르무즈 봉쇄 공급망 점검…""단기 수급 영향 제한""",GEOPOLITICAL,0.9986,GEOPOLITICAL,0.9987
+253,ko,GEOPOLITICAL,"이란, 한국 선박 ‘물리적 행동’ 경고…SK하이닉스 공급망 차질",LOGISTICS,0.7988,LOGISTICS,0.9009
+254,ko,OTHER,"IMF총재 ""세계경제성장 더뎌질 것…이전으로 완벽 복귀는 불가""",OTHER,0.208,OTHER,0.1467
+255,ko,OTHER,‘미토스 충격’에 정부 연이은 긴급회의…제로트러스트·공급망 보안 점검,OTHER,0.1592,OTHER,0.1209
+256,ko,OTHER,"[더벨]스피어, 미국 우주발사업체 수주 3300억 돌파 - 머니투데이",OTHER,0.1042,OTHER,0.0528
+257,ko,OTHER,"고려아연, ESG 추진위 개최…""기후공시·생물다양성·공급망 점검""",OTHER,0.047,OTHER,0.0228
+258,en,OTHER,Supply Chain Roundtable: Procurement’s Unique (and Critical) Perspective,OTHER,0.0418,OTHER,0.0241
+259,ko,OTHER,"아진산업, 글로벌 공급망 대응 경북 경산시에 '하양 공장' 준공",OTHER,0.4428,OTHER,0.3067
+260,ko,SUPPLIER,TSMC 5월 매출 30% 급증…AI 수요에 커지는 '공급망 확보 전쟁',GEOPOLITICAL,0.7998,GEOPOLITICAL,0.7342
+261,en,OTHER,Logistics Plus is Named a 2026 G75 Green Supply Chain Partner by Inbound Logistics,OTHER,0.1108,OTHER,0.0729
+262,ko,SUPPLIER,"조선업계 에틸렌 수급 `비상`…산업부 ""공급망 차질 없도록 총력""",SUPPLIER,0.9347,SUPPLIER,0.8873
+263,en,OTHER,Western Computer Launches New Dynamics 365 Finance & Supply Chain Management Assessment,OTHER,0.027,OTHER,0.0091
+264,en,NATURAL_DISASTER,How a blind spot on corporate water risk threatens supply chains,OTHER,0.6657,NATURAL_DISASTER,0.6911
+265,en,LOGISTICS,"Above the Fold: Supply Chain Logistics News (May 22, 2026)",LOGISTICS,0.8167,LOGISTICS,0.4122
+266,ko,GEOPOLITICAL,"중동發 공급망 경보…부산조달청, 비철·요소 ‘비축 곳간’ 점검",GEOPOLITICAL,0.8096,GEOPOLITICAL,0.7068
+267,ko,OTHER,"가스공사, 주배관 5346㎞ 구축…전국 천연가스 공급망 확대",OTHER,0.0753,OTHER,0.0369
+268,en,OTHER,The impact of china’s artificial intelligence pilot policies on enterprise supply chain resilience | Scientific Reports,OTHER,0.329,OTHER,0.1856
+269,ko,OTHER,'380조' 스페이스X IPO 광풍···우주 ETF·공급망 수혜주 촉각,OTHER,0.0858,OTHER,0.0532
+270,en,OTHER,Miasma Supply Chain Attack Compromises Red Hat npm Packages with Credential-Stealing Worm,OTHER,0.0144,OTHER,0.0036
+271,ko,OTHER,공급망 분석 시장 41조원 전망…AI·리스크 관리 수요가 키웠다,OTHER,0.2217,OTHER,0.1478
+272,ko,SUPPLIER,"靑, 나프타 수급 차질에 ""공급망안정 추가조치 가능성 검토""",SUPPLIER,0.8727,SUPPLIER,0.8285
+273,en,GEOPOLITICAL,"Supply chain disruptions from the Iran war could raise prices for drugs, electronics and more",GEOPOLITICAL,0.9964,GEOPOLITICAL,0.9961
+274,en,OTHER,Supply chain problems require supply chain solutions,OTHER,0.0767,OTHER,0.041
+275,ko,OTHER,"고려아연, 지속가능경영추진위 개최…'TNFD·공급망 실사' 고도화",OTHER,0.0725,OTHER,0.0379
+276,en,SUPPLIER,Supply chain crisis forces aviation to rethink growth plans,OTHER,0.5403,OTHER,0.4172
+277,en,OTHER,"Starbucks plans corporate office in Nashville, impacting some Seattle-based supply chain workers",OTHER,0.1855,OTHER,0.1239
+278,en,OTHER,The supply chain playbook is broken,OTHER,0.2012,OTHER,0.1451
+279,en,OTHER,It’s Time to Rethink Every Link in Your Supply Chain,OTHER,0.1273,OTHER,0.0851
+280,en,OTHER,The critical role of ESG and AI-assisted due diligence in building a sustainable supply chain,OTHER,0.0529,OTHER,0.0226
+281,ko,SUPPLIER,"한국 4월 자동차 수출과 생산 일제히 감소, ""부품 공급망 문제로 생산 차질""",SUPPLIER,0.9922,SUPPLIER,0.9486
+282,ko,GEOPOLITICAL,중동발 위기 현실화…경과원 판다포럼서 공급망 해법 찾는다,GEOPOLITICAL,0.9725,GEOPOLITICAL,0.9532
+283,ko,OTHER,"HD현대, 암모니아·수주·공급망 3축 전략··· “글로벌 조선 시장 주도권 굳힌다”",OTHER,0.0668,OTHER,0.0462
+284,ko,OTHER,'민생·공급망' 안정 총력…'숨고르기 청년' 맞춤지원,OTHER,0.1695,OTHER,0.1054
+285,en,GEOPOLITICAL,How M23-Linked Coltan Infiltrates Global Tech Supply Chains,OTHER,0.1368,OTHER,0.1113
+286,en,OTHER,An examination of the impact of carbon emissions trading on corporate green technology innovation from the perspective of supply chain integration,OTHER,0.1335,OTHER,0.0917
+287,ko,OTHER,"외교부, 공급망 위기 품목 점검 공관장 회의...공급망 차질 여부 실시간 파악",LABOR,0.7873,LABOR,0.766
+288,ko,OTHER,"트레드링스-KAIST, 공급망 리스크 예측 협력",OTHER,0.2283,OTHER,0.1416
+289,en,OTHER,GitHub to Disable npm Install Scripts by Default to Stop Supply Chain Attacks,OTHER,0.0143,OTHER,0.0032
+290,en,GEOPOLITICAL,"Report: SMBs struggle to cope with tariffs, supply chain disruptions in 2026",LOGISTICS,0.9454,LOGISTICS,0.9716
+291,ko,OTHER,"현대로템, 1500억 상생 금융 투입으로 K철도 글로벌 공급망 고도화",OTHER,0.1056,OTHER,0.06
+292,en,GEOPOLITICAL,Strait of Hormuz disruptions: Implications for global trade and development |,GEOPOLITICAL,0.9999,GEOPOLITICAL,0.9994
+293,en,GEOPOLITICAL,Beyond oil: 9 commodities impacted by the Strait of Hormuz crisis,GEOPOLITICAL,0.9995,GEOPOLITICAL,0.9992
+294,en,GEOPOLITICAL,Critical minerals are reshaping global trade as demand surges,GEOPOLITICAL,0.8611,GEOPOLITICAL,0.8061
+295,en,OTHER,Clean industry opens $4.7tn global supply chain investment opportunity,OTHER,0.2649,OTHER,0.2433
+296,ko,OTHER,녹색산업 공급망 관리체계 마련 연구용역 추진,OTHER,0.0691,OTHER,0.0394
+297,en,OTHER,CSX.com - CSX Named Nissan's 2026 Supply Chain Management Partner of the Year,OTHER,0.0321,OTHER,0.0121
+298,en,GEOPOLITICAL,"Iran War: global supply chains show longer delays, higher prices",GEOPOLITICAL,0.9989,GEOPOLITICAL,0.9997
+299,ko,LOGISTICS,이란 전쟁에 미주 노선 운임 두 배…공급망 부담 확산,GEOPOLITICAL,0.9876,GEOPOLITICAL,0.9944
+301,ko,OTHER,외신이 본 '이재명정부 1년'…'실용주의 외교·AI 공급망 핵심국',OTHER,0.1303,OTHER,0.0958
+302,ko,OTHER,[ESG 칼럼] 옴니버스 패키지 이후 공급망 관리와 인권경영,OTHER,0.0666,OTHER,0.034
+303,en,OTHER,Hormel Foods Names Will Bonifant Group Vice President and Chief Supply Chain Officer,OTHER,0.092,OTHER,0.0528
+304,ko,SUPPLIER,"""품질 우려"" 고객사 인수거부 조짐… 반도체 글로벌 공급망 흔들 - 머니투데이",OTHER,0.7222,SUPPLIER,0.7987
+305,ko,LOGISTICS,"[모빌리티 인사이트] 현대차, 희망봉 우회 '글로벌 자동차 공급망' 재편 신호",OTHER,0.3752,OTHER,0.4679
+306,en,OTHER,"Big shipping company closes site between Charlotte + Raleigh, laying off over 80",OTHER,0.4703,OTHER,0.2026
+307,en,GEOPOLITICAL,Storms in the Persian Gulf: Is a Global Supply Chain Crisis Looming?,SUPPLIER,0.9412,SUPPLIER,0.794
+308,ko,OTHER,"한국가스공사, 주배관 5천346km 구축…전국 천연가스 공급망 강화",OTHER,0.0766,OTHER,0.0393
+309,ko,LABOR,"삼성전자 결국 '파국'…외신 ""세계 공급망 위기""",LABOR,0.7103,LABOR,0.73
+310,ko,OTHER,"포스코퓨처엠, 탄소감축·공급망 관리 성과로 글로벌 ESG 지수 편입",OTHER,0.0659,OTHER,0.0299
+311,en,OTHER,What permanent supply chain disruption means for engineering - Institution of Mechanical Engineers,OTHER,0.2648,OTHER,0.1602
+312,en,OTHER,How Smarter Supply Chain Visibility Helps Companies Reduce Disruptions,OTHER,0.1913,OTHER,0.1198
+313,en,OTHER,Reading the global supply chain,OTHER,0.1706,OTHER,0.1276
+314,ko,OTHER,"[특징주] 스피어, 美 우주발사업체 누적 수주 3300억 돌파에 4% 급등",OTHER,0.4133,OTHER,0.336
+315,ko,OTHER,"한-EU 경제협력, 디지털·공급망으로 확대…유럽 기업 1.65억달러 투자",OTHER,0.0909,OTHER,0.0512
+316,en,OTHER,Early Warning Signs of Supply-Chain Attacks Live in the Dark Web,OTHER,0.414,OTHER,0.3176
+317,ko,OTHER,민‧관 합동 공급망 신속 대응체계 구축,OTHER,0.1179,OTHER,0.072
+318,ko,OTHER,"조달청, 새만금 신항 아스콘 공급망 현장 점검",OTHER,0.0287,OTHER,0.0109
+319,ko,GEOPOLITICAL,"일본, 동남아에 15조원 수혈…이란戰 공급망 붕괴 막는다",GEOPOLITICAL,0.5872,OTHER,0.4868
+320,ko,GEOPOLITICAL,"""공급망 차질 현실화"" … 韓 전력업계, 중동 사업 위축되나",GEOPOLITICAL,0.9891,GEOPOLITICAL,0.9946
+321,ko,OTHER,지속 가능한 공급망 관리 | 아모레퍼시픽,OTHER,0.0723,OTHER,0.0366
+322,en,OTHER,"DHL Supply Chain to close Rural Hall warehouse, lay off 80",GEOPOLITICAL,0.8102,GEOPOLITICAL,0.8295
+323,ko,OTHER,"고려아연, 첫 지속가능경영추진위원회 개최…기후공시·공급망 관리 점검",OTHER,0.0386,OTHER,0.0184
+324,en,OTHER,Building resilient supply chains for FMCG,OTHER,0.0635,OTHER,0.0299
+325,en,OTHER,Sustainability: The future of supply chain management,OTHER,0.0661,OTHER,0.0302
+326,en,OTHER,DLA Troop Support launches food management system,OTHER,0.1781,OTHER,0.0812
+327,en,SUPPLIER,"Dell, HPE server supply upended by memory crunch",OTHER,0.1317,OTHER,0.0775
+328,en,SUPPLIER,Can Supply Chain Solve Intel's Production Puzzle?,OTHER,0.2657,OTHER,0.1327
+329,en,LOGISTICS,Maersk Europe Market Update April 2026,LOGISTICS,0.8142,LOGISTICS,0.6024
+330,en,OTHER,TanStack npm Supply Chain Attack Prompts OpenAI Updates,OTHER,0.0234,OTHER,0.0082
+331,en,OTHER,Tropical Shipping Gift Supports Supply Chain Management Program at FAU,LOGISTICS,0.7461,OTHER,0.3289
+332,ko,OTHER,"""수소로 공급망 리스크 대응""…현대차그룹, 로테르담서 글로벌 표준 논의",OTHER,0.3586,OTHER,0.2722
+333,en,OTHER,Ford CEO Jim Farley says the secret to climbing the corporate ladder flows through this department—and Tim Cook is proof it works,OTHER,0.1821,OTHER,0.1346
+334,ko,SUPPLIER,비료 공급망 차질 위험에 대응합니다.,OTHER,0.6532,SUPPLIER,0.6474
+335,en,OTHER,‘Ascend’ to New Heights in Strategic Supply Chain Management,OTHER,0.0509,OTHER,0.0209
+336,en,GEOPOLITICAL,Iran War: Why Fuel Crisis Paralysed Ireland's Supply Chain,GEOPOLITICAL,0.9927,GEOPOLITICAL,0.9923
+337,en,OTHER,"Stop moving boxes, start moving dollars: The new math of global supply chain velocity",OTHER,0.0863,OTHER,0.0384
+338,ko,GEOPOLITICAL,글로벌 핵심광물 수출규제 5배 급증…커지는 공급망 불안,GEOPOLITICAL,0.9799,GEOPOLITICAL,0.9737
+339,en,OTHER,Air Lift Co. Names New Executive VP of Global Supply Chain & More,OTHER,0.0633,OTHER,0.0248
+340,en,LABOR,"Senate report urges action to prevent supply chain disruptions from rail, port strikes",LABOR,0.9623,LABOR,0.9551
+341,en,OTHER,Trump moves to blacklist Anthropic AI from all government work,OTHER,0.0569,OTHER,0.0275
+342,en,GEOPOLITICAL,Supply Chain News Roundup: Tariffs Are Still Here and Changing,OTHER,0.3116,OTHER,0.2402
+343,ko,OTHER,"엠로, 가트너 공급망 행사서 에이전틱 AI 기반 구매 솔루션 공개",OTHER,0.0405,OTHER,0.0224
+344,ko,GEOPOLITICAL,"식약처, 중동 전쟁 공급망 리스크 대응…주사기·주사침 점검",GEOPOLITICAL,0.9994,GEOPOLITICAL,0.9978
+345,ko,OTHER,"한-이탈리아, 통상환경 개선으로 첨단산업 공급망 시너지 본격화",OTHER,0.1582,OTHER,0.1107
+346,en,OTHER,Miasma npm Supply Chain Attack: Self-Spreading Worm via Phantom Gyp,OTHER,0.0164,OTHER,0.0043
+347,ko,OTHER,"스패로우, 'SAI 2026' 성료…AI 시대 SBOM 기반 SW 공급망 보안 전략 제시",OTHER,0.0036,OTHER,0.001
+348,en,OTHER,International Grains Council: Facilitating Trade in Grains Value Chain,OTHER,0.2664,OTHER,0.2254
+349,en,OTHER,OpenAI Warns Mac Users to Update Apps After Supply-Chain Attack,OTHER,0.4755,GEOPOLITICAL,0.4025
+350,ko,OTHER,"김용범, ‘K-AI 공급망’ 프로젝트 트리니티 제시…거점으로 '호남' 부상",OTHER,0.0749,OTHER,0.0415
+351,en,OTHER,Supply chain resilience: Safeguarding economic surety amid global uncertainty,OTHER,0.1105,OTHER,0.0501
+352,en,GEOPOLITICAL,Baltic MROs Tighten Supply Chains Amid Geopolitical Pressure,OTHER,0.3356,OTHER,0.2241
+353,en,LOGISTICS,2025 Container Port Performance Index Links Port Efficiency to Global Supply Chain Stability,LOGISTICS,0.9964,LOGISTICS,0.9256
+354,en,GEOPOLITICAL,Geopolitical risk in pharmaceutical supply chains in 2026,GEOPOLITICAL,0.8128,GEOPOLITICAL,0.7285
+355,ko,GEOPOLITICAL,"외교부, '한-중동 포괄적 경제협력' 전담 TF 설치…'공급망 위기' 대응",GEOPOLITICAL,0.9519,GEOPOLITICAL,0.9178
+356,en,OTHER,Cheetah Net Supply Chain Service Inc. Announces Full Year 2025 Results and Provides Corporate Update,OTHER,0.1077,OTHER,0.053
+357,en,OTHER,Supply Chain and Logistics News Week of May 7th 2026,OTHER,0.4599,OTHER,0.1776
+358,en,GEOPOLITICAL,Supply chain anxiety hits record highs as geopolitical risks and costs surge,FINANCIAL,0.9972,FINANCIAL,0.9914
+359,ko,OTHER,"수출입은행, 사우디 아람코와 30억달러 규모 금융계약…공급망 안정성 강화",OTHER,0.1537,OTHER,0.1459
+360,ko,OTHER,"[특징주] 화신정공, 보스턴다이나믹스 ‘아틀라스’ 공급망 편입 기대감에 연일 상한가",OTHER,0.1777,OTHER,0.1266
+361,en,OTHER,Global Supply Chain Awards: The Digital Supply Chain Award,OTHER,0.4698,OTHER,0.2647
+362,ko,OTHER,공급망 재편·CBAM 대응 전략 한자리에…중견기업 포럼 성료,OTHER,0.0019,OTHER,0.0006
+363,ko,OTHER,"""글로벌 공급망, 인권실사 강화…중소 수출기업 대비해야""",OTHER,0.1541,OTHER,0.113
+364,ko,GEOPOLITICAL,[현장] 빙현지 산업연구원 연구원 “호르무즈發 공급망 쇼크···전쟁 끝나도 고비용 체제 지속”,GEOPOLITICAL,0.9991,GEOPOLITICAL,0.9993
+365,en,OTHER,"Global Supply Chain Forum 2026: Building Resilient, Inclusive and Technology-Enabled Supply Chains: From Local Operations to Global Networks",OTHER,0.0083,OTHER,0.0018
+366,en,OTHER,Business and process readiness for supply chain AI,OTHER,0.118,OTHER,0.0665
+367,en,OTHER,Decoding disruption to reshape manufacturing footprints,OTHER,0.2825,OTHER,0.2017
+368,ko,OTHER,"[로펌라운지] 바른, 중견련과 공동으로 개최한 제2회 2026 중견기업 Scale-up 전략 포럼 성료",OTHER,0.0021,OTHER,0.0008
+369,en,OTHER,How AI and Digital Twins Are Revolutionizing Global Supply Chain Management in 2026,OTHER,0.0255,OTHER,0.0102
+370,en,OTHER,Government Keynote: Supply Chain Resilience and Defense Readiness,OTHER,0.0913,OTHER,0.0399
+371,ko,OTHER,"재경부, 중앙亞 전문가 간담회…정상회의 앞두고 공급망·AI 협력 모색",OTHER,0.0907,OTHER,0.0474
+372,en,SUPPLIER,"Sector plaudits for ofi, as major cocoa supply chain crisis continues",OTHER,0.5198,OTHER,0.3304
+373,ko,OTHER,"화학산업協, EU 전문가 초청 글로벌 특허·규제 동향 점검",OTHER,0.1244,OTHER,0.0689
+374,ko,OTHER,[기고] 의료기기 공급망 위기 예방하려면,OTHER,0.3122,OTHER,0.1943
+375,en,GEOPOLITICAL,Global Companies Face $25 Billion Hit as Iran War Drives Energy Shock and Supply Chain Crisis,GEOPOLITICAL,0.9974,GEOPOLITICAL,0.9957
+376,en,OTHER,"Duke Energy names Katie Aittola as head of supply chain and real estate, and chief procurement officer",OTHER,0.0107,OTHER,0.0042
+377,en,OTHER,How globalization is being shaped by AI and regionalized supply chains,OTHER,0.0717,OTHER,0.0391
+378,ko,GEOPOLITICAL,[세계 식량안보 동향] 글로벌 공급망 불안에 24개국 식량 수출 제한,OTHER,0.4509,OTHER,0.3834
+379,en,OTHER,Notepad++ secures update channel in wake of supply chain compromise,OTHER,0.076,OTHER,0.0469
+380,en,OTHER,Cline CLI 2.3.0 Supply Chain Attack Installed OpenClaw on Developer Systems,OTHER,0.0146,OTHER,0.0043
+381,en,GEOPOLITICAL,Strait of Hormuz Disruption: Managing Force Majeure and Supply Chain Risks,GEOPOLITICAL,0.9999,GEOPOLITICAL,0.9998
+382,ko,GEOPOLITICAL,"원유發 공급망 차질에…日, 동남아 국가들에 15조원 금융지원(종합)",GEOPOLITICAL,0.9903,GEOPOLITICAL,0.9935
+383,ko,OTHER,하파그로이드의 ZIM 인수와 글로벌 공급망 재편: 미 동부 노선 영향 및 리스크 분석 '이목 집중',OTHER,0.4564,OTHER,0.3218
+384,en,OTHER,Connections to expand Viet Nam’s supporting industry supply chain,OTHER,0.1599,OTHER,0.1191
+385,ko,OTHER,"스패로우, ""AI 생성 코드 안전하게 관리해야""…SBOM 기반 SW 공급망 보안 전략 제시",OTHER,0.0103,OTHER,0.0037
+386,en,LOGISTICS,"Maersk Latin America Market Update – June, 2026",LOGISTICS,0.836,OTHER,0.51
+387,en,OTHER,Supply Chains Were Built to be Efficient. They Were Also Built to Break.,OTHER,0.1054,OTHER,0.0709
+388,ko,OTHER,"BPA, 닝보 해상실크로드 포럼 참가… 글로벌 공급망 안정화 전략 소개",OTHER,0.0126,OTHER,0.0067
+389,ko,OTHER,[기자수첩]100% 국산화라는 말,OTHER,0.1609,OTHER,0.0944
+390,ko,OTHER,"'공급망 인권 리스크 점검'…아이에스동서, 협력사 행동규범 제정",OTHER,0.1284,OTHER,0.0726
+391,ko,GEOPOLITICAL,현대 기술의 핵심 ‘희토류’...글로벌 공급망 재편 전쟁 시작됐다,GEOPOLITICAL,0.9976,GEOPOLITICAL,0.9955
+392,ko,OTHER,"에코나인 서욱 대표, 공급망 대응 전략 제시…“ESG 평가, 연중 실시간 관리 체계로 진화”",OTHER,0.0346,OTHER,0.0144
+393,ko,SUPPLIER,"현대모비스, 인도 부품 공장 화재…공급망 차질 우려",SUPPLIER,0.9991,SUPPLIER,0.9869
+394,en,OTHER,University of New Haven and Creator of Cutting-Edge Platform Supporting U.S. Manufacturing Collaborate to Launch National Supply Chain Resiliency Hub in Connecticut,OTHER,0.1672,OTHER,0.1762
+395,ko,OTHER,"캐나다 찾은 최윤범 고려아연 회장, 한-加 공급망 포럼 참석",OTHER,0.031,OTHER,0.0173
+396,en,OTHER,Trimble roundtable focuses on supply chain resilience,OTHER,0.0717,OTHER,0.038
+397,en,GEOPOLITICAL,How Geopolitical Tensions in 2026 Are Reshaping Global Supply Chain Strategies,OTHER,0.2826,OTHER,0.2067
+398,ko,OTHER,이차전지 동향과 글로벌 대응 방안 모두 모였다...전지기술심포지엄 열려,OTHER,0.1072,OTHER,0.062
+399,ko,OTHER,인·태 경제프레임워크 공급망 대응 네트워크 회의…공조 강화,OTHER,0.0994,OTHER,0.0514
+400,ko,FINANCIAL,이 대통령 “물가안정 최우선…모든 수단 동원해 원유 공급망 관리”,GEOPOLITICAL,0.965,GEOPOLITICAL,0.9678
+401,en,OTHER,Eight out of 10 Supply Chain Risk Categories show Decline for 4th Quarter,OTHER,0.2236,OTHER,0.1493
+402,en,OTHER,Mother-And-Son Startup Secures Funding To Modernise Food Industry Crisis Management,OTHER,0.4268,OTHER,0.2919
+403,ko,GEOPOLITICAL,전쟁 때마다 무너지나…중동 리스크로 드러난 韓 공급망,GEOPOLITICAL,0.9998,GEOPOLITICAL,0.9996
+404,ko,OTHER,"“韓-베트남, 에너지안보 강화-공급망 안정 협력”",OTHER,0.1279,OTHER,0.0904
+405,en,GEOPOLITICAL,Big Business This Week: The Great Iran War Supply Chain Disruption,GEOPOLITICAL,0.9808,GEOPOLITICAL,0.9608
+406,en,GEOPOLITICAL,Middle East construction: supply chain disruption is a design and delivery challenge,GEOPOLITICAL,0.962,GEOPOLITICAL,0.945
+407,ko,OTHER,글로벌 공급망 이주노동 인권침해 확산…제조업 한국 공동 2위,LABOR,0.5585,OTHER,0.4094
+408,en,OTHER,We need more diversified hubs for global trade resilience,OTHER,0.0696,OTHER,0.024
+409,en,OTHER,SOCAT launches RM15bil GDV industrial and supply chain hub in JS-SEZ,OTHER,0.0802,OTHER,0.0298
+410,ko,OTHER,"[로펌라운지] 바른, 중견련과 공동으로 개최한 '제2회?2026?중견기업?Scale-up?전략 포럼' 성료",OTHER,0.015,OTHER,0.008
+411,en,OTHER,Dell North America President Kyle Leciejewski On Why Dell Is ‘Uniquely Executing’ With Partners In Midst Of Supply Chain Crisis,SUPPLIER,0.6809,OTHER,0.4745
+412,en,OTHER,Corporate sustainability due diligence,OTHER,0.1349,OTHER,0.0978
+413,ko,OTHER,"부산항만공사, 닝보서 글로벌 공급망 안정 전략 공유…부산항-닝보저우산항 협력 확대",OTHER,0.0494,OTHER,0.0965
+414,en,OTHER,Continuing to Scale Solutions aimed at Strengthening our Supply Chain and Creating Long Term Value,OTHER,0.0948,OTHER,0.0579
+415,ko,GEOPOLITICAL,"[칼럼] 카자흐스탄·중동·체코와의 협력 확대, 에너지·핵심광물 공급망 안정의 새로운 축",GEOPOLITICAL,0.9968,GEOPOLITICAL,0.9921
+416,en,OTHER,Construction of an enterprise-level global supply chain database,OTHER,0.0858,OTHER,0.0314
+417,en,OTHER,China's 2026 Supply Chain Expo to debut dedicated AI zone,OTHER,0.1011,OTHER,0.0476
+418,en,OTHER,"ThreatsDay Bulletin June 2026: Miasma Supply Chain Worm Leak, Claude Code GitHub Action Vulnerability, AI Agent Phishing & Top Cyber Incidents",OTHER,0.0167,OTHER,0.0047
+419,ko,OTHER,"한·EU, ‘공급망·에너지’ 협력 강화…고위급 경제대화 신설 추진",OTHER,0.083,OTHER,0.0497
+420,en,OTHER,The Hidden Supply Chain Behind Every SpaceX Launch,OTHER,0.1458,OTHER,0.103
+421,ko,SUPPLIER,브라질 희토류 공급망 확대 '빨간불'…광산 규제기관 역량 부족에 발목 잡혀,GEOPOLITICAL,0.9223,GEOPOLITICAL,0.9624
+422,en,GEOPOLITICAL,Rising grocery costs loom as Middle East conflicts disrupt supply chains - FoodNavigator-USA.com,GEOPOLITICAL,0.9999,GEOPOLITICAL,0.9998
+423,en,OTHER,11 Ways to Manage Supply Chain Complexity,OTHER,0.0922,OTHER,0.0483
+424,ko,LOGISTICS,호르무즈 해협 해상 운송 차질: 공급망 회복탄력성을 강화하는 세 가지 방법 | Marsh Korea,GEOPOLITICAL,0.9998,GEOPOLITICAL,0.9999
+425,ko,OTHER,"부산항만공사, 중국 닝보서 해상물류 협력 강화… 공급망 안정화 비전 발표",LOGISTICS,0.9685,LOGISTICS,0.6629
+426,ko,OTHER,글로벌 공급망 재편 속 제약바이오 지원책은,OTHER,0.1501,OTHER,0.0968
+427,ko,LABOR,"외신, 삼성전자 파업 계획 긴급 타전…“세계 공급망 전체 위기”",LABOR,0.9984,LABOR,0.9708
+428,en,OTHER,From crisis to confidence: How government agencies build resilient supply chains with advanced track and trace,OTHER,0.463,OTHER,0.3835
+429,ko,OTHER,"파미셀, 숨겨진 젠슨황 수혜주?…두산 통해 엔비디아 AI소재 공급망 편입",OTHER,0.1863,OTHER,0.1499
+430,en,OTHER,Why Supply Chain Management Is One of the Most In-Demand Careers,OTHER,0.0597,OTHER,0.0287
+431,en,OTHER,"DAEMON TOOLS supply chain attack ongoing since April, thousands affected [Update]",OTHER,0.0259,OTHER,0.0139
+432,en,LOGISTICS,"Trump’s Transportation Secretary Sean P. Duffy Announces American Supply Chain Sovereignty Initiative to Move Freight Faster, Lowers Costs for American People | US Department of Transportation",LOGISTICS,1.0,LOGISTICS,0.9984
+433,ko,OTHER,"“中企, 공급망 위기 극복 역부족“ “협동조합 활성화, 공동대응 필요”",SUPPLIER,0.7742,OTHER,0.5233
+434,ko,GEOPOLITICAL,이란 전쟁發 공급망 충격…완성차 생산 원가 전방위 압박,GEOPOLITICAL,0.9953,GEOPOLITICAL,0.9964
+435,ko,OTHER,"산업장관, 카자흐·중동·체코 순방⋯""공급망 확보·원전 협력 총력""",GEOPOLITICAL,0.5575,OTHER,0.4619
+436,en,OTHER,FedEx Highlights AI and Data as Pillars for Saudi Supply Chain Resilience,OTHER,0.0549,OTHER,0.0319
+437,ko,GEOPOLITICAL,한중 경제공동위 개최…“희토류 등 공급망 관리 필요성 확인”,GEOPOLITICAL,0.7031,GEOPOLITICAL,0.69
+438,en,OTHER,Packagist Supply Chain Attack Infects 8 Packages Using GitHub-Hosted Linux Malware,OTHER,0.1038,OTHER,0.0507
+439,en,OTHER,Why Climate Data is the Key to Supply Chain Resilience,OTHER,0.0704,OTHER,0.0525
+440,en,OTHER,Solar Photovoltaics Supply Chain Review Report,OTHER,0.2282,OTHER,0.3245
+441,ko,OTHER,BYD 북미 상륙… GM·현대차 공급망 '균열',OTHER,0.4851,OTHER,0.2965
+442,ko,OTHER,"고려아연, 글로벌 공급망 장벽 넘을 ‘ESG 고도화’ 시동",OTHER,0.1009,OTHER,0.0591
+443,ko,LABOR,“삼성전자 총파업 >> 반도체 슈퍼사이클 첫 균열 신호” -> “파업이 멈춘 건 공장이 아니라 글로벌 신뢰였다” => “30만전자 문턱에서 터진 공급망 리스크의 본질”,LABOR,1.0,LABOR,0.9996
+444,ko,GEOPOLITICAL,“핵심광물 지역편중 심화…공급망 위기 빈번해질 수 있어”,GEOPOLITICAL,0.9074,GEOPOLITICAL,0.8722
+445,en,OTHER,From Pilots to Resilience: Five Takeaways on Scaling AI in the Supply Chain,OTHER,0.0475,OTHER,0.0257
+446,en,GEOPOLITICAL,"Hormuz domino effect: How the Middle East crisis affects food, flights and global supply chains",GEOPOLITICAL,0.9997,GEOPOLITICAL,0.9995
+447,ko,OTHER,"엠로 ""글로벌 에이전틱 AI 공급망관리 78조원 시장 공략""",OTHER,0.0632,OTHER,0.0279
+448,ko,OTHER,"보호된 글: 기업 공급망 속 인권 침해, 이제는 법으로 막아야 합니다",OTHER,0.127,OTHER,0.0607
+449,ko,OTHER,공급망 균열에 발목 잡힌 AI 인프라 투자 붐,OTHER,0.1499,OTHER,0.0849
+450,ko,OTHER,"엠로, 78조원 규모 AI 공급망 관리 시장 공략 본격화",OTHER,0.0738,OTHER,0.0366
+451,ko,GEOPOLITICAL,"라이칭더 ""글로벌공급망 안정 위해 대만해협 평화·안정 수호""",GEOPOLITICAL,0.9237,GEOPOLITICAL,0.9288
+452,en,OTHER,How global CEOs are navigating rising costs and supply chain disruption,FINANCIAL,0.8554,FINANCIAL,0.6512
+453,ko,GEOPOLITICAL,"호르무즈 변수에 공급망 흔들…산업부, IPEF 공동 대응 모색",GEOPOLITICAL,0.9725,GEOPOLITICAL,0.9809
+454,en,GEOPOLITICAL,The Price of Uncertainty: How Trade Volatility Is Breaking Chemical Supply Chains,OTHER,0.4805,OTHER,0.4312
+455,en,OTHER,Global Supply Chain Awards 2026 Entry Deadline Approaches,OTHER,0.2182,OTHER,0.0971
+456,ko,LABOR,"삼성전자 노조 집회일 파운드리 야간생산 약 60% '뚝'…""공급망 차질 우려↑""",LABOR,0.9989,LABOR,0.9962
+457,ko,OTHER,"화학산업협회, ESG 리더십 세미나…""공급망 리스크 대응책 모색""",OTHER,0.2564,OTHER,0.1683
+458,ko,GEOPOLITICAL,중동발 원자재 불안에 전남 의료계 '비상 대응'… 공급망 정밀 점검 > 뉴스,GEOPOLITICAL,0.9996,GEOPOLITICAL,0.9997
+459,en,GEOPOLITICAL,Four Parts To This Crisis: Oil. Insurance. Supply Chains. Food. You Only Know About One – Analysis,SUPPLIER,0.7757,SUPPLIER,0.7441
+460,ko,OTHER,"가스공사, 주배관 5346km 대동맥 운영...안정적 공급망 강화",OTHER,0.0709,OTHER,0.0431
+461,en,OTHER,Supply chain disruptions are back at 2022 levels – Statista,OTHER,0.1796,OTHER,0.0992
+462,en,OTHER,"Global supply chain shocks are now a core Canadian underwriting risk, Zurich warns MGAs",GEOPOLITICAL,0.9949,GEOPOLITICAL,0.9896
+463,en,OTHER,Continued pressure on global supply chains in May: GEP-S&P Global,OTHER,0.1418,OTHER,0.0938
+464,ko,OTHER,"글로벌 공급망 재편·기술패권 경쟁 심화...""금융정책 정교화 필요""",OTHER,0.1098,OTHER,0.0506
+465,en,OTHER,"Manufacturing supply chains, 2026 and beyond: turning volatility into long-term resilience",OTHER,0.071,OTHER,0.0333
+466,en,OTHER,The supply chain CEO,OTHER,0.082,OTHER,0.0483
+467,en,GEOPOLITICAL,Silicon Valley insiders warn U.S. defense supply chain is unprepared for modern warfare,GEOPOLITICAL,0.631,OTHER,0.4936
+468,ko,GEOPOLITICAL,"산업부, 중동 전쟁 장기화에 따른 철강 공급망 점검 및 대응 논의",GEOPOLITICAL,0.9969,GEOPOLITICAL,0.9931
+469,en,OTHER,Supply Chain LIVE: Mitigating Risk and Building Resilience,OTHER,0.1854,OTHER,0.0858
+470,en,OTHER,Can Mission Produce's Supply Chain Upgrades Drive Higher Returns?,OTHER,0.2257,OTHER,0.1723
+471,ko,OTHER,"'공급망 3중苦' 식품기업, 홈플러스 폐점까지 '사면초가'",OTHER,0.1332,OTHER,0.0619
+472,en,OTHER,Roundtable Discussion | ORF & The Rockefeller Foundation Reconfiguring Resilient Supply Chains,OTHER,0.0875,OTHER,0.0524
+473,ko,OTHER,"ASML CEO ""EU 반도체 공급망 개입은 금물…자생 기업 키워야""",OTHER,0.5121,OTHER,0.2764
+474,ko,OTHER,"김정관 산업장관, 카자흐·중동·체코 순방…에너지 공급망·원전 협력 점검",GEOPOLITICAL,0.5477,GEOPOLITICAL,0.4188
+475,en,OTHER,SAP Launches Innovative Updates for Supply Chain Management,OTHER,0.0329,OTHER,0.0179
+476,en,GEOPOLITICAL,Navigating Risks in Rare Earth Element (REE) Supply Chains,GEOPOLITICAL,0.9613,GEOPOLITICAL,0.9411
+477,ko,GEOPOLITICAL,"李 ""공급망 네트워크 산업 경쟁력 좌우""…이탈리아 부총리 ""中 원자재 좌지우지, 대안 찾아야""(종합)",OTHER,0.1679,OTHER,0.0568
+478,en,SUPPLIER,"The Cathode Matrix: Managing the Supply of Nickel, Cobalt, Manganese & LFP",OTHER,0.1056,OTHER,0.0677
+479,en,OTHER,The Year Ahead for Supply Chain Management,OTHER,0.0654,OTHER,0.0272
+480,en,OTHER,How an online MIT course in supply chain management sparked a new career,OTHER,0.0237,OTHER,0.0113
+481,en,OTHER,OpenAI asks macOS users to update after TanStack npm supply chain attack,OTHER,0.0124,OTHER,0.0035
+482,en,OTHER,OpenAI Urges macOS Users to Update After TanStack Supply Chain Attack Hits Signing Keys,OTHER,0.0344,OTHER,0.0136
+483,en,OTHER,Reinventing the Life Sciences Supply Chain for Resilience and Growth,OTHER,0.0543,OTHER,0.0276
+484,en,OTHER,PwC’s 2026 Digital Trends in Operations: How AI Reinvents Enterprise Performance,OTHER,0.01,OTHER,0.0031
+485,ko,OTHER,"안정적인 공급망 구축·물가안정…해수부, '김 수출 공급망 혁신방안' 발표",OTHER,0.494,OTHER,0.2918
+486,ko,OTHER,"한국국제물류협회, 글로벌 공급망 위기 돌파구로 'AX 혁신' 제시",OTHER,0.6077,LOGISTICS,0.5828
+487,en,OTHER,Coty’s Supply Chain Transformation,OTHER,0.1402,OTHER,0.0897
+488,en,OTHER,White House: Trump-Modi bilateral to focus on global security,OTHER,0.1458,OTHER,0.1054
+489,en,OTHER,Former Walmart vet joins Target to oversee global supply chain,OTHER,0.1078,OTHER,0.0614
+490,ko,OTHER,"수출입은행, 핵심광물 공급망 협력 논의",GEOPOLITICAL,0.6354,OTHER,0.5351
+491,ko,GEOPOLITICAL,"캐나다, “USMCA 재협상 없다” 못박아… 韓 기업 공급망 리스크 비상",LABOR,0.9713,LABOR,0.8808
+492,en,OTHER,5 Best Supply Chain Stocks to Buy in 2026,OTHER,0.0835,OTHER,0.0442
+493,ko,OTHER,"고려아연, 캐나다서 북미 핵심광물 공급망 협력 확대 강조",GEOPOLITICAL,0.7825,GEOPOLITICAL,0.6091
+494,en,OTHER,Grocery Outlet turns to AI to modernize supply chain,OTHER,0.0799,OTHER,0.0381
+495,ko,OTHER,반도체 업계 2026 전략 키워드 '공급망 관리',OTHER,0.0843,OTHER,0.0301
+496,en,OTHER,China Auto Update: XPENG to Build Localized Supply Chain Teams in Europe and ASEAN,OTHER,0.1169,OTHER,0.0852
+497,en,OTHER,Your Supplier Relationships Can’t Outperform Your Own Operations,OTHER,0.0611,OTHER,0.0449
+498,en,OTHER,Former CIA supply chain director describes of new paradigms in logistics support,LOGISTICS,0.8789,OTHER,0.5259
+499,en,OTHER,"Ladybug Resource Group, Inc. Launches AI-Driven ""Smart Supply Chain Hub,"" Redefining Global Sourcing for Non-Standard Industrial Components",OTHER,0.0709,OTHER,0.0308
+500,en,GEOPOLITICAL,Lingering West Asia crisis may hit delivery of 5.40 lakh houses in India: ANAROCK,SUPPLIER,0.656,SUPPLIER,0.5612
+501,en,OTHER,"Global Cosmetics News – Weekly Review | Week 24, June 2026",OTHER,0.2773,OTHER,0.2187
+502,en,OTHER,Memory semiconductor supply chain + Samsung,OTHER,0.3889,OTHER,0.1641
+503,en,OTHER,How AI and Automation Are Transforming Global Supply Chain Operations in 2026,OTHER,0.0261,OTHER,0.0139
+504,ko,OTHER,"中서 APEC 통상장관회의…여한구 ""공급망 위기 힘 모으자""",OTHER,0.2267,OTHER,0.1311
+505,en,OTHER,Working Capital Fund secures $31 million for its third supply chain resilience fund,OTHER,0.0563,OTHER,0.0255
+506,ko,OTHER,"중국 뚫고 세계로… 엘앤씨바이오, 인체 조직 이식재 공급망 확장 속도전",OTHER,0.1968,OTHER,0.173
+507,ko,OTHER,"한-이탈리아, 첨단산업 공급망 협력 강화 나선다",OTHER,0.0918,OTHER,0.0599
+508,ko,OTHER,"'공급망관리 달인' 애플, 불량 칩 안 버리는 이유",OTHER,0.0597,OTHER,0.0238
+509,ko,LABOR,“파업은 구조적 리스크”…포럼서 제기된 삼성전자 ‘공급망 안정’ 필요성,LABOR,0.9355,LABOR,0.791
+510,en,GEOPOLITICAL,MIDDLE EAST WAR DRIVES GLOBAL SUPPLY CHAIN PRESSURES TO A THREE-YEAR HIGH: GEP GLOBAL SUPPLY CHAIN VOLATILITY INDEX,GEOPOLITICAL,0.9995,GEOPOLITICAL,0.9972
+511,en,OTHER,"TanStack Supply Chain Attack Hits Two OpenAI Employee Devices, Forces macOS Updates",OTHER,0.028,OTHER,0.0119
+512,ko,GEOPOLITICAL,"“미·중 사이에 낀 한국·EU, 국방·공급망 연대해야”",OTHER,0.1597,OTHER,0.1052
+513,ko,GEOPOLITICAL,[테마시황] 중동 지정학적 리스크 재점화 및 공급망 불안... 구리·원자재·해운 테마 강세,GEOPOLITICAL,0.9987,GEOPOLITICAL,0.9998
+514,en,GEOPOLITICAL,Where the Iran War Could Disrupt Pharmaceutical Supply Chains,GEOPOLITICAL,0.966,GEOPOLITICAL,0.9515
+515,ko,OTHER,"""관세·공급망 등 글로벌 경제 파장 고려…대결보다 리스크 관리 방점""",GEOPOLITICAL,0.9559,GEOPOLITICAL,0.9359
+516,ko,GEOPOLITICAL,"美, 알리바바·BYD까지 겨눴다…'1260H 확대'에 흔들리는 K-공급망",OTHER,0.3788,OTHER,0.3387
+517,en,GEOPOLITICAL,Iran Crisis and Russia War Reshape Global Supply Chains,GEOPOLITICAL,0.9931,GEOPOLITICAL,0.9857
+518,en,OTHER,npm Adds 2FA-Gated Publishing and Package Install Controls Against Supply Chain Attacks,OTHER,0.0136,OTHER,0.004
+519,en,GEOPOLITICAL,Strait of Hormuz: 6 Experts Have Say on Supply Chain Crisis,GEOPOLITICAL,0.9997,GEOPOLITICAL,0.9996
+520,ko,OTHER,"현대글로비스, 유럽 완성차 공급망 허브 구축",OTHER,0.1327,OTHER,0.1129
+521,ko,OTHER,"공급망 위기에 석유화학공장 찾은 金총리…""차질없는 생산"" 당부",SUPPLIER,0.9984,SUPPLIER,0.9872
+522,ko,OTHER,"공급망관리 SW기업 엠로, 조상원 신임 대표 내정",OTHER,0.0626,OTHER,0.0266
+523,ko,SUPPLIER,"전력 기자재 수급 불안 커지자…기후부, 변압기·전선 공급망 점검",SUPPLIER,0.8137,SUPPLIER,0.7277
+524,en,GEOPOLITICAL,Global Energy Markets in Crisis as War Chokes Supply Chains,GEOPOLITICAL,0.9941,GEOPOLITICAL,0.9953
+525,ko,LABOR,"외신 '삼전 파업'에 ""세계 공급망 위기""…'제한적 영향' 진단도(종합)",LABOR,0.9798,LABOR,0.8877
+526,en,LOGISTICS,"Weekly U.S. Freight and Supply Chain Report – May 26, 2026 | BTS Data - News and Statistics",LOGISTICS,0.9972,LOGISTICS,0.8264
+527,en,OTHER,India Inc's new supply chain strategy: Replacing efficiency with resilience,OTHER,0.0249,OTHER,0.0146
+528,en,OTHER,OpenAI Tells Mac Users to Update Apps After Software Supply Chain Attack,OTHER,0.4095,OTHER,0.3264
+529,ko,OTHER,"[산자부] 한-인니, 배터리 공급망 협력 지속 확대키로",OTHER,0.0652,OTHER,0.0217
+530,ko,OTHER,"“AI 시대 전력안보 함께 지킨다”…한미, 전력망·ESS·공급망 동맹 확대",OTHER,0.1974,OTHER,0.0941
+531,en,GEOPOLITICAL,UK Tests Supply Chain Resilience Under Simulated Wartime Pressure,GEOPOLITICAL,0.6874,GEOPOLITICAL,0.5089
+532,en,OTHER,Supply chain shocks fuel push for more resilience,OTHER,0.2122,OTHER,0.1154
+533,en,OTHER,Supply & Demand,OTHER,0.1238,OTHER,0.0809
+534,en,SUPPLIER,Why Drug Shortages Are Lasting Longer Than Ever: Expert Insights on Supply Chain Risks,GEOPOLITICAL,0.5743,OTHER,0.3707
+535,en,OTHER,Watch: How AI Platforms Enable Supply Chain Resilience and Orchestration,OTHER,0.0674,OTHER,0.034
+536,ko,GEOPOLITICAL,"중동 리스크 속 중국의 선제 대응, 글로벌 공급망 다시 긴장",GEOPOLITICAL,0.9895,GEOPOLITICAL,0.9736
+537,ko,OTHER,"엔트로픽 '미토스' 충격…과기부, 제로트러스트·공급망 보안 점검",OTHER,0.1451,OTHER,0.1037
+538,ko,OTHER,"법제처, 공급망 안정법 시행 앞두고 ‘찾아가는 법제심사’…조기경보시스템 작동 점검",OTHER,0.1805,OTHER,0.1051
+539,ko,GEOPOLITICAL,WF₆ 공급망 '사실상 마비'… 중국 텅스텐 보복에 일본 소재 라인 셧다운 위기,OTHER,0.457,OTHER,0.4038
+540,ko,OTHER,"최윤범, 캐나다서 핵심광물 협력 논의…""고려아연이 공급망 핵심으로""",GEOPOLITICAL,0.7514,OTHER,0.5433
+541,en,OTHER,Tracing Social Impacts Across Company Supply Chains,OTHER,0.1544,OTHER,0.0701
+542,ko,GEOPOLITICAL,"한일, 원유·석유제품 공급차질시 빌려준다…“공급망 위기 공동대응”",GEOPOLITICAL,0.9943,GEOPOLITICAL,0.9963
+543,en,LOGISTICS,How UAE food supplies stayed moving during shipping disruption,OTHER,0.4936,LOGISTICS,0.5564
+544,en,OTHER,The Biggest Supply Chain Risks of 2026 (and how to navigate them),OTHER,0.3418,OTHER,0.2383
+545,en,OTHER,Trust No Skill: Integrity Verification for AI Agent Supply Chains,OTHER,0.0826,OTHER,0.0412
+546,ko,OTHER,김 공급망 혁신…2030년 수출 18억 달러 목표,OTHER,0.1499,OTHER,0.075
+547,en,OTHER,Complying With Canada’s Fighting Against Forced Labour and Child Labour in Supply Chains Act – Updates from Public Safety Canada’s Winter 2026 Bulletin,OTHER,0.0792,OTHER,0.0393
+548,ko,OTHER,"스패로우, AI 시대 SW 공급망 보안 전략 제시",OTHER,0.0029,OTHER,0.0006
+549,en,OTHER,Supply chain platform wins undergraduate track at the 2026 Be Your Own Boss Bowl,OTHER,0.0608,OTHER,0.0391
+550,ko,OTHER,"한국광해광업공단, ‘2026 글로벌 배터리 광물 세미나’ 개최",OTHER,0.0826,OTHER,0.0471
+551,ko,OTHER,"""한국이 휴머노이드 공급망 중심""…HL만도 상한가",OTHER,0.2065,OTHER,0.1525
+552,en,OTHER,How AI Reshapes Global Supply Chain Sustainability,OTHER,0.0667,OTHER,0.0281
+553,en,OTHER,How AI Is Rewriting Supply Chains: Inside Blue Yonder’s Transformation Strategy,OTHER,0.0135,OTHER,0.0056
+554,en,OTHER,Refueling Airpower: Tinker Engineers Enhance KC-135 Supply Chain Resilience [Image 1 of 3],OTHER,0.067,OTHER,0.0437
+555,ko,OTHER,"정부, 비료 공급망 안전판 만든다…쌀처럼 '공공비축' 검토",OTHER,0.1053,OTHER,0.0679
+556,ko,OTHER,"LS MnM, 지속가능성장경영보고서 발간…원료 공급망 강화",OTHER,0.0718,OTHER,0.054
+557,ko,OTHER,"엘에스웨어, '포세라 위드 블랙덕' 기능 고도화…SBOM·AI 개발 환경·공급망 보안 대응 강화",OTHER,0.0198,OTHER,0.0065
+558,ko,OTHER,"산업부, 석유화학 공급망 점검…""핵심산업 차질 없도록 최우선 관리""",OTHER,0.4139,OTHER,0.3394
+559,en,OTHER,Disruption is the new supply chain normal,OTHER,0.2412,OTHER,0.1569
+560,ko,OTHER,"광해공단, 배터리 광물 세미나 개최…핵심광물 정책동향 점검",GEOPOLITICAL,0.574,OTHER,0.5364
+561,en,OTHER,General Mills promotes company veteran to COO,OTHER,0.0627,OTHER,0.0329
+562,en,OTHER,Nearshoring’s Business Case Strengthens Amid Supply Chain Volatility,OTHER,0.1546,OTHER,0.1025
+563,ko,OTHER,"코스맥스, 원료 제안 프로세스 디지털화…글로벌 공급망 다변화 가속",OTHER,0.1823,OTHER,0.1695
+564,en,GEOPOLITICAL,"The Strait of Hormuz crisis will ripple across plastics and food supply chains, helping Beijing and Moscow, hurting Americans",GEOPOLITICAL,0.9998,GEOPOLITICAL,0.9994
+565,ko,OTHER,"외교부, 아세안지역 공관장 회의 열어 공급망 협력 점검",OTHER,0.0247,OTHER,0.0077
+566,ko,FINANCIAL,"현대硏 ""고유가 장기화…사업계획 재수립·공급망 다변화 필요""",FINANCIAL,0.9954,FINANCIAL,0.9076
+567,en,OTHER,From thread to fabric: Flag company runs on 100% American supply chain,OTHER,0.0506,OTHER,0.0251
+568,en,OTHER,How AI reinvents supply chain resilience,OTHER,0.0387,OTHER,0.0166
+569,ko,GEOPOLITICAL,"안산상공회의소, 최고경영자 강연회 개최… “격변하는 중동 정세 속 냉정한 대응 필요해”",GEOPOLITICAL,0.9175,GEOPOLITICAL,0.8414
+570,ko,OTHER,"[단독] 고영, 스페이스X 공급망 진입… 자율제조·3D 검사 기술로 우주·로봇 시장 개척 - 조선비즈",OTHER,0.0794,OTHER,0.0446
+571,en,LOGISTICS,"Introducing Amazon Supply Chain Services: Amazon’s logistics network, now open to every business",OTHER,0.1203,OTHER,0.1118
+572,en,OTHER,Could biotech find a sweet spot for cocoa supply chain resilience?,OTHER,0.0625,OTHER,0.04
+573,en,OTHER,OpenAI’s Mac apps need updates thanks to the Axios hack,OTHER,0.132,OTHER,0.0811
+574,en,OTHER,"Hegseth declares Anthropic a supply chain risk, restricting military contractors from doing business with AI giant",OTHER,0.2206,OTHER,0.1039
+575,en,OTHER,Supply Chain Management Alum Lands Job in New York,OTHER,0.043,OTHER,0.0195
+576,ko,OTHER,"인도 發 자동차 공급망 재편 주목, 우리 물류기업도 기회",LOGISTICS,0.648,LOGISTICS,0.4086
+577,en,FINANCIAL,How supply chain disruptions are driving up inflation and how we can deal with this,OTHER,0.4691,OTHER,0.4448
+578,en,LOGISTICS,"Ocean shippers frontload cargo ahead of tariffs, fuel concerns",GEOPOLITICAL,0.9303,GEOPOLITICAL,0.8815
+579,en,LOGISTICS,"IMEA Market Update: Reliability Gains, Red Sea Progress and Seasonal Outlook",LOGISTICS,0.6462,LOGISTICS,0.477
+580,en,OTHER,Digital supply chain transformation improves corporate carbon emission efficiency in Chinese listed companies,OTHER,0.0714,OTHER,0.0353
+581,ko,GEOPOLITICAL,"중동 리스크 상시화··· 총수들, ‘글로벌 공급망·투자’ 전면 개편 드라이브",GEOPOLITICAL,0.9841,GEOPOLITICAL,0.9746
+582,en,SUPPLIER,Fears rise over massive Tracy warehouse fire impacting medical supply chain,SUPPLIER,0.971,SUPPLIER,0.9421
+583,en,OTHER,Supply chain risk: New developments in corporate human rights responsibility,OTHER,0.2658,OTHER,0.1515
+584,en,OTHER,Allianz Risk Barometer 2026 - Business interruption,OTHER,0.2841,OTHER,0.2051
+585,en,GEOPOLITICAL,"Iran war unlikely to trigger global supply chain crisis, Goldman Sachs says",GEOPOLITICAL,0.9937,GEOPOLITICAL,0.9916
+586,ko,LOGISTICS,"[칼럼]거세지는 글로벌 공급망 위기, ‘북극항로’에서 길을 찾다",LOGISTICS,0.7693,LOGISTICS,0.8264
+587,en,OTHER,Spinneys Q1 2026 slides: 12% revenue growth amid supply chain crisis,OTHER,0.6599,GEOPOLITICAL,0.5946
+588,en,OTHER,What’s happening this week in economics?,OTHER,0.1976,OTHER,0.1765
+589,ko,GEOPOLITICAL,"전쟁 100일, 한국 기업들 '탈중동 공급망' 시작됐다 [중동전 100일, 그후]",GEOPOLITICAL,0.9981,GEOPOLITICAL,0.9937
+590,en,OTHER,Inside Haleon's Indian Healthcare Supply Chain Expansion,OTHER,0.0972,OTHER,0.0493
+591,en,OTHER,Securing Global Supply Chains From the Chip Up,OTHER,0.1426,OTHER,0.0764
+592,en,OTHER,Malicious PyTorch Lightning update hits AI supply chain security,OTHER,0.1758,OTHER,0.1076
+593,ko,OTHER,"김용범 “반도체·전력·제조 갖춘 한국, AI 공급망 거점으로”",OTHER,0.2987,OTHER,0.136
+594,en,GEOPOLITICAL,The 2026 supply chain challenge: Global trade disruption,OTHER,0.236,OTHER,0.1275
+595,ko,GEOPOLITICAL,중동 변수에 흔들리는 건설자재 시장…국토부 “공급망 점검·가격 안정 총력”,GEOPOLITICAL,0.9944,GEOPOLITICAL,0.9957
+596,ko,OTHER,"엔켐, CATL향 전해액 출하 점검…AI 데이터센터 확산 맞춰 공급망 강화",OTHER,0.1103,OTHER,0.0818
+597,en,GEOPOLITICAL,"Navigating Geopolitical Event Risk: A Practical Framework for Credit, Market and Supply Chain Exposures",GEOPOLITICAL,0.8054,GEOPOLITICAL,0.8265
+598,ko,GEOPOLITICAL,"韓日, 원유·LNG 비상 스와프 체계 구축키로… “공급망 위기 공동 대응” - 조선비즈",GEOPOLITICAL,0.9923,GEOPOLITICAL,0.9896
+599,ko,OTHER,"기획처·중장기위, '미래성장·경제안보·공급망' 전략 논의",OTHER,0.035,OTHER,0.0193
+600,ko,OTHER,"공급망 재편의 파고, 한국 기업이 선택해야 할 전략",OTHER,0.1018,OTHER,0.0488
+601,en,OTHER,"Trivy Compromised by ""TeamPCP""",OTHER,0.1443,OTHER,0.0784
+602,ko,OTHER,공급망 위기 속 GR 인증 재조명…“K-GX 견인차로 육성 필요”,OTHER,0.2496,OTHER,0.1381
+603,ko,SUPPLIER,"현대차 4월 판매, 공급망 암초",OTHER,0.1661,OTHER,0.1305
+604,ko,SUPPLIER,현대모비스 인도 공장 화재 … 공급망 차질 불가피,SUPPLIER,0.9922,SUPPLIER,0.9597
+605,en,OTHER,5 truths that will redefine interconnected supply chain management,OTHER,0.0644,OTHER,0.0315
+606,ko,GEOPOLITICAL,"“호르무즈발 리스크 한눈에”…KMI, 공급망 AI 일일 브리핑 공개",GEOPOLITICAL,0.9323,GEOPOLITICAL,0.933
+607,ko,OTHER,"[ESG 칼럼] 글로벌 공급망 뉴 노멀, 'EcoVadis'가 바이어 선택을 좌우하는 이유",OTHER,0.1602,OTHER,0.1195
+608,ko,OTHER,AI 시대 소프트웨어 공급망 보안도 진화한다…스패로우 전략은?,OTHER,0.0037,OTHER,0.0008
+609,ko,OTHER,[길 잃은 가스公] 설비 70%가 놀고 있다…공급망 리스크 대응되나,OTHER,0.3364,OTHER,0.2738
+610,ko,GEOPOLITICAL,"한-캐나다 외교장관 통화‥""호르무즈 통항·공급망 안정 위해 협력키로""",GEOPOLITICAL,0.7607,GEOPOLITICAL,0.7083
+611,ko,OTHER,"최윤범 고려아연 회장, 미국 테네시 ‘프로젝트 크루서블’ 현장 재점검…한미 공급망 협력 강화",OTHER,0.028,OTHER,0.0107
+612,ko,OTHER,"글로벌 공급망 위기 대응…산단공, 산단 ESG 현장 밀착 지원 강화 - 머니투데이",OTHER,0.3523,OTHER,0.2572
+613,en,LOGISTICS,"Above the Fold: Supply Chain Logistics News (June 5, 2026)",LOGISTICS,0.9258,OTHER,0.5253
+614,ko,OTHER,"[AT 현장]""효율적 SCM 위해 기업별 맞춤형 AI 적용 필요""",OTHER,0.0925,OTHER,0.047
+615,en,GEOPOLITICAL,Iran crisis bites into Malaysia’s supply chain as fuel subsidy cap falls,GEOPOLITICAL,0.6504,GEOPOLITICAL,0.6362
+616,ko,GEOPOLITICAL,"李대통령 ""중동 위기 속 공급망 안정 위해 폴란드와 협력""",GEOPOLITICAL,0.9672,GEOPOLITICAL,0.9685
+617,ko,GEOPOLITICAL,중동 전쟁 여파에 ICT 공급망 우려…정부 긴급 점검,GEOPOLITICAL,0.9993,GEOPOLITICAL,0.9993
+618,ko,OTHER,"[ESG포커스] 삼성물산, ESG 'A+'…탄소감축·공급망 관리 경쟁력 부각",OTHER,0.0141,OTHER,0.0063
+619,ko,GEOPOLITICAL,"핵심 광물 공급망, 새로운 글로벌 경제 전쟁",GEOPOLITICAL,0.8213,GEOPOLITICAL,0.7712
+620,en,OTHER,10 Highest-Paying Jobs in Supply Chain Management,OTHER,0.025,OTHER,0.009
+621,en,GEOPOLITICAL,"Recession, stagflation, growth: 3 ways Iran supply chain chaos will hit the US economy",OTHER,0.1518,OTHER,0.0879
+622,en,OTHER,Supply unchained: How to best enable the new era of supply chains,OTHER,0.1419,OTHER,0.0878
+623,ko,FINANCIAL,"전북자치도, 사료 가격·공급망 점검…축산농가 부담 대응",FINANCIAL,0.9762,FINANCIAL,0.8841
+624,ko,LABOR,韓 제조업 덮치는 ‘하투’ 공포 … 공급망 차질 넘어 투자 리스크까지 번지나,GEOPOLITICAL,0.9042,GEOPOLITICAL,0.875
+625,ko,GEOPOLITICAL,중동 리스크에 흔들린 증시… 기술력 갖춘 K-바이오는 견조,GEOPOLITICAL,0.9984,GEOPOLITICAL,0.9981
+626,ko,OTHER,"위밋모빌리티, 농산물 물류기기 통합관리시스템 구축 사업자 선정..농산물 공급 디지털 통합 관리 체계 구축",OTHER,0.0893,OTHER,0.0862
+627,en,OTHER,Automotive’s road to supply chain resilience,OTHER,0.0332,OTHER,0.0121
+628,ko,OTHER,"산업부, EU와 공급망산업정책대화…협력현황 점검·후속대책 논의",OTHER,0.0482,OTHER,0.0251
+629,ko,OTHER,"""아프리카 공급망, '팀 코리아'로 뚫자""…전직 대사들 현장 제언",OTHER,0.1008,OTHER,0.0514
+630,en,OTHER,symplr Survey Reveals Healthcare Supply Chain Leaders Face a Dual Crisis as Disruptions Persist and Cost Pressures Intensify,GEOPOLITICAL,0.9332,GEOPOLITICAL,0.9558
+631,en,OTHER,Intel Project Firefly Taps Phone Supply Chain For Sub-$600 Wildcat Lake Laptops,OTHER,0.1015,OTHER,0.0593
+632,ko,LABOR,"[이슈 직썰] 삼성전자 노사, 성과급 막판 조정…글로벌 공급망도 촉각",LABOR,0.9445,LABOR,0.8168
+633,en,OTHER,Step 2: Assess Risks and Impacts,OTHER,0.5139,OTHER,0.2849
+634,ko,OTHER,"에코프로, 인니 니켈 공급망에 1200억…지분율 기반 물량 확보",OTHER,0.3039,OTHER,0.1566
+635,ko,OTHER,"정부, 유럽 첨단기업 2500억 투자 유치…디지털·공급망 협력 확대",OTHER,0.0665,OTHER,0.0305
+636,en,SUPPLIER,South Korea's defense chips 99% import-dependent as photonic supply chain crisis looms,OTHER,0.6403,LOGISTICS,0.8029
+637,ko,OTHER,"국방장관, LIG D&A 현장방문…중동 방산 공급망 점검",GEOPOLITICAL,0.638,OTHER,0.5033
+638,en,OTHER,GitHub to Update npm to Thwart Software Supply Chain Attacks,OTHER,0.229,OTHER,0.1557
+639,en,OTHER,"ITE Tech wins design slots in US AI computing platform, raising global PC supply chain stakes",OTHER,0.0585,OTHER,0.0284
+640,ko,OTHER,"“공급망관리 전략 이익 창출 유지”…무신사, 1분기 영업익 190억원",OTHER,0.0105,OTHER,0.0035
+641,ko,FINANCIAL,"신현송 ""종전해도 에너지 공급망 정상화 국제유가 안정에 상당기간 걸릴 것""",OTHER,0.5526,GEOPOLITICAL,0.5696
+642,ko,OTHER,"김정관 산업장관, G7 핵심광물 장관회의 참석…""공급망 안정 국제협력 강화해야""",OTHER,0.4994,OTHER,0.3347
+643,en,OTHER,Resilient by design: The agentic supply chain,OTHER,0.0729,OTHER,0.0367
+644,en,SUPPLIER,Massive Tracy warehouse fire impacts medical supply chain,SUPPLIER,0.9665,SUPPLIER,0.9548
+645,en,OTHER,Development of Supply Chain Digital Rehearsal Technology for Medium- to Long-Term Supply Chain Strategy Planning to Prepare for Various Uncertainties,OTHER,0.0298,OTHER,0.013
+646,ko,SUPPLIER,"'K-전력망' 공급망 경보... 기후부, 변압기·전선 업계와 긴급 점검",OTHER,0.0779,OTHER,0.0459
+647,en,OTHER,"What the Latest IEA Update Says About Energy Risk, Supply Chains, and Industrial Strategy",OTHER,0.1742,OTHER,0.1367
+648,ko,OTHER,"김정관 장관, 카자흐 산업·에너지 장관 잇따라 면담…공급망·에너지 협력 점검",OTHER,0.0257,OTHER,0.0097
+649,ko,OTHER,위기대응...무기질 비료의 공급망관리 시스템을 구축하자,OTHER,0.3007,OTHER,0.192
+650,en,OTHER,Wipro at Blue Yonder ICON 2026 for Supply Chain Transformation,OTHER,0.0907,OTHER,0.055
+651,ko,OTHER,"스패로우, 'SAI 2026' 성료…AI시대 SW 공급망 보안 전략 제시",OTHER,0.0032,OTHER,0.0008
+652,ko,OTHER,"공급망 가시성 38%…회복탄력성 격차, 기업 경쟁력 가른다",OTHER,0.0841,OTHER,0.0568
+653,ko,OTHER,"고려아연, 2026년 제1차 지속가능경영 추진위 개최…ESG 공시·공급망 관리 점검",OTHER,0.0398,OTHER,0.0195
+654,ko,OTHER,"위성락, 싱가포르 외교장관 면담…공급망 위기 협력",OTHER,0.1949,OTHER,0.1125
+655,en,GEOPOLITICAL,The effects of geopolitical supply chain shocks on policy preferences of firms,GEOPOLITICAL,0.5845,GEOPOLITICAL,0.4865
+656,en,OTHER,Toyota Still Sets the Standard for Supply Chain Resilience,OTHER,0.0541,OTHER,0.0349
+657,en,GEOPOLITICAL,Chip industry hit by Nexperia export ban,GEOPOLITICAL,0.8845,GEOPOLITICAL,0.9674
+658,ko,OTHER,"유럽, 의약품 공급망·희귀질환 규제 동시 손질…조기 접근성과 안전관리 병행",OTHER,0.0821,OTHER,0.0391
+659,ko,GEOPOLITICAL,중동전쟁 여파...ICT 공급망 상황실 운영,GEOPOLITICAL,0.9991,GEOPOLITICAL,0.9983
+660,en,OTHER,The Home Depot Acquires SIMPL Automation to Accelerate Supply Chain Automation and Enhance Customer Delivery Experience,OTHER,0.018,OTHER,0.0083
+661,ko,GEOPOLITICAL,"李, 폴란드 총리와 방산 파트너십 공감대...""중동 대응 공급망 안정 협력""",GEOPOLITICAL,0.8128,GEOPOLITICAL,0.7507
+662,en,OTHER,Does Vestis’ New Commercial and Supply Chain Leadership Reshape Its Strategic Execution Story (VSTS)?,OTHER,0.0679,OTHER,0.0272
+663,en,GEOPOLITICAL,Australia Enhances Energy Security Framework with Large-Scale Fuel Reserve Increase to Counter Risks from Global Geopolitical and Supply Chain Disruptions,GEOPOLITICAL,0.7405,GEOPOLITICAL,0.5793
+664,ko,OTHER,젠슨 황 “한국 기업과 AI 공급망 강화”,OTHER,0.1242,OTHER,0.0685
+665,ko,OTHER,"안규백, '천궁-Ⅱ' 생산 LIG D&A 방문…방산 공급망 점검",OTHER,0.1866,OTHER,0.1093
+666,ko,OTHER,"김용범 ""韓, AI 공급망 거점 될 기회""…'프로젝트 트리니티' 구상 제안",OTHER,0.0847,OTHER,0.0532
+667,ko,GEOPOLITICAL,전쟁과 공급망 재편 속…글로벌서 생산적금융 키우는 'K금융' - 머니투데이,GEOPOLITICAL,0.9423,GEOPOLITICAL,0.9654
+668,ko,GEOPOLITICAL,이란 전쟁 여파에 황산·경유 부족…광물 채굴도 위축,GEOPOLITICAL,0.9517,GEOPOLITICAL,0.9656
+669,ko,OTHER,中 LFP 공세에 K배터리도 참전…승부처는 품질·공급망,OTHER,0.1406,OTHER,0.0886
+670,en,OTHER,Pentagon formally designates Anthropic a supply-chain risk,OTHER,0.2684,OTHER,0.1683
+671,ko,OTHER,"조달청, 새만금 신항 아스콘 공급망 현장 점검...안정적 사업 추진 지원",OTHER,0.0793,OTHER,0.0488
+672,ko,NATURAL_DISASTER,필리핀 강진에 흔들린 K-수산물 공급망…참치·자숙문어 수급 비상,SUPPLIER,0.9973,SUPPLIER,0.9941
+673,en,GEOPOLITICAL,Armed groups have penetrated global supply chains. Here's what businesses must do,OTHER,0.0954,OTHER,0.0449
+674,en,OTHER,Data-Driven Sustainment: Leveraging Big Data and Predictive Analytics for Army Supply Chain Resilience,OTHER,0.0649,OTHER,0.0359
+675,ko,LABOR,빅테크엔 없는 '삼성의 노조 리스크'…공급망 신뢰 흔들릴 판 [노조의 위험한 특권中],LABOR,0.9893,LABOR,0.9495
+676,ko,OTHER,"법무법인 바른 · 한국중견기업연합회, 2026년 제2회 중견기업 Scale-up 전략 포럼",OTHER,0.021,OTHER,0.0118
+677,en,OTHER,"Supply chain resilience is vital, says executive",OTHER,0.0773,OTHER,0.0399
+678,en,GEOPOLITICAL,"Tariff Heat Wave: Importers Face New Section 301 Proposals, Section 232 Risk and Heightened Customs Enforcement",GEOPOLITICAL,0.9567,GEOPOLITICAL,0.9766
+679,ko,OTHER,경제안보시대의 공급망 재편 동향과 시사점,OTHER,0.0865,OTHER,0.038
+680,en,OTHER,Miasma: Supply Chain Attack Targeting RedHat npm Packages,OTHER,0.0181,OTHER,0.0048
+681,en,OTHER,Why supply chain resilience is under the spotlight,OTHER,0.0674,OTHER,0.0332
+682,ko,OTHER,"김이탁 국토차관, 건자재 수급 현황 점검...""공급망 선제 관리""",OTHER,0.3176,OTHER,0.1788
+683,ko,GEOPOLITICAL,"중국, 희토류 수출통제 유지…일본 공급망 우려 지속",GEOPOLITICAL,0.9979,GEOPOLITICAL,0.9959
+684,ko,GEOPOLITICAL,"[컨콜] 삼성전자 ""중동전쟁, 공급망 차질 없어…반도체 생산 정상 가동 중""",SUPPLIER,0.9999,SUPPLIER,1.0
+685,ko,OTHER,"김정관 산업부 장관, 석유화학 생산 현장 점검…""공급망 단 하루 차질도 없도록""",SUPPLIER,0.5584,OTHER,0.1787
+686,ko,GEOPOLITICAL,"美 연준 ""글로벌 공급망 압박 이어져""…종전해도 복구 수개월",OTHER,0.2991,OTHER,0.269
+687,ko,OTHER,"FDA, 일본·베트남에 사무소 추진…아시아 공급망 관리 강화 신호",OTHER,0.1724,OTHER,0.1478
+688,ko,OTHER,[젠슨 황 릴레이 미팅] 엔비디아 '락인' 된 HBM 공급망…K 반도체 셈법은,OTHER,0.4348,OTHER,0.294
+689,ko,OTHER,셀트리온제약의 의약품 공급망 관리 강화를 위한 멀티 에이전트 시스템 구축 여정,OTHER,0.073,OTHER,0.0375
+690,en,OTHER,transport logistic Southeast Asia 2027 to spotlight supply chain resilience as global trade shifts,LOGISTICS,0.9453,LOGISTICS,0.8582
+691,en,OTHER,Supply Chain Risk & Resilience in Healthcare,OTHER,0.1595,OTHER,0.0572
+692,en,GEOPOLITICAL,"U.S.-Israel-Iranian conflict escalating global energy, supply chain crisis",GEOPOLITICAL,0.9883,GEOPOLITICAL,0.9839
+693,ko,GEOPOLITICAL,"베트남, 2026년 수출 5,500억 달러 목표 ‘비상’… 중동 긴장에 공급망 리스크 확대",GEOPOLITICAL,0.9979,GEOPOLITICAL,0.9958
+694,ko,OTHER,"가스공사, 전국 5300km 가스망 확장…에너지 공급망 안정성 높인다",OTHER,0.1204,OTHER,0.087
+695,en,OTHER,Supply chain grad leverages WMU experiences into a career,OTHER,0.1029,OTHER,0.0655
+696,ko,SUPPLIER,"현대모비스 인도 車부품 공장서 화재…""당분간 현지 공급망 차질 우려""",SUPPLIER,0.9993,SUPPLIER,0.9901
+697,ko,OTHER,"김용범 ""한국, AI 공급망 거점 가능""",OTHER,0.0944,OTHER,0.0518
+698,ko,OTHER,"한-EU, 2500억 투자 유치…'공급망·디지털 경제동맹' 강화",OTHER,0.0951,OTHER,0.0616
+699,ko,OTHER,"산업장관 ""공급망 단 하루도 차질 없게""…석유화학제품 생산현장 점검",OTHER,0.5058,OTHER,0.1903

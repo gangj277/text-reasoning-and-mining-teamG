@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Slide 9 — COMPLICATION</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@500;600;700;800&family=IBM+Plex+Sans+KR:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+  html,body{width:100%;height:100vh;background:#E4DFD3;overflow:hidden;position:relative;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;}
+  .stage{width:1920px;height:1080px;position:absolute;top:50%;left:50%;transform-origin:0 0;}
+  .slide{width:1920px;height:1080px;overflow:hidden;position:relative;border-radius:4px;box-shadow:0 20px 80px rgba(0,0,0,0.14);}
+  table.tbl{width:100%;border-collapse:collapse;} table.tbl td,table.tbl th{padding:14px 18px;text-align:left;vertical-align:middle;border-bottom:1px solid rgba(31,39,48,0.12);}
+  @media print{@page{size:1920px 1080px;margin:0;}html,body{width:1920px;height:1080px;background:transparent!important;overflow:hidden;-webkit-print-color-adjust:exact;print-color-adjust:exact;}.stage{position:static!important;top:0!important;left:0!important;transform:none!important;}.slide{box-shadow:none!important;border-radius:0!important;}*,*::before,*::after{-webkit-backdrop-filter:none!important;backdrop-filter:none!important;}}
+</style>
+<script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/@babel/standalone@7.24.7/babel.min.js"></script>
+<script type="text/babel" data-presets="react" src="components.js"></script>
+</head>
+<body>
+<div class="stage" id="stage"><div class="slide" id="slide-root"></div></div>
+<script type="text/babel" data-presets="react">
+(function(){
+const { SlideFrame, Eyebrow, SlideTitle, BodyText, PageNum, Card, CardTitle, CardBody, Callout, C, TYPE_SCALE, SPACING, FONT_DISPLAY, FONT_SANS, FONT_MONO, SourceLine } = window;
+
+const VENDORS = [
+  {n:"Interos", m:"공급사 2.3억 · 관계 110억", note:"규모는 압도적이나 사후 모니터링 중심"},
+  {n:"Sayari", m:"기업 5억", note:"소유구조 그래프 — 넓되 신호는 정적"},
+  {n:"Prewave", m:"400+ 언어 · €63M", note:"다국어 커버리지가 곧 경쟁축"},
+];
+
+const GAPS = [
+  {ax:"축 ①  반응성", t:"반응한다, 예측하지 못한다", b:<>대형 벤더의 핵심은 발생 후 탐지다. 예측은 문헌에서도 아직 <span style={{color:C.fake}}>'emerging'</span> 단계에 머물러, 사전 신호로의 전환은 빈 영역이다.</>},
+  {ax:"축 ②  언어", t:"영어만 본다", b:<>다수 리뷰가 비영어 연구를 검토 대상에서 <span style={{color:C.fake}}>명시적으로 '제외'</span>한다. 한국어 자원은 구조적으로 뒤처져, 국내 신호는 시야 밖에 있다.</>},
+  {ax:"축 ③  해석성", t:"블랙박스다", b:<>SLR <span style={{color:C.accent}}>1,439편</span> 분석은 비해석성을 <span style={{color:C.fake}}>'중대한 한계'</span>로 지목한다. 근거를 못 보이면 도입 단계에서 채택이 막힌다.</>},
+];
+
+function Slide(){
+  return (
+    <SlideFrame>
+      <Eyebrow style={{marginLeft:0}}>09 · COMPLICATION — 미충족 공백</Eyebrow>
+      <SlideTitle style={{marginTop:SPACING.titleGap}}>기존 도구는 '반응'하고, '영어'만 보고, <span style={{color:C.fake}}>'블랙박스'</span>다 — 시장은 커버리지 경쟁 중</SlideTitle>
+      <BodyText muted style={{marginTop:20}}>미충족 공백을 MECE 3축으로 정의한다 — 이것이 우리 설계 3 베팅의 표적이다.</BodyText>
+
+      {/* ── 상단 벤더 한 줄 맵 (chip strip) */}
+      <div style={{position:"absolute",left:SPACING.paddingX,right:SPACING.paddingX,top:392}}>
+        <div style={{display:"flex",alignItems:"center",gap:14,marginBottom:14}}>
+          <span style={{fontFamily:FONT_MONO,fontSize:TYPE_SCALE.label,color:C.inkMuted,letterSpacing:"0.16em",textTransform:"uppercase",whiteSpace:"nowrap"}}>시장 = 커버리지 경쟁</span>
+          <span style={{flex:1,height:1,background:C.ruleSoft}}/>
+        </div>
+        <div style={{display:"grid",gridTemplateColumns:"1fr 1fr 1fr",gap:16}}>
+          {VENDORS.map((v,i)=>(
+            <div key={i} style={{display:"flex",alignItems:"center",gap:16,background:C.panel,border:`1px solid ${C.rule}`,borderRadius:10,padding:"16px 20px"}}>
+              <span style={{fontFamily:FONT_DISPLAY,fontSize:25,fontWeight:700,color:C.ink,whiteSpace:"nowrap"}}>{v.n}</span>
+              <span style={{width:1,height:34,background:C.rule,flex:"0 0 auto"}}/>
+              <div style={{display:"flex",flexDirection:"column",gap:3,minWidth:0}}>
+                <span style={{fontFamily:FONT_MONO,fontSize:16,fontWeight:600,color:C.accent,letterSpacing:"0.02em"}}>{v.m}</span>
+                <span style={{fontFamily:FONT_SANS,fontSize:15,color:C.inkMuted,lineHeight:1.3}}>{v.note}</span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* ── 하단 3 gap 카드 (MECE · tone fake) */}
+      <div style={{position:"absolute",left:SPACING.paddingX,right:SPACING.paddingX,top:560,display:"grid",gridTemplateColumns:"1fr 1fr 1fr",gap:20}}>
+        {GAPS.map((g,i)=>(
+          <Card key={i} tone="fake" style={{padding:"24px 26px 26px"}}>
+            <div style={{fontFamily:FONT_MONO,fontSize:TYPE_SCALE.label,color:C.fake,letterSpacing:"0.16em",textTransform:"uppercase",marginBottom:14}}>{g.ax}</div>
+            <CardTitle tone="fake" style={{fontSize:26,marginBottom:14}}>{g.t}</CardTitle>
+            <CardBody style={{fontSize:21,lineHeight:1.5}}>{g.b}</CardBody>
+          </Card>
+        ))}
+      </div>
+
+      <Callout tone="signal" style={{position:"absolute",left:SPACING.paddingX,right:SPACING.paddingX,bottom:116,maxWidth:1560}}>우리는 커버리지가 아니라 '정직·해석'으로 차별화한다 — 더 넓게가 아니라, 더 정직하게.</Callout>
+      <SourceLine>Vendor docs; AI-SCRM SLR (arXiv 2401.10895)</SourceLine>
+      <PageNum n={9}/>
+    </SlideFrame>
+  );
+}
+ReactDOM.createRoot(document.getElementById('slide-root')).render(<Slide/>);
+requestAnimationFrame(()=>document.body.setAttribute('data-slide-ready','1'));
+})();
+</script>
+<script>
+function scaleSlide(){const s=document.getElementById('stage');if(!s)return;const sc=Math.min(innerWidth/1920,innerHeight/1080)*0.96;s.style.transform=`translate(${-1920*sc/2}px,${-1080*sc/2}px) scale(${sc})`;}
+addEventListener('resize',scaleSlide);addEventListener('load',scaleSlide);scaleSlide();
+</script>
+<!-- notes: COMPLICATION. 벤더맵(Interos·Sayari·Prewave)=커버리지 경쟁. 미충족 공백 MECE 3축: 반응성/언어/해석성. 모두 우리 3베팅의 표적. 차별화축=정직·해석. -->
+</body>
+</html>

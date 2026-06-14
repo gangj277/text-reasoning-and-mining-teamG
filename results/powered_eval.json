@@ -1,0 +1,58 @@
+{
+  "annotation": {
+    "n_batch": 700,
+    "fleiss_kappa": 0.8429,
+    "pairwise_cohen": {
+      "A-B": 0.7986,
+      "A-C": 0.8882,
+      "B-C": 0.8426
+    },
+    "consensus_kept": 217,
+    "dropped_other_or_nomajority": 483
+  },
+  "gold": {
+    "n": 217,
+    "class_dist": {
+      "GEOPOLITICAL": 141,
+      "SUPPLIER": 30,
+      "LABOR": 18,
+      "LOGISTICS": 17,
+      "NATURAL_DISASTER": 3,
+      "FINANCIAL": 8
+    },
+    "lang_dist": {
+      "ko": 124,
+      "en": 93
+    },
+    "majority_class": "GEOPOLITICAL",
+    "majority_acc": 0.6498
+  },
+  "transfer_synthetic_to_real": {
+    "full_acc": 0.447,
+    "full_macro_f1": 0.3639,
+    "full_acc_ci95": [
+      0.3825,
+      0.5115
+    ],
+    "seed_masked_acc": 0.3594,
+    "p_vs_majority": 1.0,
+    "sig_vs_majority": false,
+    "p_vs_random": 0.0,
+    "sig_vs_random": true,
+    "per_lang": {
+      "ko": {
+        "n": 124,
+        "acc": 0.5161
+      },
+      "en": {
+        "n": 93,
+        "acc": 0.3548
+      }
+    }
+  },
+  "real_cv_on_powered_gold": {
+    "macro_f1_mean": 0.426,
+    "macro_f1_std": 0.0713,
+    "acc_mean": 0.7561
+  }
+}

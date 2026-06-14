@@ -1,0 +1,28 @@
+{
+  "passed": true,
+  "failed": {},
+  "observed": {
+    "accuracy_8way": 0.8841,
+    "macro_f1_present_labels": 0.6956,
+    "risk_precision": 0.8798,
+    "risk_recall": 0.8433,
+    "risk_f1": 0.8612,
+    "risk_auprc": 0.9231,
+    "risk_type_macro_f1_present": 0.6974,
+    "false_positive_risk": 25,
+    "false_negative_risk": 34,
+    "risk_type_wrong": 22
+  },
+  "gate": {
+    "accuracy_8way": 0.85,
+    "macro_f1_present_labels": 0.65,
+    "risk_precision": 0.84,
+    "risk_recall": 0.82,
+    "risk_f1": 0.85,
+    "risk_auprc": 0.9,
+    "risk_type_macro_f1_present": 0.65,
+    "max_false_positive_risk": 30,
+    "max_false_negative_risk": 40,
+    "max_risk_type_wrong": 25
+  }
+}

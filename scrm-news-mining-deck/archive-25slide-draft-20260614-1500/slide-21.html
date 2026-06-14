@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Slide 21 — RESOLUTION — final engine</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@500;600;700;800&family=IBM+Plex+Sans+KR:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+  html,body{width:100%;height:100vh;background:#E4DFD3;overflow:hidden;position:relative;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;}
+  .stage{width:1920px;height:1080px;position:absolute;top:50%;left:50%;transform-origin:0 0;}
+  .slide{width:1920px;height:1080px;overflow:hidden;position:relative;border-radius:4px;box-shadow:0 20px 80px rgba(0,0,0,0.14);}
+  table.tbl{width:100%;border-collapse:collapse;} table.tbl td,table.tbl th{padding:14px 18px;text-align:left;vertical-align:middle;border-bottom:1px solid rgba(31,39,48,0.12);}
+  @media print{@page{size:1920px 1080px;margin:0;}html,body{width:1920px;height:1080px;background:transparent!important;overflow:hidden;-webkit-print-color-adjust:exact;print-color-adjust:exact;}.stage{position:static!important;top:0!important;left:0!important;transform:none!important;}.slide{box-shadow:none!important;border-radius:0!important;}*,*::before,*::after{-webkit-backdrop-filter:none!important;backdrop-filter:none!important;}}
+</style>
+<script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/@babel/standalone@7.24.7/babel.min.js"></script>
+<script type="text/babel" data-presets="react" src="components.js"></script>
+</head>
+<body>
+<div class="stage" id="stage"><div class="slide" id="slide-root"></div></div>
+<script type="text/babel" data-presets="react">
+(function(){
+const { SlideFrame, Eyebrow, SlideTitle, BodyText, PageNum, Card, Callout, C, TYPE_SCALE, SPACING, FONT_DISPLAY, FONT_SANS, FONT_MONO, SourceLine } = window;
+const METRICS = [
+  {label:"Accuracy", old:"0.813", oldV:0.8126, now:"0.884", nowV:0.8841, delta:"+0.072"},
+  {label:"Risk-F1", old:"0.772", oldV:0.7718, now:"0.861", nowV:0.8612, delta:"+0.089"},
+  {label:"AUPRC", old:"0.878", oldV:0.8784, now:"0.923", nowV:0.9231, delta:"+0.045"},
+  {label:"Type Macro-F1", old:"0.438", oldV:0.4378, now:"0.697", nowV:0.6974, delta:"+0.260"},
+];
+const ERRORS = [
+  {label:"false positive", old:"44", now:"25", gate:"≤30"},
+  {label:"false negative", old:"53", now:"34", gate:"≤40"},
+  {label:"type wrong", old:"34", now:"22", gate:"≤25"},
+];
+function MetricCompare({m}){
+  return (
+    <div style={{display:"grid",gridTemplateColumns:"210px 1fr 130px 120px",gap:18,alignItems:"center",padding:"14px 0",borderBottom:`1px solid ${C.ruleSoft}`}}>
+      <div style={{fontFamily:FONT_SANS,fontSize:TYPE_SCALE.small,fontWeight:600,color:C.ink}}>{m.label}</div>
+      <div style={{display:"flex",flexDirection:"column",gap:8}}>
+        <div style={{display:"grid",gridTemplateColumns:"90px 1fr 70px",gap:12,alignItems:"center"}}>
+          <span style={{fontFamily:FONT_MONO,fontSize:13,color:C.inkMuted,letterSpacing:"0.08em"}}>plain</span>
+          <div style={{height:14,background:C.ruleSoft,borderRadius:3,position:"relative"}}><div style={{position:"absolute",left:0,top:0,bottom:0,width:`${m.oldV*100}%`,background:C.inkMuted,opacity:0.45,borderRadius:3}}/></div>
+          <span style={{fontFamily:FONT_MONO,fontSize:17,color:C.inkMuted,textAlign:"right"}}>{m.old}</span>
+        </div>
+        <div style={{display:"grid",gridTemplateColumns:"90px 1fr 70px",gap:12,alignItems:"center"}}>
+          <span style={{fontFamily:FONT_MONO,fontSize:13,color:C.real,letterSpacing:"0.08em"}}>engine</span>
+          <div style={{height:18,background:C.ruleSoft,borderRadius:3,position:"relative"}}><div style={{position:"absolute",left:0,top:0,bottom:0,width:`${m.nowV*100}%`,background:C.real,borderRadius:3}}/></div>
+          <span style={{fontFamily:FONT_MONO,fontSize:20,fontWeight:600,color:C.real,textAlign:"right"}}>{m.now}</span>
+        </div>
+      </div>
+      <div style={{fontFamily:FONT_MONO,fontSize:22,fontWeight:600,color:C.real,textAlign:"right"}}>{m.delta}</div>
+      <div style={{fontFamily:FONT_MONO,fontSize:13,color:C.inkMuted,letterSpacing:"0.08em",textAlign:"right"}}>OOF · n=699</div>
+    </div>
+  );
+}
+function ErrorChip({e}){
+  return (
+    <div style={{display:"grid",gridTemplateColumns:"1fr auto",gap:12,alignItems:"baseline",padding:"13px 0",borderBottom:`1px solid ${C.ruleSoft}`}}>
+      <div>
+        <div style={{fontFamily:FONT_SANS,fontSize:20,fontWeight:600,color:C.ink}}>{e.label}</div>
+        <div style={{fontFamily:FONT_MONO,fontSize:13,color:C.inkMuted,letterSpacing:"0.06em",marginTop:3}}>plain {e.old} → gate {e.gate}</div>
+      </div>
+      <div style={{fontFamily:FONT_DISPLAY,fontSize:44,fontWeight:800,color:C.real,lineHeight:0.9}}>{e.now}</div>
+    </div>
+  );
+}
+function Slide(){
+  return (
+    <SlideFrame>
+      <Eyebrow>21 · RESOLUTION — 최종 엔진</Eyebrow>
+      <SlideTitle style={{marginTop:SPACING.titleGap}}>마지막 고도화는 open-set이다 — <span style={{color:C.real}}>mechanism-aware engine</span>이 고정 gate를 통과했다</SlideTitle>
+      <BodyText muted style={{marginTop:22}}>plain TF-IDF는 관련 뉴스 선별 신호를 보였지만, OOV 위험 메커니즘과 generic OTHER를 헷갈렸다. 그래서 문자 n-gram, 메커니즘 feature, gate-aware threshold를 추가했다.</BodyText>
+
+      <div style={{position:"absolute",left:SPACING.paddingX,top:386,width:1080}}>
+        <div style={{fontFamily:FONT_MONO,fontSize:TYPE_SCALE.label,color:C.real,letterSpacing:"0.16em",textTransform:"uppercase",marginBottom:16}}>plain 2-stage → mechanism-aware hybrid · 3-fold OOF</div>
+        <div style={{background:C.panel,border:`1px solid ${C.rule}`,borderRadius:10,padding:"16px 28px 18px"}}>
+          {METRICS.map((m,i)=><MetricCompare key={i} m={m}/>)}
+        </div>
+      </div>
+
+      <div style={{position:"absolute",right:SPACING.paddingX,top:386,width:560,display:"flex",flexDirection:"column",gap:16}}>
+        <Card tone="signal"><div style={{fontFamily:FONT_SANS,fontSize:TYPE_SCALE.small,color:C.inkSoft,lineHeight:1.45}}>원인: 희토류·운임·총파업·freight·coltan 같은 <b style={{color:C.accent}}>OOV 메커니즘</b>과 일반 공급망 담론의 혼동</div></Card>
+        <Card tone="real"><div style={{fontFamily:FONT_SANS,fontSize:TYPE_SCALE.small,color:C.inkSoft,lineHeight:1.45}}>처방: raw char n-gram + taxonomy mechanism counter + OTHER/generic cue + precision-floor threshold</div></Card>
+        <Card style={{padding:"18px 24px 16px"}}>
+          <div style={{fontFamily:FONT_MONO,fontSize:TYPE_SCALE.label,color:C.real,letterSpacing:"0.16em",textTransform:"uppercase",marginBottom:8}}>error budget · PASS</div>
+          {ERRORS.map((e,i)=><ErrorChip key={i} e={e}/>)}
+        </Card>
+      </div>
+
+      <Callout tone="real" style={{position:"absolute",left:SPACING.paddingX,width:1080,bottom:116}}>최종 성과: accuracy 0.884 · risk-F1 0.861 · AUPRC 0.923 — fixed research gate 전 항목 통과.</Callout>
+      <SourceLine>본 연구 mechanism_engine_eval.json · research_gate.json · open_gold.jsonl</SourceLine>
+      <PageNum n={21}/>
+    </SlideFrame>
+  );
+}
+ReactDOM.createRoot(document.getElementById('slide-root')).render(<Slide/>);
+requestAnimationFrame(()=>document.body.setAttribute('data-slide-ready','1'));
+})();
+</script>
+<script>
+function scaleSlide(){const s=document.getElementById('stage');if(!s)return;const sc=Math.min(innerWidth/1920,innerHeight/1080)*0.96;s.style.transform=`translate(${-1920*sc/2}px,${-1080*sc/2}px) scale(${sc})`;}
+addEventListener('resize',scaleSlide);addEventListener('load',scaleSlide);scaleSlide();
+</script>
+<!-- notes: final engine slide. plain 2-stage baseline에서 mechanism-aware hybrid로 이동. risk-F1 0.861/AUPRC 0.923/acc 0.884, FP 25/FN 34/type wrong 22로 fixed gate pass. -->
+</body>
+</html>

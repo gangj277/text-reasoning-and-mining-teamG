@@ -1,0 +1,40 @@
+{
+  "A_seed_mask_ablation": {
+    "full": {
+      "acc": 0.7745,
+      "macro_f1": 0.7663
+    },
+    "seed_masked": {
+      "acc": 0.4902,
+      "macro_f1": 0.484
+    },
+    "pct_tokens_removed": 0.169,
+    "interpretation": "시드 제거 후에도 성능이 대부분 유지되면 분포적 학습(강건), 붕괴하면 시드매칭 의존"
+  },
+  "B_real_cv": {
+    "gold_cv": {
+      "label": "gold_handlabeled_102",
+      "k": 5,
+      "macro_f1_mean": 0.6057,
+      "macro_f1_std": 0.0618,
+      "acc_mean": 0.6071,
+      "n": 102
+    },
+    "weaklabel_cv": {
+      "label": "realnews_weaklabel_2062",
+      "k": 5,
+      "macro_f1_mean": 0.8839,
+      "macro_f1_std": 0.0124,
+      "acc_mean": 0.8875,
+      "n": 2062
+    }
+  },
+  "D_vocab_coverage": {
+    "gold_vocab_size": 535,
+    "type_token_coverage": 0.277,
+    "median_invocab_features_per_headline": 4,
+    "min": 0,
+    "max": 10,
+    "note": "type_token_coverage = |gold∩train unigram| / |gold|  (기존 0.98 은 OOV-아닌-문서비율로 오표기였음)"
+  }
+}

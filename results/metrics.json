@@ -1,0 +1,144 @@
+{
+  "RQ1_topic_discovery": {
+    "naive_combined_cv": 0.4198,
+    "naive_lang_purity": 0.856,
+    "stratified_cv_ko": 0.3629,
+    "stratified_cv_en": 0.4035,
+    "best_k_ko": 8,
+    "best_k_en": 4,
+    "recovered": "ko 5/7, en 4/7"
+  },
+  "RQ2_classification": {
+    "internal_macro_f1": 1.0,
+    "best_model": "LogisticRegression",
+    "ablation": {
+      "LogisticRegression": 1.0,
+      "LinearSVC": 1.0,
+      "MultinomialNB": 0.9791
+    },
+    "threshold_n_at_0.6": 64,
+    "external_macro_f1": 0.7663,
+    "external_acc": 0.7745,
+    "lift_over_random": 5.42,
+    "lexicon_baseline_acc": 0.5392
+  },
+  "RQ3_bilingual": {
+    "internal_ko_f1": 1.0,
+    "internal_en_f1": 1.0,
+    "external_ko": {
+      "macro_f1": 0.776,
+      "acc": 0.8125,
+      "n": 48
+    },
+    "external_en": {
+      "macro_f1": 0.7355,
+      "acc": 0.7407,
+      "n": 54
+    }
+  },
+  "severity": {
+    "synthetic_circular_rho": 0.6719,
+    "independent_real_rho": 0.4039,
+    "independent_adjacent_acc": 0.9412,
+    "independent_mean_by_level": {
+      "LOW": 0.364,
+      "MEDIUM": 0.698,
+      "HIGH": 1.248
+    }
+  },
+  "robustness": {
+    "seed_mask_full_f1": 0.7663,
+    "seed_mask_masked_f1": 0.484,
+    "pct_tokens_removed": 0.169,
+    "real_gold_cv_f1": 0.6057,
+    "real_weaklabel_cv_f1": 0.8839,
+    "true_vocab_coverage": 0.277
+  },
+  "statistics": {
+    "external_acc_ci95": [
+      0.6961,
+      0.8529
+    ],
+    "external_f1_ci95": [
+      0.6709,
+      0.843
+    ],
+    "majority_baseline_acc": 0.1667,
+    "ko_minus_en_diff": 0.0736,
+    "ko_en_ci95": [
+      -0.088,
+      0.2407
+    ],
+    "ko_en_diff_significant": false
+  },
+  "baselines_typed_gold": {
+    "query_echo_f1": 0.9904,
+    "full_pipeline_f1": 0.7663,
+    "seed_rule_f1": 0.7169,
+    "char_ngram_f1": 0.5957,
+    "majority_acc": 0.1667
+  },
+  "label_blind_neutral_gold": {
+    "n": 26,
+    "full_acc": 0.4615,
+    "seed_masked_acc": 0.3462,
+    "majority_acc": 0.3077,
+    "lift_over_majority": 1.5
+  },
+  "powered_label_blind": {
+    "n": 217,
+    "fleiss_kappa": 0.8429,
+    "majority_acc": 0.6498,
+    "majority_class": "GEOPOLITICAL",
+    "synth_transfer_acc": 0.447,
+    "synth_transfer_macro_f1": 0.3639,
+    "synth_acc_ci95": [
+      0.3825,
+      0.5115
+    ],
+    "synth_sig_vs_majority": false,
+    "real_cv_acc": 0.7561,
+    "real_cv_macro_f1": 0.426
+  },
+  "open_set_triage": {
+    "n": 699,
+    "risk_n": 217,
+    "other_n": 482,
+    "risk_prevalence": 0.3104,
+    "always_other_acc": 0.6896,
+    "always_other_risk_f1": 0.0,
+    "synthetic_forced_acc": 0.1388,
+    "synthetic_forced_macro_f1_present": 0.2129,
+    "synthetic_forced_risk_f1": 0.4738,
+    "flat_cv_acc": 0.8197,
+    "flat_cv_macro_f1_present": 0.4709,
+    "flat_cv_risk_f1": 0.7762,
+    "flat_cv_risk_auprc": 0.8508,
+    "flat_cv_risk_type_macro_f1_present": 0.4482,
+    "two_stage_cv_acc": 0.8126,
+    "two_stage_cv_macro_f1_present": 0.4681,
+    "two_stage_cv_risk_f1": 0.7718,
+    "two_stage_cv_risk_auprc": 0.8784,
+    "two_stage_cv_risk_type_macro_f1_present": 0.4378
+  },
+  "mechanism_engine": {
+    "acc": 0.8841,
+    "macro_f1_present": 0.6956,
+    "risk_f1": 0.8612,
+    "risk_auprc": 0.9231,
+    "risk_type_macro_f1_present": 0.6974,
+    "delta_acc": 0.0715,
+    "delta_macro_f1_present": 0.2275,
+    "delta_risk_f1": 0.0894,
+    "delta_risk_auprc": 0.0447,
+    "delta_risk_type_macro_f1_present": 0.2596
+  },
+  "data": {
+    "corpus_n": 1540,
+    "real_news_n": 2062,
+    "typed_gold_n": 102,
+    "neutral_blind_gold_n": 26,
+    "oov_free_doc_rate": 0.98,
+    "true_vocab_coverage": 0.277
+  }
+}

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Slide 25 — CLOSING</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@500;600;700;800&family=IBM+Plex+Sans+KR:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+  html,body{width:100%;height:100vh;background:#E4DFD3;overflow:hidden;position:relative;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;}
+  .stage{width:1920px;height:1080px;position:absolute;top:50%;left:50%;transform-origin:0 0;}
+  .slide{width:1920px;height:1080px;overflow:hidden;position:relative;border-radius:4px;box-shadow:0 20px 80px rgba(0,0,0,0.14);}
+  table.tbl{width:100%;border-collapse:collapse;} table.tbl td,table.tbl th{padding:14px 18px;text-align:left;vertical-align:middle;border-bottom:1px solid rgba(31,39,48,0.12);}
+  @media print{@page{size:1920px 1080px;margin:0;}html,body{width:1920px;height:1080px;background:transparent!important;overflow:hidden;-webkit-print-color-adjust:exact;print-color-adjust:exact;}.stage{position:static!important;top:0!important;left:0!important;transform:none!important;}.slide{box-shadow:none!important;border-radius:0!important;}*,*::before,*::after{-webkit-backdrop-filter:none!important;backdrop-filter:none!important;}}
+</style>
+<script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/@babel/standalone@7.24.7/babel.min.js"></script>
+<script type="text/babel" data-presets="react" src="components.js"></script>
+</head>
+<body>
+<div class="stage" id="stage"><div class="slide" id="slide-root"></div></div>
+<script type="text/babel" data-presets="react">
+(function(){
+const { SlideFrame, Eyebrow, SlideTitle, BodyText, PageNum, Card, C, TYPE_SCALE, SPACING, FONT_DISPLAY, FONT_SANS, FONT_MONO } = window;
+const MOVES = [
+  {n:"01", t:"인간 전문가 평정", k:"LLM-패널 편향 점검",
+   d:"3인 패널 합의는 강한 내부 기준이지만, 실제 연구 성과로 밀려면 도메인 전문가 라벨과 대조해야 한다. 여기서 라벨 편향의 마지막 리스크를 줄인다."},
+  {n:"02", t:"시간외 검증", k:"future news holdout",
+   d:"현재 gate는 동결 gold의 OOF 평가다. 다음 단계는 2026-06-14 이후 뉴스로 time-split holdout을 만들어 실제 미래 스트림에서 성능을 재검증하는 것이다."},
+  {n:"03", t:"희소유형 보강", k:"rare-class + embedding",
+   d:"자연재해·보건 같은 희소 유형은 여전히 표본이 부족하다. class-balanced 수집과 KoBERT류 문맥 임베딩으로 표현 변화와 시드 의존을 더 줄인다."},
+];
+function Slide(){
+  return (
+    <SlideFrame noChrome>
+      <div style={{position:"absolute",top:44,left:SPACING.paddingX,display:"flex",alignItems:"center",gap:9}}>
+        <span style={{fontFamily:FONT_DISPLAY,fontSize:21,fontWeight:800,letterSpacing:"0.02em",color:C.ink}}>TEAM&nbsp;G</span>
+        <span style={{width:6,height:6,background:C.accent,display:"inline-block"}}/>
+        <span style={{fontFamily:FONT_MONO,fontSize:13,letterSpacing:"0.18em",color:C.ink,opacity:0.55,textTransform:"uppercase"}}>SCRM·SIGNAL</span>
+      </div>
+
+      <Eyebrow style={{marginTop:6}}>25 · CLOSING — 산출물의 재정의</Eyebrow>
+      <SlideTitle style={{marginTop:SPACING.titleGap}}>응용 AI의 산출물은 리더보드 점수가 아니라 <span style={{color:C.accent}}>‘검증 가능한 엔진’</span>이다 — 그리고 여기서 더 간다</SlideTitle>
+      <BodyText muted style={{marginTop:22}}>우리는 open-set gold, fixed KPI gate, mechanism-aware algorithm을 하나의 연구 파이프라인으로 제시한다. 연구 수준 triage는 통과했고, 배포 수준 주장은 다음 검증으로 넘어간다.</BodyText>
+
+      <div style={{position:"absolute",left:SPACING.paddingX,right:SPACING.paddingX,top:404}}>
+        <div style={{display:"flex",alignItems:"baseline",gap:16,marginBottom:22}}>
+          <span style={{fontFamily:FONT_MONO,fontSize:TYPE_SCALE.label,color:C.accent,letterSpacing:"0.2em",textTransform:"uppercase"}}>NEXT MOVES</span>
+          <span style={{flex:1,height:1,background:C.ruleSoft}}/>
+          <span style={{fontFamily:FONT_MONO,fontSize:TYPE_SCALE.label,color:C.inkMuted,letterSpacing:"0.14em"}}>연구 성과를 배포 증거로 바꾸는 세 수</span>
+        </div>
+        <div style={{display:"grid",gridTemplateColumns:"repeat(3,1fr)",gap:20}}>
+          {MOVES.map((m,i)=>(
+            <Card key={i} tone="signal" style={{padding:"26px 28px 28px"}}>
+              <div style={{display:"flex",alignItems:"baseline",justifyContent:"space-between"}}>
+                <span style={{fontFamily:FONT_DISPLAY,fontSize:46,fontWeight:800,color:C.accent,lineHeight:0.9,letterSpacing:"-0.02em"}}>{m.n}</span>
+                <span style={{fontFamily:FONT_MONO,fontSize:TYPE_SCALE.label,color:C.inkMuted,letterSpacing:"0.08em",textAlign:"right"}}>{m.k}</span>
+              </div>
+              <div style={{fontFamily:FONT_SANS,fontSize:TYPE_SCALE.subtitle,fontWeight:600,color:C.ink,marginTop:18,lineHeight:1.2,letterSpacing:"-0.01em"}}>{m.t}</div>
+              <div style={{height:1,background:C.ruleSoft,margin:"16px 0 16px"}}/>
+              <div style={{fontFamily:FONT_SANS,fontSize:TYPE_SCALE.small,color:C.inkSoft,lineHeight:1.48}}>{m.d}</div>
+            </Card>
+          ))}
+        </div>
+      </div>
+
+      <div style={{position:"absolute",left:SPACING.paddingX,right:SPACING.paddingX,bottom:104}}>
+        <div style={{display:"flex",alignItems:"flex-end",justifyContent:"space-between",gap:48}}>
+          <div style={{borderLeft:`4px solid ${C.real}`,paddingLeft:30,maxWidth:1320}}>
+            <div style={{fontFamily:FONT_DISPLAY,fontSize:50,fontWeight:700,lineHeight:1.22,letterSpacing:"-0.015em",color:C.ink}}>
+              우리는 단일 분류 실험을 넘어서 —<br/>
+              <span style={{color:C.real}}>검증 가능한 SCRM triage engine</span>을 만들었다.
+            </div>
+          </div>
+          <div style={{textAlign:"right",flex:"0 0 auto",paddingBottom:6}}>
+            <div style={{fontFamily:FONT_DISPLAY,fontSize:34,fontWeight:800,letterSpacing:"0.04em",color:C.ink}}>TEAM&nbsp;G</div>
+            <div style={{fontFamily:FONT_MONO,fontSize:TYPE_SCALE.label,color:C.inkMuted,letterSpacing:"0.16em",marginTop:8,textTransform:"uppercase"}}>공급망 시그널 · SCRM</div>
+          </div>
+        </div>
+      </div>
+
+      <PageNum n={25}/>
+    </SlideFrame>
+  );
+}
+ReactDOM.createRoot(document.getElementById('slide-root')).render(<Slide/>);
+requestAnimationFrame(()=>document.body.setAttribute('data-slide-ready','1'));
+})();
+</script>
+<script>
+function scaleSlide(){const s=document.getElementById('stage');if(!s)return;const sc=Math.min(innerWidth/1920,innerHeight/1080)*0.96;s.style.transform=`translate(${-1920*sc/2}px,${-1080*sc/2}px) scale(${sc})`;}
+addEventListener('resize',scaleSlide);addEventListener('load',scaleSlide);scaleSlide();
+</script>
+<!-- notes: CLOSING. 산출물=검증 가능한 엔진. 3 next moves(인간전문가/time-split/희소유형+embedding). 대형 closing line: 최고점수(취소선)→검증 통과 엔진(teal). -->
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Slide 20 — Baseline gap</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@500;600;700;800&family=IBM+Plex+Sans+KR:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+  html,body{width:100%;height:100vh;background:#E4DFD3;overflow:hidden;position:relative;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;}
+  .stage{width:1920px;height:1080px;position:absolute;top:50%;left:50%;transform-origin:0 0;}
+  .slide{width:1920px;height:1080px;overflow:hidden;position:relative;border-radius:4px;box-shadow:0 20px 80px rgba(0,0,0,0.14);}
+  @media print{@page{size:1920px 1080px;margin:0;}html,body{width:1920px;height:1080px;background:transparent!important;overflow:hidden;-webkit-print-color-adjust:exact;print-color-adjust:exact;}.stage{position:static!important;top:0!important;left:0!important;transform:none!important;}.slide{box-shadow:none!important;border-radius:0!important;}*,*::before,*::after{-webkit-backdrop-filter:none!important;backdrop-filter:none!important;}}
+</style>
+<script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/@babel/standalone@7.24.7/babel.min.js"></script>
+<script type="text/babel" data-presets="react" src="components.js"></script>
+</head>
+<body>
+<div class="stage" id="stage"><div class="slide" id="slide-root"></div></div>
+<script type="text/babel" data-presets="react">
+(function(){
+const { SlideFrame, Eyebrow, SlideTitle, BodyText, PageNum, BarRow, Card, Callout, C, TYPE_SCALE, SPACING, FONT_DISPLAY, FONT_SANS, FONT_MONO, SourceLine } = window;
+const ERRORS = [
+  {label:"false positive", count:"44", gate:"≤30", why:"generic supply-chain discourse를 risk로 오탐"},
+  {label:"false negative", count:"53", gate:"≤40", why:"OOV risk mechanism을 놓침"},
+  {label:"type wrong", count:"34", gate:"≤25", why:"hazard type 간 mechanism 구분이 약함"},
+];
+function ErrorCard({e}){
+  return (
+    <Card tone="fake" style={{padding:"20px 24px"}}>
+      <div style={{display:"grid",gridTemplateColumns:"1fr auto",gap:12,alignItems:"baseline"}}>
+        <div>
+          <div style={{fontFamily:FONT_SANS,fontSize:21,fontWeight:600,color:C.ink}}>{e.label}</div>
+          <div style={{fontFamily:FONT_MONO,fontSize:13,color:C.inkMuted,letterSpacing:"0.06em",marginTop:4}}>gate {e.gate}</div>
+        </div>
+        <div style={{fontFamily:FONT_DISPLAY,fontSize:58,fontWeight:800,color:C.fake,lineHeight:0.9}}>{e.count}</div>
+      </div>
+      <div style={{fontFamily:FONT_SANS,fontSize:18,color:C.inkSoft,lineHeight:1.4,marginTop:12}}>{e.why}</div>
+    </Card>
+  );
+}
+function Slide(){
+  return (
+    <SlideFrame>
+      <Eyebrow>20 · BASELINE GAP — plain two-stage</Eyebrow>
+      <SlideTitle style={{marginTop:SPACING.titleGap}}>plain TF-IDF baseline은 관련성은 배웠지만, <span style={{color:C.fake}}>research gate에는 실패했다</span></SlideTitle>
+      <BodyText muted style={{marginTop:22}}>같은 699건 open-set gold에서 word TF-IDF + two-stage classifier를 먼저 돌렸다. 결과는 출발점으로는 의미 있지만, FP·FN·type error가 모두 예산을 초과했다.</BodyText>
+
+      <div style={{position:"absolute",left:SPACING.paddingX,top:420,width:1080,display:"flex",flexDirection:"column",gap:26}}>
+        <div style={{fontFamily:FONT_MONO,fontSize:TYPE_SCALE.label,color:C.inkMuted,letterSpacing:"0.14em",marginBottom:2}}>plain 2-stage · 3-fold OOF · n=699</div>
+        <BarRow label="Accuracy" value={0.8126} display="0.813 / gate 0.850" color={C.fake}/>
+        <BarRow label="Risk-F1" value={0.7718} display="0.772 / gate 0.850" color={C.fake}/>
+        <BarRow label="AUPRC" value={0.8784} display="0.878 / gate 0.900" color={C.fake}/>
+        <BarRow label="Type Macro-F1" value={0.4378} display="0.438 / gate 0.650" color={C.fake}/>
+      </div>
+
+      <div style={{position:"absolute",right:SPACING.paddingX,top:402,width:560,display:"flex",flexDirection:"column",gap:14}}>
+        {ERRORS.map((e,i)=><ErrorCard key={i} e={e}/>)}
+      </div>
+
+      <Callout tone="fake" style={{position:"absolute",left:SPACING.paddingX,right:SPACING.paddingX,bottom:118,maxWidth:1560}}>gap의 원인은 명확했다 — 단어 기반 relevance만으로는 OOV mechanism, generic OTHER, type boundary를 동시에 해결하지 못한다.</Callout>
+      <SourceLine>본 연구 open_set_eval.json · baseline_oof_predictions.csv</SourceLine>
+      <PageNum n={20}/>
+    </SlideFrame>
+  );
+}
+ReactDOM.createRoot(document.getElementById('slide-root')).render(<Slide/>);
+requestAnimationFrame(()=>document.body.setAttribute('data-slide-ready','1'));
+})();
+</script>
+<script>
+function scaleSlide(){const s=document.getElementById('stage');if(!s)return;const sc=Math.min(innerWidth/1920,innerHeight/1080)*0.96;s.style.transform=`translate(${-1920*sc/2}px,${-1080*sc/2}px) scale(${sc})`;}
+addEventListener('resize',scaleSlide);addEventListener('load',scaleSlide);scaleSlide();
+</script>
+<!-- notes: plain two-stage baseline gap. acc 0.8126, risk-F1 0.7718, AUPRC 0.8784, type macro 0.4378. FP 44/FN 53/type wrong 34 exceed budgets. -->
+</body>
+</html>

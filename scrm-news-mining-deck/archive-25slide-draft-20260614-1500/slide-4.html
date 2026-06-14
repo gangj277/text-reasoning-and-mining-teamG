@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Slide 4 — Situation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@500;600;700;800&family=IBM+Plex+Sans+KR:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+  html,body{width:100%;height:100vh;background:#E4DFD3;overflow:hidden;position:relative;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;}
+  .stage{width:1920px;height:1080px;position:absolute;top:50%;left:50%;transform-origin:0 0;}
+  .slide{width:1920px;height:1080px;overflow:hidden;position:relative;border-radius:4px;box-shadow:0 20px 80px rgba(0,0,0,0.14);}
+  table.tbl{width:100%;border-collapse:collapse;} table.tbl td,table.tbl th{padding:14px 18px;text-align:left;vertical-align:middle;border-bottom:1px solid rgba(31,39,48,0.12);}
+  @media print{@page{size:1920px 1080px;margin:0;}html,body{width:1920px;height:1080px;background:transparent!important;overflow:hidden;-webkit-print-color-adjust:exact;print-color-adjust:exact;}.stage{position:static!important;top:0!important;left:0!important;transform:none!important;}.slide{box-shadow:none!important;border-radius:0!important;}*,*::before,*::after{-webkit-backdrop-filter:none!important;backdrop-filter:none!important;}}
+</style>
+<script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/@babel/standalone@7.24.7/babel.min.js"></script>
+<script type="text/babel" data-presets="react" src="components.js"></script>
+</head>
+<body>
+<div class="stage" id="stage"><div class="slide" id="slide-root"></div></div>
+<script type="text/babel" data-presets="react">
+(function(){
+const { SlideFrame, Eyebrow, SlideTitle, BodyText, PageNum, Callout, Card, BarRow, C, TYPE_SCALE, SPACING, FONT_DISPLAY, FONT_SANS, FONT_MONO, SourceLine } = window;
+const BARS = [
+  { label: "시위·소요 (civil unrest)", value: 285, display: "+285%", color: C.fake },
+  { label: "규제 변화 (regulatory)", value: 128, display: "+128%", color: C.accent },
+  { label: "지정학 경보 (geopolitical)", value: 123, display: "+123%", color: C.accent },
+  { label: "전 세계 disruption (총량)", value: 38, display: "+38%", color: C.real },
+];
+function Slide(){
+  return (
+    <SlideFrame>
+      <Eyebrow style={{marginLeft:0}}>04 · SITUATION — 충격의 가속</Eyebrow>
+      <SlideTitle style={{marginTop:SPACING.titleGap}}>그리고 지금, 충격의 빈도가 <span style={{color:C.accent}}>급증</span>하고 있다 —<br/>2024년 한 해 +38%, 지정학 경보 +123%</SlideTitle>
+      <BodyText muted style={{marginTop:20}}>충격은 역사가 아니라 현재진행이다. 뉴스로 모니터되는 사건 자체가 폭증하면서, 사람이 따라갈 수 없는 규모가 되었다.</BodyText>
+
+      {/* LEFT — dominant hero numeral */}
+      <div style={{position:"absolute",left:SPACING.paddingX,top:410}}>
+        <div style={{fontFamily:FONT_MONO,fontSize:TYPE_SCALE.label,color:C.accent,letterSpacing:"0.18em"}}>GLOBAL DISRUPTION · 2024 YoY</div>
+        <div style={{display:"flex",alignItems:"baseline",gap:6,marginTop:14}}>
+          <span style={{fontFamily:FONT_DISPLAY,fontSize:200,fontWeight:800,color:C.accent,lineHeight:0.82,letterSpacing:"-0.03em"}}>+38</span>
+          <span style={{fontFamily:FONT_MONO,fontSize:56,fontWeight:600,color:C.accent}}>%</span>
+        </div>
+        <div style={{fontFamily:FONT_SANS,fontSize:TYPE_SCALE.body,fontWeight:600,color:C.ink,marginTop:18,lineHeight:1.3,maxWidth:430}}>한 해 만에 전 세계 공급망 충격 총량이 38% 늘었다 — 추세가 아니라 점프다.</div>
+        <div style={{fontFamily:FONT_SANS,fontSize:TYPE_SCALE.small,color:C.inkMuted,marginTop:10,maxWidth:430,lineHeight:1.45}}>특정 유형은 두세 배로 뛰었다. 시위·소요 +285%는 정상적 변동이 아닌 체제 전환의 신호다.</div>
+      </div>
+
+      <div style={{position:"absolute",left:640,top:404,width:1,height:300,background:C.rule}}/>
+
+      {/* RIGHT — growth bars by disruption type */}
+      <div style={{position:"absolute",left:720,top:414,width:1100}}>
+        <div style={{fontFamily:FONT_MONO,fontSize:TYPE_SCALE.label,color:C.inkMuted,letterSpacing:"0.16em",textTransform:"uppercase",marginBottom:22}}>유형별 증가율 — 어떤 충격이 가속하는가</div>
+        <div style={{display:"flex",flexDirection:"column",gap:18}}>
+          {BARS.map((b,i)=>(
+            <BarRow key={i} label={b.label} value={b.value} max={285} display={b.display} color={b.color}/>
+          ))}
+        </div>
+        <Card tone="signal" style={{marginTop:28}}>
+          <div style={{display:"flex",alignItems:"center",gap:22}}>
+            <div style={{display:"flex",alignItems:"baseline",gap:8,flex:"0 0 auto"}}>
+              <span style={{fontFamily:FONT_DISPLAY,fontSize:54,fontWeight:800,color:C.accent,lineHeight:0.9}}>1억 400만</span>
+              <span style={{fontFamily:FONT_MONO,fontSize:20,color:C.accent}}>출처</span>
+            </div>
+            <div style={{fontFamily:FONT_SANS,fontSize:TYPE_SCALE.small,color:C.inkSoft,lineHeight:1.45}}>Resilinc는 <span style={{color:C.accent,fontWeight:600}}>1억 400만 출처</span>와 <span style={{color:C.accent,fontWeight:600}}>400개 disruption 유형</span>을 동시에 모니터한다 — 이미 자동화 없이는 한 사람도 따라갈 수 없는 규모다.</div>
+          </div>
+        </Card>
+      </div>
+
+      <Callout tone="signal" style={{position:"absolute",left:SPACING.paddingX,right:SPACING.paddingX,bottom:116,maxWidth:1560}}>신호량 자체가 사람의 한계를 넘었다 — 자동화가 전제가 된다.</Callout>
+      <SourceLine>Resilinc EventWatchAI 2024 Annual Report</SourceLine>
+      <PageNum n={4}/>
+    </SlideFrame>
+  );
+}
+ReactDOM.createRoot(document.getElementById('slide-root')).render(<Slide/>);
+requestAnimationFrame(()=>document.body.setAttribute('data-slide-ready','1'));
+})();
+</script>
+<script>
+function scaleSlide(){const s=document.getElementById('stage');if(!s)return;const sc=Math.min(innerWidth/1920,innerHeight/1080)*0.96;s.style.transform=`translate(${-1920*sc/2}px,${-1080*sc/2}px) scale(${sc})`;}
+addEventListener('resize',scaleSlide);addEventListener('load',scaleSlide);scaleSlide();
+</script>
+<!-- notes: 빈도 급증. +38% 히어로 + 유형별 바(285/128/123/38). Resilinc 규모(1.04억 출처·400유형)로 '자동화 전제' 도출. 다음: 그래서 신호를 어떻게 추출하나. -->
+</body>
+</html>

@@ -1,0 +1,140 @@
+[
+  {
+    "title": "How a year of China's rare-earth controls is reshaping supply chains",
+    "lang": "en",
+    "gold": "GEOPOLITICAL",
+    "pred": "PANDEMIC"
+  },
+  {
+    "title": "Kuwait's key ports targeted in attacks amid growing regional tensions",
+    "lang": "en",
+    "gold": "GEOPOLITICAL",
+    "pred": "LOGISTICS"
+  },
+  {
+    "title": "인천항 체선율, 지난해 14년 만에 2%대...타개책 마련 시급",
+    "lang": "ko",
+    "gold": "LOGISTICS",
+    "pred": "GEOPOLITICAL"
+  },
+  {
+    "title": "중동발 공급망 쇼크에 해상 물류 비상…'한국 경제 직격탄'",
+    "lang": "ko",
+    "gold": "LOGISTICS",
+    "pred": "GEOPOLITICAL"
+  },
+  {
+    "title": "Northern Europe’s Ports Struggle with Congestion Amid Network Shifts",
+    "lang": "en",
+    "gold": "LOGISTICS",
+    "pred": "GEOPOLITICAL"
+  },
+  {
+    "title": "80% 확률의 난카이 대지진, 2조달러짜리 예고된 경제 블랙홀",
+    "lang": "ko",
+    "gold": "NATURAL_DISASTER",
+    "pred": "GEOPOLITICAL"
+  },
+  {
+    "title": "Part 2. 대한민국 물류, 기후위기에 재설계 시급",
+    "lang": "ko",
+    "gold": "NATURAL_DISASTER",
+    "pred": "LABOR"
+  },
+  {
+    "title": "동일본 대지진 악몽 재현? 도요타, 소니 등 日기업, 공급망 패쇄로 타격",
+    "lang": "ko",
+    "gold": "NATURAL_DISASTER",
+    "pred": "GEOPOLITICAL"
+  },
+  {
+    "title": "세계 반도체 파운드리 공급망, 대만 지진 리스크로 재편되나",
+    "lang": "ko",
+    "gold": "NATURAL_DISASTER",
+    "pred": "SUPPLIER"
+  },
+  {
+    "title": "\"자연재해, 주요 공급망 위협\"...中 홍수사태로 본 기후변화 단면",
+    "lang": "ko",
+    "gold": "NATURAL_DISASTER",
+    "pred": "LOGISTICS"
+  },
+  {
+    "title": "News Flash flooding wreaks havoc at Port Klang, adding to berthing delays",
+    "lang": "en",
+    "gold": "NATURAL_DISASTER",
+    "pred": "LABOR"
+  },
+  {
+    "title": "Chip shortage drives up PC prices as companies renegotiate contracts",
+    "lang": "en",
+    "gold": "SUPPLIER",
+    "pred": "FINANCIAL"
+  },
+  {
+    "title": "Paint and materials costs increase over 22% since Q1 2022",
+    "lang": "en",
+    "gold": "FINANCIAL",
+    "pred": "SUPPLIER"
+  },
+  {
+    "title": "Facing inflation: lab heads tighten supplies budgets",
+    "lang": "en",
+    "gold": "FINANCIAL",
+    "pred": "GEOPOLITICAL"
+  },
+  {
+    "title": "CNH announces “tentative” plans to close Burlington, Iowa tractor plant nearly 2 years after UAW sellout of strike",
+    "lang": "en",
+    "gold": "LABOR",
+    "pred": "SUPPLIER"
+  },
+  {
+    "title": "Samsung's Chennai Factory Worker's Strike Hits Production Of Consumer Durables",
+    "lang": "en",
+    "gold": "LABOR",
+    "pred": "PANDEMIC"
+  },
+  {
+    "title": "Longshoremen’s strike nears, portending wide impact on goods",
+    "lang": "en",
+    "gold": "LABOR",
+    "pred": "NATURAL_DISASTER"
+  },
+  {
+    "title": "삼성ㆍ현대차ㆍSKㆍLG 등 줄줄이 재택근무 돌입",
+    "lang": "ko",
+    "gold": "PANDEMIC",
+    "pred": "LABOR"
+  },
+  {
+    "title": "세계 최대 아이폰 공장 멈췄다…中 폐쇄에 애플 공급망 붕괴",
+    "lang": "ko",
+    "gold": "PANDEMIC",
+    "pred": "SUPPLIER"
+  },
+  {
+    "title": "Amazon Stockpiling Inventory Because of Coronavirus Risk",
+    "lang": "en",
+    "gold": "PANDEMIC",
+    "pred": "LABOR"
+  },
+  {
+    "title": "iPhone supply chain takes hit from China’s Covid-19-zero enforcers",
+    "lang": "en",
+    "gold": "PANDEMIC",
+    "pred": "NATURAL_DISASTER"
+  },
+  {
+    "title": "Retailers’ Latest Headache: Shutdowns at Their Vietnamese Suppliers (Published 2021)",
+    "lang": "en",
+    "gold": "PANDEMIC",
+    "pred": "SUPPLIER"
+  },
+  {
+    "title": "Virus Exposes Cracks in Carmakers’ Chinese Supply Chains (Published 2020)",
+    "lang": "en",
+    "gold": "PANDEMIC",
+    "pred": "GEOPOLITICAL"
+  }
+]

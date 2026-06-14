@@ -1,0 +1,28 @@
+{
+  "n": 26,
+  "n_dropped_of_100": 74,
+  "lang_dist": {
+    "ko": 15,
+    "en": 11
+  },
+  "class_dist": {
+    "SUPPLIER": 7,
+    "FINANCIAL": 3,
+    "LOGISTICS": 4,
+    "LABOR": 3,
+    "GEOPOLITICAL": 8,
+    "NATURAL_DISASTER": 1
+  },
+  "full": {
+    "acc": 0.4615,
+    "macro_f1_present": 0.4538
+  },
+  "seed_masked": {
+    "acc": 0.3462,
+    "macro_f1_present": 0.3476
+  },
+  "majority_baseline_acc": 0.3077,
+  "majority_class": "GEOPOLITICAL",
+  "random_acc": 0.1429,
+  "note": "중립질의 label-blind 골드. query-echo 무의미(단일 일반질의). full acc 가 majority 를 상회하면 질의복원이 아닌 진짜 일반화."
+}

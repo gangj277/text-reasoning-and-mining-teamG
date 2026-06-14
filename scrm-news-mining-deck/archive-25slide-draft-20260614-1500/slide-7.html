@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Slide 7 — Situation: 한국은 충격의 한복판</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@500;600;700;800&family=IBM+Plex+Sans+KR:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+  html,body{width:100%;height:100vh;background:#E4DFD3;overflow:hidden;position:relative;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;}
+  .stage{width:1920px;height:1080px;position:absolute;top:50%;left:50%;transform-origin:0 0;}
+  .slide{width:1920px;height:1080px;overflow:hidden;position:relative;border-radius:4px;box-shadow:0 20px 80px rgba(0,0,0,0.14);}
+  table.tbl{width:100%;border-collapse:collapse;} table.tbl td,table.tbl th{padding:14px 18px;text-align:left;vertical-align:middle;border-bottom:1px solid rgba(31,39,48,0.12);}
+  @media print{@page{size:1920px 1080px;margin:0;}html,body{width:1920px;height:1080px;background:transparent!important;overflow:hidden;-webkit-print-color-adjust:exact;print-color-adjust:exact;}.stage{position:static!important;top:0!important;left:0!important;transform:none!important;}.slide{box-shadow:none!important;border-radius:0!important;}*,*::before,*::after{-webkit-backdrop-filter:none!important;backdrop-filter:none!important;}}
+</style>
+<script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/@babel/standalone@7.24.7/babel.min.js"></script>
+<script type="text/babel" data-presets="react" src="components.js"></script>
+</head>
+<body>
+<div class="stage" id="stage"><div class="slide" id="slide-root"></div></div>
+<script type="text/babel" data-presets="react">
+(function(){
+const { SlideFrame, Eyebrow, SlideTitle, BodyText, PageNum, Callout, ComparisonColumn, Card, C, TYPE_SCALE, SPACING, FONT_DISPLAY, FONT_SANS, FONT_MONO, SourceLine } = window;
+function Slide(){
+  return (
+    <SlideFrame>
+      <Eyebrow style={{marginLeft:0}}>07 · SITUATION — 길목이자 노출국</Eyebrow>
+      <SlideTitle style={{marginTop:SPACING.titleGap}}>한국은 이 충격의 <span style={{color:C.accent}}>한복판</span>에 있다 — AI를 굴리는 메모리의 90%, 수출의 25%가 반도체다</SlideTitle>
+      <BodyText muted style={{marginTop:20}}>왜 한·영 이중언어로 신호를 읽는가의 근거: 한국은 세계 공급망의 길목(critical)이자, 동시에 가장 노출된 경제(exposed)다 — 두 얼굴을 동시에 본다.</BodyText>
+
+      {/* MIDDLE — asymmetric: wide CRITICAL column (left) vs EXPOSED column anchored by hero numeral (right) */}
+      <div style={{position:"absolute",left:SPACING.paddingX,right:SPACING.paddingX,top:412,display:"flex",alignItems:"stretch",gap:36}}>
+
+        {/* CRITICAL — wider, the supply-side chokepoint */}
+        <div style={{flex:"1.32",display:"flex",flexDirection:"column"}}>
+          <ComparisonColumn
+            tone="signal"
+            tag="CRITICAL · 세계 공급의 길목"
+            title="AI 메모리는 한국을 통해서만 흐른다"
+            style={{height:"100%"}}
+            items={[
+              <span>SK하이닉스 HBM 점유율은 <b style={{color:C.accent,fontWeight:700}}>54%(’24)→62%(’25 Q2)</b>로 더 벌어졌다 — Nvidia의 최대 HBM 공급원이다.</span>,
+              <span>삼성+SK 합산 HBM은 <b style={{color:C.accent,fontWeight:700}}>90% 이상</b> — AI 가속기를 굴리는 메모리의 사실상 전부가 한국발이다.</span>,
+              <span>범용 메모리도 마찬가지로 DRAM <b style={{color:C.accent,fontWeight:700}}>72–73%</b>, NAND <b style={{color:C.accent,fontWeight:700}}>51–52%</b> — 한국이 멈추면 세계 IT가 멈춘다.</span>,
+            ]}
+          />
+        </div>
+
+        {/* EXPOSED — hero numeral anchors the most-exposed economy */}
+        <div style={{flex:"1",display:"flex",flexDirection:"column",background:C.fakeSoft,borderTop:`3px solid ${C.fake}`,borderRadius:"0 0 10px 10px",padding:"22px 28px 26px"}}>
+          <div style={{fontFamily:FONT_MONO,fontSize:TYPE_SCALE.label,color:C.fake,letterSpacing:"0.16em",textTransform:"uppercase",marginBottom:6}}>EXPOSED · 가장 노출된 경제</div>
+          <div style={{fontFamily:FONT_DISPLAY,fontSize:TYPE_SCALE.subtitle,fontWeight:700,color:C.ink,marginBottom:16,lineHeight:1.2}}>같은 집중이 곧 최대 피해 노출이다</div>
+
+          <div style={{display:"flex",alignItems:"baseline",gap:14}}>
+            <span style={{fontFamily:FONT_DISPLAY,fontSize:118,fontWeight:800,color:C.fake,lineHeight:0.86,letterSpacing:"-0.02em"}}>25</span>
+            <span style={{fontFamily:FONT_MONO,fontSize:30,color:C.fake,opacity:0.9}}>%</span>
+            <span style={{fontFamily:FONT_SANS,fontSize:TYPE_SCALE.small,color:C.inkSoft,lineHeight:1.35,marginLeft:6,maxWidth:240}}>반도체가 한국 <b style={{color:C.ink,fontWeight:600}}>2024 수출의 1/4</b>을 차지한다</span>
+          </div>
+
+          <div style={{display:"flex",gap:14,marginTop:18}}>
+            <div style={{flex:1,borderTop:`1px solid ${C.rule}`,paddingTop:12}}>
+              <div style={{fontFamily:FONT_DISPLAY,fontSize:34,fontWeight:700,color:C.fake,lineHeight:1}}>$141.9B</div>
+              <div style={{fontFamily:FONT_MONO,fontSize:TYPE_SCALE.label,color:C.inkMuted,marginTop:7,letterSpacing:"0.04em"}}>반도체 수출액 · 단일 품목</div>
+            </div>
+            <div style={{flex:1,borderTop:`1px solid ${C.rule}`,paddingTop:12}}>
+              <div style={{fontFamily:FONT_DISPLAY,fontSize:34,fontWeight:700,color:C.fake,lineHeight:1}}>+43.9%</div>
+              <div style={{fontFamily:FONT_MONO,fontSize:TYPE_SCALE.label,color:C.inkMuted,marginTop:7,letterSpacing:"0.04em"}}>전년比 — 더 깊어진 의존</div>
+            </div>
+          </div>
+
+          <div style={{marginTop:"auto",paddingTop:18,fontFamily:FONT_SANS,fontSize:TYPE_SCALE.small,color:C.inkSoft,lineHeight:1.42}}>
+            세계 공급의 <b style={{color:C.accent,fontWeight:700}}>chokepoint</b>라는 사실이, 그대로 <b style={{color:C.fake,fontWeight:700}}>최대 피해 노출국</b>이라는 취약점이 된다.
+          </div>
+        </div>
+      </div>
+
+      <Callout tone="signal" style={{position:"absolute",left:SPACING.paddingX,right:SPACING.paddingX,bottom:116,maxWidth:1560}}>기회는 분명하다. 문제는 신호가 아니라 ‘읽기’다 — 길목과 노출을 동시에 감시할 언어가 필요하다.</Callout>
+      <SourceLine>TrendForce / UBS; 산업통상자원부 2024</SourceLine>
+      <PageNum n={7}/>
+    </SlideFrame>
+  );
+}
+ReactDOM.createRoot(document.getElementById('slide-root')).render(<Slide/>);
+requestAnimationFrame(()=>document.body.setAttribute('data-slide-ready','1'));
+})();
+</script>
+<script>
+function scaleSlide(){const s=document.getElementById('stage');if(!s)return;const sc=Math.min(innerWidth/1920,innerHeight/1080)*0.96;s.style.transform=`translate(${-1920*sc/2}px,${-1080*sc/2}px) scale(${sc})`;}
+addEventListener('resize',scaleSlide);addEventListener('load',scaleSlide);scaleSlide();
+</script>
+<!-- notes: 한국 = critical(길목) + exposed(노출국) 동시. 좌측 신호색 HBM/DRAM/NAND 점유율, 우측 적색 25%/$141.9B/+43.9% 노출. 같은 집중이 강점이자 취약점 → 한·영 이중언어 신호읽기의 근거. -->
+</body>
+</html>

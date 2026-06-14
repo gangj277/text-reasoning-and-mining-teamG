@@ -1,0 +1,26 @@
+{
+  "n_gold": 102,
+  "external_acc": 0.7745,
+  "acc_boot_ci95": [
+    0.6961,
+    0.8529
+  ],
+  "acc_wilson_ci95": [
+    0.6843,
+    0.8448
+  ],
+  "external_macro_f1": 0.7663,
+  "macro_f1_boot_ci95": [
+    0.6709,
+    0.843
+  ],
+  "majority_baseline_acc": 0.1667,
+  "majority_class": "GEOPOLITICAL",
+  "random_baseline_acc": 0.1429,
+  "ko_minus_en_acc_diff": 0.0736,
+  "ko_minus_en_ci95": [
+    -0.088,
+    0.2407
+  ],
+  "ko_en_diff_significant": false
+}

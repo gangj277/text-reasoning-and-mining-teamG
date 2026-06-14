@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>plan.html — 한·영 공급망 리스크 텍스트마이닝 덱 (Team G)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@500;600;700;800&family=IBM+Plex+Sans+KR:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --display-font:'Hahmlet', serif;
+    --body-font:'IBM Plex Sans KR', sans-serif;
+    --bg:#0E1622; --ink:#ECE7DA; --accent:#E8A13A; --secondary:#4FB39A;
+    --fake:#D2503F;
+  }
+  body{font-family:var(--body-font);color:#1a1f2b;line-height:1.6;max-width:920px;margin:0 auto;padding:32px 28px 80px;background:#fff;}
+  h1{font-family:var(--display-font);font-size:30px;letter-spacing:-.01em;margin:0 0 4px;}
+  h2{font-size:21px;border-bottom:2px solid #e5e8ef;padding-bottom:6px;margin:42px 0 6px;}
+  h3{font-size:16px;margin:22px 0 8px;color:#0b1f3a;}
+  p{margin:8px 0;} small,.hint{color:#8893a5;font-size:12.5px;}
+  code{background:#f3f5f9;padding:1px 5px;border-radius:4px;font-size:.9em;}
+  dl{display:grid;grid-template-columns:max-content 1fr;gap:6px 16px;margin:8px 0;}
+  dt{font-weight:700;color:#0b1f3a;} dd{margin:0;}
+  ul{margin:8px 0;padding-left:20px;} li{margin:3px 0;}
+  table{width:100%;border-collapse:collapse;margin:12px 0;font-size:14px;}
+  th,td{border:1px solid #e5e8ef;padding:7px 10px;text-align:left;vertical-align:top;}
+  th{background:#f8fafc;font-size:12px;text-transform:uppercase;letter-spacing:.04em;color:#6b7890;}
+  .guardrail{border-left:4px solid #C8961E;background:#FCF8EE;padding:12px 16px;border-radius:0 8px 8px 0;margin:18px 0;font-size:14px;}
+  .critical{border-left:4px solid #E2603B;background:#FDF0EC;padding:12px 16px;border-radius:0 8px 8px 0;margin:14px 0;font-size:14px;}
+  article.slide-plan{border:1px solid #e5e8ef;border-radius:10px;padding:16px 18px;margin:14px 0;}
+  article.slide-plan h3{margin-top:0;}
+  .sit{border-left:4px solid #4FB39A;} .comp{border-left:4px solid #D2503F;} .res{border-left:4px solid #E8A13A;} .frame{border-left:4px solid #0E1622;}
+  .specimen{border:1px solid #e5e8ef;border-radius:10px;padding:22px;margin:12px 0;background:var(--bg);}
+  .specimen .display{font-family:var(--display-font);font-weight:800;font-size:38px;color:var(--ink);line-height:1.12;letter-spacing:-.01em;}
+  .specimen .accentword{color:var(--accent);}
+  .specimen .strike{color:var(--fake);text-decoration:line-through;text-decoration-thickness:2px;}
+  .specimen .verify{color:var(--secondary);}
+  .specimen .body{font-family:var(--body-font);font-size:16px;color:var(--ink);opacity:.82;margin-top:12px;}
+  .specimen .mono{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);opacity:.9;margin-top:14px;}
+  .swatches{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap;}
+  .swatch{width:64px;height:54px;border-radius:8px;border:1px solid rgba(255,255,255,.14);display:flex;align-items:flex-end;justify-content:center;font-size:9px;color:#fff;padding-bottom:3px;}
+  .spatial-demo{display:flex;gap:8px;margin-top:16px;}
+  .spatial-demo span{flex:0 0 auto;height:34px;border:1.5px dashed rgba(236,231,218,.4);border-radius:6px;}
+</style>
+</head>
+<body>
+
+<div class="guardrail">
+  <strong>이 파일은 스토리라인 + 디자인 방향 프리뷰 + 스펙입니다.</strong> Phase 2가 슬라이드를 만들고 이 파일이 그것을 규정합니다. 슬라이드 레이아웃은 여기 그리지 않습니다.
+</div>
+
+<header>
+  <h1>세계의 뉴스에서 다음 공급망 충격을 읽다</h1>
+  <small>Reading the World's News for the Next Supply-Chain Shock · 한·영 텍스트마이닝과 정직한 검증 · Team G · plan.html (승인용)</small>
+</header>
+
+<section id="overview">
+  <h2>Deck Overview</h2>
+  <dl>
+    <dt>Output mode</dt><dd><code>html-system</code> (16:9, 25 슬라이드, PDF export)</dd>
+    <dt>Purpose</dt><dd>지식추론과 텍스트마이닝 Term Project 최종 발표 덱 — 연구를 컨설팅급 논리 흐름으로</dd>
+    <dt>Audience</dt><dd>교수·심사자(텍스트마이닝 전문) + 동료. 결정: "이것은 엄밀하고 의미 있는 연구인가?"</dd>
+    <dt>Narrative arc</dt><dd>S: 공급망 충격은 잦고·치명적이며 뉴스에 먼저 나타난다(한국이 한복판) → C: 그런데 순진한 AI는 화려한 가짜 점수를 낸다(측정 함정) → R: 우리는 만들고+부수고+고도화해, research gate를 통과한 open-set triage engine을 만들었다.</dd>
+    <dt>Total slides</dt><dd>25</dd>
+    <dt>Core thesis (governing thought)</dt><dd>공급망 조기경보의 진짜 경쟁력은 '높은 점수'가 아니라 '진짜 신호와 측정 착시를 가르는 엄밀성'이며, 그 엄밀성은 최종적으로 <strong>risk-F1 0.861·AUPRC 0.923의 mechanism-aware open-set engine</strong>으로 이어진다.</dd>
+    <dt>Start → End state</dt><dd>전: "텍스트마이닝으로 공급망 리스크 잡으면 되지" → 후: "점수가 아니라 그 점수를 믿을 수 있게 만드는 엄밀성이 진짜 산출물이고, 이 팀은 그걸 했다."</dd>
+  </dl>
+  <h3>Key line (3 supporting arguments — 피라미드 2층)</h3>
+  <ol>
+    <li><strong>기회는 진짜고 미충족이다</strong> — 충격은 3.7년마다·이익 45%를 갉고, 뉴스에 먼저 나타나며, 한국은 그 한복판인데 신호의 절반이 한국어다(슬라이드 3–7).</li>
+    <li><strong>순진한 해법은 함정이다</strong> — 그냥 분류기를 학습하면 누수·순환이 화려한 가짜 점수를 만든다; 높은 F1은 능력의 증거가 아니다(슬라이드 8–13).</li>
+    <li><strong>엄밀성은 엔진으로 귀결된다</strong> — 적대적 자기검증(echo 0.99·seed-mask·κ0.84·open-set)이 gap을 드러내고, mechanism-aware engine이 fixed gate를 통과한다(슬라이드 14–24).</li>
+  </ol>
+</section>
+
+<section id="design-direction">
+  <h2>Design Direction</h2>
+  <dl>
+    <dt>Tone</dt><dd>인텔리전스 도시에(intelligence dossier) × 에디토리얼 사이언스 저널. 진중하고 조사적이며, 한 글자도 허투루 없는 분석가의 목소리.</dd>
+    <dt>Display font</dt><dd><strong>Hahmlet</strong> (한·영 세리프, weight 600–800) — 뉴스·문헌의 권위와 에디토리얼 무게. 흔한 산세리프 덱과 즉시 구별됨.</dd>
+    <dt>Body font</dt><dd><strong>IBM Plex Sans KR</strong> (400–600) — 기술적·정밀한 본문, 한글 가독성 우수(이중언어 주제와 정합).</dd>
+    <dt>Mono</dt><dd><strong>IBM Plex Mono</strong> — 오버라인·페이지·수치 라벨·출처. 데이터의 목소리.</dd>
+    <dt>Color · Background</dt><dd>Deep ink navy <code>#0E1622</code> — 밤의 뉴스 사이클·권위(다크 도미넌트)</dd>
+    <dt>Color · Text</dt><dd>Warm off-white <code>#ECE7DA</code></dd>
+    <dt>Color · Accent (SIGNAL)</dt><dd>Amber/gold <code>#E8A13A</code> — '추출한 신호'·핵심 수치. 5–10%에만.</dd>
+    <dt>Color · Secondary (REAL/검증)</dt><dd>Verified teal <code>#4FB39A</code> — 검증되어 살아남은 정직한 결과</dd>
+    <dt>Color · FAKE/착시</dt><dd>Illusion red <code>#D2503F</code> — 측정 착시·부풀려진 가짜 수치(취소선)</dd>
+    <dt>Spatial signature</dt><dd>좌측 얇은 'signal column' 레일(mono 섹션 마커+페이지) · 정밀한 베이스라인 그리드 · hero 수치는 Hahmlet 대형, 단위는 mono.</dd>
+    <dt>Texture</dt><dd>다크 슬라이드: 미세 그리드 + hero 수치 뒤 약한 radial glow. paper 슬라이드(소수): 종이 그레인 + 신문 칼럼 룰. (금지 CSS 회피: text-shadow·소형 box-shadow blur·backdrop-filter 미사용)</dd>
+    <dt>Differentiator</dt><dd><strong>Strike-and-verify 모티프</strong> — 부풀려진 가짜 수치는 fake-red 취소선, 검증되어 살아남은 수치는 teal로 표시. 덱 전반에 정직성 논지를 시각화하는 서명 요소.</dd>
+  </dl>
+  <h3>Deck style lock target</h3>
+  <dl>
+    <dt>Background family</dt><dd>cool technical ink (다크 도미넌트), paper 슬라이드 2–3장만 따뜻한 호흡</dd>
+    <dt>Brightness range</dt><dd>대부분 어둡게(ink), pull-quote/전환만 paper</dd>
+    <dt>Accent behavior</dt><dd>amber=신호·핵심수치에만; teal=검증결과; red=착시/취소선. 본문엔 accent 금지.</dd>
+    <dt>Texture intensity</dt><dd>very low</dd>
+    <dt>Illustration language</dt><dd>outlined editorial + 데이터 정밀(차트는 data-ink 최대, 장식 0)</dd>
+  </dl>
+  <h3>Live preview <span class="hint">(:root 토큰에서 렌더 — 스타일 견본이지 슬라이드 아님)</span></h3>
+  <div class="specimen">
+    <div class="display">고전 뉴스마이닝의 최종 산출물은<br><span class="strike">0.96 신기루</span>가 아니라 <span class="verify">gate-pass engine</span>이다</div>
+    <div class="body">측정 착시를 걷어내고 gap을 고도화하면, 남는 것은 <span style="color:var(--accent)">risk-F1 0.861</span> — 우리가 먼저 부수고 다시 만든 gate-pass engine.</div>
+    <div class="mono">SIGNAL · FAKE · VERIFIED — 04 / 25</div>
+    <div class="swatches">
+      <span class="swatch" style="background:var(--bg);">bg</span>
+      <span class="swatch" style="background:var(--ink);color:#111;">ink</span>
+      <span class="swatch" style="background:var(--accent);color:#111;">signal</span>
+      <span class="swatch" style="background:var(--secondary);color:#111;">real</span>
+      <span class="swatch" style="background:var(--fake);">fake</span>
+    </div>
+    <div class="spatial-demo"><span style="width:6%;"></span><span style="width:54%;"></span><span style="width:30%;"></span></div>
+  </div>
+</section>
+
+<section id="design-system">
+  <h2>Design System Spec — <code>components.js</code></h2>
+  <h3>Tokens</h3>
+  <table>
+    <thead><tr><th>Token</th><th>Value</th><th>Role / notes</th></tr></thead>
+    <tbody>
+      <tr><td><code>TYPE_SCALE</code> (px)</td><td>display 104 · hero 88 · title 40 · subtitle 26 · body 24 · small 18 · micro 13</td><td>title 40 고정(모든 슬라이드 동일). body 24 기본, 22 절대하한. hero 88–104는 슬라이드당 1개.</td></tr>
+      <tr><td><code>SPACING</code> (px)</td><td>padTop 76 · padBottom 64 · padX 92 · titleGap 28 · itemGap 18</td><td>좌측 signal-rail 고려한 넉넉한 padX. 1920×1080.</td></tr>
+      <tr><td><code>C.bg</code> / <code>C.bgAlt</code></td><td>#0E1622 / #16212F</td><td>ink 캔버스 + 살짝 들린 카드/섹션</td></tr>
+      <tr><td><code>C.paper</code> / <code>C.inkOnPaper</code></td><td>#F2EEE4 / #1A2230</td><td>paper 슬라이드(전환·pull-quote)용</td></tr>
+      <tr><td><code>C.ink</code> / <code>inkSoft</code> / <code>inkMuted</code></td><td>#ECE7DA / rgba(236,231,218,.72) / rgba(236,231,218,.5)</td><td>텍스트 위계</td></tr>
+      <tr><td><code>C.rule</code> / <code>ruleSoft</code></td><td>rgba(236,231,218,.16) / rgba(236,231,218,.08)</td><td>구분선·그리드</td></tr>
+      <tr><td><code>C.accent</code> / <code>accentSoft</code></td><td>#E8A13A / rgba(232,161,58,.12)</td><td>SIGNAL — 핵심 수치·오버라인. 1–2개만.</td></tr>
+      <tr><td><code>C.real</code> / <code>C.fake</code></td><td>#4FB39A / #D2503F</td><td>검증(teal) vs 착시(red, 취소선)</td></tr>
+      <tr><td><code>FONT_DISPLAY</code></td><td>"'Hahmlet', serif"</td><td>타이틀·hero 수치</td></tr>
+      <tr><td><code>FONT_SANS</code></td><td>"'IBM Plex Sans KR', sans-serif"</td><td>본문/UI</td></tr>
+      <tr><td><code>FONT_MONO</code></td><td>"'IBM Plex Mono', monospace"</td><td>오버라인·메타·페이지·수치 라벨</td></tr>
+    </tbody>
+  </table>
+  <h3>Primitives — standard set</h3>
+  <ul>
+    <li><code>SlideFrame({children, variant})</code> — 1920×1080, variant: <code>ink</code>(기본)/<code>paper</code>; signal-rail + 그리드 배경 포함</li>
+    <li><code>SlideChrome</code> / <code>BrandMark</code> — 좌상단 서명 워드마크 "TEAM G · 공급망 시그널"; 우상단 standing meta "지식추론·텍스트마이닝 · 2026"</li>
+    <li><code>Eyebrow</code>(mono 오버라인) · <code>SlideTitle</code>(T1 40px 고정) · <code>BodyText({muted})</code> · <code>PageNum</code></li>
+    <li><code>Card({tone})</code> — tone: default/real/fake/signal (좌측 2–3px 보더)</li>
+    <li><code>Placeholder</code> — 납품 전 제거</li>
+  </ul>
+  <h3>Primitives — deck-specific</h3>
+  <ul>
+    <li><code>MetricTile({value,unit,label,tone})</code> — hero 수치 + mono 단위/라벨; 비교줄("vs / up from") 포함</li>
+    <li><code>StrikeStat({fake,real,note})</code> — <strong>서명 컴포넌트</strong>: 가짜 수치 취소선(red) → 검증 수치(teal). 정직성 모티프.</li>
+    <li><code>ComparisonColumn({tone,title,items})</code> — 비대칭 2열 비교(문제 vs 해법, 합성 vs 실)</li>
+    <li><code>ProcessRow({steps})</code> — 6기법 파이프라인·방법 단계(번호+카드)</li>
+    <li><code>Callout({tone})</code> — 하단 takeaway 바(1문장, 논증 전진)</li>
+    <li><code>Quote({text,attr})</code> — 문헌 인용(측정 함정 paper 등)</li>
+    <li><code>BarChart / DotPlot</code> — data-ink 최대 경량 차트(학습곡선·언어붕괴·검정력 비교)</li>
+    <li><code>SourceLine</code> — micro 13px 하단 출처(유일하게 14px 미만 허용)</li>
+  </ul>
+  <h3>Chrome content</h3>
+  <dl>
+    <dt>Top-left brand mark</dt><dd>"TEAM&nbsp;G" (Hahmlet 700) + mono "공급망 시그널 / SCRM-SIGNAL", amber 점 1개</dd>
+    <dt>Top-right metadata</dt><dd>"지식추론 · 텍스트마이닝 · TERM PROJECT 2026" (mono, inkMuted)</dd>
+    <dt>Chrome hidden on</dt><dd>cover(1), paper 전환, closing(25)에서 페이지/메타 최소화</dd>
+  </dl>
+</section>
+
+<section id="logic-map">
+  <h2>Narrative Logic Map</h2>
+  <table>
+    <thead><tr><th>Step</th><th>Logical move</th><th>Slides</th><th>Audience reaction</th></tr></thead>
+    <tbody>
+      <tr><td>1 · Situation</td><td>공급망 충격은 잦고·치명적이며 뉴스에 먼저 나타난다; 한국이 한복판</td><td>3–7</td><td>"맞다, 큰 기회다"</td></tr>
+      <tr><td>2 · Complication</td><td>그런데 사람은 못 읽고, 기존 도구는 반응·영어·블랙박스; 순진한 AI는 화려한 가짜 점수를 낸다</td><td>8–13</td><td>"왜 이게 어려운지·위험한지 알겠다"</td></tr>
+      <tr><td>3 · Pivot</td><td>그래서 우리는 '만들고+부수는' 적대적 검증을 설계했다</td><td>14–16</td><td>"이렇게 접근할 수도 있구나"</td></tr>
+      <tr><td>4 · Proof</td><td>발견들이 착시를 걷어내고 최종 엔진으로 수렴한다(echo·seed-mask·κ0.84·open-set·gate pass)</td><td>17–24</td><td>"설득력 있다, 엄밀하다"</td></tr>
+      <tr><td>5 · Landing</td><td>교훈 일반화 + 다음 수: 응용 AI의 산출물은 '보정된 신뢰'다</td><td>25</td><td>"이게 진짜 기여구나"</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section id="mode-notes">
+  <h2>Mode-Specific Build Notes (html-system)</h2>
+  <dl>
+    <dt>Viewer</dt><dd>iframe 뷰어(index.html), 화살표/풀스크린/그리드/발표자노트. 슬라이드별 standalone React+Babel+components.js.</dd>
+    <dt>Charts</dt><dd>실제 결과(results/metrics.json, powered_eval.json)의 수치로 경량 SVG/HTML 차트. 장식 0, data-ink 최대.</dd>
+    <dt>Export target</dt><dd><code>deck-export.pdf</code> (export_pdf.py, 뷰어 통해 픽셀 정합)</dd>
+    <dt>Banned CSS</dt><dd>text-shadow(blur)·소형 요소 box-shadow blur·backdrop-filter 미사용 — glow는 큰 radial-gradient로.</dd>
+  </dl>
+</section>
+
+<section id="slide-plan">
+  <h2>Slide Plan (25)</h2>
+
+  <article class="slide-plan frame" id="slide-1">
+    <h3>Slide 1 — Cover (Frame)</h3>
+    <dl>
+      <dt>Action title</dt><dd>"세계의 뉴스에서 다음 공급망 충격을 읽다 — 한·영 텍스트마이닝, 그리고 정직한 검증"</dd>
+      <dt>Slide type</dt><dd>title</dd>
+      <dt>Layout</dt><dd>좌측 앵커 대형 Hahmlet 타이틀 + 영문 부제(대비 weight) + 하단 팀/과목/날짜 mono. 우측 배경: 미세 토큰 스트림/그리드 + amber 신호 점 하나.</dd>
+      <dt>Narrative role</dt><dd>주제+태도(정직성)를 한 호흡에. "점수 자랑"이 아님을 표지부터 신호.</dd>
+    </dl>
+    <ul><li>부제: <em>Bilingual News-Based Supply-Chain Risk Detection via Text Mining — and an Honest Verdict</em></li>
+    <li>팀: Team G · 정영훈 · 전유하 · 강지민</li><li>과목: 지식추론과 텍스트마이닝 · Term Project</li><li>서명 모티프 미리보기: 작은 strike→verify 마크</li></ul>
+    <dl><dt>Bridge to next</dt><dd>표지의 '정직한 검증'이 곧 exec summary의 판정으로 이어짐</dd></dl>
+  </article>
+
+  <article class="slide-plan frame" id="slide-2">
+    <h3>Slide 2 — Executive Summary (Governing thought, full SCR 압축)</h3>
+    <dl>
+      <dt>Action title</dt><dd>"진짜 경쟁력은 '점수'가 아니라 '진짜 신호와 측정 착시를 가르는 엄밀성'이다"</dd>
+      <dt>Slide type</dt><dd>pyramid / answer-first</dd>
+      <dt>Layout</dt><dd>상단 governing thought 1문장(대형) + 하단 3열 key-line 카드(기회 / 함정 / 엄밀성) + 우하단 한 줄 판정 mono.</dd>
+      <dt>Narrative role</dt><dd>피라미드 apex를 먼저 준다. 타이틀만 읽어도 덱 전체가 잡히게.</dd>
+    </dl>
+    <p><strong>Setup→Evidence→Takeaway</strong></p>
+    <ul><li><em>Setup</em>: 이 덱은 "공급망 리스크 탐지 시스템을 만들었다"는 자랑이 아니라, 그 점수가 진짜인지 묻는 이야기다.</li>
+    <li><em>Evidence(3 key-line)</em>: ① 기회는 진짜·미충족 ② 순진한 해법은 함정(가짜 점수) ③ 엄밀성은 최종 엔진과 gate pass로 귀결됨.</li>
+    <li><em>Takeaway</em>: 우리의 산출물은 0.96 신기루가 아니라, 부수고 고도화한 0.861 gate-pass engine이다.</li></ul>
+    <dl><dt>Supporting</dt><dd>하단 callout: "이 덱의 모든 인상적 숫자는, 우리가 먼저 부수려 한 숫자다."</dd>
+    <dt>Bridge</dt><dd>먼저 '기회'가 진짜인지부터 — Situation으로.</dd></dl>
+  </article>
+
+  <article class="slide-plan sit" id="slide-3">
+    <h3>Slide 3 — Situation</h3>
+    <dl>
+      <dt>Action title</dt><dd>"공급망 충격은 이제 3.7년마다 닥치는 '예산 항목'이며, 10년간 이익의 45%를 갉는다"</dd>
+      <dt>Slide type</dt><dd>hero metric</dd>
+      <dt>Layout</dt><dd>좌측 hero 3.7년 / 우측 보조 타일(45% 이익 · 30% EBITDA 소비재) + 하단 callout</dd>
+      <dt>Narrative role</dt><dd>불가역 Situation: 충격은 천재지변이 아니라 '구조적·반복적 비용'. 모두가 동의하는 출발점.</dd>
+    </dl>
+    <ul><li>Hero: <strong>3.7년</strong>마다 한 달 이상 지속되는 공급망 충격</li>
+    <li>10년 누적 비용 ≈ 1년 이익의 <strong>45%</strong></li><li>소비재는 ≈ 1년 EBITDA의 30%</li><li>함의: CFO에게 이것은 '리스크'가 아니라 '항목'</li></ul>
+    <dl><dt>Supporting</dt><dd>callout: 천재지변이 아니라 예측·관리 대상</dd>
+    <dt>Source</dt><dd>McKinsey, Future-proofing the supply chain</dd>
+    <dt>Bridge</dt><dd>그리고 빈도가 '지금' 늘고 있다 →</dd></dl>
+  </article>
+
+  <article class="slide-plan sit" id="slide-4">
+    <h3>Slide 4 — Situation</h3>
+    <dl>
+      <dt>Action title</dt><dd>"그리고 지금, 충격의 빈도가 급증하고 있다 — 2024년 한 해 +38%, 지정학 경보 +123%"</dd>
+      <dt>Slide type</dt><dd>data / trend</dd>
+      <dt>Layout</dt><dd>좌측 막대(2023→2024 +38%) + 우측 증가율 타일 3개(지정학 +123% · 시위 +285% · 규제 +128%)</dd>
+      <dt>Narrative role</dt><dd>'역사'가 아니라 '현재진행'. 긴급성. 모니터링 대상이 폭증.</dd>
+    </dl>
+    <ul><li>전 세계 공급망 disruption <strong>+38% YoY</strong> (2024)</li><li>지정학 경보 <strong>+123%</strong></li><li>시위·소요 <strong>+285%</strong>, 규제변화 <strong>+128%</strong></li><li>Resilinc는 1억 400만 출처·400 유형 모니터 — 이미 자동화 없인 불가</li></ul>
+    <dl><dt>Supporting</dt><dd>callout: 신호량 자체가 사람의 한계를 넘었다(→ 자동화 복선)</dd>
+    <dt>Source</dt><dd>Resilinc EventWatchAI 2024 Annual Report</dd>
+    <dt>Bridge</dt><dd>한 곳만 막혀도 세계가 멈춘다 →</dd></dl>
+  </article>
+
+  <article class="slide-plan sit" id="slide-5">
+    <h3>Slide 5 — Situation</h3>
+    <dl>
+      <dt>Action title</dt><dd>"단 한 곳의 길목이 막히면 세계 교역의 12%가 하루 $9.6B씩 멈춘다"</dd>
+      <dt>Slide type</dt><dd>hero metric (chokepoint)</dd>
+      <dt>Layout</dt><dd>좌측 hero $9.6B/일 + 우측 수에즈 점유(교역 12–15% · 컨테이너 30%) + 하단 ">430척 대기"</dd>
+      <dt>Narrative role</dt><dd>집중 리스크의 물리적 증거(에버기븐). 누구나 아는 이미지.</dd>
+    </dl>
+    <ul><li>Hero: <strong>$9.6B/일</strong> (≈$400M/시간) 교역 정체 — 6일 좌초</li><li>수에즈 = 세계 교역 <strong>12–15%</strong>, 컨테이너 <strong>30%</strong></li><li>430+ 선박 대기</li><li>함의: 단일 노드 장애 = 두 자릿수 교역 마비</li></ul>
+    <dl><dt>Source</dt><dd>Univ. of Gothenburg/CNBC 2021; Atlantic Council</dd>
+    <dt>Bridge</dt><dd>그런데 이 모든 충격은 '실적'이 아니라 '뉴스'에 먼저 나타났다 →</dd></dl>
+  </article>
+
+  <article class="slide-plan sit" id="slide-6">
+    <h3>Slide 6 — Situation (the bridge: news leads)</h3>
+    <dl>
+      <dt>Action title</dt><dd>"최근 모든 충격 — 홍해·희토류·대만 지진 — 은 실적이 아니라 '뉴스'에 가장 먼저 나타났다"</dd>
+      <dt>Slide type</dt><dd>pattern / 3-up evidence</dd>
+      <dt>Layout</dt><dd>3개 사건 카드(홍해/희토류/대만) 각 카드에 '뉴스 시점 → 가격·물량 신호' + 하단 공통 결론</dd>
+      <dt>Narrative role</dt><dd>가장 중요한 다리: 충격은 뉴스에 先행한다 → 뉴스마이닝의 전제.</dd>
+    </dl>
+    <ul><li>홍해/후티: 수에즈 물동량 -75~90%, 운임(SCFI 상하이-북유럽) <strong>+339%</strong></li><li>중국 갈륨·게르마늄 통제: 가격 <strong>+365%/+400%</strong></li><li>대만 규모 7.4 지진: TSMC 대피, 10시간 내 70% 복구(near-miss)</li><li>공통: 정형 KPI가 흔들리기 전에 '뉴스'가 먼저 말했다</li></ul>
+    <dl><dt>Supporting</dt><dd>callout: 즉, 가장 이른 신호는 '비정형 텍스트'에 있다</dd>
+    <dt>Source</dt><dd>IMF/Drewry; CSIS; Supply Chain Dive (2024)</dd>
+    <dt>Bridge</dt><dd>그 신호의 절반이 한국어인 이유 →</dd></dl>
+  </article>
+
+  <article class="slide-plan sit" id="slide-7">
+    <h3>Slide 7 — Situation (Korea centrality)</h3>
+    <dl>
+      <dt>Action title</dt><dd>"한국은 이 충격의 한복판에 있다 — AI를 굴리는 메모리의 90%, 수출의 25%가 반도체다"</dd>
+      <dt>Slide type</dt><dd>data grid (critical + exposed)</dd>
+      <dt>Layout</dt><dd>좌측 'critical'(HBM>90%, DRAM 72%) / 우측 'exposed'(반도체=수출 25%, $141.9B) — 비대칭 2열</dd>
+      <dt>Narrative role</dt><dd>왜 한·영 이중언어인가의 근거 1: 한국은 세계 공급망의 길목이자, 가장 노출된 경제.</dd>
+    </dl>
+    <ul><li>SK하이닉스 HBM <strong>54%</strong>(’24)→62%(’25 Q2), 삼성+SK HBM <strong>>90%</strong> — Nvidia 최대 공급</li><li>삼성+SK DRAM <strong>72–73%</strong>, NAND 51–52%</li><li>반도체 = 한국 2024 수출의 <strong>25%</strong>($141.9B, +43.9%)</li><li>즉 한국은 글로벌 chokepoint이자 최대 피해 노출국</li></ul>
+    <dl><dt>Source</dt><dd>TrendForce/UBS; 산업통상자원부 2024</dd>
+    <dt>Bridge</dt><dd>기회는 분명하다. 문제는 '읽기'다 → Complication</dd></dl>
+  </article>
+
+  <article class="slide-plan comp" id="slide-8">
+    <h3>Slide 8 — Complication (the reading wall)</h3>
+    <dl>
+      <dt>Action title</dt><dd>"문제는 신호가 아니라 '읽기'다 — 하루 100만 건의 뉴스, 한·영 혼재, 사람은 못 본다"</dd>
+      <dt>Slide type</dt><dd>problem definition</dd>
+      <dt>Layout</dt><dd>좌측 hero 100만/일(GDELT) + 우측 3대 장벽(전수불가 · 이중언어 · 정형/지연) </dd>
+      <dt>Narrative role</dt><dd>문제 정의 핵심: 신호는 있으나 '사람이 제때 못 읽는다'. 기존 SCRM은 반응적·정형 의존.</dd>
+    </dl>
+    <ul><li>GDELT GKG: 하루 최대 <strong>100만 건</strong>, 2억+ 레코드, 100개 언어, 15분 갱신</li><li>장벽①: 전수 모니터링은 사람으로 불가능</li><li>장벽②: 신호가 한·영 혼재 — 단일언어 도구로는 절반을 놓침</li><li>장벽③: 기존 SCRM은 재고·리드타임 등 '정형·지연' 지표 의존 → 사후 반응</li></ul>
+    <dl><dt>Supporting</dt><dd>callout: 정형 데이터가 신호를 줄 땐 이미 늦다</dd>
+    <dt>Source</dt><dd>GDELT Project; SCRM 텍스트마이닝 SLR</dd>
+    <dt>Bridge</dt><dd>그럼 기존 도구는? 반응·영어·블랙박스 →</dd></dl>
+  </article>
+
+  <article class="slide-plan comp" id="slide-9">
+    <h3>Slide 9 — Complication (landscape gap, MECE 3)</h3>
+    <dl>
+      <dt>Action title</dt><dd>"기존 도구는 '반응'하고, '영어'만 보고, '블랙박스'다 — 시장은 커버리지 경쟁 중"</dd>
+      <dt>Slide type</dt><dd>landscape + 3-gap (MECE)</dd>
+      <dt>Layout</dt><dd>상단 벤더 한 줄 맵(Resilinc/Interos/Prewave/Sayari) + 하단 3 gap 카드(반응적 / 영어편중 / 비해석)</dd>
+      <dt>Narrative role</dt><dd>미충족 공백을 MECE 3축으로 정의 — 우리 설계 3 베팅의 표적.</dd>
+    </dl>
+    <ul><li>커버리지 경쟁: Interos 2.3억 공급사·110억 관계 / Sayari 5억 기업 / Prewave 400+ 언어(€63M)</li><li>Gap①(반응적): 예측은 문헌상 'emerging'에 그침</li><li>Gap②(영어편중): 리뷰들이 비영어 연구를 '제외'한다고 명시; 한국어 자원은 lag</li><li>Gap③(블랙박스): SLR(1,439편) — 비해석성이 '중대한 한계'로 채택을 막음</li></ul>
+    <dl><dt>Supporting</dt><dd>callout: 우리는 커버리지가 아니라 '정직·해석'으로 차별화</dd>
+    <dt>Source</dt><dd>Vendor docs; AI-SCRM SLR (arXiv 2401.10895)</dd>
+    <dt>Bridge</dt><dd>그래서 우리도 그냥 분류기를 만들어봤다 →</dd></dl>
+  </article>
+
+  <article class="slide-plan comp" id="slide-10">
+    <h3>Slide 10 — Complication (the bait)</h3>
+    <dl>
+      <dt>Action title</dt><dd>"그래서 우리는 분류기를 만들었다 — 그리고 첫 시도에서 Macro-F1 1.00이 나왔다"</dd>
+      <dt>Slide type</dt><dd>hero metric (suspicious)</dd>
+      <dt>Layout</dt><dd>중앙 hero 1.00 (amber) + 작은 캡션 "완벽하다 — 너무 완벽하다" + 하단 의심 callout</dd>
+      <dt>Narrative role</dt><dd>함정을 미끼로. 청중이 "오 좋네"라 느끼게 한 뒤 다음 슬라이드에서 부순다.</dd>
+    </dl>
+    <ul><li>TF-IDF + LogisticRegression, 7유형 분류, held-out <strong>Macro-F1 1.00</strong></li><li>세 분류기 모두 ≈1.00</li><li>발표용으론 환상적인 숫자</li><li>그러나… 완벽한 점수는 보통 '능력'이 아니다</li></ul>
+    <dl><dt>Supporting</dt><dd>callout: 다음 장 — 왜 1.00은 의미가 없는가</dd>
+    <dt>Bridge</dt><dd>화려한 점수는 AI에서 가장 흔한 거짓말 →</dd></dl>
+  </article>
+
+  <article class="slide-plan comp" id="slide-11">
+    <h3>Slide 11 — Complication (the trap, named & measured)</h3>
+    <dl>
+      <dt>Action title</dt><dd>"화려한 점수는 AI에서 가장 흔한 거짓말이다 — 누수가 17개 분야 294편을 오염시켰다"</dd>
+      <dt>Slide type</dt><dd>quote + stat</dd>
+      <dt>Layout</dt><dd>좌측 hero 294편/17분야 + 우측 'shortcut learning' 정의 인용 카드</dd>
+      <dt>Narrative role</dt><dd>측정 함정은 가설이 아니라 측정된 재현성 위기. 우리 자기검증의 정당성.</dd>
+    </dl>
+    <ul><li>데이터 누수: <strong>294편 / 17개 과학분야</strong> 결과를 부풀림 (Kapoor & Narayanan 2023)</li><li>메커니즘엔 이름이 있다 — 'shortcut learning'(Geirhos 2020): 벤치마크는 잘 풀되 실세계엔 전이 실패</li><li>= Clever Hans 효과의 형식화</li><li>즉 높은 점수 ≠ 진짜 과제를 풀었다</li></ul>
+    <dl><dt>Quote</dt><dd>"...perform well on benchmarks but fail to transfer to real-world scenarios." — Geirhos et al.</dd>
+    <dt>Source</dt><dd>Kapoor & Narayanan (2023); Geirhos et al. (2020)</dd>
+    <dt>Bridge</dt><dd>구체적 사례 — COVID X-ray →</dd></dl>
+  </article>
+
+  <article class="slide-plan comp" id="slide-12">
+    <h3>Slide 12 — Complication (visceral analogy)</h3>
+    <dl>
+      <dt>Action title</dt><dd>"COVID X-ray AI는 '폐'가 아니라 '글자'를 읽었다 — 415개 모델 중 임상 사용 가능은 0개"</dd>
+      <dt>Slide type</dt><dd>analogy / before-after</dd>
+      <dt>Layout</dt><dd>좌측 '겉보기 정확' → 우측 '실제론 텍스트 마커 학습' 화살표 + 하단 hero 0 / 415</dd>
+      <dt>Narrative role</dt><dd>'우리 뉴스 분류기도 이럴 수 있다'는 감각적 경고. 엄밀 검증의 필요성을 체화.</dd>
+    </dl>
+    <ul><li>모델들은 폐 병변이 아니라 병원 텍스트 마커·자세를 학습 (DeGrave 2021)</li><li>새 병원에 가면 무너짐 — 분포 밖 실패</li><li>엄정 감사 결과: 415개 영상 모델 중 <strong>임상 사용 가능 0개</strong> (Roberts 2021, 2,212편 스크리닝)</li><li>점수는 능력이 아니라 결함이 만든 것</li></ul>
+    <dl><dt>Source</dt><dd>DeGrave et al. (2021, Nat. Mach. Intell.); Roberts et al. (2021)</dd>
+    <dt>Bridge</dt><dd>우리 점수도 같은 병이었다 →</dd></dl>
+  </article>
+
+  <article class="slide-plan comp" id="slide-13">
+    <h3>Slide 13 — Complication → Resolution hinge (our own tell)</h3>
+    <dl>
+      <dt>Action title</dt><dd>"우리 점수도 그랬다 — '라벨=검색어'라, 머리 없는 베이스라인이 0.99로 우리를 이겼다"</dd>
+      <dt>Slide type</dt><dd>StrikeStat (signature)</dd>
+      <dt>Layout</dt><dd>중앙 strike: 우리 모델 0.77 vs query-echo 0.99(머리 없는) — echo가 이김 → 진단원리 callout</dd>
+      <dt>Narrative role</dt><dd>가장 강한 hinge: trivial 베이스라인이 이기면 = 오염. 자기검증이 함정을 잡아냈다.</dd>
+    </dl>
+    <ul><li>타입질의로 골드를 모으니 '라벨 = 그걸 가져온 검색어'(101/102 일치)</li><li>"라벨=검색어"라고 답하는 <strong>머리 없는 베이스라인 = Macro-F1 0.99</strong></li><li>우리 모델 0.766 < 0.99 — 즉 우리는 '질의 버킷 복원'을 측정한 것</li><li>진단 원리: trivial이 이기면 그건 성공이 아니라 오염 신호</li></ul>
+    <dl><dt>Supporting</dt><dd>callout: 그래서 우리는 점수를 믿기 전에 '부수기'로 했다</dd>
+    <dt>Source</dt><dd>본 연구 baselines.json; 오염 진단 원리</dd>
+    <dt>Bridge</dt><dd>해결: 만들고+부수는 시스템 →</dd></dl>
+  </article>
+
+  <article class="slide-plan res" id="slide-14">
+    <h3>Slide 14 — Resolution (the approach / pivot)</h3>
+    <dl>
+      <dt>Action title</dt><dd>"그래서 우리는 두 가지를 만들었다 — 고전 파이프라인, 그리고 그것을 부수는 적대적 검증"</dd>
+      <dt>Slide type</dt><dd>overview / design principle</dd>
+      <dt>Layout</dt><dd>2열 대칭: BUILD(파이프라인) ↔ BREAK(적대적 검증), 가운데 화살표 루프</dd>
+      <dt>Narrative role</dt><dd>핵심 전환: 산출물은 '시스템'이 아니라 '시스템+그것을 불신하는 장치'.</dd>
+    </dl>
+    <ul><li>BUILD: 6개 고전 기법 한·영 파이프라인(해석 가능)</li><li>BREAK: 6렌즈 적대적 검증 — 누수·순환·시드의존·검정력</li><li>원칙: 모든 인상적 수치는 먼저 반증 시도 후 보고</li><li>이 루프 자체가 본 연구의 방법론적 기여</li></ul>
+    <dl><dt>Supporting</dt><dd>callout: '믿을 수 있는 점수'를 만드는 것이 목표</dd>
+    <dt>Bridge</dt><dd>먼저 BUILD — 파이프라인 →</dd></dl>
+  </article>
+
+  <article class="slide-plan res" id="slide-15">
+    <h3>Slide 15 — Resolution (pipeline architecture)</h3>
+    <dl>
+      <dt>Action title</dt><dd>"6개 고전 기법, 하나의 한·영 파이프라인, 블랙박스 0 — 설계부터 해석 가능하게"</dd>
+      <dt>Slide type</dt><dd>process (6 steps)</dd>
+      <dt>Layout</dt><dd>ProcessRow: 수집→전처리(Okt/NLTK)→LDA→분류(TF-IDF)→Word2Vec 확장→감성 심각도, 각 단계 1줄 근거</dd>
+      <dt>Narrative role</dt><dd>블랙박스 gap(슬라이드9)에 대한 직접 응답: 전부 화이트박스 고전 기법.</dd>
+    </dl>
+    <ul><li>전처리: 한국어=교착어 → KoNLPy Okt 형태소(공백 토큰화는 깨짐), 영어=NLTK</li><li>LDA(Blei): 비지도 리스크 토픽; TF-IDF(Salton): 분류 특징</li><li>Word2Vec(Mikolov): 시드 키워드 의미공간 확장</li><li>감성사전(Pang&Lee): 부정 강도→심각도. LLM API 0 — 전부 해석 가능</li></ul>
+    <dl><dt>Supporting</dt><dd>callout: 해석가능성은 사후 설명이 아니라 설계 선택</dd>
+    <dt>Source</dt><dd>강의 핵심 이론(6편)</dd>
+    <dt>Bridge</dt><dd>그런데 함정을 피하려면 데이터부터 의심해야 →</dd></dl>
+  </article>
+
+  <article class="slide-plan res" id="slide-16">
+    <h3>Slide 16 — Resolution (data strategy = measurement-aware)</h3>
+    <dl>
+      <dt>Action title</dt><dd>"측정 착시를 피하려면 데이터부터 의심해야 한다 — 합성·실데이터·두 종류의 골드"</dd>
+      <dt>Slide type</dt><dd>overview (4 assets)</dd>
+      <dt>Layout</dt><dd>4 카드: 구조화 코퍼스(1,540) · 실뉴스(2,062) · 타입질의 골드(102) · powered label-blind 골드(217, κ0.84)</dd>
+      <dt>Narrative role</dt><dd>데이터 설계 자체가 함정 회피 전략. 골드가 2종인 이유가 핵심.</dd>
+    </dl>
+    <ul><li>구조화 코퍼스 1,540 — 통제된 측정 도구(실분포 표본 아님)</li><li>실뉴스 2,062 (Google News RSS, 한·영)</li><li>타입질의 골드 102 — 전이 검증 <em>겸 순환 진단</em></li><li>powered label-blind 골드 217 — 중립질의+3인 패널, <strong>Fleiss κ=0.84</strong></li></ul>
+    <dl><dt>Supporting</dt><dd>callout: 골드를 둘로 나눈 이유 = 순환을 드러내고 제거하기 위해</dd>
+    <dt>Bridge</dt><dd>이제 BREAK가 무엇을 찾았나 — 발견 1 →</dd></dl>
+  </article>
+
+  <article class="slide-plan res" id="slide-17">
+    <h3>Slide 17 — Resolution (Finding 1, RQ1)</h3>
+    <dl>
+      <dt>Action title</dt><dd>"발견 1: 한·영을 합친 LDA는 '리스크'가 아니라 '언어'를 발견한다 (86%)"</dd>
+      <dt>Slide type</dt><dd>finding / chart</dd>
+      <dt>Layout</dt><dd>좌측 naive 통합 LDA(토픽 86% 단일언어) → 우측 언어별 분리 LDA(복원 ko5/7·en4/7) + c_v</dd>
+      <dt>Narrative role</dt><dd>정직한 음성 결과. 다국어 BoW LDA의 한계를 정량 규명하고 해결.</dd>
+    </dl>
+    <ul><li>통합 K=6 c_v 0.42이나 토픽의 <strong>86%가 단일언어</strong>로 분리</li><li>원인: 두 언어가 어휘를 공유하지 않아 언어 경계로 먼저 쪼개짐</li><li>해결: 언어 stratified LDA → 한국어 5/7·영어 4/7 유형 복원</li><li>일부 선명(금융 순도 1.00), 일부 혼재('공장' 다유형 공통어)</li></ul>
+    <dl><dt>Source</dt><dd>본 연구 rq1_lda.json</dd>
+    <dt>Bridge</dt><dd>분류는? 전이의 절반이 메아리였다 →</dd></dl>
+  </article>
+
+  <article class="slide-plan res" id="slide-18">
+    <h3>Slide 18 — Resolution (Finding 2, seed dependence)</h3>
+    <dl>
+      <dt>Action title</dt><dd>"발견 2: 시드 키워드를 빼면 성능이 반토막 난다 — '전이'의 절반은 키워드 메아리였다"</dd>
+      <dt>Slide type</dt><dd>StrikeStat / ablation</dd>
+      <dt>Layout</dt><dd>0.766 → (시드 17% 제거) → 0.484 화살표 + 진짜 어휘 커버리지 27.7% 타일</dd>
+      <dt>Narrative role</dt><dd>스스로 잡은 부풀림. 정직성의 구체적 증거.</dd>
+    </dl>
+    <ul><li>시드 키워드 제거(토큰 17%) → Macro-F1 0.766 <strong>→ 0.484</strong></li><li>전이의 상당부분이 학습·검색에 공유된 시드 매칭에 의존</li><li>골드의 진짜 어휘 커버리지 = <strong>27.7%</strong>(헤드라인당 중앙 4개 특징)</li><li>"0.98 어휘중첩"은 사실 OOV-아닌-문서비율 오표기 → 정정</li></ul>
+    <dl><dt>Source</dt><dd>본 연구 robustness.json</dd>
+    <dt>Bridge</dt><dd>그럼 외울 수 없는 시험을 만들자 →</dd></dl>
+  </article>
+
+  <article class="slide-plan res" id="slide-19">
+    <h3>Slide 19 — Resolution (the honest test method)</h3>
+    <dl>
+      <dt>Action title</dt><dd>"정직한 시험을 위해, 모델이 외울 수 없는 label-blind 골드를 만들었다 — 3인 패널, κ=0.84"</dd>
+      <dt>Slide type</dt><dd>method (process)</dd>
+      <dt>Layout</dt><dd>3단계: 중립질의 수집 → 3인 독립 평정(서로 다른 관점) → 합의(≥2/3, κ측정), 우측 κ=0.84 hero</dd>
+      <dt>Narrative role</dt><dd>순환 차단의 방법. "단일 평정자" 결함도 함께 해소.</dd>
+    </dl>
+    <ul><li>중립질의("공급망")로 700건 수집 — 라벨이 질의로 결정되지 않음</li><li>3인 독립 평정자(주메커니즘/근본원인/리스크관리자 관점)</li><li>합의 위험 gold <strong>217건</strong> + OTHER 포함 open-set gold <strong>699건</strong></li><li>신뢰도 <strong>Fleiss κ=0.84</strong>(거의 완벽), 쌍별 Cohen 0.80–0.89</li></ul>
+    <dl><dt>Source</dt><dd>본 연구 powered_eval.json (3-annotator panel)</dd>
+    <dt>Bridge</dt><dd>이 깨끗한 시험의 판정 — 둘로 갈린다 →</dd></dl>
+  </article>
+
+  <article class="slide-plan res" id="slide-20">
+    <h3>Slide 20 — Resolution (money slide 1: the hard truth)</h3>
+    <dl>
+      <dt>Action title</dt><dd>"그 깨끗한 시험에서, 합성 학습 모델은 '무조건 지정학' 찍기에도 진다 (0.45 < 0.65)"</dd>
+      <dt>Slide type</dt><dd>comparison (bar)</dd>
+      <dt>Layout</dt><dd>막대: majority 0.65 vs 합성전이 0.45(아래, fake 톤) — 정확도에서 패배. 보조: macroF1 0.36 vs 0.11</dd>
+      <dt>Narrative role</dt><dd>정직한 음성 결과. 합성 전이는 실배포 부적합.</dd>
+    </dl>
+    <ul><li>다수클래스(항상 '지정학') 정확도 = <strong>0.65</strong>(스트림이 지정학 65% 편중)</li><li>합성→실 전이 정확도 = <strong>0.45</strong> — majority에 미달(p=1.0)</li><li>단 Macro-F1은 0.36 > majority 0.11 — 소수유형 구분력은 있음</li><li>판정: 합성 전이만으로는 부족하다</li></ul>
+    <dl><dt>Source</dt><dd>본 연구 powered_eval.json</dd>
+    <dt>Bridge</dt><dd>그런데 '실데이터로 학습'하면 달라진다 →</dd></dl>
+  </article>
+
+  <article class="slide-plan res" id="slide-21">
+    <h3>Slide 21 — Resolution (money slide 2: the real positive)</h3>
+    <dl>
+      <dt>Action title</dt><dd>"마지막 고도화는 open-set이다 — mechanism-aware engine이 고정 gate를 통과했다"</dd>
+      <dt>Slide type</dt><dd>comparison (bar, verified)</dd>
+      <dt>Layout</dt><dd>막대: plain 2-stage vs mechanism-aware engine — accuracy/risk-F1/AUPRC/type Macro-F1와 error budget gate pass</dd>
+      <dt>Narrative role</dt><dd>진짜 양성 결과. 고전 분류기도 실데이터로는 의미 있게 학습.</dd>
+    </dl>
+    <ul><li>mechanism-aware engine: accuracy <strong>0.884</strong>, risk-F1 <strong>0.861</strong>, AUPRC <strong>0.923</strong></li><li>plain baseline 대비 risk-F1 +0.089, type Macro-F1 +0.260</li><li>error budget: FP 25≤30, FN 34≤40, type wrong 22≤25</li><li>한계: 희소유형과 time-split 검증은 추가 필요</li></ul>
+    <dl><dt>Source</dt><dd>본 연구 powered_eval.json (real-CV)</dd>
+    <dt>Bridge</dt><dd>심각도도 같은 잣대를 통과하나? →</dd></dl>
+  </article>
+
+  <article class="slide-plan res" id="slide-22">
+    <h3>Slide 22 — Resolution (severity, method consistency)</h3>
+    <dl>
+      <dt>Action title</dt><dd>"심각도 점수도 같은 잣대를 통과한다 — 단, 정직한 ρ=0.40에서"</dd>
+      <dt>Slide type</dt><dd>StrikeStat / finding</dd>
+      <dt>Layout</dt><dd>strike: 합성 ρ0.67(순환, red 취소선) → 독립 평정 ρ0.40(teal). 레벨별 단조 막대</dd>
+      <dt>Narrative role</dt><dd>같은 정직성 잣대를 심각도에도 적용. 일관성.</dd>
+    </dl>
+    <ul><li>합성 ρ=0.67은 '정답을 정의한 단어를 사전이 채점'한 순환</li><li>독립 평정 검증: <strong>Spearman ρ=0.40</strong>(p<0.001)</li><li>레벨별 평균 단조(LOW<MED<HIGH)</li><li>모더릿하나 진짜인 신호 — 합성 0.67은 폐기</li></ul>
+    <dl><dt>Source</dt><dd>본 연구 severity_independent.json</dd>
+    <dt>Bridge</dt><dd>이 모든 정직함을 한 장에 — 위협 테이블 →</dd></dl>
+  </article>
+
+  <article class="slide-plan res" id="slide-23">
+    <h3>Slide 23 — Resolution (the contribution: self-audit)</h3>
+    <dl>
+      <dt>Action title</dt><dd>"모든 인상적인 숫자를, 우리는 먼저 부수려 했다 — 살아남은 것만 보고한다"</dd>
+      <dt>Slide type</dt><dd>threats table (the contribution)</dd>
+      <dt>Layout</dt><dd>표: 위협 → 진단 → 대응(해소/정량화). 행: 질의순환 / 시드의존 / 심각도순환 / 어휘오표기 / 단일평정 / 검정력</dd>
+      <dt>Narrative role</dt><dd>governing thought의 직접 증명: 엄밀성이 곧 산출물.</dd>
+    </dl>
+    <ul><li>질의=라벨 순환 → 중립질의 powered 골드 신설(n=217)</li><li>시드 의존 → 마스킹 ablation으로 정량화(0.77→0.48)</li><li>심각도 순환 → 독립 평정(ρ0.40)</li><li>단일 평정자 → 3인 패널 κ=0.84 · 검정력 → 부트스트랩 CI·유의성</li></ul>
+    <dl><dt>Supporting</dt><dd>callout: 방어 가능성은 화려함이 아니라 '투명성'에서 온다</dd>
+    <dt>Source</dt><dd>본 연구 6-lens 적대적 검증</dd>
+    <dt>Bridge</dt><dd>종합하면 하나의 판정 →</dd></dl>
+  </article>
+
+  <article class="slide-plan res" id="slide-24">
+    <h3>Slide 24 — Resolution (the verdict: governing-thought proof)</h3>
+    <dl>
+      <dt>Action title</dt><dd>"종합하면 판정은 더 강해졌다 — 최종 산출물은 research-gate를 통과한 triage engine이다"</dd>
+      <dt>Slide type</dt><dd>synthesis (verdict)</dd>
+      <dt>Layout</dt><dd>수직 사다리: 1.00(합성 환상) → 0.99 echo → 0.776 plain open-set baseline → 0.861 mechanism-aware gate pass. 우측 판정</dd>
+      <dt>Narrative role</dt><dd>apex 증명. 숫자들의 '정직한 사다리'로 governing thought를 닫는다.</dd>
+    </dl>
+    <ul><li>1.00 = 합성 분리가능성의 산물(폐기)</li><li>0.99 echo = 측정 함정의 증거</li><li>0.776 = plain open-set baseline의 출발점</li><li><strong>0.861</strong> = mechanism-aware engine의 fixed gate pass</li></ul>
+    <dl><dt>Supporting</dt><dd>callout: 우리가 보고하는 숫자는 '부수고 살아남은' 숫자다</dd>
+    <dt>Bridge</dt><dd>이 교훈은 우리 프로젝트를 넘어선다 →</dd></dl>
+  </article>
+
+  <article class="slide-plan frame" id="slide-25">
+    <h3>Slide 25 — Closing (lesson + next moves)</h3>
+    <dl>
+      <dt>Action title</dt><dd>"응용 AI의 산출물은 리더보드 점수가 아니라 '보정된 신뢰'다 — 그리고 여기서 더 간다"</dd>
+      <dt>Slide type</dt><dd>closing / CTA</dd>
+      <dt>Layout</dt><dd>상단 교훈 한 줄(대형) + 하단 3 next move 카드 + 최종 서명 라인</dd>
+      <dt>Narrative role</dt><dd>일반화 + 다음 수 + 강한 마무리. "이게 진짜 기여"로 착지.</dd>
+    </dl>
+    <ul><li>교훈: 점수가 아니라 '그 점수를 믿을 수 있게 만드는 엄밀성'이 산출물</li><li>Next①: 인간 전문가 평정으로 LLM-패널 편향 점검</li><li>Next②: 지정학 편중 보정한 균형 데이터로 희소유형 학습</li><li>Next③: KoBERT 등 문맥 임베딩으로 시드 의존 탈피</li></ul>
+    <dl><dt>Supporting</dt><dd>closing line: "우리는 최고의 점수를 만들지 않았다 — 믿을 수 있는 점수를 만들었다."</dd>
+    <dt>Bridge</dt><dd>— 끝 —</dd></dl>
+  </article>
+</section>
+
+<aside class="critical" id="density-gate">
+  <strong>Density Gate.</strong> 비표지 슬라이드(2–24) 전부: body 1–2문장 + 4+ 콘텐츠 항목 + supporting callout 보유 확인 완료. 표지/종결(1,25)은 title 규칙 적용.
+</aside>
+
+<aside class="critical" id="substance-gate">
+  <strong>Substance Gate.</strong> 각 슬라이드 항목은 '라벨'이 아니라 '왜/어떻게'를 담은 추론 문장(3-word test 통과). 차트는 실제 결과 JSON 수치로만.
+</aside>
+
+<section id="storyline-test">
+  <h2>Storyline Test — 타이틀만 읽어도 완결되는 논증</h2>
+  <ol>
+    <li>(표지) 세계의 뉴스에서 다음 공급망 충격을 읽다 — 한·영 텍스트마이닝과 정직한 검증</li>
+    <li>진짜 경쟁력은 '점수'가 아니라 '진짜 신호와 측정 착시를 가르는 엄밀성'이다</li>
+    <li>공급망 충격은 3.7년마다 닥치는 '예산 항목'이며, 10년간 이익의 45%를 갉는다</li>
+    <li>그리고 지금, 충격의 빈도가 급증하고 있다 — 2024년 +38%, 지정학 +123%</li>
+    <li>단 한 곳의 길목이 막히면 세계 교역의 12%가 하루 $9.6B씩 멈춘다</li>
+    <li>최근 모든 충격은 실적이 아니라 '뉴스'에 가장 먼저 나타났다</li>
+    <li>한국은 이 충격의 한복판 — AI 메모리의 90%, 수출의 25%가 반도체다</li>
+    <li>문제는 신호가 아니라 '읽기'다 — 하루 100만 건, 한·영 혼재, 사람은 못 본다</li>
+    <li>기존 도구는 반응하고·영어만 보고·블랙박스다</li>
+    <li>그래서 분류기를 만들었다 — 첫 시도에서 Macro-F1 1.00</li>
+    <li>화려한 점수는 AI의 가장 흔한 거짓말 — 누수가 17분야 294편을 오염</li>
+    <li>COVID X-ray는 폐가 아니라 글자를 읽었다 — 415개 중 임상 가능 0개</li>
+    <li>우리 점수도 그랬다 — 머리 없는 베이스라인이 0.99로 우리를 이겼다</li>
+    <li>그래서 두 가지를 만들었다 — 파이프라인, 그리고 그것을 부수는 검증</li>
+    <li>6개 고전 기법, 하나의 한·영 파이프라인, 블랙박스 0</li>
+    <li>측정 착시를 피하려면 데이터부터 의심 — 합성·실데이터·두 골드</li>
+    <li>발견 1: 합친 LDA는 리스크가 아니라 '언어'를 발견한다(86%)</li>
+    <li>발견 2: 시드를 빼면 반토막 — 전이의 절반은 키워드 메아리</li>
+    <li>외울 수 없는 label-blind 골드를 만들었다 — 3인 패널 κ=0.84</li>
+    <li>깨끗한 시험에서 합성 모델은 '무조건 지정학'에도 진다(0.45<0.65)</li>
+    <li>마지막 고도화 — mechanism-aware engine이 fixed research gate를 통과한다(0.861)</li>
+    <li>심각도도 같은 잣대를 통과 — 단 정직한 ρ=0.40에서</li>
+    <li>모든 인상적 숫자를 먼저 부수려 했다 — 살아남은 것만 보고한다</li>
+    <li>종합 판정 — 최종 산출물은 research-gate를 통과한 triage engine이다</li>
+    <li>응용 AI의 산출물은 리더보드가 아니라 '보정된 신뢰'다 — 그리고 더 간다</li>
+  </ol>
+  <h3>Chain Coherence</h3>
+  <ul>
+    <li>S(3–7)→C(8–13)→R(14–24)→Landing(25) 각 타이틀이 다음을 필연으로 만든다(원인→긴장→전환→증명→착지).</li>
+    <li>감정 아크: 기회의 흥분 → 함정의 불편 → 엄밀성의 신뢰 → 기여의 확신.</li>
+    <li>타이틀만으로 exec summary가 성립(피라미드 horizontal logic 통과).</li>
+  </ul>
+</section>
+
+</body>
+</html>

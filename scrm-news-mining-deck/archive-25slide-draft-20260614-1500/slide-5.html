@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Slide 5 — SITUATION</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@500;600;700;800&family=IBM+Plex+Sans+KR:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+  html,body{width:100%;height:100vh;background:#E4DFD3;overflow:hidden;position:relative;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;}
+  .stage{width:1920px;height:1080px;position:absolute;top:50%;left:50%;transform-origin:0 0;}
+  .slide{width:1920px;height:1080px;overflow:hidden;position:relative;border-radius:4px;box-shadow:0 20px 80px rgba(0,0,0,0.14);}
+  table.tbl{width:100%;border-collapse:collapse;} table.tbl td,table.tbl th{padding:14px 18px;text-align:left;vertical-align:middle;border-bottom:1px solid rgba(31,39,48,0.12);}
+  @media print{@page{size:1920px 1080px;margin:0;}html,body{width:1920px;height:1080px;background:transparent!important;overflow:hidden;-webkit-print-color-adjust:exact;print-color-adjust:exact;}.stage{position:static!important;top:0!important;left:0!important;transform:none!important;}.slide{box-shadow:none!important;border-radius:0!important;}*,*::before,*::after{-webkit-backdrop-filter:none!important;backdrop-filter:none!important;}}
+</style>
+<script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/@babel/standalone@7.24.7/babel.min.js"></script>
+<script type="text/babel" data-presets="react" src="components.js"></script>
+</head>
+<body>
+<div class="stage" id="stage"><div class="slide" id="slide-root"></div></div>
+<script type="text/babel" data-presets="react">
+(function(){
+const { SlideFrame, Eyebrow, SlideTitle, BodyText, PageNum, MetricTile, Card, Callout, BarRow, SourceLine, C, TYPE_SCALE, SPACING, FONT_DISPLAY, FONT_SANS, FONT_MONO } = window;
+function Slide(){
+  return (
+    <SlideFrame>
+      <Eyebrow>05 · SITUATION — 집중 리스크의 물리적 증거</Eyebrow>
+      <SlideTitle style={{marginTop:SPACING.titleGap}}>단 한 곳의 길목이 막히면 세계 교역의 12%가<br/>하루 <span style={{color:C.accent}}>$9.6B</span>씩 멈춘다</SlideTitle>
+      <BodyText muted style={{marginTop:22}}>집중 리스크는 통계가 아니라 사진으로 찍혔다 — 에버기븐 한 척의 좌초가, 단일 노드 장애만으로 두 자릿수 교역을 마비시킨 실측 증거다.</BodyText>
+
+      <div style={{position:"absolute",left:SPACING.paddingX,top:420,display:"flex",alignItems:"flex-start",gap:88}}>
+        <div style={{paddingTop:14}}>
+          <MetricTile value="9.6" unit="B/일" label="에버기븐 6일 좌초로 정체된 일일 교역액" sub="≈ $400M / 시간 · 24시간 누적"/>
+          <div style={{marginTop:30,fontFamily:FONT_MONO,fontSize:TYPE_SCALE.label,color:C.accent,letterSpacing:"0.14em",borderTop:`1px solid ${C.rule}`,paddingTop:14,maxWidth:360}}>EVER GIVEN · SUEZ · 2021.03</div>
+        </div>
+
+        <div style={{width:1,height:340,background:C.rule}}/>
+
+        <div style={{display:"flex",flexDirection:"column",gap:18,width:640}}>
+          <div style={{display:"flex",gap:18}}>
+            <Card tone="signal" style={{flex:1}}>
+              <div style={{display:"flex",alignItems:"baseline",gap:10}}><span style={{fontFamily:FONT_DISPLAY,fontSize:58,fontWeight:800,color:C.accent,lineHeight:0.9}}>30%</span><span style={{fontFamily:FONT_MONO,fontSize:TYPE_SCALE.label,color:C.inkMuted}}>컨테이너</span></div>
+              <div style={{fontFamily:FONT_SANS,fontSize:TYPE_SCALE.small,color:C.inkSoft,marginTop:10,lineHeight:1.42}}>전 세계 컨테이너 물동량의 30%가 이 한 운하를 지난다 — 분산이 아닌 집중.</div>
+            </Card>
+            <Card tone="signal" style={{flex:1}}>
+              <div style={{display:"flex",alignItems:"baseline",gap:10}}><span style={{fontFamily:FONT_DISPLAY,fontSize:58,fontWeight:800,color:C.accent,lineHeight:0.9}}>430+</span><span style={{fontFamily:FONT_MONO,fontSize:TYPE_SCALE.label,color:C.inkMuted}}>선박</span></div>
+              <div style={{fontFamily:FONT_SANS,fontSize:TYPE_SCALE.small,color:C.inkSoft,marginTop:10,lineHeight:1.42}}>막힌 6일간 430척 이상이 대기 — 충격은 한 점에서 망 전체로 번졌다.</div>
+            </Card>
+          </div>
+
+          <Card style={{paddingTop:20,paddingBottom:22}}>
+            <div style={{fontFamily:FONT_MONO,fontSize:TYPE_SCALE.label,color:C.inkMuted,letterSpacing:"0.14em",textTransform:"uppercase",marginBottom:16}}>수에즈 운하가 차지하는 세계 교역 비중</div>
+            <BarRow label="세계 교역 (상한)" value={15} max={15} display="12–15%" color={C.accent}/>
+            <BarRow label="그 외 모든 경로" value={85} max={100} display="85%+" color={C.inkMuted} baseline style={{marginTop:12}}/>
+          </Card>
+        </div>
+      </div>
+
+      <Callout tone="signal" style={{position:"absolute",left:SPACING.paddingX,right:SPACING.paddingX,bottom:116,maxWidth:1560}}>단일 노드 장애 = 두 자릿수 교역 마비. 그렇다면 이 충격은 어디서 가장 먼저 보였나?</Callout>
+      <SourceLine>Univ. of Gothenburg / CNBC 2021; Atlantic Council</SourceLine>
+      <PageNum n={5}/>
+    </SlideFrame>
+  );
+}
+ReactDOM.createRoot(document.getElementById('slide-root')).render(<Slide/>);
+requestAnimationFrame(()=>document.body.setAttribute('data-slide-ready','1'));
+})();
+</script>
+<script>
+function scaleSlide(){const s=document.getElementById('stage');if(!s)return;const sc=Math.min(innerWidth/1920,innerHeight/1080)*0.96;s.style.transform=`translate(${-1920*sc/2}px,${-1080*sc/2}px) scale(${sc})`;}
+addEventListener('resize',scaleSlide);addEventListener('load',scaleSlide);scaleSlide();
+</script>
+<!-- notes: 집중 리스크 hero metric. 에버기븐=단일 노드 장애의 물리적 증거. $9.6B/일·30%·430척·12-15%로 집중도 입증. BarRow로 12-15% vs 85% 대비. 다음: 이 충격이 데이터에 먼저 어떻게 잡혔나. -->
+</body>
+</html>

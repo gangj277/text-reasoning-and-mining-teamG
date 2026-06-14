@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Slide 24 — RESOLUTION — verdict</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@500;600;700;800&family=IBM+Plex+Sans+KR:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+  html,body{width:100%;height:100vh;background:#E4DFD3;overflow:hidden;position:relative;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;}
+  .stage{width:1920px;height:1080px;position:absolute;top:50%;left:50%;transform-origin:0 0;}
+  .slide{width:1920px;height:1080px;overflow:hidden;position:relative;border-radius:4px;box-shadow:0 20px 80px rgba(0,0,0,0.14);}
+  table.tbl{width:100%;border-collapse:collapse;} table.tbl td,table.tbl th{padding:14px 18px;text-align:left;vertical-align:middle;border-bottom:1px solid rgba(31,39,48,0.12);}
+  @media print{@page{size:1920px 1080px;margin:0;}html,body{width:1920px;height:1080px;background:transparent!important;overflow:hidden;-webkit-print-color-adjust:exact;print-color-adjust:exact;}.stage{position:static!important;top:0!important;left:0!important;transform:none!important;}.slide{box-shadow:none!important;border-radius:0!important;}*,*::before,*::after{-webkit-backdrop-filter:none!important;backdrop-filter:none!important;}}
+</style>
+<script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/@babel/standalone@7.24.7/babel.min.js"></script>
+<script type="text/babel" data-presets="react" src="components.js"></script>
+</head>
+<body>
+<div class="stage" id="stage"><div class="slide" id="slide-root"></div></div>
+<script type="text/babel" data-presets="react">
+(function(){
+const { SlideFrame, Eyebrow, SlideTitle, BodyText, PageNum, Callout, C, TYPE_SCALE, SPACING, FONT_DISPLAY, FONT_SANS, FONT_MONO, SourceLine } = window;
+
+const HERO = [
+  {v:"0.884", l:"accuracy", s:"OOF · n=699"},
+  {v:"0.861", l:"risk-F1", s:"risk detection quality"},
+  {v:"0.923", l:"AUPRC", s:"risk vs OTHER separation"},
+];
+const GATES = [
+  ["accuracy","≥0.85","0.884"],
+  ["present macro-F1","≥0.65","0.696"],
+  ["risk precision","≥0.84","0.880"],
+  ["risk recall","≥0.82","0.843"],
+  ["risk-F1","≥0.85","0.861"],
+  ["AUPRC","≥0.90","0.923"],
+  ["risk-type macro-F1","≥0.65","0.697"],
+];
+const BUDGET = [
+  ["false positive","≤30","25"],
+  ["false negative","≤40","34"],
+  ["type wrong","≤25","22"],
+];
+function HeroMetric({h}){
+  return (
+    <div style={{background:C.realSoft,border:`1px solid rgba(44,138,115,0.30)`,borderLeft:`4px solid ${C.real}`,borderRadius:"0 12px 12px 0",padding:"16px 22px"}}>
+      <div style={{fontFamily:FONT_DISPLAY,fontSize:62,fontWeight:800,color:C.real,lineHeight:0.86,letterSpacing:"-0.02em"}}>{h.v}</div>
+      <div style={{fontFamily:FONT_SANS,fontSize:24,fontWeight:600,color:C.ink,marginTop:10,lineHeight:1.16}}>{h.l}</div>
+      <div style={{fontFamily:FONT_MONO,fontSize:13,color:C.inkMuted,letterSpacing:"0.08em",marginTop:6,textTransform:"uppercase"}}>{h.s}</div>
+    </div>
+  );
+}
+function GateLine({row}){
+  return (
+    <div style={{display:"grid",gridTemplateColumns:"1fr 88px 92px 66px",gap:14,alignItems:"center",padding:"8px 0",borderBottom:`1px solid ${C.ruleSoft}`}}>
+      <div style={{fontFamily:FONT_SANS,fontSize:18,fontWeight:600,color:C.ink}}>{row[0]}</div>
+      <div style={{fontFamily:FONT_MONO,fontSize:14,color:C.inkMuted,letterSpacing:"0.06em",textAlign:"right"}}>{row[1]}</div>
+      <div style={{fontFamily:FONT_MONO,fontSize:17,fontWeight:600,color:C.real,textAlign:"right"}}>{row[2]}</div>
+      <div style={{fontFamily:FONT_MONO,fontSize:13,fontWeight:600,color:C.real,letterSpacing:"0.08em",textAlign:"right"}}>PASS</div>
+    </div>
+  );
+}
+function BudgetLine({row}){
+  return (
+    <div style={{display:"grid",gridTemplateColumns:"1fr 78px 70px 62px",gap:12,alignItems:"baseline",padding:"8px 0",borderBottom:`1px solid ${C.ruleSoft}`}}>
+      <div style={{fontFamily:FONT_SANS,fontSize:17,fontWeight:600,color:C.ink}}>{row[0]}</div>
+      <div style={{fontFamily:FONT_MONO,fontSize:14,color:C.inkMuted,letterSpacing:"0.06em",textAlign:"right"}}>{row[1]}</div>
+      <div style={{fontFamily:FONT_DISPLAY,fontSize:30,fontWeight:800,color:C.real,lineHeight:0.9,textAlign:"right"}}>{row[2]}</div>
+      <div style={{fontFamily:FONT_MONO,fontSize:13,fontWeight:600,color:C.real,letterSpacing:"0.08em",textAlign:"right"}}>PASS</div>
+    </div>
+  );
+}
+
+function Slide(){
+  const LX = SPACING.paddingX;
+  return (
+    <SlideFrame>
+      <Eyebrow>24 · RESOLUTION — 최종 판정</Eyebrow>
+      <SlideTitle style={{marginTop:SPACING.titleGap}}>최종 판정은 단일 점수가 아니라, <span style={{color:C.real}}>fixed KPI gate 전 항목 통과</span>다</SlideTitle>
+      <BodyText muted style={{marginTop:20}}>mechanism-aware engine은 699건 open-set OOF 평가에서 detector 성능, typing 성능, error budget을 모두 만족했다. 그래서 연구 수준의 triage engine이라고 주장할 수 있다.</BodyText>
+
+      <div style={{position:"absolute",left:LX,right:LX,top:388,display:"grid",gridTemplateColumns:"520px 1fr",gap:36,alignItems:"stretch"}}>
+        <div style={{display:"flex",flexDirection:"column",gap:12}}>
+          <div style={{fontFamily:FONT_MONO,fontSize:TYPE_SCALE.label,color:C.real,letterSpacing:"0.18em",textTransform:"uppercase"}}>FINAL ENGINE · mechanism-aware hybrid</div>
+          {HERO.map((h,i)=><HeroMetric key={i} h={h}/>)}
+        </div>
+
+        <div style={{background:C.panel,border:`1px solid ${C.rule}`,borderRadius:12,padding:"18px 26px"}}>
+          <div style={{display:"grid",gridTemplateColumns:"1fr 330px",gap:28}}>
+            <div>
+              <div style={{fontFamily:FONT_MONO,fontSize:TYPE_SCALE.label,color:C.real,letterSpacing:"0.16em",textTransform:"uppercase",marginBottom:10}}>metric gate</div>
+              {GATES.map((row,i)=><GateLine key={i} row={row}/>)}
+            </div>
+            <div>
+              <div style={{fontFamily:FONT_MONO,fontSize:TYPE_SCALE.label,color:C.real,letterSpacing:"0.16em",textTransform:"uppercase",marginBottom:10}}>error budget</div>
+              {BUDGET.map((row,i)=><BudgetLine key={i} row={row}/>)}
+              <div style={{marginTop:18,borderTop:`1px solid ${C.ruleSoft}`,paddingTop:14}}>
+                <div style={{fontFamily:FONT_DISPLAY,fontSize:52,fontWeight:800,color:C.real,lineHeight:0.9}}>PASS</div>
+                <div style={{fontFamily:FONT_SANS,fontSize:19,color:C.inkSoft,lineHeight:1.36,marginTop:10}}>precision·recall·F1·AUPRC·type-F1·error budget 모두 충족</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <Callout tone="real" style={{position:"absolute",left:LX,right:LX,bottom:116,maxWidth:1720}}>최종 주장은 “좋은 점수”가 아니라 “사전에 정한 연구 KPI와 오류 예산을 모두 만족한 open-set triage engine”이다.</Callout>
+      <SourceLine>본 연구 metrics.json · open_set_eval.json · mechanism_engine_eval.json · research_gate.json</SourceLine>
+      <PageNum n={24}/>
+    </SlideFrame>
+  );
+}
+ReactDOM.createRoot(document.getElementById('slide-root')).render(<Slide/>);
+requestAnimationFrame(()=>document.body.setAttribute('data-slide-ready','1'));
+})();
+</script>
+<script>
+function scaleSlide(){const s=document.getElementById('stage');if(!s)return;const sc=Math.min(innerWidth/1920,innerHeight/1080)*0.96;s.style.transform=`translate(${-1920*sc/2}px,${-1080*sc/2}px) scale(${sc})`;}
+addEventListener('resize',scaleSlide);addEventListener('load',scaleSlide);scaleSlide();
+</script>
+<!-- notes: final gate checklist. mechanism-aware engine passes all fixed KPI gates and error budgets on 699 open-set OOF evaluation. -->
+</body>
+</html>

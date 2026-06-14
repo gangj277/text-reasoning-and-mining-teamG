@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Slide 6 — SITUATION — the bridge</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@500;600;700;800&family=IBM+Plex+Sans+KR:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+  html,body{width:100%;height:100vh;background:#E4DFD3;overflow:hidden;position:relative;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;}
+  .stage{width:1920px;height:1080px;position:absolute;top:50%;left:50%;transform-origin:0 0;}
+  .slide{width:1920px;height:1080px;overflow:hidden;position:relative;border-radius:4px;box-shadow:0 20px 80px rgba(0,0,0,0.14);}
+  table.tbl{width:100%;border-collapse:collapse;} table.tbl td,table.tbl th{padding:14px 18px;text-align:left;vertical-align:middle;border-bottom:1px solid rgba(31,39,48,0.12);}
+  @media print{@page{size:1920px 1080px;margin:0;}html,body{width:1920px;height:1080px;background:transparent!important;overflow:hidden;-webkit-print-color-adjust:exact;print-color-adjust:exact;}.stage{position:static!important;top:0!important;left:0!important;transform:none!important;}.slide{box-shadow:none!important;border-radius:0!important;}*,*::before,*::after{-webkit-backdrop-filter:none!important;backdrop-filter:none!important;}}
+</style>
+<script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/@babel/standalone@7.24.7/babel.min.js"></script>
+<script type="text/babel" data-presets="react" src="components.js"></script>
+</head>
+<body>
+<div class="stage" id="stage"><div class="slide" id="slide-root"></div></div>
+<script type="text/babel" data-presets="react">
+(function(){
+const { SlideFrame, Eyebrow, SlideTitle, BodyText, PageNum, ComparisonColumn, Callout, SourceLine, C, TYPE_SCALE, SPACING, FONT_DISPLAY, FONT_SANS, FONT_MONO } = window;
+
+// 각 컬럼 = 외생 충격 1건. 머리에 "뉴스 시점", 본문에 그 시점이 만든 가격·물량 신호.
+function ShockColumn({ idx, when, place, headline, metrics, items }){
+  return (
+    <div style={{flex:1,display:"flex",flexDirection:"column"}}>
+      {/* 뉴스 시점 헤더 — 비정형 텍스트가 먼저 도착한 지점 */}
+      <div style={{display:"flex",alignItems:"baseline",gap:10,marginBottom:10}}>
+        <span style={{fontFamily:FONT_DISPLAY,fontSize:30,fontWeight:800,color:C.accent,lineHeight:0.9}}>{String(idx).padStart(2,"0")}</span>
+        <span style={{fontFamily:FONT_MONO,fontSize:TYPE_SCALE.label,color:C.inkMuted,letterSpacing:"0.12em"}}>뉴스 시점 · {when}</span>
+      </div>
+      <div style={{fontFamily:FONT_SANS,fontSize:21,fontWeight:600,color:C.ink,lineHeight:1.3,marginBottom:16}}>{place}<br/><span style={{color:C.inkSoft,fontWeight:400,fontSize:18}}>{headline}</span></div>
+      {/* 가격·물량 신호 — 뉴스가 먼저 잡아낸 정량값 */}
+      <div style={{display:"flex",gap:24,marginBottom:18}}>
+        {metrics.map((m,i)=>(
+          <div key={i}>
+            <div style={{display:"flex",alignItems:"baseline",gap:4}}>
+              <span style={{fontFamily:FONT_DISPLAY,fontSize:52,fontWeight:800,color:C.accent,lineHeight:0.9,letterSpacing:"-0.02em"}}>{m.v}</span>
+              <span style={{fontFamily:FONT_MONO,fontSize:20,color:C.accent,opacity:0.85}}>{m.u}</span>
+            </div>
+            <div style={{fontFamily:FONT_MONO,fontSize:13,color:C.inkMuted,marginTop:6,letterSpacing:"0.04em",lineHeight:1.3}}>{m.l}</div>
+          </div>
+        ))}
+      </div>
+      <ComparisonColumn tone="signal" title="가격·물량 신호" items={items} style={{flex:1}}/>
+    </div>
+  );
+}
+
+function Slide(){
+  return (
+    <SlideFrame>
+      <Eyebrow style={{marginLeft:0}}>06 · SITUATION — the bridge</Eyebrow>
+      <SlideTitle style={{marginTop:SPACING.titleGap}}>최근 모든 충격 — 홍해·희토류·대만 지진 — 은 실적이 아니라 <span style={{color:C.accent}}>'뉴스'에 가장 먼저</span> 나타났다</SlideTitle>
+      <BodyText muted style={{marginTop:20}}>이것이 가장 중요한 다리다: 외생 충격은 정형 KPI가 흔들리기 전에 뉴스에 먼저, 가장 풍부하게 나타난다.</BodyText>
+
+      {/* MIDDLE — 충격 시점 → 신호 흐름을 가로로 흐르게 한 3컬럼 */}
+      <div style={{position:"absolute",left:SPACING.paddingX,right:SPACING.paddingX,top:412,display:"flex",gap:40,alignItems:"stretch"}}>
+        <ShockColumn
+          idx={1} when="2023.11–" place="홍해 · 후티 무장세력"
+          headline="상선 공격 → 수에즈 항로 우회"
+          metrics={[{v:"−75~90",u:"%",l:"수에즈 물동량"},{v:"+339",u:"%",l:"SCFI 상하이–북유럽 운임"}]}
+          items={[
+            "물동량 급감은 분기 실적이 아니라 충돌 보도와 동시에 뉴스에서 먼저 관측됐다.",
+            "운임 4배 급등은 선사 공시보다 빠르게 무역 기사·통관 텍스트에 드러났다.",
+          ]}
+        />
+        <div style={{width:1,background:C.rule,flex:"0 0 auto",margin:"4px 0"}}/>
+        <ShockColumn
+          idx={2} when="2023.08–" place="중국 · 희토류 수출통제"
+          headline="갈륨·게르마늄 허가제 전환"
+          metrics={[{v:"+365",u:"%",l:"갈륨 가격"},{v:"+400",u:"%",l:"게르마늄 가격"}]}
+          items={[
+            "정책 발표 자체가 가격이 움직이기 전의 가장 이른 신호 — 텍스트로만 존재했다.",
+            "허가 지연·재고 우려가 KPI에 닿기 전, 산업 뉴스가 가격 폭등을 선행 신호로 예고했다.",
+          ]}
+        />
+        <div style={{width:1,background:C.rule,flex:"0 0 auto",margin:"4px 0"}}/>
+        <ShockColumn
+          idx={3} when="2024.04" place="대만 · 규모 7.4 지진"
+          headline="TSMC 일시 대피 → 라인 점검"
+          metrics={[{v:"70",u:"%",l:"10시간 내 복구 (near-miss)"},{v:"<1",u:"일",l:"라인 정상화 소요"}]}
+          items={[
+            "near-miss는 실적 숫자에 흔적을 남기지 않는다 — 오직 뉴스 텍스트에만 기록됐다.",
+            "대피·복구 타임라인은 공시 이전에 현지 보도로 실시간 추적할 수 있었다.",
+          ]}
+        />
+      </div>
+
+      <Callout tone="signal" style={{position:"absolute",left:SPACING.paddingX,right:SPACING.paddingX,bottom:116,maxWidth:1560}}>즉, 가장 이른 신호는 비정형 텍스트에 있다 — 그런데 그 신호의 절반은 <span style={{color:C.accent,fontWeight:600}}>한국어</span>다.</Callout>
+      <SourceLine>IMF/Drewry; CSIS; Supply Chain Dive (2024)</SourceLine>
+      <PageNum n={6}/>
+    </SlideFrame>
+  );
+}
+ReactDOM.createRoot(document.getElementById('slide-root')).render(<Slide/>);
+requestAnimationFrame(()=>document.body.setAttribute('data-slide-ready','1'));
+})();
+</script>
+<script>
+function scaleSlide(){const s=document.getElementById('stage');if(!s)return;const sc=Math.min(innerWidth/1920,innerHeight/1080)*0.96;s.style.transform=`translate(${-1920*sc/2}px,${-1080*sc/2}px) scale(${sc})`;}
+addEventListener('resize',scaleSlide);addEventListener('load',scaleSlide);scaleSlide();
+</script>
+<!-- notes: 다리(bridge) 슬라이드. 홍해/희토류/대만 3충격 모두 뉴스에 먼저 출현. 각 컬럼=뉴스시점→가격·물량 신호 흐름. near-miss는 KPI에 안 남고 텍스트에만 남는다는 점이 핵심. 다음: 그 텍스트의 절반이 한국어. -->
+</body>
+</html>

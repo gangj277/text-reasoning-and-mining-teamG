@@ -1,0 +1,139 @@
+{
+  "best_model": "LogisticRegression",
+  "ablation": {
+    "LogisticRegression": 1.0,
+    "LinearSVC": 1.0,
+    "MultinomialNB": 0.9791
+  },
+  "test_macro_f1": 1.0,
+  "per_lang_f1": {
+    "ko": 1.0,
+    "en": 1.0
+  },
+  "learning_curve": [
+    {
+      "n": 16,
+      "f1_mean": 0.3519,
+      "f1_std": 0.0134
+    },
+    {
+      "n": 32,
+      "f1_mean": 0.462,
+      "f1_std": 0.0073
+    },
+    {
+      "n": 64,
+      "f1_mean": 0.6578,
+      "f1_std": 0.0233
+    },
+    {
+      "n": 128,
+      "f1_mean": 0.8151,
+      "f1_std": 0.0023
+    },
+    {
+      "n": 256,
+      "f1_mean": 0.9351,
+      "f1_std": 0.0097
+    },
+    {
+      "n": 512,
+      "f1_mean": 0.9765,
+      "f1_std": 0.0074
+    },
+    {
+      "n": 800,
+      "f1_mean": 0.9957,
+      "f1_std": 0.0032
+    }
+  ],
+  "threshold_n_at_0.6": 64,
+  "n_train": 1155,
+  "n_test": 385,
+  "n_features": 1545,
+  "confusion": {
+    "labels": [
+      "GEOPOLITICAL",
+      "LOGISTICS",
+      "NATURAL_DISASTER",
+      "SUPPLIER",
+      "FINANCIAL",
+      "LABOR",
+      "PANDEMIC"
+    ],
+    "matrix": [
+      [
+        55,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        55,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        55,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        55,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        55,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        55,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        55
+      ]
+    ]
+  },
+  "per_class_f1": {
+    "GEOPOLITICAL": 1.0,
+    "LOGISTICS": 1.0,
+    "NATURAL_DISASTER": 1.0,
+    "SUPPLIER": 1.0,
+    "FINANCIAL": 1.0,
+    "LABOR": 1.0,
+    "PANDEMIC": 1.0
+  }
+}

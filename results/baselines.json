@@ -1,0 +1,27 @@
+{
+  "query_echo": {
+    "macro_f1": 0.9904,
+    "acc": 0.9902,
+    "label_eq_hint_rate": 0.99
+  },
+  "seed_rule": {
+    "macro_f1_covered": 0.7169,
+    "acc_all": 0.5784,
+    "coverage": 0.804
+  },
+  "char_ngram_no_preproc": {
+    "macro_f1": 0.5957,
+    "acc": 0.6275
+  },
+  "full_pipeline": {
+    "macro_f1": 0.7663,
+    "acc": 0.7745
+  },
+  "majority": {
+    "acc": 0.1667
+  },
+  "random": {
+    "acc": 0.1429
+  },
+  "interpretation": "query_echo(0.99)>full(0.77)>seed_rule≈char_ngram(~0.72)>majority(0.17). 타입질의 골드에서는 trivial echo가 최고 → 외부수치는 '질의버킷 복원'이며 본 방법의 이득은 modest. 진짜 일반화는 neutral_gold 로 별도 검증."
+}

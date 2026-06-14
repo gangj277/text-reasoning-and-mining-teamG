@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Slide 6 — METHOD — open-set experiment</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@500;600;700;800&family=IBM+Plex+Sans+KR:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+  html,body{width:100%;height:100vh;background:#E4DFD3;overflow:hidden;position:relative;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;}
+  .stage{width:1920px;height:1080px;position:absolute;top:50%;left:50%;transform-origin:0 0;}
+  .slide{width:1920px;height:1080px;overflow:hidden;position:relative;border-radius:4px;box-shadow:0 20px 80px rgba(0,0,0,0.14);}
+  @media print{@page{size:1920px 1080px;margin:0;}html,body{width:1920px;height:1080px;background:transparent!important;overflow:hidden;-webkit-print-color-adjust:exact;print-color-adjust:exact;}.stage{position:static!important;top:0!important;left:0!important;transform:none!important;}.slide{box-shadow:none!important;border-radius:0!important;}*,*::before,*::after{-webkit-backdrop-filter:none!important;backdrop-filter:none!important;}}
+</style>
+<script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/@babel/standalone@7.24.7/babel.min.js"></script>
+<script type="text/babel" data-presets="react" src="components.js"></script>
+</head>
+<body>
+<div class="stage" id="stage"><div class="slide" id="slide-root"></div></div>
+<script type="text/babel" data-presets="react">
+(function(){
+const { SlideFrame, Eyebrow, SlideTitle, BodyText, PageNum, Callout, C, TYPE_SCALE, SPACING, FONT_DISPLAY, FONT_SANS, FONT_MONO, SourceLine } = window;
+const STEPS = [
+  {n:"01", t:"Neutral query", d:"유형 키워드가 아니라 'supply chain' 계열 중립 질의로 700건 수집"},
+  {n:"02", t:"3-panel labeling", d:"각 기사에 risk/OTHER, primary type, root cause를 독립 평정"},
+  {n:"03", t:"Consensus gold", d:"불일치 1건 제외, 699건 open-set gold 확정"},
+  {n:"04", t:"3-fold OOF", d:"fold 밖 예측만 모아 모델 성능과 gate 통과 여부 계산"},
+];
+const STATS = [
+  {v:"700", l:"neutral-query candidates"},
+  {v:"699", l:"consensus open-set gold"},
+  {v:"217", l:"risk articles"},
+  {v:"482", l:"OTHER articles"},
+  {v:"0.843", l:"Fleiss κ"},
+];
+function FlowStep({s, last}){
+  return (
+    <div style={{display:"flex",alignItems:"center",gap:18,flex:1}}>
+      <div style={{background:C.panel,border:`1px solid ${C.rule}`,borderLeft:`4px solid ${C.accent}`,borderRadius:"0 10px 10px 0",padding:"22px 24px",minHeight:164,flex:1}}>
+        <div style={{fontFamily:FONT_MONO,fontSize:TYPE_SCALE.label,color:C.accent,letterSpacing:"0.16em",marginBottom:10}}>{s.n}</div>
+        <div style={{fontFamily:FONT_DISPLAY,fontSize:31,fontWeight:700,color:C.ink,lineHeight:1.1}}>{s.t}</div>
+        <div style={{fontFamily:FONT_SANS,fontSize:19,color:C.inkSoft,lineHeight:1.42,marginTop:12}}>{s.d}</div>
+      </div>
+      {!last && <div style={{fontFamily:FONT_MONO,fontSize:34,color:C.inkMuted,flex:"0 0 auto"}}>→</div>}
+    </div>
+  );
+}
+function StatTile({x}){
+  return (
+    <div style={{background:C.realSoft,border:`1px solid rgba(44,138,115,0.28)`,borderRadius:10,padding:"20px 22px"}}>
+      <div style={{fontFamily:FONT_DISPLAY,fontSize:48,fontWeight:800,color:C.real,lineHeight:0.9}}>{x.v}</div>
+      <div style={{fontFamily:FONT_MONO,fontSize:13,color:C.inkMuted,letterSpacing:"0.06em",lineHeight:1.35,marginTop:10,textTransform:"uppercase"}}>{x.l}</div>
+    </div>
+  );
+}
+
+function Slide(){
+  return (
+    <SlideFrame>
+      <Eyebrow>06 · METHOD — open-set 실험 설계</Eyebrow>
+      <SlideTitle style={{marginTop:SPACING.titleGap}}>실험은 <span style={{color:C.real}}>중립 질의 700건 → 3인 패널 → 699건 open-set gold</span>로 설계했다</SlideTitle>
+      <BodyText muted style={{marginTop:18}}>라벨이 검색 키워드에 의해 결정되지 않도록 수집과 라벨링을 분리했다. 이 gold에는 위험 기사 217건뿐 아니라 실제 triage에서 버려야 할 OTHER 482건이 포함된다.</BodyText>
+
+      <div style={{position:"absolute",left:SPACING.paddingX,right:SPACING.paddingX,top:384}}>
+        <div style={{display:"flex",gap:16,alignItems:"stretch"}}>
+          {STEPS.map((s,i)=><FlowStep key={i} s={s} last={i===STEPS.length-1}/>)}
+        </div>
+        <div style={{marginTop:26,display:"grid",gridTemplateColumns:"repeat(5,1fr)",gap:14}}>
+          {STATS.map((x,i)=><StatTile key={i} x={x}/>)}
+        </div>
+        <div style={{marginTop:22,display:"grid",gridTemplateColumns:"1fr 1fr 1fr",gap:16}}>
+          <div style={{fontFamily:FONT_SANS,fontSize:TYPE_SCALE.small,color:C.inkSoft,lineHeight:1.45,background:C.panel,border:`1px solid ${C.rule}`,borderRadius:10,padding:"18px 20px"}}><b style={{color:C.ink}}>단위</b>: headline + snippet, bilingual news stream</div>
+          <div style={{fontFamily:FONT_SANS,fontSize:TYPE_SCALE.small,color:C.inkSoft,lineHeight:1.45,background:C.panel,border:`1px solid ${C.rule}`,borderRadius:10,padding:"18px 20px"}}><b style={{color:C.ink}}>라벨</b>: risk/OTHER, primary risk type, root cause</div>
+          <div style={{fontFamily:FONT_SANS,fontSize:TYPE_SCALE.small,color:C.inkSoft,lineHeight:1.45,background:C.panel,border:`1px solid ${C.rule}`,borderRadius:10,padding:"18px 20px"}}><b style={{color:C.ink}}>평가</b>: train fold 밖 예측만 합산해 final metrics 계산</div>
+        </div>
+      </div>
+
+      <Callout tone="real" style={{position:"absolute",left:SPACING.paddingX,right:SPACING.paddingX,bottom:116,maxWidth:1560}}>이 설계 덕분에 모델은 “모든 입력이 위험”이라는 쉬운 시험이 아니라, 실제 stream에서 OTHER를 거르는 시험을 치른다.</Callout>
+      <SourceLine>본 연구 open_gold.jsonl · label_panel.json · oof_predictions.csv</SourceLine>
+      <PageNum n={6}/>
+    </SlideFrame>
+  );
+}
+ReactDOM.createRoot(document.getElementById('slide-root')).render(<Slide/>);
+requestAnimationFrame(()=>document.body.setAttribute('data-slide-ready','1'));
+})();
+</script>
+<script>
+function scaleSlide(){const s=document.getElementById('stage');if(!s)return;const sc=Math.min(innerWidth/1920,innerHeight/1080)*0.96;s.style.transform=`translate(${-1920*sc/2}px,${-1080*sc/2}px) scale(${sc})`;}
+addEventListener('resize',scaleSlide);addEventListener('load',scaleSlide);scaleSlide();
+</script>
+<!-- notes: open-set 실험 설계. 중립질의 700건, 3인 패널, consensus open gold 699, risk 217, OTHER 482, Fleiss kappa 0.8429, 3-fold OOF. -->
+</body>
+</html>

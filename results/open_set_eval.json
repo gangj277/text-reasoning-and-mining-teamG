@@ -1,0 +1,1000 @@
+{
+  "hypotheses": {
+    "H1": "A 7-class model without OTHER is not a deployment-like triage model on neutral news streams.",
+    "H2": "Explicit open-set learning improves relevance rejection, but type classification remains modest under imbalance.",
+    "H3": "Synthetic confidence thresholding is an optimistic diagnostic, not a substitute for real open-set labels."
+  },
+  "data": {
+    "batch_n": 700,
+    "consensus_n": 699,
+    "no_consensus_n": 1,
+    "risk_consensus_n": 217,
+    "other_consensus_n": 482,
+    "risk_prevalence": 0.3104,
+    "label_dist": {
+      "OTHER": 482,
+      "GEOPOLITICAL": 141,
+      "SUPPLIER": 30,
+      "LABOR": 18,
+      "LOGISTICS": 17,
+      "NATURAL_DISASTER": 3,
+      "FINANCIAL": 8
+    },
+    "lang_dist": {
+      "en": 350,
+      "ko": 349
+    },
+    "open_gold_path": "/Users/gangjimin/Documents/main_dev/school/지텍마/data/open_gold.jsonl",
+    "oof_predictions_path": "/Users/gangjimin/Documents/main_dev/school/지텍마/results/tables/open_set_oof_predictions.csv"
+  },
+  "baselines": {
+    "always_other": {
+      "accuracy_8way": 0.6896,
+      "macro_f1_present_labels": 0.1166,
+      "macro_f1_full_taxonomy": 0.102,
+      "risk_detection": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "roc_auc": 0.5,
+        "average_precision": 0.3104
+      },
+      "risk_type_macro_f1_present_risk_labels": 0.0,
+      "risk_type_macro_f1_full_taxonomy": 0.0,
+      "per_class_f1": {
+        "GEOPOLITICAL": 0.0,
+        "LOGISTICS": 0.0,
+        "NATURAL_DISASTER": 0.0,
+        "SUPPLIER": 0.0,
+        "FINANCIAL": 0.0,
+        "LABOR": 0.0,
+        "PANDEMIC": 0.0,
+        "OTHER": 0.8163
+      },
+      "confusion": {
+        "labels": [
+          "GEOPOLITICAL",
+          "LOGISTICS",
+          "NATURAL_DISASTER",
+          "SUPPLIER",
+          "FINANCIAL",
+          "LABOR",
+          "PANDEMIC",
+          "OTHER"
+        ],
+        "matrix": [
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            141
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            17
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            3
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            30
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            8
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            18
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            482
+          ]
+        ]
+      }
+    },
+    "always_geopolitical": {
+      "accuracy_8way": 0.2017,
+      "macro_f1_present_labels": 0.048,
+      "macro_f1_full_taxonomy": 0.042,
+      "risk_detection": {
+        "precision": 0.3104,
+        "recall": 1.0,
+        "f1": 0.4738,
+        "roc_auc": 0.5,
+        "average_precision": 0.3104
+      },
+      "risk_type_macro_f1_present_risk_labels": 0.1313,
+      "risk_type_macro_f1_full_taxonomy": 0.1125,
+      "per_class_f1": {
+        "GEOPOLITICAL": 0.3357,
+        "LOGISTICS": 0.0,
+        "NATURAL_DISASTER": 0.0,
+        "SUPPLIER": 0.0,
+        "FINANCIAL": 0.0,
+        "LABOR": 0.0,
+        "PANDEMIC": 0.0,
+        "OTHER": 0.0
+      },
+      "confusion": {
+        "labels": [
+          "GEOPOLITICAL",
+          "LOGISTICS",
+          "NATURAL_DISASTER",
+          "SUPPLIER",
+          "FINANCIAL",
+          "LABOR",
+          "PANDEMIC",
+          "OTHER"
+        ],
+        "matrix": [
+          [
+            141,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            17,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            3,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            30,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            8,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            18,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            482,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      }
+    },
+    "round_robin_risk_only": {
+      "accuracy_8way": 0.0401,
+      "macro_f1_present_labels": 0.0375,
+      "macro_f1_full_taxonomy": 0.0328,
+      "risk_detection": {
+        "precision": 0.3104,
+        "recall": 1.0,
+        "f1": 0.4738,
+        "roc_auc": 0.5,
+        "average_precision": 0.3104
+      },
+      "risk_type_macro_f1_present_risk_labels": 0.0676,
+      "risk_type_macro_f1_full_taxonomy": 0.058,
+      "per_class_f1": {
+        "GEOPOLITICAL": 0.1992,
+        "LOGISTICS": 0.0,
+        "NATURAL_DISASTER": 0.0,
+        "SUPPLIER": 0.0462,
+        "FINANCIAL": 0.0,
+        "LABOR": 0.0169,
+        "PANDEMIC": 0.0,
+        "OTHER": 0.0
+      },
+      "confusion": {
+        "labels": [
+          "GEOPOLITICAL",
+          "LOGISTICS",
+          "NATURAL_DISASTER",
+          "SUPPLIER",
+          "FINANCIAL",
+          "LABOR",
+          "PANDEMIC",
+          "OTHER"
+        ],
+        "matrix": [
+          [
+            24,
+            15,
+            22,
+            21,
+            16,
+            22,
+            21,
+            0
+          ],
+          [
+            2,
+            0,
+            1,
+            6,
+            4,
+            2,
+            2,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            2,
+            1,
+            0
+          ],
+          [
+            5,
+            8,
+            2,
+            3,
+            4,
+            2,
+            6,
+            0
+          ],
+          [
+            1,
+            1,
+            1,
+            1,
+            0,
+            2,
+            2,
+            0
+          ],
+          [
+            5,
+            3,
+            3,
+            2,
+            2,
+            1,
+            2,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            63,
+            73,
+            71,
+            67,
+            74,
+            69,
+            65,
+            0
+          ]
+        ]
+      }
+    }
+  },
+  "synthetic_transfer_open_stream": {
+    "forced_7class_no_other": {
+      "accuracy_8way": 0.1388,
+      "macro_f1_present_labels": 0.2129,
+      "macro_f1_full_taxonomy": 0.1863,
+      "risk_detection": {
+        "precision": 0.3104,
+        "recall": 1.0,
+        "f1": 0.4738,
+        "roc_auc": 0.5,
+        "average_precision": 0.3104
+      },
+      "risk_type_macro_f1_present_risk_labels": 0.4245,
+      "risk_type_macro_f1_full_taxonomy": 0.3639,
+      "per_class_f1": {
+        "GEOPOLITICAL": 0.3595,
+        "LOGISTICS": 0.3721,
+        "NATURAL_DISASTER": 0.0488,
+        "SUPPLIER": 0.2602,
+        "FINANCIAL": 0.1212,
+        "LABOR": 0.3284,
+        "PANDEMIC": 0.0,
+        "OTHER": 0.0
+      },
+      "confusion": {
+        "labels": [
+          "GEOPOLITICAL",
+          "LOGISTICS",
+          "NATURAL_DISASTER",
+          "SUPPLIER",
+          "FINANCIAL",
+          "LABOR",
+          "PANDEMIC",
+          "OTHER"
+        ],
+        "matrix": [
+          [
+            55,
+            2,
+            7,
+            23,
+            27,
+            3,
+            24,
+            0
+          ],
+          [
+            1,
+            8,
+            0,
+            0,
+            3,
+            3,
+            2,
+            0
+          ],
+          [
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0
+          ],
+          [
+            1,
+            0,
+            1,
+            16,
+            1,
+            2,
+            9,
+            0
+          ],
+          [
+            0,
+            1,
+            1,
+            0,
+            6,
+            0,
+            0,
+            0
+          ],
+          [
+            1,
+            0,
+            0,
+            4,
+            0,
+            11,
+            2,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            107,
+            15,
+            28,
+            50,
+            54,
+            28,
+            200,
+            0
+          ]
+        ]
+      },
+      "ci95": {
+        "accuracy_8way": [
+          0.1144,
+          0.1645
+        ],
+        "macro_f1_present_labels": [
+          0.1691,
+          0.258
+        ],
+        "risk_detection_f1": [
+          0.431,
+          0.5112
+        ]
+      }
+    },
+    "confidence_threshold_oracle": {
+      "note": "Threshold selected on the evaluation labels; this is an optimistic diagnostic upper bound, not a deployable estimate.",
+      "best_by_risk_f1": {
+        "threshold": 0.25,
+        "accuracy_8way": 0.4964,
+        "macro_f1_present_labels": 0.3248,
+        "macro_f1_full_taxonomy": 0.2842,
+        "risk_f1": 0.5439,
+        "risk_precision": 0.4249,
+        "risk_recall": 0.7558
+      },
+      "best_by_macro_f1_present_labels": {
+        "threshold": 0.35,
+        "accuracy_8way": 0.6166,
+        "macro_f1_present_labels": 0.359,
+        "macro_f1_full_taxonomy": 0.3141,
+        "risk_f1": 0.4978,
+        "risk_precision": 0.4768,
+        "risk_recall": 0.5207
+      },
+      "sweep": [
+        {
+          "threshold": 0.05,
+          "accuracy_8way": 0.1388,
+          "macro_f1_present_labels": 0.2129,
+          "macro_f1_full_taxonomy": 0.1863,
+          "risk_f1": 0.4738,
+          "risk_precision": 0.3104,
+          "risk_recall": 1.0
+        },
+        {
+          "threshold": 0.1,
+          "accuracy_8way": 0.1388,
+          "macro_f1_present_labels": 0.2129,
+          "macro_f1_full_taxonomy": 0.1863,
+          "risk_f1": 0.4738,
+          "risk_precision": 0.3104,
+          "risk_recall": 1.0
+        },
+        {
+          "threshold": 0.15,
+          "accuracy_8way": 0.1388,
+          "macro_f1_present_labels": 0.2129,
+          "macro_f1_full_taxonomy": 0.1863,
+          "risk_f1": 0.4738,
+          "risk_precision": 0.3104,
+          "risk_recall": 1.0
+        },
+        {
+          "threshold": 0.2,
+          "accuracy_8way": 0.2704,
+          "macro_f1_present_labels": 0.2664,
+          "macro_f1_full_taxonomy": 0.2331,
+          "risk_f1": 0.4661,
+          "risk_precision": 0.3227,
+          "risk_recall": 0.8387
+        },
+        {
+          "threshold": 0.25,
+          "accuracy_8way": 0.4964,
+          "macro_f1_present_labels": 0.3248,
+          "macro_f1_full_taxonomy": 0.2842,
+          "risk_f1": 0.5439,
+          "risk_precision": 0.4249,
+          "risk_recall": 0.7558
+        },
+        {
+          "threshold": 0.3,
+          "accuracy_8way": 0.5393,
+          "macro_f1_present_labels": 0.3461,
+          "macro_f1_full_taxonomy": 0.3028,
+          "risk_f1": 0.5147,
+          "risk_precision": 0.4281,
+          "risk_recall": 0.6452
+        },
+        {
+          "threshold": 0.35,
+          "accuracy_8way": 0.6166,
+          "macro_f1_present_labels": 0.359,
+          "macro_f1_full_taxonomy": 0.3141,
+          "risk_f1": 0.4978,
+          "risk_precision": 0.4768,
+          "risk_recall": 0.5207
+        },
+        {
+          "threshold": 0.4,
+          "accuracy_8way": 0.6381,
+          "macro_f1_present_labels": 0.3454,
+          "macro_f1_full_taxonomy": 0.3023,
+          "risk_f1": 0.4516,
+          "risk_precision": 0.4892,
+          "risk_recall": 0.4194
+        },
+        {
+          "threshold": 0.45,
+          "accuracy_8way": 0.6466,
+          "macro_f1_present_labels": 0.3454,
+          "macro_f1_full_taxonomy": 0.3023,
+          "risk_f1": 0.3924,
+          "risk_precision": 0.48,
+          "risk_recall": 0.3318
+        },
+        {
+          "threshold": 0.5,
+          "accuracy_8way": 0.6595,
+          "macro_f1_present_labels": 0.3027,
+          "macro_f1_full_taxonomy": 0.2648,
+          "risk_f1": 0.3452,
+          "risk_precision": 0.4874,
+          "risk_recall": 0.2673
+        },
+        {
+          "threshold": 0.55,
+          "accuracy_8way": 0.6724,
+          "macro_f1_present_labels": 0.2703,
+          "macro_f1_full_taxonomy": 0.2365,
+          "risk_f1": 0.2914,
+          "risk_precision": 0.5176,
+          "risk_recall": 0.2028
+        },
+        {
+          "threshold": 0.6,
+          "accuracy_8way": 0.691,
+          "macro_f1_present_labels": 0.2642,
+          "macro_f1_full_taxonomy": 0.2312,
+          "risk_f1": 0.2527,
+          "risk_precision": 0.5833,
+          "risk_recall": 0.1613
+        },
+        {
+          "threshold": 0.65,
+          "accuracy_8way": 0.6867,
+          "macro_f1_present_labels": 0.2428,
+          "macro_f1_full_taxonomy": 0.2125,
+          "risk_f1": 0.209,
+          "risk_precision": 0.549,
+          "risk_recall": 0.129
+        },
+        {
+          "threshold": 0.7,
+          "accuracy_8way": 0.6924,
+          "macro_f1_present_labels": 0.2413,
+          "macro_f1_full_taxonomy": 0.2111,
+          "risk_f1": 0.1804,
+          "risk_precision": 0.6053,
+          "risk_recall": 0.106
+        },
+        {
+          "threshold": 0.75,
+          "accuracy_8way": 0.6881,
+          "macro_f1_present_labels": 0.2083,
+          "macro_f1_full_taxonomy": 0.1822,
+          "risk_f1": 0.1152,
+          "risk_precision": 0.5385,
+          "risk_recall": 0.0645
+        },
+        {
+          "threshold": 0.8,
+          "accuracy_8way": 0.6938,
+          "macro_f1_present_labels": 0.208,
+          "macro_f1_full_taxonomy": 0.182,
+          "risk_f1": 0.1097,
+          "risk_precision": 0.65,
+          "risk_recall": 0.0599
+        },
+        {
+          "threshold": 0.85,
+          "accuracy_8way": 0.6953,
+          "macro_f1_present_labels": 0.1725,
+          "macro_f1_full_taxonomy": 0.1509,
+          "risk_f1": 0.087,
+          "risk_precision": 0.7692,
+          "risk_recall": 0.0461
+        },
+        {
+          "threshold": 0.9,
+          "accuracy_8way": 0.6938,
+          "macro_f1_present_labels": 0.1619,
+          "macro_f1_full_taxonomy": 0.1416,
+          "risk_f1": 0.0705,
+          "risk_precision": 0.8,
+          "risk_recall": 0.0369
+        },
+        {
+          "threshold": 0.95,
+          "accuracy_8way": 0.691,
+          "macro_f1_present_labels": 0.1319,
+          "macro_f1_full_taxonomy": 0.1154,
+          "risk_f1": 0.0273,
+          "risk_precision": 1.0,
+          "risk_recall": 0.0138
+        }
+      ]
+    }
+  },
+  "real_open_set_cv": {
+    "flat_8class_lr": {
+      "accuracy_8way": 0.8197,
+      "macro_f1_present_labels": 0.4709,
+      "macro_f1_full_taxonomy": 0.412,
+      "risk_detection": {
+        "precision": 0.803,
+        "recall": 0.7512,
+        "f1": 0.7762,
+        "roc_auc": 0.911,
+        "average_precision": 0.8508
+      },
+      "risk_type_macro_f1_present_risk_labels": 0.4482,
+      "risk_type_macro_f1_full_taxonomy": 0.3841,
+      "per_class_f1": {
+        "GEOPOLITICAL": 0.7189,
+        "LOGISTICS": 0.4828,
+        "NATURAL_DISASTER": 0.0,
+        "SUPPLIER": 0.3571,
+        "FINANCIAL": 0.1667,
+        "LABOR": 0.6667,
+        "PANDEMIC": 0.0,
+        "OTHER": 0.9039
+      },
+      "confusion": {
+        "labels": [
+          "GEOPOLITICAL",
+          "LOGISTICS",
+          "NATURAL_DISASTER",
+          "SUPPLIER",
+          "FINANCIAL",
+          "LABOR",
+          "PANDEMIC",
+          "OTHER"
+        ],
+        "matrix": [
+          [
+            101,
+            0,
+            0,
+            3,
+            2,
+            2,
+            0,
+            33
+          ],
+          [
+            3,
+            7,
+            0,
+            0,
+            0,
+            0,
+            0,
+            7
+          ],
+          [
+            0,
+            0,
+            0,
+            2,
+            0,
+            0,
+            0,
+            1
+          ],
+          [
+            10,
+            0,
+            0,
+            10,
+            0,
+            1,
+            0,
+            9
+          ],
+          [
+            4,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            3
+          ],
+          [
+            3,
+            0,
+            0,
+            2,
+            0,
+            12,
+            0,
+            1
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            19,
+            5,
+            3,
+            9,
+            1,
+            3,
+            0,
+            442
+          ]
+        ]
+      },
+      "ci95": {
+        "accuracy_8way": [
+          0.7897,
+          0.847
+        ],
+        "macro_f1_present_labels": [
+          0.4016,
+          0.5537
+        ],
+        "risk_detection_f1": [
+          0.7296,
+          0.8188
+        ]
+      },
+      "n_splits": 3
+    },
+    "two_stage_detector_then_typer": {
+      "accuracy_8way": 0.8126,
+      "macro_f1_present_labels": 0.4681,
+      "macro_f1_full_taxonomy": 0.4096,
+      "risk_detection": {
+        "precision": 0.7885,
+        "recall": 0.7558,
+        "f1": 0.7718,
+        "roc_auc": 0.9168,
+        "average_precision": 0.8784
+      },
+      "risk_type_macro_f1_present_risk_labels": 0.4378,
+      "risk_type_macro_f1_full_taxonomy": 0.3753,
+      "per_class_f1": {
+        "GEOPOLITICAL": 0.7018,
+        "LOGISTICS": 0.4138,
+        "NATURAL_DISASTER": 0.0,
+        "SUPPLIER": 0.3667,
+        "FINANCIAL": 0.1667,
+        "LABOR": 0.7273,
+        "PANDEMIC": 0.0,
+        "OTHER": 0.9003
+      },
+      "confusion": {
+        "labels": [
+          "GEOPOLITICAL",
+          "LOGISTICS",
+          "NATURAL_DISASTER",
+          "SUPPLIER",
+          "FINANCIAL",
+          "LABOR",
+          "PANDEMIC",
+          "OTHER"
+        ],
+        "matrix": [
+          [
+            100,
+            0,
+            0,
+            4,
+            2,
+            1,
+            0,
+            34
+          ],
+          [
+            3,
+            6,
+            0,
+            0,
+            0,
+            0,
+            0,
+            8
+          ],
+          [
+            0,
+            0,
+            0,
+            2,
+            0,
+            0,
+            0,
+            1
+          ],
+          [
+            10,
+            1,
+            0,
+            11,
+            0,
+            1,
+            0,
+            7
+          ],
+          [
+            4,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            3
+          ],
+          [
+            3,
+            1,
+            0,
+            2,
+            0,
+            12,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            24,
+            4,
+            3,
+            11,
+            1,
+            1,
+            0,
+            438
+          ]
+        ]
+      },
+      "ci95": {
+        "accuracy_8way": [
+          0.7825,
+          0.8412
+        ],
+        "macro_f1_present_labels": [
+          0.3985,
+          0.5523
+        ],
+        "risk_detection_f1": [
+          0.7251,
+          0.8145
+        ]
+      },
+      "n_splits": 3
+    },
+    "accuracy_vs_always_other": {
+      "flat_8class_lr": {
+        "majority_acc": 0.6896,
+        "model_acc": 0.8197,
+        "alternative": "model accuracy > always-OTHER accuracy",
+        "p_value": 0.0
+      },
+      "two_stage_detector_then_typer": {
+        "majority_acc": 0.6896,
+        "model_acc": 0.8126,
+        "alternative": "model accuracy > always-OTHER accuracy",
+        "p_value": 0.0
+      }
+    }
+  },
+  "interpretation": {
+    "primary_result": "Open-set evaluation changes the claim: the system is not a deployable natural-stream monitor unless it models OTHER/relevance. Real open-set training can reject many non-risk items, but risk typing remains limited and class-imbalanced.",
+    "reporting_rule": "Report open-set risk-detection F1/AUPRC, 8-way macro-F1, and risk-only macro-F1 together. Do not headline closed-set accuracy alone."
+  }
+}

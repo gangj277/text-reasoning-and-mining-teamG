@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Slide 15 — Resolution (pipeline)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@500;600;700;800&family=IBM+Plex+Sans+KR:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+  html,body{width:100%;height:100vh;background:#E4DFD3;overflow:hidden;position:relative;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;}
+  .stage{width:1920px;height:1080px;position:absolute;top:50%;left:50%;transform-origin:0 0;}
+  .slide{width:1920px;height:1080px;overflow:hidden;position:relative;border-radius:4px;box-shadow:0 20px 80px rgba(0,0,0,0.14);}
+  table.tbl{width:100%;border-collapse:collapse;} table.tbl td,table.tbl th{padding:14px 18px;text-align:left;vertical-align:middle;border-bottom:1px solid rgba(31,39,48,0.12);}
+  @media print{@page{size:1920px 1080px;margin:0;}html,body{width:1920px;height:1080px;background:transparent!important;overflow:hidden;-webkit-print-color-adjust:exact;print-color-adjust:exact;}.stage{position:static!important;top:0!important;left:0!important;transform:none!important;}.slide{box-shadow:none!important;border-radius:0!important;}*,*::before,*::after{-webkit-backdrop-filter:none!important;backdrop-filter:none!important;}}
+</style>
+<script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/@babel/standalone@7.24.7/babel.min.js"></script>
+<script type="text/babel" data-presets="react" src="components.js"></script>
+</head>
+<body>
+<div class="stage" id="stage"><div class="slide" id="slide-root"></div></div>
+<script type="text/babel" data-presets="react">
+(function(){
+const { SlideFrame, Eyebrow, SlideTitle, BodyText, PageNum, Callout, C, TYPE_SCALE, SPACING, FONT_DISPLAY, FONT_SANS, FONT_MONO, SourceLine } = window;
+
+const STEPS = [
+  {t:"수집", cite:"GDELT · NAVER · GOOGLE NEWS RSS", d:"한·영 이중 언어 RSS를 동시 수집해 국내·해외 신호를 한 파이프라인으로 합친다."},
+  {t:"전처리", cite:"KONLPY OKT · NLTK", d:"한국어는 Okt 형태소로 분해한다 — 공백 토큰화는 한국어에서 깨지므로 형태소가 필수다."},
+  {t:"토픽 발견", cite:"LDA · BLEI", d:"비지도 LDA로 라벨 없이 잠재 리스크 주제를 스스로 떠오르게 한다."},
+  {t:"분류", cite:"TF-IDF · SALTON + LOGREG", d:"TF-IDF 가중 + 로지스틱 회귀로 기사를 7개 리스크 유형으로 가른다."},
+  {t:"키워드 확장", cite:"WORD2VEC · MIKOLOV", d:"Word2Vec 의미 공간에서 시드 키워드를 이웃 어휘로 자동 확장한다."},
+  {t:"심각도", cite:"감성사전 · PANG & LEE", d:"감성사전의 부정 강도를 심각도 점수로 환산해 신호의 무게를 매긴다."},
+];
+
+function Step({n, s, last}){
+  return (
+    <div style={{position:"relative",background:C.panel,border:`1px solid ${C.rule}`,borderRadius:10,padding:"20px 20px 22px",display:"flex",flexDirection:"column"}}>
+      <div style={{display:"flex",alignItems:"baseline",gap:10}}>
+        <span style={{fontFamily:FONT_DISPLAY,fontSize:34,fontWeight:800,color:C.accent,lineHeight:0.9}}>{String(n).padStart(2,"0")}</span>
+        <span style={{fontFamily:FONT_SANS,fontSize:23,fontWeight:700,color:C.ink,letterSpacing:"-0.01em"}}>{s.t}</span>
+      </div>
+      <div style={{fontFamily:FONT_MONO,fontSize:12,color:C.inkMuted,letterSpacing:"0.08em",marginTop:9,lineHeight:1.35}}>{s.cite}</div>
+      <div style={{width:34,height:2,background:C.accent,opacity:0.55,margin:"13px 0 12px"}}/>
+      <div style={{fontFamily:FONT_SANS,fontSize:17,color:C.inkSoft,lineHeight:1.46}}>{s.d}</div>
+      {!last && <div style={{position:"absolute",top:"50%",right:-19,transform:"translateY(-50%)",fontFamily:FONT_MONO,fontSize:22,color:C.inkMuted,zIndex:2}}>→</div>}
+    </div>
+  );
+}
+
+function Slide(){
+  return (
+    <SlideFrame>
+      <Eyebrow>15 · RESOLUTION — 화이트박스 파이프라인</Eyebrow>
+      <SlideTitle style={{marginTop:SPACING.titleGap}}>6개 고전 기법, 하나의 한·영 파이프라인, <span style={{color:C.accent}}>블랙박스 0</span> — 설계부터 해석 가능하게</SlideTitle>
+      <BodyText muted style={{marginTop:20}}>슬라이드 9의 '블랙박스 공백'에 대한 직접 응답이다. 모든 단계를 화이트박스 고전 기법으로 짜, 어떤 판정이든 그 근거를 단계별로 설명할 수 있다.</BodyText>
+
+      <div style={{position:"absolute",left:SPACING.paddingX,right:SPACING.paddingX,top:404}}>
+        <div style={{fontFamily:FONT_MONO,fontSize:TYPE_SCALE.label,color:C.accent,letterSpacing:"0.18em",textTransform:"uppercase",marginBottom:18}}>설계 = 6 STAGE · END-TO-END</div>
+        <div style={{display:"grid",gridTemplateColumns:"repeat(6, 1fr)",columnGap:30,rowGap:14,alignItems:"stretch"}}>
+          {STEPS.map((s,i)=><Step key={i} n={i+1} s={s} last={i===5}/>)}
+        </div>
+      </div>
+
+      <div style={{position:"absolute",left:SPACING.paddingX,right:SPACING.paddingX,top:752,display:"flex",alignItems:"stretch",gap:26}}>
+        <div style={{flex:"0 0 470px",display:"flex",alignItems:"center",gap:24,background:C.realSoft,border:`1px solid ${C.real}`,borderRadius:10,padding:"20px 28px"}}>
+          <div style={{display:"flex",alignItems:"baseline",gap:6}}>
+            <span style={{fontFamily:FONT_DISPLAY,fontSize:80,fontWeight:800,color:C.real,lineHeight:0.85}}>0</span>
+            <span style={{fontFamily:FONT_MONO,fontSize:22,color:C.real}}>건</span>
+          </div>
+          <div>
+            <div style={{fontFamily:FONT_SANS,fontSize:22,fontWeight:600,color:C.ink,lineHeight:1.25}}>LLM API 호출</div>
+            <div style={{fontFamily:FONT_MONO,fontSize:13,color:C.real,letterSpacing:"0.06em",marginTop:6}}>✓ 100% 화이트박스 · 재현 가능</div>
+          </div>
+        </div>
+        <div style={{flex:1,display:"flex",alignItems:"center",background:C.panel,border:`1px solid ${C.rule}`,borderRadius:10,padding:"20px 30px"}}>
+          <div style={{fontFamily:FONT_SANS,fontSize:20,color:C.inkSoft,lineHeight:1.5}}>
+            모든 단계가 <span style={{color:C.ink,fontWeight:600}}>강의 핵심 텍스트마이닝 이론 6편</span>에 1:1로 대응한다 — 가중치·계수·확률을 직접 들여다볼 수 있으므로, 판정 근거가 모델 내부에 숨지 않는다.
+          </div>
+        </div>
+      </div>
+
+      <Callout tone="signal" style={{position:"absolute",left:SPACING.paddingX,right:SPACING.paddingX,bottom:116,maxWidth:1560}}>해석가능성은 사후 설명이 아니라 설계 선택이다 — 우리는 그 선택을 1단계부터 했다.</Callout>
+      <SourceLine>강의 핵심 텍스트마이닝 이론 6편 (Blei · Salton · Mikolov · Pang &amp; Lee · KoNLPy Okt · NLTK)</SourceLine>
+      <PageNum n={15}/>
+    </SlideFrame>
+  );
+}
+ReactDOM.createRoot(document.getElementById('slide-root')).render(<Slide/>);
+requestAnimationFrame(()=>document.body.setAttribute('data-slide-ready','1'));
+})();
+</script>
+<script>
+function scaleSlide(){const s=document.getElementById('stage');if(!s)return;const sc=Math.min(innerWidth/1920,innerHeight/1080)*0.96;s.style.transform=`translate(${-1920*sc/2}px,${-1080*sc/2}px) scale(${sc})`;}
+addEventListener('resize',scaleSlide);addEventListener('load',scaleSlide);scaleSlide();
+</script>
+<!-- notes: 슬라이드9 블랙박스 공백에 대한 응답. 6단계 고전 기법 파이프라인(수집-전처리-토픽-분류-확장-심각도). LLM API 0건 강조 = 100% 화이트박스. 해석가능성은 설계 선택. -->
+</body>
+</html>
